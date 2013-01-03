@@ -1,0 +1,21 @@
+autoload -Uz add-zsh-hook # dependency
+
+fpath=(~/.zsh/functions $fpath)
+autoload -U ~/.zsh/functions/*(:t)
+
+autoload -U zgitinit; zgitinit # zsh-git
+
+source ~/.zsh/export.zsh
+
+# load helpers
+for config_file (~/.zsh/config/*.zsh) source $config_file
+
+setopt multios
+
+# load theme
+setopt prompt_subst
+source ~/.zsh/themes/mfilej.sh
+
+source ~/.zsh/vendor/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# vim:set ft=zsh:
