@@ -1,0 +1,5 @@
+.DS_Store
+.rvmrc
+.rbenv-version
+*.tmproj
+tags
