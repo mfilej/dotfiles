@@ -1,5 +1,11 @@
 /*
 
+!/Library/
+/Library/*
+!/Library/Scripts/
+!/Library/iTunes/
+/Library/iTunes/*
+!/Library/iTunes/Scripts/
 !/.ackrc
 !/.gemrc
 !/.gitconfig
@@ -7,7 +13,7 @@
 !/.gitignore-global
 !/.irbrc
 !/.vim
-.vim/.netrwhist
+/.vim/.netrwhist
 !/.vimrc
 !/.zsh
 !/.zshrc
