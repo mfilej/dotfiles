@@ -6,6 +6,7 @@
 !/Library/iTunes/
 /Library/iTunes/*
 !/Library/iTunes/Scripts/
+!/Library/KeyBindings/
 !/.ackrc
 !/.gemrc
 !/.gitconfig
