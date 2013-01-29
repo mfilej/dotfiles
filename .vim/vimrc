@@ -202,7 +202,7 @@ function! AlternateForCurrentFile()
   let new_file = current_file
   let in_spec = match(current_file, '^spec/') != -1
   let going_to_spec = !in_spec
-  let in_rails = filereadable("script/rails")
+  let in_rails = filereadable("config/boot.rb")
   if going_to_spec
     if in_rails
       let new_file = substitute(new_file, '^app/', '', '')
