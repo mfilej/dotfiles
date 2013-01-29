@@ -1,5 +1,5 @@
 export PAGER="less"
-export EDITOR="mvim"
+export EDITOR="vim"
 
 export LSCOLORS="gxfxhdhcBxgehehbhfacad"
 
