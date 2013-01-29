@@ -162,6 +162,8 @@ noremap <right> <nop>
 
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,Guardfile,config.ru,*.jbuilder} set ft=ruby
+" gitconfig uses hard tabs
+autocmd FileType gitconfig setl noexpandtab shiftwidth=8
 
 map <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 
