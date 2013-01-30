@@ -16,14 +16,13 @@
 	b = branch
 	f = fetch
 	r = rebase
-	sm = submodule
 	msg = commit --allow-empty -m
 	p = cherry-pick
 	h = help -w
 	head = log -1 --oneline --abbrev-commit
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD^
-	clean = clean -n
+	sup = log --reverse --no-merges --stat HEAD@{1}..
 [format]
 	pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %C(white)%s%Creset %C(green)(%cr) <%ce>%Creset
 [clean]
