@@ -8,11 +8,13 @@
 !/Library/iTunes/Scripts/
 !/Library/KeyBindings/
 !/.ackrc
+!/.bin/
 !/.gemrc
 !/.gitconfig
 !/.gitignore
 !/.gitignore-global
 !/.irbrc
+!/.NSUserReplacementItems
 !/.vim
 /.vim/.netrwhist
 !/.vimrc

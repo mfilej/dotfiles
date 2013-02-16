@@ -1,0 +1,49 @@
+#!/usr/bin/env sh
+
+set -e
+
+plist_buddy="/usr/libexec/PlistBuddy"
+global_prefs="$HOME/Library/Preferences/.GlobalPreferences.plist"
+user_replacements="$HOME/.NSUserReplacementItems"
+
+function backup_replacements() {
+  print_replacements > "$user_replacements"
+  echo "Backed up to $user_replacements."
+}
+
+function restore_replacements() {
+  if [ ! -f "$user_replacements" ]; then
+    echo "Can't find file $user_replacements to restore from" >&2
+    exit 1
+  fi
+  backup_replacements_to_tempfile
+  restore_user_replacements
+}
+
+function backup_replacements_to_tempfile() {
+  local tmpfile="${TMPDIR}NSUserReplacementItems-$(date "+%Y%m%d%H%M%S").$$"
+  echo "Backed up current settings to $tmpfile"
+  print_replacements > "$tmpfile"
+}
+
+function restore_user_replacements() {
+  "$plist_buddy" -c "Delete NSUserReplacementItems" "$global_prefs"
+  "$plist_buddy" -c "Add NSUserReplacementItems array" "$global_prefs"
+  "$plist_buddy" -c "Merge ${user_replacements} NSUserReplacementItems" "$global_prefs"
+}
+
+function print_replacements() {
+  "$plist_buddy" -x -c "Print NSUserReplacementItems" "$global_prefs"
+}
+
+case "$1" in
+  restore)
+    restore_replacements
+    ;;
+  backup)
+    backup_replacements
+    ;;
+  *)
+    echo "Usage: $0 <backup|restore>"
+    ;;
+  esac
