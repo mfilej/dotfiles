@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# http://apple.stackexchange.com/questions/57960/how-can-i-export-text-substitutions-from-lion-for-import-into-mountain-lion
+
 set -e
 
 plist_buddy="/usr/libexec/PlistBuddy"
