@@ -1,4 +1,5 @@
 .DS_Store
+.powenv
 .rvmrc
 .rbenv-version
 *.tmproj
