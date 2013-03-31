@@ -11,8 +11,7 @@
 	km = commit --amend -v
 	kam = commit --all --amend -v
 	co = checkout
-	l = log --graph --relative-date 
-	la = log --graph --relative-date --all
+	l = log --graph --decorate --pretty=sentence
 	b = branch
 	f = fetch
 	r = rebase
@@ -23,8 +22,8 @@
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD^
 	sup = log --reverse --no-merges --stat HEAD@{1}..
-[format]
-	pretty=format:%C(yellow)%h%Creset -%C(red)%d%Creset %C(white)%s%Creset %C(green)(%cr) <%ce>%Creset
+[pretty]
+	sentence=format:%C(dim)%h%Creset%C(red)%d%Creset %C(white)%s%Creset %C(green)%cr %C(dim)by %an%Creset
 [clean]
 	requireForce = true
 [color]
