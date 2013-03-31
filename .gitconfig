@@ -40,8 +40,6 @@
 	added = green bold
 	changed = yellow bold
 	untracked = white bold
-[color "sh"]
-	workdir = cyan
 [mirror]
 	summary = true
 [push]
