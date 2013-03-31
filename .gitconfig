@@ -26,11 +26,7 @@
 [clean]
 	requireForce = true
 [color]
-	branch = auto
-	diff = auto
-	interactive = auto
-	status = auto
-	sh = auto
+	ui = true
 [color "branch"]
 	current = yellow reverse
 	local = yellow 
