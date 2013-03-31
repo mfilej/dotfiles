@@ -9,7 +9,6 @@
 	k = commit -v
 	ka = commit --all -v
 	km = commit --amend -v
-	kam = commit --all --amend -v
 	co = checkout
 	l = log --graph --decorate --pretty=sentence
 	b = branch
