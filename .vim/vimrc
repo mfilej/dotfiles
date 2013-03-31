@@ -171,6 +171,10 @@ if has("autocmd")
   autocmd BufWritePre *.rb,*.js,*.sass,*.haml :call <SID>StripTrailingWhitespaces()
 endif
 
+" vim-hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>H <Esc>:call ToggleHardMode()<CR>
+
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
   let _s=@/
