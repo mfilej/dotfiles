@@ -22,7 +22,7 @@
 	undo = reset --soft HEAD^
 	sup = log --reverse --no-merges --stat HEAD@{1}..
 [pretty]
-	sentence=format:%C(dim)%h%Creset%C(red)%d%Creset %C(white)%s%Creset %C(green)%cr %C(dim)by %an%Creset
+	sentence=format:%C(yellow)%h%Creset%C(red)%d%Creset %C(white)%s%Creset %C(green)%cr %C(dim)by %an%Creset
 [clean]
 	requireForce = true
 [color]
