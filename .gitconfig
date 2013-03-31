@@ -30,7 +30,7 @@
 [color "branch"]
 	current = yellow reverse
 	local = yellow 
-	remote = yellow bold
+	remote = white
 [color "diff"]
 	meta = yellow bold
 	frag = magenta bold
