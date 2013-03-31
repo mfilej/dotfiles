@@ -40,11 +40,10 @@
 	added = green bold
 	changed = yellow bold
 	untracked = white bold
-[mirror]
-	summary = true
 [push]
 	default = current
 [merge]
+	summary = true
 	tool = Kaleidoscope
 [include]
 	path = ~/.githubconfig
