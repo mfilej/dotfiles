@@ -17,7 +17,7 @@
 	msg = commit --allow-empty -m
 	p = cherry-pick
 	h = help -w
-	head = log -1 --oneline --abbrev-commit
+	head = log -1 --pretty=sentence --decorate
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD^
 	sup = log --reverse --no-merges --stat HEAD@{1}..
