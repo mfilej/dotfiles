@@ -61,3 +61,5 @@
 [github]
 	user = mfilej
 	password = !security find-generic-password -gs github.password -w | tr -d '\n'
+[credential]
+	helper = osxkeychain
