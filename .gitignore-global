@@ -2,5 +2,6 @@
 .powenv
 .rvmrc
 .rbenv-version
+.rbenv-gemsets
 *.tmproj
 tags
