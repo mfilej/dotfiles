@@ -1,0 +1,5 @@
+if [ -f Gemfile ]; then
+  bundle exec rails "$*"
+else
+  rails "$*"
+fi
