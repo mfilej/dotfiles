@@ -4,9 +4,11 @@ def enable_irb_history(filename)
   IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.#{filename}"
 end
 
-case RUBY_ENGINE
-when "ruby"
-  enable_irb_history "irb-history"
-when "jruby"
-  enable_irb_history "irb-jruby-history"
+if Object.const_defined? :RUBY_ENGINE
+  case RUBY_ENGINE
+  when "ruby"
+    enable_irb_history "irb-history"
+  when "jruby"
+    enable_irb_history "irb-jruby-history"
+  end
 end
