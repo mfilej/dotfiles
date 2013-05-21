@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/ag.vim"]
 	path = .vim/bundle/ag.vim
 	url = https://github.com/rking/ag.vim
+[submodule ".zsh/vendor/zsh-history-substring-search"]
+	path = .zsh/vendor/zsh-history-substring-search
+	url = git://github.com/zsh-users/zsh-history-substring-search.git
