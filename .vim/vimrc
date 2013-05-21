@@ -162,8 +162,12 @@ noremap <right> <nop>
 
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,Guardfile,config.ru,*.jbuilder} set ft=ruby
+
 " gitconfig uses hard tabs
 autocmd FileType gitconfig setl noexpandtab shiftwidth=8
+
+" wrap git messages to 72 chars
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 map <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 
