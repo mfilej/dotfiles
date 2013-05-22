@@ -24,15 +24,15 @@ set wildignore+=public/uploads/**
 imap § <Esc>
 imap jj <Esc>
 
-map <leader>p :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>P :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>p :CtrlPMixed<cr>
+map <leader>P :CtrlP %%<cr>
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>ga :CtrlP app/assets<cr>
+map <leader>gb :CtrlPBuffer<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
-map <leader>gv :CommandTFlush<cr>\|:CommandT app/views<cr>
-map <leader>gc :CommandTFlush<cr>\|:CommandT app/controllers<cr>
-map <leader>gm :CommandTFlush<cr>\|:CommandT app/models<cr>
-map <leader>ga :CommandTFlush<cr>\|:CommandT app/assets<cr>
-map <leader>gb :CommandTBuffer<cr>
 
 map <leader>v :vs ~/.vimrc<CR>
 map <leader>V :source ~/.vimrc<CR>

@@ -22,3 +22,6 @@
 [submodule ".zsh/vendor/zsh-history-substring-search"]
 	path = .zsh/vendor/zsh-history-substring-search
 	url = git://github.com/zsh-users/zsh-history-substring-search.git
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = git://github.com/kien/ctrlp.vim.git
