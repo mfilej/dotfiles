@@ -20,10 +20,6 @@ set wildignore+=db/development/**
 set wildignore+=db/test/**
 set wildignore+=public/uploads/**
 
-" § or jj to exit insert mode
-imap § <Esc>
-imap jj <Esc>
-
 map <leader>p :CtrlPMixed<cr>
 map <leader>P :CtrlP %%<cr>
 map <leader>gv :CtrlP app/views<cr>
@@ -96,13 +92,6 @@ vnoremap > >gv
 " Backspace behavior
 set backspace=indent,eol,start
 
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-
 set laststatus=2
 set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
 
@@ -124,13 +113,6 @@ set incsearch " highlight matches as you type
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 map <leader>h :set hls!<CR>
-
-" Open files with <leader>p
-" map <leader>p :CommandTFlush<cr>\|:CommandT<cr>
-" map <leader>P :edit %%
-" Open files, limited to the directory of the current file, with <leader>gf
-" This requires the %% mapping found below.
-map <leader>gf :CommandTFlush<cr>\|:CommandT %%<cr>
 
 " Switch between the last two files with leader-leader
 nnoremap <leader><leader> <c-^>
@@ -163,6 +145,10 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
+" vim-hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+nnoremap <leader>H <Esc>:call ToggleHardMode()<CR>
+
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,Guardfile,config.ru,*.jbuilder} set ft=ruby
 
@@ -177,10 +163,6 @@ map <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 if has("autocmd")
   autocmd BufWritePre *.rb,*.js,*.sass,*.haml :call <SID>StripTrailingWhitespaces()
 endif
-
-" vim-hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-nnoremap <leader>H <Esc>:call ToggleHardMode()<CR>
 
 function! <SID>StripTrailingWhitespaces()
   " Preparation: save last search, and cursor position.
