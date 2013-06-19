@@ -15,6 +15,7 @@
 !/.gitignore-global
 !/.irbrc
 !/.NSUserReplacementItems
+!/.tmux.conf
 !/.vim
 /.vim/.netrwhist
 !/.vimrc
