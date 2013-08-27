@@ -13,12 +13,12 @@ highlight CursorLine    guibg=#333333 guifg=NONE gui=NONE ctermbg=235 ctermfg=NO
 highlight Search        guibg=black gui=underline ctermbg=black cterm=underline
 highlight LineNr        ctermfg=246 ctermbg=234
 
-set wildignore+=vendor/local/**
 set wildignore+=build/**
-set wildignore+=tmp/**
+set wildignore+=*/tmp/**
 set wildignore+=db/development/**
 set wildignore+=db/test/**
 set wildignore+=public/uploads/**
+set wildignore+=*/vendor/ruby/*
 
 map <leader>p :CtrlPMixed<cr>
 map <leader>P :CtrlP %%<cr>
