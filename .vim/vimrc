@@ -30,6 +30,8 @@ map <leader>gb :CtrlPBuffer<cr>
 map <leader>gr :topleft :split config/routes.rb<cr>
 map <leader>gg :topleft 100 :split Gemfile<cr>
 
+vmap <C-c> :w !pbcopy<CR><CR>
+
 map <leader>v :vs ~/.vimrc<CR>
 map <leader>V :source ~/.vimrc<CR>
 
