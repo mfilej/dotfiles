@@ -1,0 +1,10 @@
+dbname="$1"
+
+if [ -e $dbname ]; then
+  echo "Usage: $0 <dbname>"
+  exit 1
+fi
+
+drop_command="select pg_terminate_backend(pid) from pg_stat_activity where datname = '$dbname';"
+
+psql -dpostgres -c"$drop_command"
