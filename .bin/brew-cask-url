@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+brew cask info "$1" | grep http | head -1 | xargs open -aSafari
