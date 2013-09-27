@@ -1,3 +1,8 @@
+aug AutoloadVimrc
+  au!
+  au BufWritePost ~/.vimrc source $MYVIMRC
+aug END
+
 set nocompatible
 
 call pathogen#runtime_append_all_bundles()
@@ -33,7 +38,6 @@ map <leader>gg :topleft 100 :split Gemfile<cr>
 vmap <C-c> :w !pbcopy<CR><CR>
 
 map <leader>v :vs ~/.vimrc<CR>
-map <leader>V :source ~/.vimrc<CR>
 
 map <leader>r :w\|:!reload-chromium<cr><cr>
 map <leader>R :w\|:!touch tmp/restart.txt<cr>
@@ -73,8 +77,12 @@ set number
 " Highlight current line
 set cursorline
 
+" Treat dash-separated words as keywords (CSS classes)
+set isk+=-
+
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
+" Also adds trailing markers
+set listchars=tab:▸\ ,eol:¬,trail:⋅
 
 " Mark the right border
 set colorcolumn=+1
