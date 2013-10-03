@@ -1,6 +1,8 @@
 autoload -Uz add-zsh-hook # dependency
 
+fpath=(/usr/local/share/zsh-completions $fpath)
 fpath=(~/.zsh/functions $fpath)
+
 autoload -U ~/.zsh/functions/*(:t)
 
 autoload -U zgitinit; zgitinit # zsh-git
