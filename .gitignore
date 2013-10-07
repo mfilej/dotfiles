@@ -12,6 +12,12 @@
 !/Library/KeyBindings/
 !/.ackrc
 !/.bin/
+!/.config/
+/.config/*
+!/.config/fish/
+/.config/fish/*
+!/.config/fish/completions/
+!/.config/fish/config.fish
 !/.gemrc
 !/.gitconfig
 !/.gitignore
