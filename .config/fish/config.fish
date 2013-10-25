@@ -21,7 +21,8 @@ set __fish_git_prompt_char_stashstate '§'
 set __fish_git_prompt_char_invalidstate '×'
 
 set __fish_git_prompt_color_dirtystate '996'
-set __fish_git_prompt_color_stagedstate '690'
+set __fish_git_prompt_color_stagedstate '9c3'
+set __fish_git_prompt_color_untrackedfiles '999'
 
 function fish_prompt
   set_color $fish_color_cwd
