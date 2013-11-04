@@ -42,7 +42,7 @@ vmap <C-c> :w !pbcopy<CR><CR>
 
 map <leader>v :vs ~/.vimrc<CR>
 
-map <leader>r :w\|:!reload-chromium<cr><cr>
+map <leader>r :w\|:!reload_chromium<cr><cr>
 map <leader>R :w\|:!touch tmp/restart.txt<cr>
 
 map <leader>Nop :set paste!<CR>
