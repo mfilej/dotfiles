@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# Usage: clean_downloads_directory [N]
+# Trash files in Downloads that are older than N days (default: 30)
+
+directory="${HOME}/Downloads"
+cmd="trash"
+days="${1:-30}"
+
+type $cmd &> /dev/null
+if [ $? -ne 0 ]; then
+  echo "'$cmd' not found in PATH. 'brew install trash' if necessary." >&2
+  exit 69
+fi
+
+set -e
+
+warn() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')] $0: $@" >&2
+}
+
+files_to_trash() {
+  mdfind -onlyin "${directory}" "kMDItemDateAdded <= \$time.today(-${days})"
+}
+
+function remove_if_exists {
+  while read entry; do
+    # Check for existence because we might be trying to remove a subdirectory
+    # that has already been removed together with its parent.
+    if [[ -e "${entry}" ]]; then
+      warn "Removing ${entry}"
+      command "${cmd}" -r "${entry}"
+    fi
+  done
+}
+
+files_to_trash | remove_if_exists
