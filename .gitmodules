@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/vim-eunuch"]
 	path = .vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule ".vim/bundle/vim-unimpaierd"]
+	path = .vim/bundle/vim-unimpaierd
+	url = git@github.com:tpope/vim-unimpaired.git
