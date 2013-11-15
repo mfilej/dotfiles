@@ -13,6 +13,7 @@
 !/.bin/
 !/.config/
 /.config/*
+!/.config/osx-defaults/
 !/.config/fish/
 /.config/fish/*
 !/.config/fish/completions/
@@ -22,6 +23,7 @@
 !/.gitignore
 !/.gitignore-global
 !/.irbrc
+!/.mackup.cfg
 !/.NSUserReplacementItems
 !/.tmux.conf
 !/.vim
