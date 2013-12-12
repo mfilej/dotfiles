@@ -4,7 +4,7 @@
 # Trash files in Downloads that are older than N days (default: 30)
 
 directory="${HOME}/Downloads"
-cmd="trash"
+cmd="/usr/local/bin/trash"
 days="${1:-30}"
 
 type $cmd &> /dev/null
