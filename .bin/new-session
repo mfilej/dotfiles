@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+export TMUX=""
+
+cd
+tmux new-session -d -s "$1"
+exec tmux switch-client -t "$1"
