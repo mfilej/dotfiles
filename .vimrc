@@ -22,6 +22,10 @@ highlight CursorLine    guibg=#333333 guifg=NONE gui=NONE ctermbg=235 ctermfg=NO
 highlight Search        guibg=black gui=underline ctermbg=black cterm=underline
 highlight LineNr        ctermfg=246 ctermbg=234
 
+" Load project-specific .vimrc, but disallow shell execution
+set exrc
+set secure
+
 set wildignore+=build/**
 set wildignore+=*/tmp/**
 set wildignore+=db/development/**
@@ -29,23 +33,27 @@ set wildignore+=db/test/**
 set wildignore+=public/uploads/**
 set wildignore+=*/vendor/ruby/*
 
-map <leader>P :CtrlP %%<cr>
-map <leader>gv :CtrlP app/views<cr>
-map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gm :CtrlP app/models<cr>
-map <leader>ga :CtrlP app/assets<cr>
-map <leader>gb :CtrlPBuffer<cr>
-map <leader>gr :topleft :split config/routes.rb<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
+nmap <leader>P :CtrlP %%<cr>
+nmap <leader>gv :CtrlP app/views<cr>
+nmap <leader>gc :CtrlP app/controllers<cr>
+nmap <leader>gm :CtrlP app/models<cr>
+nmap <leader>ga :CtrlP app/assets<cr>
+nmap <leader>gb :CtrlPBuffer<cr>
+nmap <leader>gr :topleft :split config/routes.rb<cr>
+nmap <leader>gg :topleft 100 :split Gemfile<cr>
 
 vmap <C-c> :w !pbcopy<CR><CR>
 
-map <leader>v :vs ~/.vimrc<CR>
+nmap <leader>v :vs ~/.vimrc<CR>
 
-map <leader>r :w\|:!reload_chromium<cr><cr>
-map <leader>R :w\|:!touch tmp/restart.txt<cr>
+nmap <leader>r :w\|:!reload_chromium<cr><cr>
+nmap <leader>R :w\|:!touch tmp/restart.txt<cr>
 
-map <leader>Nop :set paste!<CR>
+nmap <leader>N :set paste!<CR>
+nmap <leader>K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+nmap <leader>[ :tabp<CR>
+nmap <leader>] :tabn<CR>
 
 " Switching windows
 nnoremap <c-j> <c-w>j
@@ -284,7 +292,7 @@ function! RunNearestTest()
 endfunction
 
 map <leader>t :call RunTestFile()<cr>
-map <leader>S :call RunNearestTest()<cr>
+map <leader>s :call RunNearestTest()<cr>
 map <leader>a :call RunTests('spec')<cr>
 map <leader>c :w\|:!script/features<cr>
 
