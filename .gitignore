@@ -4,7 +4,6 @@
 /Library/*
 !/Library/Preferences/
 /Library/Preferences/*
-!/Library/Preferences/com.apple.Terminal.plist
 !/Library/Scripts/
 !/Library/iTunes/
 /Library/iTunes/*
