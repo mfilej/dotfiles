@@ -2,6 +2,10 @@
 
 set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $PATH
 
+# Other env vars
+
+set -x EDITOR vim
+
 # Aliases
 
 alias .G="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
