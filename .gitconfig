@@ -45,11 +45,6 @@
 	untracked = white bold
 [push]
 	default = current
-[include]
-	path = ~/.githubconfig
-[github]
-	user = mfilej
-	password = !security find-generic-password -gs github.password -w | tr -d '\n'
 [credential]
 	helper = osxkeychain
 [difftool "Kaleidoscope"]
