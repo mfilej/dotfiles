@@ -1,0 +1,14 @@
+set -e
+
+# Messages
+
+function messages_running {
+  ps aux | grep [/]Messages\.app
+}
+
+if messages_running; then
+  echo "Quit Messages before proceeding." 1>&2
+  exit 69
+fi
+
+defaults write com.apple.messageshelper.AlertsController PlaySoundsKey -bool false
