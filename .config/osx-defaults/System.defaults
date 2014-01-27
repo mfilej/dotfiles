@@ -21,6 +21,10 @@ defaults write com.apple.systemsound 'com.apple.sound.uiaudio.enabled' -int 0
 # Don't play feedback when volume is changed
 defaults write -g "com.apple.sound.beep.feedback" -int 0
 
+# Key repeat delay
+defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain InitialKeyRepeat 15
+
 # echo "Avoid creating .DS_Store files on network volumes"
 # defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
