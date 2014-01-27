@@ -9,7 +9,6 @@ set -x EDITOR vim
 # Aliases
 
 alias .G="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
-alias git=hub
 alias g=git
 
 # Prompt
