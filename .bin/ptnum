@@ -1,3 +1,15 @@
 #!/bin/sh
 
+function check_dependency {
+  local cmd="$1"
+  type $cmd &> /dev/null
+  if [ $? -ne 0 ]; then
+    echo "'$cmd' not found. Install or add to PATH if necessary." >&2
+    exit 69
+  fi
+}
+
+check_dependency selecta
+check_dependency pv
+
 pv | sed 's/^\* //' | selecta | cut -d ' ' -f 1
