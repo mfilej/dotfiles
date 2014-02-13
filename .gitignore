@@ -19,6 +19,7 @@
 !/.config/fish/completions/
 !/.config/fish/config.fish
 !/.gemrc
+!/.git-template
 !/.gitconfig
 !/.gitignore
 !/.gitignore-global
