@@ -1,3 +1,4 @@
+.agignore
 .DS_Store
 .powenv
 .rvmrc
