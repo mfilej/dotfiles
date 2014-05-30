@@ -203,13 +203,22 @@ endfunction
 function! PromoteToLet()
   :normal! dd
   :normal! P
-  :.s/\(\w\+\) = \(.*\)$/let(:\1) { \2 }/
+  :.s/\(\w\+\)\s\+=\s\+\(.*\)$/let(:\1) { \2 }/
   :normal ==
 endfunction
 
 :command! PromoteToLet :call PromoteToLet()
 :map <leader>L :PromoteToLet<cr>
 
+function! ClearAssignmentPadding()
+  :normal! dd
+  :normal! P
+  :.s/\(\w\+\)\s\+=\s\+\(.*\)$/\1 = \2/
+  :normal ==
+endfunction
+
+:command! ClearAssignmentPadding :call ClearAssignmentPadding()
+:map <leader>= :ClearAssignmentPadding<cr>
 
 " Switch between test and production code
 function! OpenTestAlternate()
