@@ -91,6 +91,10 @@ set cursorline
 " Treat dash-separated words as keywords (CSS classes)
 set isk+=-
 
+" Insert only one space when joining lines that contain sentence-terminating
+" punctuation like `.`.
+set nojoinspaces
+
 " Use the same symbols as TextMate for tabstops and EOLs
 " Also adds trailing markers
 set listchars=tab:▸\ ,eol:¬,trail:⋅
