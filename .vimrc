@@ -264,8 +264,6 @@ function! RunTests(filename)
     else
         if filereadable(".spin")
             exec ":!spin push " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
         else
             exec ":!rspec --color " . a:filename
         end
