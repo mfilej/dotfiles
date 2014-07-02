@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cd "$HOME/Leadformance/Bridge2"
+
+tmux new-window -t "$SESSION_NAME:9" -n passenger
+tmux new-window -t "$SESSION_NAME:8" -n spork
+tmux new-window -t "$SESSION_NAME:2" -n console
+tmux select-window -t 1
+
+tmux send-keys -t $SESSION_NAME:9 "passenger start" C-m
+tmux send-keys -t $SESSION_NAME:8 "spork" C-m
+tmux send-keys -t $SESSION_NAME:2 "rails console" C-m
