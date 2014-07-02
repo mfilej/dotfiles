@@ -80,3 +80,5 @@ function rbenv
       command rbenv $command $args
   end
 end
+
+eval (direnv hook fish)
