@@ -55,3 +55,6 @@
 	trustExitCode = true
 [init]
 	templatedir = ~/.git-template
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
