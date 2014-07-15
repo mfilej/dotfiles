@@ -140,6 +140,9 @@ set incsearch " highlight matches as you type
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
+" ctrl-a moves to the beginning of the line in command mode
+cnoremap <c-a> <home>
+
 map <leader>h :set hls!<CR>
 
 " Switch between the last two files with leader-leader
