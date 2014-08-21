@@ -1,6 +1,6 @@
 # Path
 
-set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $PATH
+set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $HOME/Library/Python/2.7/bin $PATH
 
 # Other env vars
 
