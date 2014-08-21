@@ -11,6 +11,11 @@ set -x EDITOR vim
 alias .G="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
 alias g=git
 
+function take
+  mkdir -p $argv
+  cd $argv
+end
+
 # Prompt
 
 set __fish_git_prompt_showdirtystate 'yes'
