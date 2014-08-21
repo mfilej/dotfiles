@@ -1,5 +1,6 @@
 .agignore
 .DS_Store
+.envrc
 .powenv
 .rvmrc
 .rbenv-version
