@@ -32,6 +32,7 @@ set wildignore+=db/development/**
 set wildignore+=db/test/**
 set wildignore+=public/uploads/**
 set wildignore+=*/vendor/ruby/*
+set wildignore+=*/node_modules/*
 
 nmap <leader>P :CtrlP %%<cr>
 nmap <leader>gv :CtrlP app/views<cr>
