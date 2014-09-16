@@ -26,6 +26,10 @@
 !/.irbrc
 !/.mackup.cfg
 !/.NSUserReplacementItems
+!/.rbenv
+/.rbenv/*
+!/.rbenv/default-gems
+!/.rbenv/plugins
 !/.tmux.conf
 !/.vim
 /.vim/.netrwhist
