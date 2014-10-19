@@ -191,6 +191,8 @@ autocmd FileType gitconfig setl noexpandtab shiftwidth=8
 " wrap git messages to 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
+autocmd FileType fish compiler fish
+
 map <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 
 if has("autocmd")
