@@ -26,13 +26,14 @@ highlight LineNr        ctermfg=246 ctermbg=234
 set exrc
 set secure
 
+set wildignore+=.bundle/*
 set wildignore+=build/**
-set wildignore+=*/tmp/**
 set wildignore+=db/development/**
 set wildignore+=db/test/**
-set wildignore+=public/uploads/**
-set wildignore+=*/vendor/ruby/*
+set wildignore+=log/*
 set wildignore+=*/node_modules/*
+set wildignore+=public/uploads/**
+set wildignore+=*/tmp/**
 
 nmap <leader>P :CtrlP %%<cr>
 nmap <leader>gv :CtrlP app/views<cr>
