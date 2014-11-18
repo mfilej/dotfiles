@@ -6,4 +6,4 @@
 .rbenv-version
 .rbenv-gemsets
 *.tmproj
-tags
+/tags
