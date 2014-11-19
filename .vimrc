@@ -183,7 +183,10 @@ noremap <right> <nop>
 " nnoremap <leader>H <Esc>:call ToggleHardMode()<CR>
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,Guardfile,config.ru,*.jbuilder} set ft=ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder} set ft=ruby
+
+" Treat JSON files like JavaScript
+au BufRead,BufNewFile *.json set ft=javascript
 
 " gitconfig uses hard tabs
 autocmd FileType gitconfig setl noexpandtab shiftwidth=8
