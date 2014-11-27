@@ -24,6 +24,7 @@
 	amend = commit --amend -C HEAD
 	undo = reset --soft HEAD^
 	sup = log --reverse --no-merges --stat HEAD@{1}..
+	nothere = cherry -v master
 	ctags = !.git/hooks/ctags
 [pretty]
 	sentence=format:%C(yellow)%h%Creset%C(red)%d%Creset %C(white)%s%Creset %C(green)%cr %C(dim)by %an%Creset
