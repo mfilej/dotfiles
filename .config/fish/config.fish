@@ -6,10 +6,10 @@ set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $HOME/Library/Python/2.7/bin $PA
 
 set -x EDITOR vim
 
-# Aliases
-
 alias .G="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
 alias g=git
+
+set -g CDPATH . ~
 
 function take
   mkdir -p $argv
