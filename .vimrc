@@ -35,6 +35,7 @@ set wildignore+=*/node_modules/*
 set wildignore+=public/uploads/**
 set wildignore+=*/tmp/**
 
+nmap <leader>p :CtrlP<cr>
 nmap <leader>P :CtrlP %%<cr>
 nmap <leader>gv :CtrlP app/views<cr>
 nmap <leader>gc :CtrlP app/controllers<cr>
