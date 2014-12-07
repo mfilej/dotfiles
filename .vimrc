@@ -75,6 +75,8 @@ set linespace=1
 
 set textwidth=78
 
+set formatoptions-=t
+
 " Make the current window big, but leave others context
 set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
