@@ -36,6 +36,9 @@ set wildignore+=*/public/uploads/**
 set wildignore+=*/public/templates/**
 set wildignore+=*/tmp/**
 
+set grepprg=ag\ --vimgrep\ $*
+set grepformat=%f:%l:%c:%m
+
 nmap <leader>p :CtrlP<cr>
 nmap <leader>P :CtrlP %%<cr>
 nmap <leader>gv :CtrlP app/views<cr>
