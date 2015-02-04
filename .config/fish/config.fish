@@ -2,8 +2,13 @@ set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $HOME/Library/Python/2.7/bin $PA
 
 set -x EDITOR vim
 
-alias .G="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
-alias g=git
+function g --wraps git
+  git $argv
+end
+
+function .G --wraps git
+  git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/ $argv
+end
 
 set -g CDPATH . ~
 
