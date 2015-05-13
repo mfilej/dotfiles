@@ -242,9 +242,9 @@ endfunction
 :map <leader>= :ClearAssignmentPadding<cr>
 
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>t :w \| :call RunCurrentSpecFile()<CR>
+map <Leader>s :w \| :call RunNearestSpec()<CR>
+map <Leader>a :w \| :call RunAllSpecs()<CR>
 
 " Switch between test and production code
 function! OpenTestAlternate()
