@@ -206,7 +206,7 @@ autocmd FileType fish compiler fish
 map <leader>W :call <SID>StripTrailingWhitespaces()<CR>
 
 if has("autocmd")
-  autocmd BufWritePre *.rb,*.js,*.sass,*.haml :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre *.rb,*.ex,*.exs,*.js,*.sass,*.haml :call <SID>StripTrailingWhitespaces()
 endif
 
 function! <SID>StripTrailingWhitespaces()
