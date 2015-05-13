@@ -88,6 +88,7 @@ function rbenv
 end
 
 eval (direnv hook fish)
+source ~/.config/fish/nvm-wrapper/nvm.fish
 
 function edit_cmd --description 'Input command in external editor'
   set -l f (mktemp /tmp/fish.cmd.XXXXXXXX)
