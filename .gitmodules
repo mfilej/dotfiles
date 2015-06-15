@@ -2,10 +2,10 @@
 	path = .rbenv/plugins/rbenv-ctags
 	url = git://github.com/tpope/rbenv-ctags.git
 [submodule "/Users/miha/.rbenv/plugins/rbenv-default-gems"]
-	path = /Users/miha/.rbenv/plugins/rbenv-default-gems
+	path = .rbenv/plugins/rbenv-default-gems
 	url = https://github.com/sstephenson/rbenv-default-gems.git
 [submodule "/Users/miha/.rbenv/plugins/rbenv-gem-rehash"]
-	path = /Users/miha/.rbenv/plugins/rbenv-gem-rehash
+	path = .rbenv/plugins/rbenv-gem-rehash
 	url = https://github.com/sstephenson/rbenv-gem-rehash.git
 [submodule ".vim/bundle/ag.vim"]
 	path = .vim/bundle/ag.vim
