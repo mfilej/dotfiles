@@ -198,8 +198,8 @@ au BufRead,BufNewFile *.json set ft=javascript
 " gitconfig uses hard tabs
 autocmd FileType gitconfig setl noexpandtab shiftwidth=8
 
-" wrap git messages to 72 chars
 autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype markdown setlocal spell
 
 autocmd FileType fish compiler fish
 
