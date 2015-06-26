@@ -5,6 +5,8 @@ set -e
 branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
 branch_name=${branch_name##refs/heads/}
 
+git fetch
+
 if [[ "${branch_name}" == "master" ]]; then
   echo "Can't do this on master."
   exit 1
