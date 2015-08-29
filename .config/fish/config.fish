@@ -1,4 +1,5 @@
-set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $HOME/Library/Python/2.7/bin $PATH
+set -x GEM_HOME $HOME/.gem
+set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $GEM_HOME/bin $HOME/Library/Python/2.7/bin $PATH
 
 set -x EDITOR vim
 
