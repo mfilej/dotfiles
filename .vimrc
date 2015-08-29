@@ -191,6 +191,12 @@ noremap <right> <nop>
 " autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 " nnoremap <leader>H <Esc>:call ToggleHardMode()<CR>
 
+augroup rubypath
+  autocmd!
+  autocmd FileType ruby setlocal suffixesadd+=.rb
+  autocmd FileType ruby setlocal path+=lib,spec/**/*
+augroup END
+
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder} set ft=ruby
 
