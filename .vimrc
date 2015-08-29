@@ -12,6 +12,8 @@ if $SHELL =~ 'fish'
   set shell=/bin/sh
 endif
 
+runtime macros/matchit.vim
+
 let mapleader = " "
 
 syntax enable
