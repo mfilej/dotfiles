@@ -71,3 +71,6 @@
 [submodule ".vim/bundle/elm.vim"]
 	path = .vim/bundle/elm.vim
 	url = https://github.com/lambdatoast/elm.vim
+[submodule ".rbenv/plugins/rbenv-user-gems"]
+	path = .rbenv/plugins/rbenv-user-gems
+	url = https://github.com/mislav/rbenv-user-gems.git
