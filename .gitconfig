@@ -70,3 +70,11 @@
 	required = true
 [rebase]
 	autosquash = true
+[merge]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
