@@ -108,7 +108,8 @@ set nojoinspaces
 
 " Use the same symbols as TextMate for tabstops and EOLs
 " Also adds trailing markers
-set listchars=tab:▸\ ,eol:¬,trail:⋅
+" set listchars=tab:▸\ ,eol:¬,trail:⋅
+set listchars=tab:▸\ ,trail:⋅
 
 " Mark the right border
 set colorcolumn=+1
