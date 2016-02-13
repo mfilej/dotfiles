@@ -68,3 +68,7 @@
 [submodule ".rbenv/plugins/rbenv-user-gems"]
 	path = .rbenv/plugins/rbenv-user-gems
 	url = https://github.com/mislav/rbenv-user-gems.git
+[submodule ".vim/bundle/vim-test"]
+	path = .vim/bundle/vim-test
+	url = git@github.com:janko-m/vim-test.git
+	ignore = dirty

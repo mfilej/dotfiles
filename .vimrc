@@ -250,10 +250,12 @@ endfunction
 :command! ClearAssignmentPadding :call ClearAssignmentPadding()
 :map <leader>= :ClearAssignmentPadding<cr>
 
-" RSpec.vim mappings
-map <Leader>t :w \| :call RunCurrentSpecFile()<CR>
-map <Leader>s :w \| :call RunNearestSpec()<CR>
-map <Leader>a :w \| :call RunAllSpecs()<CR>
+" test.vim mappings
+map <Leader>tt :w \| :TestFile<CR>
+map <Leader>tn :w \| :TestNearest<CR>
+map <Leader>ts :w \| :TestSuite<CR>
+map <Leader>tl :w \| :TestLast<CR>
+map <Leader>tv :w \| :TestVisit<CR>
 
 " Switch between test and production code
 function! OpenTestAlternate()
