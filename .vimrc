@@ -175,6 +175,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Fixes fugitive's Gbrowse command
+let g:netrw_browsex_viewer = "open"
+
 " if has("vms")
 "   set nobackup  " do not keep a backup file, use versions instead
 " else
