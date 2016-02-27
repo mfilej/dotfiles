@@ -18,6 +18,7 @@
 /.config/fish/*
 !/.config/fish/completions/
 !/.config/fish/config.fish
+!/.dotfiles-vendor
 !/.gemrc
 !/.git-template
 !/.gitconfig

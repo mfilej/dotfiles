@@ -72,3 +72,6 @@
 	path = .vim/bundle/vim-test
 	url = git@github.com:janko-m/vim-test.git
 	ignore = dirty
+[submodule ".dotfiles-vendor/mislav"]
+	path = .dotfiles-vendor/mislav
+	url = git@github.com:mislav/dotfiles.git
