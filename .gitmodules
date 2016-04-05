@@ -75,3 +75,6 @@
 [submodule ".dotfiles-vendor/mislav"]
 	path = .dotfiles-vendor/mislav
 	url = git@github.com:mislav/dotfiles.git
+[submodule ".vim/bundle/papercolor-theme"]
+	path = .vim/bundle/papercolor-theme
+	url = git@github.com:NLKNguyen/papercolor-theme.git
