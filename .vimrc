@@ -41,7 +41,7 @@ set wildignore+=*/tmp/**
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
-nmap <leader>p :CtrlP<cr>
+let g:ctrlp_map = '<leader>p'
 nmap <leader>P :CtrlP %%<cr>
 nmap <leader>gv :CtrlP app/views<cr>
 nmap <leader>gc :CtrlP app/controllers<cr>
