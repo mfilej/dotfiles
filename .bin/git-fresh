@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ ! -d .git ]]; then
+  git init
+fi
+
+if [[ ! -f .gitignore ]]; then
+  touch .gitignore
+fi
+
+
+git add -N .gitignore
+git commit -m "Fresh repo"
