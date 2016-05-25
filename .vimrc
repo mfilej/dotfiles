@@ -64,6 +64,9 @@ nmap <leader>K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 nmap <leader>[ :tabp<CR>
 nmap <leader>] :tabn<CR>
 
+nmap <leader>y ysiw
+nmap <leader>Y ysaW
+
 " Switching windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
