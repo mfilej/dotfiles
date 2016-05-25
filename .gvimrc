@@ -8,4 +8,6 @@ set guifont=Fira\ Code:h16
 set nonumber
 set laststatus=0
 
+set shortmess+=I
+
 map <leader>d :e ~/Dropbox/Notes/<C-d>
