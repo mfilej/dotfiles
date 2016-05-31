@@ -11,3 +11,10 @@ set laststatus=0
 set shortmess+=I
 
 map <leader>d :e ~/Dropbox/Notes/<C-d>
+
+imap ç č
+imap ß š
+imap Ω ž
+imap Ç Č
+imap Í Š
+imap ¸ Ž
