@@ -3,6 +3,8 @@ set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $GEM_HOME/bin $HOME/Library/Pyth
 
 set -x EDITOR vim
 
+alias cask "brew cask"
+
 function g --wraps git
   git $argv
 end
