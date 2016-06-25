@@ -43,12 +43,16 @@ set grepformat=%f:%l:%c:%m
 
 let g:ctrlp_map = '<leader>p'
 nmap <leader>P :CtrlP %%<cr>
-nmap <leader>gb :CtrlPBuffer<cr>
-nmap <leader>gr :topleft :split config/routes.rb<cr>
-nmap <leader>gg :topleft 100 :split Gemfile<cr>
+" mnemonic: buffer
+nmap <leader>b :CtrlPBuffer<cr>
 
-nmap <leader>fb :Gblame<cr>
-nmap <leader>fk :Gcommit -v<cr>
+" mnemonic: file
+nmap <leader>fr :topleft :split config/routes.rb<cr>
+nmap <leader>fg :topleft 100 :split Gemfile<cr>
+
+" mnemonic: git
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gk :Gcommit -v<cr>
 
 vmap <C-c> :w !pbcopy<CR><CR>
 
