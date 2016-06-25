@@ -47,6 +47,9 @@ nmap <leader>gb :CtrlPBuffer<cr>
 nmap <leader>gr :topleft :split config/routes.rb<cr>
 nmap <leader>gg :topleft 100 :split Gemfile<cr>
 
+nmap <leader>fb :Gblame<cr>
+nmap <leader>fk :Gcommit -v<cr>
+
 vmap <C-c> :w !pbcopy<CR><CR>
 
 nmap <leader>v :vs ~/.vimrc<CR>
