@@ -43,10 +43,6 @@ set grepformat=%f:%l:%c:%m
 
 let g:ctrlp_map = '<leader>p'
 nmap <leader>P :CtrlP %%<cr>
-nmap <leader>gv :CtrlP app/views<cr>
-nmap <leader>gc :CtrlP app/controllers<cr>
-nmap <leader>gm :CtrlP app/models<cr>
-nmap <leader>ga :CtrlP app/assets<cr>
 nmap <leader>gb :CtrlPBuffer<cr>
 nmap <leader>gr :topleft :split config/routes.rb<cr>
 nmap <leader>gg :topleft 100 :split Gemfile<cr>
