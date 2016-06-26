@@ -1,5 +1,5 @@
 set -x GEM_HOME $HOME/.gem
-set -x PATH ./bin $HOME/.bin $HOME/.rbenv/shims $GEM_HOME/bin $HOME/Library/Python/2.7/bin /usr/local/opt/postgresql-9.4/bin $PATH
+set -x PATH ./bin $HOME/.bin $GEM_HOME/bin $HOME/Library/Python/2.7/bin /usr/local/opt/postgresql-9.4/bin $PATH
 
 set -x EDITOR vim
 
@@ -54,39 +54,6 @@ function fish_right_prompt
     set_color 900
     echo "↪ $last_command_status"
     set_color normal
-  end
-end
-
-# rbenv
-
-function rbenv_shell
-  set -l vers $argv[1]
-
-  switch "$vers"
-    case '--unset'
-      set -e RBENV_VERSION
-    case ''
-      if [ -z "$RBENV_VERSION" ]
-        echo "rbenv: no shell-specific version configured" >&2
-        return 1
-      else
-        echo "$RBENV_VERSION"
-      end
-    case '*'
-      rbenv prefix "$vers" > /dev/null
-      set -g -x RBENV_VERSION "$vers"
-  end
-end
-
-function rbenv
-  set -l command $argv[1]
-  [ (count $argv) -gt 1 ]; and set -l args $argv[2..-1]
-
-  switch "$command"
-    case shell
-      rbenv_shell $args
-    case '*'
-      command rbenv $command $args
   end
 end
 
