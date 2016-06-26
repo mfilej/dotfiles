@@ -190,6 +190,15 @@ let g:netrw_browsex_viewer = "open"
 "   set backup    " keep a backup file
 " endif
 
+" Configure vim in iterm2 (http://usevim.com/2012/05/16/mouse/)
+" Send more characters for redraws
+set ttyfast
+" Enable mouse use in all modes
+set mouse=a
+" Set this to the name of your terminal that supports mouse codes.
+" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
+
 " Key mappings
 " Taking the training wheels off - no arrow keys in normal mode
 noremap <up> <nop>
