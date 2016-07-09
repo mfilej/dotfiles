@@ -13,13 +13,14 @@
 !/.bin/
 !/.config/
 /.config/*
-!/.config/osx-defaults/
+!/.config/Brewfile
 !/.config/fish/
 /.config/fish/*
 !/.config/fish/*.fish
 !/.config/fish/functions/
 !/.config/fish/completions/
 !/.config/fish/config.fish
+!/.config/osx-defaults/
 !/.dotfiles-vendor
 !/.gemrc
 !/.git-template
