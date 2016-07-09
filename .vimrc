@@ -270,10 +270,10 @@ endfunction
 :map <leader>= :ClearAssignmentPadding<cr>
 
 " test.vim mappings
-map <Leader>tt :w \| :TestFile<CR>
+map <Leader>tf :w \| :TestFile<CR>
 map <Leader>tn :w \| :TestNearest<CR>
 map <Leader>ts :w \| :TestSuite<CR>
-map <Leader>tl :w \| :TestLast<CR>
+map <Leader>tt :w \| :TestLast<CR>
 map <Leader>tv :w \| :TestVisit<CR>
 
 " Switch between test and production code
