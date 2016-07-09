@@ -41,6 +41,7 @@ set wildignore+=*/tmp/**
 set grepprg=ag\ --vimgrep\ $*
 set grepformat=%f:%l:%c:%m
 
+let g:ctrlp_switch_buffer = ''
 let g:ctrlp_map = '<leader>p'
 nmap <leader>P :CtrlP %%<cr>
 " mnemonic: buffer
