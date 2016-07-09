@@ -1,5 +1,5 @@
-set -x GEM_HOME $HOME/.gem
 set -x EDITOR vim
+set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 
 alias cask "brew cask"
 
