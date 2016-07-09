@@ -55,7 +55,7 @@ nmap <leader>fg :topleft 100 :split Gemfile<cr>
 nmap <leader>gb :Gblame<cr>
 nmap <leader>gk :Gcommit -v<cr>
 
-vmap <C-c> :w !pbcopy<CR><CR>
+vmap <leader>c "*y<CR>
 
 nmap <leader>v :vs ~/.vimrc<CR>
 
