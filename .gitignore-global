@@ -1,9 +1,9 @@
 .agignore
-.bundle
+/.bundle
+/.direnv
 .DS_Store
 .envrc
 .powenv
-.rvmrc
 .rbenv-version
 .rbenv-gemsets
 *.tmproj
