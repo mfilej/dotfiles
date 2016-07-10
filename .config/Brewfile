@@ -11,8 +11,7 @@ brew 'the_silver_searcher'
 brew 'selecta'
 
 brew 'direnv'
-brew 'ruby-build'
-brew 'rbenv'
+brew 'chruby'
 
 brew 'git'
 brew 'gist'
