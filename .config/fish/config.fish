@@ -1,17 +1,13 @@
+set -g CDPATH . ~
 set -x EDITOR vim
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 
+alias g git
 alias cask "brew cask"
-
-function g --wraps git
-  git $argv
-end
 
 function .G --wraps git
   git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/ $argv
 end
-
-set -g CDPATH . ~
 
 eval (direnv hook fish)
 
