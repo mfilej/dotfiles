@@ -1,5 +1,0 @@
-#!/usr/bin/env sh
-
-for arg in $*; do
-  brew cask info "$arg" | grep http | head -1 | xargs open -aSafari
-done

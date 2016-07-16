@@ -1,1 +1,0 @@
-/Users/miha/Sources/hivelogic-flickrtouchr/flickrtouchr.py

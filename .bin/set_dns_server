@@ -1,6 +1,0 @@
- #!/usr/bin/env sh
-
-set -e
-
-sudo networksetup -setdnsservers "Ethernet" $1
-sudo networksetup -setdnsservers "Wi-Fi" $1
