@@ -1,2 +1,0 @@
-#compdef cs
-_files -W ~/Sources -/
