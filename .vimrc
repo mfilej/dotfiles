@@ -53,6 +53,7 @@ nmap <leader>fg :topleft 100 :split Gemfile<cr>
 
 " mnemonic: git
 nmap <leader>gb :Gblame<cr>
+nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Gcommit -v<cr>
 
 vmap <leader>c "*y<CR>
