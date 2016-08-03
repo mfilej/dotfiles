@@ -4,6 +4,7 @@ set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 
 alias g git
 alias cask "brew cask"
+alias lb "open -aLaunchBar"
 
 function .G --wraps git
   git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/ $argv
