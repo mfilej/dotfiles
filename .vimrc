@@ -141,15 +141,10 @@ set ttymouse=xterm2
 " Ignores
 " -------
 
-set wildignore+=.bundle/*
+set wildignore+=.bundle/**
 set wildignore+=build/**
-set wildignore+=db/development/**
-set wildignore+=db/test/**
-set wildignore+=log/*
-set wildignore+=*/node_modules/*
-set wildignore+=*/public/uploads/**
-set wildignore+=*/public/templates/**
-set wildignore+=*/tmp/**
+set wildignore+=node_modules/*
+set wildignore+=tmp/**
 
 
 " File-specific settings
