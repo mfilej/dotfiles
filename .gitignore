@@ -9,7 +9,6 @@
 /Library/iTunes/*
 !/Library/iTunes/Scripts/
 !/Library/KeyBindings/
-!/.ackrc
 !/.bin/
 !/.config/
 /.config/*
@@ -39,6 +38,3 @@
 !/.vim
 /.vim/.netrwhist
 !/.vimrc
-!/.zsh
-!/.zshrc
-!/.zshenv
