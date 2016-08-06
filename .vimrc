@@ -13,11 +13,10 @@ if $SHELL =~ 'fish'
   set shell=/bin/sh
 endif
 
-runtime macros/matchit.vim
-
 let mapleader = " "
 
 syntax enable
+set t_Co=256
 color vividchalk
 
 highlight Comment       ctermfg=103
@@ -89,8 +88,6 @@ set linespace=1
 
 set textwidth=78
 
-set formatoptions-=t
-
 " Make the current window big, but leave others context
 set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
@@ -128,19 +125,10 @@ set expandtab
 " Soft tab width (preserve real tab as 8)
 set softtabstop=2 shiftwidth=2 
 
-" Start newlines properly
-set autoindent
-" set smartindent
-filetype plugin indent on
-
 " Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
 
-" Backspace behavior
-set backspace=indent,eol,start
-
-set laststatus=2
 set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
 
 set showcmd
@@ -148,7 +136,6 @@ set showmode
 set hidden
 
 " Autocomplete commands like a shell
-set wildmenu
 set wildmode=list:longest
 
 " Case-insensitive searching unless expression contains a capital letter
@@ -156,7 +143,6 @@ set ignorecase
 set smartcase
 
 set hlsearch  " highlight search matches
-set incsearch " highlight matches as you type
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
@@ -170,8 +156,6 @@ nnoremap <leader><leader> <c-^>
 
 " Toggle wrap
 nmap <leader>w :set nowrap!<CR>
-
-set scrolloff=3
 
 " No beeping
 set visualbell
