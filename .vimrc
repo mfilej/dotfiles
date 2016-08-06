@@ -278,38 +278,7 @@ map <Leader>tt :w \| :TestLast<CR>
 map <Leader>tv :w \| :TestVisit<CR>
 
 " Switch between test and production code
-function! OpenTestAlternate()
-  let new_file = AlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
-function! AlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, '^spec/') != -1
-  let going_to_spec = !in_spec
-  let in_rails = filereadable("config/boot.rb")
-  if going_to_spec
-    if in_rails
-      let new_file = substitute(new_file, '^app/', '', '')
-    else
-      let new_file = substitute(new_file, '^lib/', '', '')
-    end
-    let new_file = substitute(new_file, '\.rb$', '_spec.rb', '')
-    let new_file = 'spec/' . new_file
-  else
-    let new_file = substitute(new_file, '_spec\.rb$', '.rb', '')
-    let new_file = substitute(new_file, '^spec/', '', '')
-    if in_rails
-      if match(current_file, '^spec/lib/') == -1
-        let new_file = 'app/' . new_file
-      end
-    else
-      let new_file = 'lib/' . new_file
-    endif
-  endif
-  return new_file
-endfunction
-nnoremap <leader>. :call OpenTestAlternate()<cr>
+nnoremap <leader>. :A<cr>
 
 " https://github.com/jkramer/vim-checkbox/blob/master/plugin/checkbox.vim
 function! ToggleCheckbox()
