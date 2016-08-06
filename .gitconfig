@@ -2,7 +2,7 @@
 	name = Miha Filej
 	email = miha@filej.net
 [core]
-	excludesfile = /Users/miha/.gitignore-global
+	excludesfile = ~/.cvsignore
 	editor = vim -f
 [alias]
 	s = status -sb
