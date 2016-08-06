@@ -1,90 +1,85 @@
+" VIMRC
+" =====
+
 aug AutoloadVimrc
   au!
   au BufWritePost ~/.vimrc source $MYVIMRC
 aug END
 
 set nocompatible
-set re=1 " https://git.io/v6YxR
+set exrc   " load project-specific .vimrc
+set secure "   (but disallow shell execution)
 
 execute pathogen#infect()
 
-if $SHELL =~ 'fish'
-  set shell=/bin/sh
-endif
 
-let mapleader = " "
+" Colors & Theme
+" --------------
 
 syntax enable
 set t_Co=256
 color vividchalk
 
-highlight Comment       ctermfg=103
-highlight CursorLine    guibg=#333333 guifg=NONE gui=NONE ctermbg=235 ctermfg=NONE cterm=NONE
-highlight Search        guibg=black gui=underline ctermbg=black cterm=underline
-highlight LineNr        ctermfg=246 ctermbg=234
+highlight Comment     ctermfg=103
+highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
+                    \ ctermbg=235 ctermfg=NONE cterm=NONE
+highlight Search      guibg=black gui=underline ctermbg=black cterm=underline
+highlight LineNr      ctermfg=246 ctermbg=234
 
-" Load project-specific .vimrc, but disallow shell execution
-set exrc
-set secure
+" Bindings
+" --------
 
-set wildignore+=.bundle/*
-set wildignore+=build/**
-set wildignore+=db/development/**
-set wildignore+=db/test/**
-set wildignore+=log/*
-set wildignore+=*/node_modules/*
-set wildignore+=*/public/uploads/**
-set wildignore+=*/public/templates/**
-set wildignore+=*/tmp/**
-
-set grepprg=ag\ --vimgrep\ $*
-set grepformat=%f:%l:%c:%m
-
-let g:ctrlp_switch_buffer = ''
+let mapleader = " "
 let g:ctrlp_map = '<leader>p'
+let g:ctrlp_switch_buffer = '' " ignore if buffer is already open somewhere
 nmap <leader>P :CtrlP %%<cr>
-" mnemonic: buffer
-nmap <leader>b :CtrlPBuffer<cr>
-
-" mnemonic: file
-nmap <leader>fg :Bsplit<cr>
-
-" mnemonic: git
-nmap <leader>gb :Gblame<cr>
+nmap <leader>b :CtrlPBuffer<cr> " mnemonic: buffer
+nmap <leader>fg :Bsplit<cr> " mnemonic: file
+nmap <leader>gb :Gblame<cr> " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Gcommit -v<cr>
-
-vmap <leader>c "*y<CR>
-
 nmap <leader>v :vs ~/.vimrc<CR>
-
 nmap <leader>r :w\|:!reload_chromium<cr><cr>
 nmap <leader>R :map <lt>leader>r :w<Bslash><Bar>!
-
 nmap <leader>N :set paste!<CR>
 nmap <leader>K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
-
 nmap <leader>[ :tabp<CR>
 nmap <leader>] :tabn<CR>
-
 nmap <leader>y ysiw
 nmap <leader>Y ysaW
+nmap <leader>w :set nowrap!<CR> " toggle line wrapping
 
-" Switching windows
-nnoremap <c-j> <c-w>j
+map <Leader>tf :w \| :TestFile<CR> " test.vim mappings
+map <Leader>tn :w \| :TestNearest<CR>
+map <Leader>ts :w \| :TestSuite<CR>
+map <Leader>tt :w \| :TestLast<CR>
+map <Leader>tv :w \| :TestVisit<CR>
+
+nnoremap <leader><leader> <c-^>
+nnoremap <leader>. :A<cr> " alternate
+nnoremap <c-j> <c-w>j " switching windows
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+noremap <up> <nop> " no arrow keys in normal mode
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
 
-" Disable F1 key
-:map <F1> <nop>
-:imap <F1> <nop>
+vmap <leader>c "*y<CR>
 
-" Syntax coloring lines that are too long just slows down the world
-set synmaxcol=2048
+cnoremap %% <C-R>=expand('%:h').'/'<cr> " %% expands to pwd in command mode
+cnoremap <c-a> <home> " move to beginning of the line in command mode too
 
+map <F1> <nop> " disable F1 key
+imap <F1> <nop>
+
+
+" Options
+" -------
+
+set synmaxcol=2048 " long lines slow down highlighting
 set linespace=1
-
 set textwidth=78
 
 " Make the current window big, but leave others context
@@ -96,16 +91,6 @@ set winheight=3
 set winminheight=3
 set winheight=999
 
-" Show invisibles and line numbers
-set list
-set number
-
-" Highlight current line
-set cursorline
-
-" Treat dash-separated words as keywords (CSS classes)
-set isk+=-
-
 " Insert only one space when joining lines that contain sentence-terminating
 " punctuation like `.`.
 set nojoinspaces
@@ -113,67 +98,35 @@ set nojoinspaces
 " Use the same symbols as TextMate for tabstops and EOLs
 " Also adds trailing markers
 " set listchars=tab:▸\ ,eol:¬,trail:⋅
+set list
 set listchars=tab:▸\ ,trail:⋅
 
-" Mark the right border
-set colorcolumn=+1
-
-
-" Soft tabs (C-V<Tab> to insert a proper tab)
-set expandtab
-" Soft tab width (preserve real tab as 8)
-set softtabstop=2 shiftwidth=2 
-
-" Reselect visual block after indent/outdent
-vnoremap < <gv
-vnoremap > >gv
-
-set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
-
+set number " show line numbers
+set cursorline " highlight current line
+set isk+=- " treat dash-separated words as keywords (CSS classes)
+set colorcolumn=+1 " mark the right border
+set expandtab " use soft tabs (C-V<Tab> to insert tab character)
+set softtabstop=2 shiftwidth=2 " soft tab width (preserve real tab as 8)
 set showcmd
 set showmode
 set hidden
-
-" Autocomplete commands like a shell
-set wildmode=list:longest
-
-" Case-insensitive searching unless expression contains a capital letter
-set ignorecase
-set smartcase
-
+set wildmode=list:longest " autocomplete commands like a shell
+set visualbell " no beeping
+set ignorecase " case-insensitive search
+set smartcase  "   (unless expression contains a capital letter)
 set hlsearch  " highlight search matches
-
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
-
-" ctrl-a moves to the beginning of the line in command mode
-cnoremap <c-a> <home>
-
-map <leader>h :set hls!<CR>
-
-" Switch between the last two files with leader-leader
-nnoremap <leader><leader> <c-^>
-
-" Toggle wrap
-nmap <leader>w :set nowrap!<CR>
-
-" No beeping
-set visualbell
-
-" Re-read file if it changes outside of vim (e.g. git checkout)
-set autoread
-
+set re=1 " https://git.io/v6YxR
 set nobackup
 set nowritebackup
 set noswapfile
 
-" Fixes fugitive's Gbrowse command
-let g:netrw_browsex_viewer = "open"
+set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
 
-" if has("vms")
-"   set nobackup  " do not keep a backup file, use versions instead
-" else
-"   set backup    " keep a backup file
-" endif
+let g:netrw_browsex_viewer = "open" " fix fugitive's :Gbrowse command
+
+
+" Mouse & iTerm2 support
+" ----------------------
 
 " Configure vim in iterm2 (http://usevim.com/2012/05/16/mouse/)
 " Send more characters for redraws
@@ -184,44 +137,50 @@ set mouse=a
 " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
 set ttymouse=xterm2
 
-" Key mappings
-" Taking the training wheels off - no arrow keys in normal mode
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
 
-" vim-hardmode
-" autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
-" nnoremap <leader>H <Esc>:call ToggleHardMode()<CR>
+" Ignores
+" -------
 
-augroup rubypath
-  autocmd!
-  autocmd FileType ruby setlocal suffixesadd+=.rb
-  autocmd FileType ruby setlocal path+=lib,spec/**/*
-augroup END
+set wildignore+=.bundle/*
+set wildignore+=build/**
+set wildignore+=db/development/**
+set wildignore+=db/test/**
+set wildignore+=log/*
+set wildignore+=*/node_modules/*
+set wildignore+=*/public/uploads/**
+set wildignore+=*/public/templates/**
+set wildignore+=*/tmp/**
+
+
+" File-specific settings
+" ----------------------
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder} set ft=ruby
+autocmd BufRead,BufNewFile
+  \ {Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder}
+  \ set ft=ruby
 
-" Treat JSON files like JavaScript
-au BufRead,BufNewFile *.json set ft=javascript
+" Treat JSON files as JavaScript
+autocmd BufRead,BufNewFile *.json set ft=javascript
 
 " gitconfig uses hard tabs
 autocmd FileType gitconfig setl noexpandtab shiftwidth=8
 
 autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd Filetype markdown setlocal spell
-
 autocmd FileType fish compiler fish
 
-map <leader>W :call <SID>StripTrailingWhitespaces()<CR>
-
 if has("autocmd")
-  autocmd BufWritePre *.rb,*.ex,*.exs,*.js,*.sass,*.haml :call <SID>StripTrailingWhitespaces()
+  autocmd BufWritePre
+  \ *.rb,*.ex,*.exs,*.js,*.sass,*.haml
+  \ :call <SID>StripTrailingWhitespace()
 endif
 
-function! <SID>StripTrailingWhitespaces()
+
+" Functions
+" ---------
+
+function! <SID>StripTrailingWhitespace()
   " Preparation: save last search, and cursor position.
   let _s=@/
   let l = line(".")
@@ -232,6 +191,7 @@ function! <SID>StripTrailingWhitespaces()
   let @/=_s
   call cursor(l, c)
 endfunction
+map <leader>W :call <SID>StripTrailingWhitespace()<CR>
 
 function! PromoteToLet()
   :normal! dd
@@ -253,16 +213,6 @@ endfunction
 :command! ClearAssignmentPadding :call ClearAssignmentPadding()
 :map <leader>= :ClearAssignmentPadding<cr>
 
-" test.vim mappings
-map <Leader>tf :w \| :TestFile<CR>
-map <Leader>tn :w \| :TestNearest<CR>
-map <Leader>ts :w \| :TestSuite<CR>
-map <Leader>tt :w \| :TestLast<CR>
-map <Leader>tv :w \| :TestVisit<CR>
-
-" Switch between test and production code
-nnoremap <leader>. :A<cr>
-
 " https://github.com/jkramer/vim-checkbox/blob/master/plugin/checkbox.vim
 function! ToggleCheckbox()
 	let line = getline('.')
@@ -277,7 +227,10 @@ function! ToggleCheckbox()
 endf
 nnoremap <leader>x :call ToggleCheckbox()<cr>
 
+
 " Projectionist.vim
+" -----------------
+
 let g:projectionist_heuristics = {
       \  "mix.exs": {
       \     "lib/*.ex": {"alternate": "test/{}_test.exs"},
