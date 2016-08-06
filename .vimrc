@@ -6,8 +6,7 @@ aug END
 set nocompatible
 set re=1 " https://git.io/v6YxR
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+execute pathogen#infect()
 
 if $SHELL =~ 'fish'
   set shell=/bin/sh
