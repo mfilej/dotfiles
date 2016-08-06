@@ -30,7 +30,6 @@
 !/.gitignore-global
 !/.gvimrc
 !/.irbrc
-!/.mackup.cfg
 !/.NSUserReplacementItems
 !/.rbenv
 /.rbenv/*
