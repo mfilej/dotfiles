@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+
+# Assumes `psql` is able to run without additional arguments on your machine.
+# This usually means you need to have a database name that matches your
+# username.
+
+psql -P "footer=off" -c "select pg_database.datname AS database, pg_size_pretty(pg_database_size(pg_database.datname)) AS size FROM pg_database ORDER BY pg_database.datname ASC;"
