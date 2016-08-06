@@ -49,8 +49,7 @@ nmap <leader>P :CtrlP %%<cr>
 nmap <leader>b :CtrlPBuffer<cr>
 
 " mnemonic: file
-nmap <leader>fr :topleft :split config/routes.rb<cr>
-nmap <leader>fg :topleft 100 :split Gemfile<cr>
+nmap <leader>fg :Bsplit<cr>
 
 " mnemonic: git
 nmap <leader>gb :Gblame<cr>
