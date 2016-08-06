@@ -294,3 +294,24 @@ function! ToggleCheckbox()
 	call setline('.', line)
 endf
 nnoremap <leader>x :call ToggleCheckbox()<cr>
+
+" Projectionist.vim
+let g:projectionist_heuristics = {
+      \  "mix.exs": {
+      \     "lib/*.ex": {"alternate": "test/{}_test.exs"},
+      \     "test/*_test.exs": {"alternate": "lib/{}.ex"}
+      \   },
+      \   "Gemfile": {
+      \     "lib/*.rb": {"alternate": "test/{}_test.rb"},
+      \     "test/*_test.rb": {"alternate": "lib/{}.rb"}
+      \   },
+      \   "config/boot.rb": {
+      \     "app/models/*.rb": {"type": "model"},
+      \     "app/controllers/*.rb": {"type": "controller"},
+      \     "app/views/*": {"type": "view"},
+      \     "app/*.rb": {"alternate": "spec/{}_spec.rb"},
+      \     "lib/*.rb": {"alternate": "spec/lib/{}_spec.rb"},
+      \     "spec/lib/*_spec.rb": {"alternate": "lib/{}.rb"},
+      \     "spec/*_spec.rb": {"alternate": "app/{}.rb"},
+      \   },
+      \ }
