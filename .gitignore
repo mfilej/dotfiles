@@ -29,7 +29,6 @@
 !/.gitignore-global
 !/.gvimrc
 !/.irbrc
-!/.NSUserReplacementItems
 !/.rbenv
 /.rbenv/*
 !/.rbenv/default-gems
