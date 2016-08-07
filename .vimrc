@@ -33,9 +33,9 @@ let mapleader = " "
 let g:ctrlp_map = '<leader>p'
 let g:ctrlp_switch_buffer = '' " ignore if buffer is already open somewhere
 nmap <leader>P :CtrlP %%<cr>
-nmap <leader>b :CtrlPBuffer<cr> " mnemonic: buffer
-nmap <leader>fg :Bsplit<cr> " mnemonic: file
-nmap <leader>gb :Gblame<cr> " mnemonic: git
+nmap <leader>b :CtrlPBuffer<cr>| " mnemonic: buffer
+nmap <leader>fg :Bsplit<cr>| " mnemonic: file
+nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Gcommit -v<cr>
 nmap <leader>v :vs ~/.vimrc<CR>
@@ -47,31 +47,31 @@ nmap <leader>[ :tabp<CR>
 nmap <leader>] :tabn<CR>
 nmap <leader>y ysiw
 nmap <leader>Y ysaW
-nmap <leader>w :set nowrap!<CR> " toggle line wrapping
+nmap <leader>w :set nowrap!<CR>| " toggle line wrapping
 
-map <Leader>tf :w \| :TestFile<CR> " test.vim mappings
+map <Leader>tf :w \| :TestFile<CR>| " test.vim mappings
 map <Leader>tn :w \| :TestNearest<CR>
 map <Leader>ts :w \| :TestSuite<CR>
 map <Leader>tt :w \| :TestLast<CR>
 map <Leader>tv :w \| :TestVisit<CR>
 
 nnoremap <leader><leader> <c-^>
-nnoremap <leader>. :A<cr> " alternate
-nnoremap <c-j> <c-w>j " switching windows
+nnoremap <leader>. :A<cr>| " alternate
+nnoremap <c-j> <c-w>j| " switching windows
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-noremap <up> <nop> " no arrow keys in normal mode
+noremap <up> <nop>| " no arrow keys in normal mode
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
 vmap <leader>c "*y<CR>
 
-cnoremap %% <C-R>=expand('%:h').'/'<cr> " %% expands to pwd in command mode
-cnoremap <c-a> <home> " move to beginning of the line in command mode too
+cnoremap %% <C-R>=expand('%:h').'/'<cr>| " %% expands to pwd in command mode
+cnoremap <c-a> <home>| " move to beginning of the line in command mode too
 
-map <F1> <nop> " disable F1 key
+map <F1> <nop>| " disable F1 key
 imap <F1> <nop>
 
 
