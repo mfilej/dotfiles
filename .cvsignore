@@ -2,6 +2,7 @@
 /.bundle
 /.direnv
 /.envrc
+/.projections.json
 /.vimrc
 /tags
 .DS_Store
