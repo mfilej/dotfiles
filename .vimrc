@@ -227,6 +227,9 @@ nnoremap <leader>x :call ToggleCheckbox()<cr>
 " -----------------
 
 let g:projectionist_heuristics = {
+      \  "*config.fish": {
+      \     "functions/*.fish": {"type": "function"},
+      \   },
       \  "mix.exs": {
       \     "lib/*.ex": {"alternate": "test/{}_test.exs"},
       \     "test/*_test.exs": {"alternate": "lib/{}.ex"}
