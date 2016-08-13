@@ -78,14 +78,12 @@ mas 'Calca', id: 635758264
 mas 'Dash', id: 449589707
 mas 'Divvy', id: 413857545
 mas 'Screens', id: 446107677
-mas 'iMovie', id: 408981434
 mas 'Paprika Recipe Manager', id: 451907568
 mas 'Napkin', id: 581789185
 mas 'ColorSnapper2', id: 969418666
 mas '1Password', id: 443987910
 mas 'Things', id: 407951449
 mas 'DaisyDisk', id: 411643860
-mas 'Xcode', id: 497799835
 mas '1Keyboard', id: 766939888
 mas 'LilyView', id: 529490330
 mas 'Acorn', id: 1019272813
