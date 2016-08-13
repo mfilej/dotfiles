@@ -47,6 +47,7 @@ cask 'cloak'
 cask 'cyberduck'
 cask 'dropbox'
 cask 'github-desktop'
+cask 'google-chrome'
 cask 'handbrake'
 cask 'imagealpha'
 cask 'imageoptim'
@@ -94,7 +95,6 @@ mas 'Numbers', id: 409203825
 mas 'Gemini', id: 463541543
 mas 'Fantastical 2', id: 975937182
 mas 'WebCode', id: 570644822
-mas 'Melo', id: 483104510
 mas 'Pixelmator', id: 407963104
 mas 'Keynote', id: 409183694
 mas 'PopClip', id: 445189367
