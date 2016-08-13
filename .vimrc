@@ -259,6 +259,7 @@ let g:projectionist_heuristics = {
       \       "type": "view",
       \       "alternate": "test/views/{}_view_test.exs"
       \     },
+      \     "priv/repo/migrations/*.exs": {"type": "migration"},
       \     "test/*_test.exs": {"alternate": "web/{}.ex"},
       \     "web/router.ex": {"type": "routes"},
       \   },
@@ -279,6 +280,7 @@ let g:projectionist_heuristics = {
       \     "lib/*.rb": {"alternate": "spec/lib/{}_spec.rb"},
       \     "spec/lib/*_spec.rb": {"alternate": "lib/{}.rb"},
       \     "spec/*_spec.rb": {"alternate": "app/{}.rb"},
+      \     "db/migrate/*.rb": {"type": "migration"},
       \     "config/routes.rb": {"type": "routes"},
       \   },
       \ }
