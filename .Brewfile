@@ -100,3 +100,17 @@ mas 'Keynote', id: 409183694
 mas 'PopClip', id: 445189367
 mas 'Tweetbot', id: 557168941
 mas 'NepTunes', id: 1006739057
+
+
+# QuickLook plugins
+# https://github.com/sindresorhus/quick-look-plugins
+
+cask 'qlcolorcode'
+cask 'qlstephen'
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'qlprettypatch'
+cask 'quicklook-csv'
+cask 'betterzipql'
+cask 'webpquicklook'
+cask 'suspicious-package'
