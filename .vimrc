@@ -35,6 +35,7 @@ let g:ctrlp_switch_buffer = '' " ignore if buffer is already open somewhere
 nmap <leader>P :CtrlP %%<cr>
 nmap <leader>b :CtrlPBuffer<cr>| " mnemonic: buffer
 nmap <leader>fg :Bsplit<cr>| " mnemonic: file
+nmap <leader>fr :Eroutes<cr>| " relies on projections setting `:Eroutes`
 nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Gcommit -v<cr>
@@ -231,8 +232,30 @@ let g:projectionist_heuristics = {
       \     "functions/*.fish": {"type": "function"},
       \   },
       \  "mix.exs": {
-      \     "lib/*.ex": {"alternate": "test/{}_test.exs"},
+      \     "lib/*.ex": {
+      \       "type": "lib",
+      \       "alternate": "test/{}_test.exs",
+      \     },
       \     "test/*_test.exs": {"alternate": "lib/{}.ex"}
+      \   },
+      \  "mix.exs&web/": {
+      \     "web/controllers/*_controller.ex": {
+      \       "type": "controller",
+      \       "alternate": "test/controllers/{}_controller_test.exs"
+      \     },
+      \     "web/models/*.ex": {
+      \       "type": "model",
+      \       "alternate": "test/models/{}_test.exs"
+      \     },
+      \     "web/templates/*.eex": {
+      \       "type": "template",
+      \     },
+      \     "web/views/*_view.ex": {
+      \       "type": "view",
+      \       "alternate": "test/views/{}_view_test.exs"
+      \     },
+      \     "test/*_test.exs": {"alternate": "web/{}.ex"},
+      \     "web/router.ex": {"type": "routes"},
       \   },
       \   "Gemfile": {
       \     "lib/*.rb": {"alternate": "test/{}_test.rb"},
@@ -246,5 +269,6 @@ let g:projectionist_heuristics = {
       \     "lib/*.rb": {"alternate": "spec/lib/{}_spec.rb"},
       \     "spec/lib/*_spec.rb": {"alternate": "lib/{}.rb"},
       \     "spec/*_spec.rb": {"alternate": "app/{}.rb"},
+      \     "config/routes.rb": {"type": "routes"},
       \   },
       \ }
