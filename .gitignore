@@ -20,13 +20,13 @@
 !/.config/fish/completions/
 !/.config/fish/config.fish
 !/.config/osx-defaults/
+!/.cvsignore
 !/.direnvrc
 !/.dotfiles-vendor
 !/.gemrc
 !/.git-template
 !/.gitconfig
 !/.gitignore
-!/.gitignore-global
 !/.gvimrc
 !/.irbrc
 !/.rbenv
