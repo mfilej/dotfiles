@@ -34,7 +34,7 @@ let g:ctrlp_map = '<leader>p'
 let g:ctrlp_switch_buffer = '' " ignore if buffer is already open somewhere
 nmap <leader>P :CtrlP %%<cr>
 nmap <leader>b :CtrlPBuffer<cr>| " mnemonic: buffer
-nmap <leader>fg :Bsplit<cr>| " mnemonic: file
+nmap <leader>fd :Sdeps<cr>| " mnemonic: f=file, d=deps
 nmap <leader>fr :Eroutes<cr>| " relies on projections setting `:Eroutes`
 nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
@@ -232,6 +232,11 @@ let g:projectionist_heuristics = {
       \     "functions/*.fish": {"type": "function"},
       \   },
       \  "mix.exs": {
+      \     "mix.exs": {
+      \       "type": "deps",
+      \       "alternate": "mix.lock",
+      \     },
+      \     "mix.lock": {"alternate": "mix.exs"},
       \     "lib/*.ex": {
       \       "type": "lib",
       \       "alternate": "test/{}_test.exs",
@@ -258,6 +263,11 @@ let g:projectionist_heuristics = {
       \     "web/router.ex": {"type": "routes"},
       \   },
       \   "Gemfile": {
+      \     "Gemfile": {
+      \       "type": "deps",
+      \       "alternate": "Gemfile.lock",
+      \     },
+      \     "Gemfile.lock": {"alternate": "Gemfile"},
       \     "lib/*.rb": {"alternate": "test/{}_test.rb"},
       \     "test/*_test.rb": {"alternate": "lib/{}.rb"}
       \   },
