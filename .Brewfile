@@ -115,6 +115,7 @@ mas 'xScope', id: 889428659
 # <https://github.com/sindresorhus/quick-look-plugins>
 
 cask 'betterzipql'
+cask 'epubquicklook'
 cask 'qlcolorcode'
 cask 'qlmarkdown'
 cask 'qlprettypatch'
