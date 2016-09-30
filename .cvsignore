@@ -1,7 +1,7 @@
 /.agignore
 /.bundle
-/.direnv
-/.envrc
 /.vimrc
 /tags
 .DS_Store
+.direnv
+.envrc
