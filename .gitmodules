@@ -74,3 +74,6 @@
 [submodule ".vim/bundle/vim-sensible"]
 	path = .vim/bundle/vim-sensible
 	url = git://github.com/tpope/vim-sensible.git
+[submodule ".vim/bundle/vim-yaml-helper"]
+	path = .vim/bundle/vim-yaml-helper
+	url = https://github.com/lmeijvogel/vim-yaml-helper
