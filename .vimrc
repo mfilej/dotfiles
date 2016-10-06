@@ -274,7 +274,7 @@ let g:projectionist_heuristics = {
       \   },
       \   "config/boot.rb": {
       \     "app/models/*.rb": {"type": "model"},
-      \     "app/controllers/*.rb": {"type": "controller"},
+      \     "app/controllers/*_controller.rb": {"type": "controller"},
       \     "app/views/*": {"type": "view"},
       \     "app/*.rb": {"alternate": "spec/{}_spec.rb"},
       \     "lib/*.rb": {"alternate": "spec/lib/{}_spec.rb"},
