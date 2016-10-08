@@ -53,6 +53,7 @@ cask 'beardedspice'
 cask 'cloak'
 cask 'colorpicker-developer'
 cask 'cyberduck'
+cask 'dash'
 cask 'dropbox'
 cask 'github-desktop'
 cask 'handbrake'
@@ -85,7 +86,6 @@ mas 'Aware', id: 1082170746
 mas 'Calca', id: 635758264
 mas 'ColorSnapper2', id: 969418666
 mas 'DaisyDisk', id: 411643860
-mas 'Dash', id: 449589707
 mas 'Divvy', id: 413857545
 mas 'Fantastical 2', id: 975937182
 mas 'GIF Brewery 3', id: 1081413713
