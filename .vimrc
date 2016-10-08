@@ -41,7 +41,7 @@ nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Gcommit -v<cr>
 nmap <leader>v :vs ~/.vimrc<CR>
 nmap <leader>r :w\|:!reload_chromium<cr><cr>
-nmap <leader>R :map <lt>leader>r :w<Bslash><Bar>!
+nmap <leader>R :map <lt>cr> :w<Bslash><Bar>!
 nmap <leader>N :set paste!<CR>
 nmap <leader>K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 nmap <leader>[ :tabp<CR>
