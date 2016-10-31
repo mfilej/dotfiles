@@ -36,6 +36,7 @@ nmap <leader>P :CtrlP %%<cr>
 nmap <leader>b :CtrlPBuffer<cr>| " mnemonic: buffer
 nmap <leader>fd :Sdeps<cr>| " mnemonic: f=file, d=deps
 nmap <leader>fr :Sroutes<cr>| " relies on projections setting `:Eroutes`
+nmap <leader>fm :sp db/migrate<cr>
 nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Gcommit -v<cr>
