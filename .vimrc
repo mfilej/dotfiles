@@ -287,4 +287,8 @@ let g:projectionist_heuristics = {
       \     "db/migrate/*.rb": {"type": "migration"},
       \     "config/routes.rb": {"type": "routes"},
       \   },
+      \   "ember-cli-build.js": {
+      \     "app/routes/*.js": {"type": "route", "alternate": "tests/unit/routes/{}-.js"},
+      \     "app/templates/*.hbs": {"type": "template"},
+      \   },
       \ }
