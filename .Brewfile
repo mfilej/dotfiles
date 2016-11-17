@@ -27,6 +27,7 @@ brew 'hub'
 brew 'elixir'
 
 brew 'browser'
+brew 'exiftool'
 brew 'ffmpeg'
 brew 'imagemagick'
 brew 'jsonpp'

@@ -80,3 +80,5 @@
 	tool = Kaleidoscope
 [url "git@github.com:"]
 	insteadOf = hub:
+[diff "exif"]
+	textconv = exiftool
