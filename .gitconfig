@@ -78,3 +78,5 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+[url "git@github.com:"]
+	insteadOf = hub:
