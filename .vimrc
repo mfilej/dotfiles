@@ -226,6 +226,11 @@ function! ToggleCheckbox()
 endf
 nnoremap <leader>x :call ToggleCheckbox()<cr>
 
+function! ToCamelCase()
+  :s#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g
+endfunction
+:command! ToCamelCase :call ToCamelCase()
+
 
 " Projectionist.vim
 " -----------------
