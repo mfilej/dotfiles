@@ -244,6 +244,7 @@ let g:projectionist_heuristics = {
       \     "mix.exs": {
       \       "type": "deps",
       \       "alternate": "mix.lock",
+      \       "make": "mix deps.get",
       \     },
       \     "mix.lock": {"alternate": "mix.exs"},
       \     "lib/*.ex": {
