@@ -10,6 +10,8 @@ set nocompatible
 set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
+set rtp+=/usr/local/opt/fzf
+
 execute pathogen#infect()
 
 
@@ -30,10 +32,9 @@ highlight LineNr      ctermfg=246 ctermbg=234
 " --------
 
 let mapleader = " "
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_switch_buffer = '' " ignore if buffer is already open somewhere
-nmap <leader>P :CtrlP %%<cr>
-nmap <leader>b :CtrlPBuffer<cr>| " mnemonic: buffer
+
+nmap <leader>p :FZF<cr>
+nmap <leader>P :FZF %%<cr>
 nmap <leader>fd :Sdeps<cr>| " mnemonic: f=file, d=deps
 nmap <leader>fr :Sroutes<cr>| " relies on projections setting `:Eroutes`
 nmap <leader>fm :sp db/migrate<cr>
