@@ -172,7 +172,7 @@ autocmd FileType fish compiler fish
 
 if has("autocmd")
   autocmd BufWritePre
-  \ *.rb,*.ex,*.exs,*.js,*.sass,*.haml
+  \ *.rb,*.ex,*.exs,*.js,*.sass,*.haml,*.yml
   \ :call <SID>StripTrailingWhitespace()
 endif
 
