@@ -1,5 +1,6 @@
 /.agignore
 /.bundle
+/.rspec-local
 /.vimrc
 /tags
 .DS_Store
