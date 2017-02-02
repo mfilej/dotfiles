@@ -127,8 +127,6 @@ set noswapfile
 
 set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
 
-let g:netrw_browsex_viewer = "open" " fix fugitive's :Gbrowse command
-
 
 " Mouse & iTerm2 support
 " ----------------------
