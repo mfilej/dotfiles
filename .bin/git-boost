@@ -1,0 +1,14 @@
+#!/bin/bash
+# Usage: git boost
+# Rebases the current branch on top of latest origin/master (by fetching it
+# first).
+
+set -e
+
+if [[ "${branch_name}" == "master" ]]; then
+  echo "Can't boost master."
+  exit 1
+fi
+
+git fetch origin
+git rebase "$@" origin/master
