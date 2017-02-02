@@ -14,6 +14,8 @@ set rtp+=/usr/local/opt/fzf
 
 execute pathogen#infect()
 
+source ~/.vim/vimrc-local
+
 
 " Colors & Theme
 " --------------

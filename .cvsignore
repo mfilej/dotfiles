@@ -2,6 +2,7 @@
 /.bundle
 /.rspec-local
 /.vimrc
+/.vim/vimrc-local
 /tags
 .DS_Store
 .direnv
