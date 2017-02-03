@@ -24,6 +24,10 @@ brew 'git'
 brew 'gist'
 brew 'hub'
 
+# Install 1Password early on
+brew 'mas'
+mas '1Password', id: 443987910
+
 brew 'elixir'
 
 brew 'browser'
@@ -32,7 +36,6 @@ brew 'ffmpeg'
 brew 'fzf'
 brew 'imagemagick'
 brew 'jsonpp'
-brew 'mas'
 brew 'mplayer'
 brew 'phantomjs'
 brew 's3cmd'
@@ -81,7 +84,6 @@ cask 'google-chrome', args: { appdir: '/Applications' }
 cask 'caskroom/versions/google-chrome-canary', args: { appdir: '/Applications' }
 
 mas '1Keyboard', id: 766939888
-mas '1Password', id: 443987910
 mas 'Acorn', id: 1019272813
 mas 'Annotate', id: 918207447
 mas 'Aware', id: 1082170746
