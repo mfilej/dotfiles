@@ -28,9 +28,10 @@ brew 'hub'
 brew 'mas'
 mas '1Password', id: 443987910
 
-brew 'elixir'
+cask 'launchbar'
 
 brew 'browser'
+brew 'elixir'
 brew 'exiftool'
 brew 'ffmpeg'
 brew 'fzf'
