@@ -78,6 +78,7 @@ cask 'shortcat'
 cask 'slack'
 cask 'superduper'
 cask 'suspicious-package'
+cask 'taskpaper'
 cask 'the-unarchiver'
 cask 'vlc'
 
