@@ -62,6 +62,7 @@ cask 'colorpicker-developer'
 cask 'cyberduck'
 cask 'dash'
 cask 'dropbox'
+cask 'gemini'
 cask 'github-desktop'
 cask 'handbrake'
 cask 'imagealpha'
@@ -96,7 +97,6 @@ mas 'DaisyDisk', id: 411643860
 mas 'Divvy', id: 413857545
 mas 'Fantastical 2', id: 975937182
 mas 'GIF Brewery 3', id: 1081413713
-mas 'Gemini', id: 463541543
 mas 'Kaleidoscope', id: 587512244
 mas 'Keynote', id: 409183694
 mas 'LilyView', id: 529490330
