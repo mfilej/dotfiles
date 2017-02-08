@@ -87,6 +87,7 @@ cask 'vlc'
 cask 'google-chrome', args: { appdir: '/Applications' }
 cask 'caskroom/versions/google-chrome-canary', args: { appdir: '/Applications' }
 
+mas '1Blocker', id: 1107421413
 mas '1Keyboard', id: 766939888
 mas 'Acorn', id: 1019272813
 mas 'Annotate', id: 918207447
