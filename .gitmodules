@@ -10,9 +10,6 @@
 [submodule ".vim/bundle/ag.vim"]
 	path = .vim/bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/wting/rust.vim.git
 [submodule ".vim/bundle/vim-bracketed-paste"]
 	path = .vim/bundle/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
@@ -61,7 +58,7 @@
 	ignore = dirty
 [submodule ".dotfiles-vendor/mislav"]
 	path = .dotfiles-vendor/mislav
-	url = git@github.com:mislav/dotfiles.git
+	url = https://github.com/mislav/dotfiles.git
 [submodule ".vim/bundle/papercolor-theme"]
 	path = .vim/bundle/papercolor-theme
 	url = git@github.com:NLKNguyen/papercolor-theme.git
