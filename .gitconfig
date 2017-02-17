@@ -11,7 +11,7 @@
 	km = commit --amend -v
 	co = checkout
 	l = log --graph --decorate --pretty=sentence
-	b = branch
+	b = branch -v
 	f = fetch
 	r = rebase
 	ff = pull --ff-only
