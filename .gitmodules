@@ -49,9 +49,6 @@
 [submodule ".vim/bundle/vim-bundler"]
 	path = .vim/bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
-[submodule ".rbenv/plugins/rbenv-user-gems"]
-	path = .rbenv/plugins/rbenv-user-gems
-	url = https://github.com/mislav/rbenv-user-gems.git
 [submodule ".vim/bundle/vim-test"]
 	path = .vim/bundle/vim-test
 	url = git@github.com:janko-m/vim-test.git
