@@ -31,6 +31,7 @@ mas '1Password', id: 443987910
 cask 'launchbar'
 
 brew 'browser'
+brew 'ctags'
 brew 'elixir'
 brew 'exiftool'
 brew 'ffmpeg'
