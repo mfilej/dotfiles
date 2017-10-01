@@ -4,8 +4,4 @@
   "~b" = "moveWordBackward:";
   "^w" = "deleteWordBackward:";
   "^u" = "deleteToBeginningOfLine:";
-  // bold selection (Markdown)
-  "@~b" = (selectWord:, setMark:, swapWithMark:, deleteToMark:, insertText:, "**", yank:, insertText:, " ", moveLeft:, insertText:, "**", moveRight:, deleteBackward:);
-  // italicize selection (Markdown)
-  "@~i" = (selectWord:, setMark:, swapWithMark:, deleteToMark:, insertText:, "*", yank:, insertText:, " ", moveLeft:, insertText:, "*", moveRight:, deleteBackward:);
 }
