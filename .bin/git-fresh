@@ -11,5 +11,5 @@ if [[ ! -f .gitignore ]]; then
 fi
 
 
-git add -N .gitignore
+git add .gitignore
 git commit -m "Fresh repo"
