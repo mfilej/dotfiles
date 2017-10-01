@@ -82,5 +82,3 @@
 	insteadOf = hub:
 [diff "exif"]
 	textconv = exiftool
-[hub]
-	host = github.skillsoft.com
