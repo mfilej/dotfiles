@@ -53,6 +53,7 @@ brew 'youtube-dl'
 brew 'petere/postgresql/postgresql-9.4'
 
 cask '0xed'
+cask 'acorn'
 cask 'appcleaner'
 cask 'backuploupe'
 cask 'bartender'
@@ -90,7 +91,6 @@ cask 'caskroom/versions/google-chrome-canary', args: { appdir: '/Applications' }
 
 mas '1Blocker', id: 1107421413
 mas '1Keyboard', id: 766939888
-mas 'Acorn', id: 1019272813
 mas 'Annotate', id: 918207447
 mas 'Aware', id: 1082170746
 mas 'Calca', id: 635758264
