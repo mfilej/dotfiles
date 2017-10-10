@@ -5,10 +5,12 @@
 
 set -e
 
-if [[ "${branch_name}" == "master" ]]; then
-  echo "Can't boost master."
+default_branch_name="${GIT_DEFAULT_BRANCH:-master}"
+
+if [[ "${branch_name}" == "${default_branch_name}" ]]; then
+  echo "Can't boost $branch_name."
   exit 1
 fi
 
-git fetch origin
-git rebase "$@" origin/master
+git fetch origin "$default_branch_name:$default_branch_name"
+git rebase "origin/$default_branch_name"
