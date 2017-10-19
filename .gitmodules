@@ -77,3 +77,6 @@
 [submodule ".vim/bundle/vim-rhubarb"]
 	path = .vim/bundle/vim-rhubarb
 	url = https://github.com/tpope/vim-rhubarb
+[submodule ".vim/bundle/nginx.vim"]
+	path = .vim/bundle/nginx.vim
+	url = git@github.com:chr4/nginx.vim.git
