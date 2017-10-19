@@ -81,6 +81,9 @@ cnoremap <c-a> <home>| " move to beginning of the line in command mode too
 map <F1> <nop>| " disable F1 key
 imap <F1> <nop>
 
+xmap <leader>a <Plug>(EasyAlign)
+nmap <leader>a <Plug>(EasyAlign)
+
 
 " Options
 " -------
