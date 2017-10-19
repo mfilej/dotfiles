@@ -101,6 +101,7 @@ mas 'GIF Brewery 3', id: 1081413713
 mas 'Kaleidoscope', id: 587512244
 mas 'Keynote', id: 409183694
 mas 'LilyView', id: 529490330
+mas 'Lungo', id: 1263070803
 mas 'Napkin', id: 581789185
 mas 'NepTunes', id: 1006739057
 mas 'Numbers', id: 409203825
