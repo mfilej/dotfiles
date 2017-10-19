@@ -80,3 +80,6 @@
 [submodule ".vim/bundle/nginx.vim"]
 	path = .vim/bundle/nginx.vim
 	url = git@github.com:chr4/nginx.vim.git
+[submodule ".vim/bundle/vim-easy-align"]
+	path = .vim/bundle/vim-easy-align
+	url = git@github.com:git@github.com:junegunn/vim-easy-align.git
