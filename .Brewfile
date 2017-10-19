@@ -7,7 +7,6 @@
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
-tap 'petere/postgresql'
 
 brew 'fish'
 brew 'tmux'
