@@ -10,6 +10,7 @@ set nocompatible
 set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
+let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
 set rtp+=/usr/local/opt/fzf
 
 execute pathogen#infect()
