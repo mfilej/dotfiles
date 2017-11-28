@@ -164,9 +164,6 @@ autocmd BufRead,BufNewFile
   \ {Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder}
   \ set ft=ruby
 
-" Treat JSON files as JavaScript
-autocmd BufRead,BufNewFile *.json set ft=javascript
-
 " gitconfig uses hard tabs
 autocmd FileType gitconfig setl noexpandtab shiftwidth=8
 
