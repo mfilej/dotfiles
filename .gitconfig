@@ -26,6 +26,8 @@
 	sup = log --reverse --no-merges --stat HEAD@{1}..
 	nothere = cherry -v master
 	ctags = !.git/hooks/ctags
+	dt = difftool -y -t Kaleidoscope
+	mt = mergetool -y -t Kaleidoscope
 [pretty]
 	sentence=format:%C(yellow)%h%Creset%C(red)%d%Creset %C(white)%s%Creset %C(green)%cr %C(dim)by %an%Creset
 [clean]
