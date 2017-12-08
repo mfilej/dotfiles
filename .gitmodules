@@ -1,6 +1,6 @@
 [submodule ".rbenv/plugins/rbenv-ctags"]
 	path = .rbenv/plugins/rbenv-ctags
-	url = git://github.com/tpope/rbenv-ctags.git
+	url = https://github.com/tpope/rbenv-ctags.git
 [submodule "/Users/miha/.rbenv/plugins/rbenv-default-gems"]
 	path = .rbenv/plugins/rbenv-default-gems
 	url = https://github.com/sstephenson/rbenv-default-gems.git
@@ -42,7 +42,7 @@
 	url = https://github.com/tpope/vim-ragtag.git
 [submodule ".vim/bundle/vim-elixir"]
 	path = .vim/bundle/vim-elixir
-	url = git@github.com:elixir-lang/vim-elixir.git
+	url = https://github.com/elixir-lang/vim-elixir.git
 [submodule ".vim/bundle/vim-crystal"]
 	path = .vim/bundle/vim-crystal
 	url = https://github.com/rhysd/vim-crystal
@@ -51,14 +51,14 @@
 	url = git://github.com/tpope/vim-bundler.git
 [submodule ".vim/bundle/vim-test"]
 	path = .vim/bundle/vim-test
-	url = git@github.com:janko-m/vim-test.git
+	url = https://github.com/janko-m/vim-test.git
 	ignore = dirty
 [submodule ".dotfiles-vendor/mislav"]
 	path = .dotfiles-vendor/mislav
 	url = https://github.com/mislav/dotfiles.git
 [submodule ".vim/bundle/papercolor-theme"]
 	path = .vim/bundle/papercolor-theme
-	url = git@github.com:NLKNguyen/papercolor-theme.git
+	url = https://github.com/NLKNguyen/papercolor-theme.git
 [submodule ".vim/bundle/file-line"]
 	path = .vim/bundle/file-line
 	url = https://github.com/bogado/file-line
@@ -79,10 +79,10 @@
 	url = https://github.com/tpope/vim-rhubarb
 [submodule ".vim/bundle/nginx.vim"]
 	path = .vim/bundle/nginx.vim
-	url = git@github.com:chr4/nginx.vim.git
+	url = https://github.com/chr4/nginx.vim.git
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
-	url = git@github.com:SirVer/ultisnips.git
+	url = https://github.com/SirVer/ultisnips.git
 [submodule ".vim/bundle/vim-easy-align"]
 	path = .vim/bundle/vim-easy-align
-	url = git@github.com:git@github.com:junegunn/vim-easy-align.git
+	url = https://github.com/junegunn/vim-easy-align.git
