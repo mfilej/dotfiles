@@ -13,7 +13,7 @@ brew 'tmux'
 brew 'reattach-to-user-namespace'
 
 brew 'vim'
-brew 'the_silver_searcher'
+brew 'ripgrep'
 brew 'selecta'
 
 brew 'direnv'

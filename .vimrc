@@ -10,7 +10,7 @@ set nocompatible
 set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
-let $FZF_DEFAULT_COMMAND = 'ag -l -g ""'
+let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 set rtp+=/usr/local/opt/fzf
 
 execute pathogen#infect()
@@ -50,7 +50,7 @@ nmap <leader>v :vs ~/.vimrc<CR>
 nmap <leader>r :w\|:!reload_chromium<cr><cr>
 nmap <leader>R :map <lt>cr> :w<Bslash><Bar>!
 nmap <leader>N :set paste!<CR>
-nmap <leader>K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
+nmap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nmap <leader>[ :tabp<CR>
 nmap <leader>] :tabn<CR>
 nmap <leader>y ysiw
@@ -133,6 +133,7 @@ set noswapfile
 
 set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
 
+set grepprg=rg\ --vimgrep
 
 " Mouse & iTerm2 support
 " ----------------------
