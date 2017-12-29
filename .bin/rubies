@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ruby_version=$1
+ruby_major="${ruby_version%.*}.0"
+
+ruby-build "${ruby_version}" "${HOME}/.rubies/${ruby_version}"
+
+mkdir -p "${HOME}/.gem/ruby/${ruby_version}/bin"
+mkdir -p "${HOME}/.rubies/${ruby_version}/lib/ruby/gems/${ruby_major}/bin"
