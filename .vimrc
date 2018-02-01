@@ -216,20 +216,6 @@ endfunction
 :command! ClearAssignmentPadding :call ClearAssignmentPadding()
 :map <leader>= :ClearAssignmentPadding<cr>
 
-" https://github.com/jkramer/vim-checkbox/blob/master/plugin/checkbox.vim
-function! ToggleCheckbox()
-	let line = getline('.')
-
-	if(match(line, "\\[ \\]") != -1)
-		let line = substitute(line, "\\[ \\]", "[x]", "")
-	elseif(match(line, "\\[x\\]") != -1)
-		let line = substitute(line, "\\[x\\]", "[ ]", "")
-	endif
-
-	call setline('.', line)
-endf
-nnoremap <leader>x :call ToggleCheckbox()<cr>
-
 function! ToCamelCase()
   :s#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g
 endfunction
