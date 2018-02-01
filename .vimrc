@@ -134,6 +134,7 @@ set noswapfile
 set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
 
 set grepprg=rg\ --vimgrep
+set grepformat=%f:%l:%c:%m
 
 " Mouse & iTerm2 support
 " ----------------------
