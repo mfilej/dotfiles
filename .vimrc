@@ -10,7 +10,7 @@ set nocompatible
 set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 set rtp+=/usr/local/opt/fzf
 
 execute pathogen#infect()
