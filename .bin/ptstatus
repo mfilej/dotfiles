@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# vim: set ft=ruby:
+
+if [[ -z "${PIVOTAL_USERNAME}" ]]; then
+  echo 'Please provide PT username in $PIVOTAL_USERNAME env var.'
+  exit 1
+fi
+
+stories() {
+  pivotal_tools show stories "--for=${PIVOTAL_USERNAME}" | grep '^#'
+}
+
+title_and_url() {
+  ruby --disable-gems -x "$0" $*
+}
+
+stories | fzf | title_and_url | tee >(pbcopy)
+exit
+
+#!ruby
+
+line = ARGF.read.chomp
+id = line[/\A#(\d+)/, 1]
+title = line.split("] ").last
+puts "#{title}\nhttps://www.pivotaltracker.com/story/show/#{id}"
