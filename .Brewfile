@@ -94,7 +94,7 @@ mas 'LilyView', id: 529490330
 mas 'Lungo', id: 1263070803
 mas 'Napkin', id: 581789185
 mas 'NepTunes', id: 1006739057
-mas 'Paprika Recipe Manager', id: 451907568
+mas 'Paprika Recipe Manager 3', id: 1303222628
 mas 'Pixelmator', id: 407963104
 mas 'Slicy', id: 512533449
 mas 'Soulver', id: 413965349
