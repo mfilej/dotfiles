@@ -1,0 +1,85 @@
+snippet def "ruby method definition" b
+def ${1:method_name}
+  ${0}
+end
+endsnippet
+
+snippet mod "ruby module definition" b
+module $1
+  ${0:${VISUAL}}
+end
+endsnippet
+
+snippet modf "ruby module definition with module_function" b
+module $1
+  module_function
+
+  ${0:${VISUAL}}
+end
+endsnippet
+
+snippet mf "module_function" b
+module_function
+endsnippet
+
+snippet cla "ruby class definition" b
+class $1
+  ${0:${VISUAL}}
+end
+endsnippet
+
+snippet fro "frozen string literal" b
+# frozen_string_literal: true
+endsnippet
+
+snippet she "ruby shebang" b
+#!/usr/bin/env ruby
+endsnippet
+
+snippet let "RSpec let block" b
+let(:${1:object}) { ${0} }
+endsnippet
+
+snippet letd "RSpec let do/end block" b
+let(:${1:object}) do
+  ${0}
+end
+endsnippet
+
+snippet sub "RSpec subject block" b
+subject(:${1:object}) { ${0} }
+endsnippet
+
+snippet subd "RSpec subject do/end block" b
+subject(:${1:object}) do
+  ${0}
+end
+endsnippet
+
+snippet it "RSpec it block" b
+it "${1:example_name}" do
+  ${0}
+end
+endsnippet
+
+snippet des "RSpec describe block" b
+describe "${1:description}" do
+  ${0}
+end
+endsnippet
+
+snippet context "RSpec context block" b
+context "${1:context}" do
+  ${0}
+end
+endsnippet
+
+snippet binp "binding.pry"
+binding.pry
+endsnippet
+
+snippet binr "binding.remote_pry"
+binding.remote_pry
+endsnippet
+
+
