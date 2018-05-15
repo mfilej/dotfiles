@@ -59,8 +59,6 @@ nmap <leader>w :set nowrap!<CR>| " toggle line wrapping
 
 map <Leader>tt :wa \| :TestFile<CR>| " test.vim mappings
 map <Leader>tn :wa \| :TestNearest<CR>
-map <Leader>ts :wa \| :TestSuite<CR>
-map <Leader>tv :wa \| :TestVisit<CR>
 
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>. :A<cr>| " alternate
@@ -178,6 +176,15 @@ if has("autocmd")
   \ *.rb,*.ex,*.exs,*.js,*.sass,*.haml,*.yml
   \ :call <SID>StripTrailingWhitespace()
 endif
+
+
+" Commands
+" --------
+
+command! -nargs=* -complete=dir Lcd call fzf#run(fzf#wrap(
+  \ {'source': 'find . -type d -depth 1 -or -path "*gems*" -and -depth 2 | grep -v -E "^\./\."',
+  \  'sink': 'lcd'}))
+:map <leader>l :Lcd<cr>
 
 
 " Functions
