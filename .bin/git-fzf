@@ -1,0 +1,35 @@
+#!/bin/sh
+# git fzf b - select branches
+# git fzf i - select files from index
+
+set -e
+
+perform_selection() {
+  echo "$list" | fzf --multi --ansi -n "${n}"
+}
+
+case "$1" in
+  b|branch)
+    list=$(git branch -v | grep -v '^\*')
+    n=1
+    command="git checkout"
+    selection=$(perform_selection | awk '{print $1}' | sed "s/.* //")
+    ;;
+
+  i|index)
+    list=$(git -c color.status=always status --short)
+    n=2
+    command="git diff"
+    selection=$(perform_selection | awk '{print $2}')
+    ;;
+  *)
+    echo $"Usage: $0 {b[ranch]|i[ndex]} <command>"
+    exit 1
+esac
+
+if [[ -n $2 ]]; then
+  shift
+  command=$@
+fi
+
+$command $selection
