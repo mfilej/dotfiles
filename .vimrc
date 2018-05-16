@@ -164,6 +164,10 @@ autocmd BufRead,BufNewFile
   \ {Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder}
   \ set ft=ruby
 
+autocmd BufRead,BufNewFile
+  \ {.envrc,.direnvrc}
+  \ set ft=sh
+
 " gitconfig uses hard tabs
 autocmd FileType gitconfig setl noexpandtab shiftwidth=8
 
