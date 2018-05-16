@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 # vim: set ft=ruby:
 
+if ! type pivotal_tools &> /dev/null; then
+  echo 'pivotal_tools not found in path.'
+  echo 'Run `pip install pivotal_tools` to install.'
+  exit 69
+fi
+
 if [[ -z "${PIVOTAL_USERNAME}" ]]; then
   echo 'Please provide PT username in $PIVOTAL_USERNAME env var.'
-  exit 1
+  exit 78
 fi
 
 stories() {
