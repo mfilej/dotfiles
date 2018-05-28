@@ -185,10 +185,12 @@ endif
 " Commands
 " --------
 
+" Fuzzy find subdirectories (up to two levels) and open :lcd to the selected
+" directory in a new tab
 command! -nargs=* -complete=dir Lcd call fzf#run(fzf#wrap(
-  \ {'source': 'find . -type d -depth 1 -or -path "*gems*" -and -depth 2 | grep -v -E "^\./\."',
+  \ {'source': 'find . -type d -maxdepth 1 -or -type d -maxdepth 2 | grep -v -E "^\./\."',
   \  'sink': 'lcd'}))
-:map <leader>l :Lcd<cr>
+:map <leader>l :$tabe<bar>Lcd<cr>
 
 
 " Functions
