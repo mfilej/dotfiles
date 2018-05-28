@@ -7,4 +7,5 @@
 .DS_Store
 .direnv
 .envrc
+.gem
 .ignore
