@@ -13,7 +13,10 @@ if [[ -z "${PIVOTAL_USERNAME}" ]]; then
 fi
 
 stories() {
-  pivotal_tools show stories "--for=${PIVOTAL_USERNAME}" | grep '^#'
+  pivotal_tools show stories \
+    "--for=${PIVOTAL_USERNAME}" \
+    "--project-index=${PIVOTAL_PROJECT_INDEX:-1}" \
+    | grep '^#'
 }
 
 title_and_url() {
