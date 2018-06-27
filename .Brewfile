@@ -30,7 +30,6 @@ mas '1Password', id: 443987910
 cask 'launchbar'
 
 brew 'browser'
-brew 'ctags'
 brew 'elixir'
 brew 'exiftool'
 brew 'ffmpeg'
@@ -48,6 +47,7 @@ brew 'ssh-copy-id'
 brew 'switchaudio-osx'
 brew 'trash'
 brew 'tree'
+brew 'universal-ctags/universal-ctags/universal-ctags', args: ['HEAD']
 brew 'unrar'
 brew 'wget'
 brew 'yarn'
