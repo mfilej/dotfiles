@@ -58,6 +58,8 @@ nmap <leader>N :set paste!<CR>
 nmap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nmap <leader>[ :tabp<CR>
 nmap <leader>] :tabn<CR>
+nmap <leader>< :tabp<CR>
+nmap <leader>> :tabn<CR>
 nmap <leader>y ysiw
 nmap <leader>Y ysaW
 nmap <leader>w :set nowrap!<CR>| " toggle line wrapping
