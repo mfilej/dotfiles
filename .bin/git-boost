@@ -19,4 +19,5 @@ if [[ "${branch_name}" == "${default_branch_name}" ]]; then
   exit 1
 fi
 
+git fetch
 git rebase $autosquash "origin/$default_branch_name"
