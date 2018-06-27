@@ -31,6 +31,11 @@ highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
 highlight Search      guibg=black gui=underline ctermbg=black cterm=underline
 highlight LineNr      ctermfg=246 ctermbg=234
 
+hi DiffAdd guifg=NONE ctermfg=NONE guibg=#464632 ctermbg=022 gui=NONE cterm=NONE
+hi DiffChange guifg=NONE ctermfg=NONE guibg=#335261 ctermbg=236 gui=NONE cterm=NONE
+hi DiffDelete guifg=#f43753 ctermfg=052 guibg=#79313c ctermbg=237 gui=NONE cterm=NONE
+hi DiffText guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
+
 " Bindings
 " --------
 
