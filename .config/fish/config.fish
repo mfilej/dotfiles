@@ -6,7 +6,6 @@ set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 set -e fish_greeting
 
 alias g git
-alias cask "brew cask"
 alias lb "open -aLaunchBar"
 
 function .G --wraps git
