@@ -3,7 +3,6 @@
 	email = miha@filej.net
 [core]
 	excludesfile = ~/.cvsignore
-	editor = vim -f
 [alias]
 	s = status -sb
 	k = commit -v
