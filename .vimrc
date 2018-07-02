@@ -159,6 +159,7 @@ endif
 " -------
 
 set wildignore+=.bundle/**
+set wildignore+=.gem/**
 set wildignore+=build/**
 set wildignore+=node_modules/*
 set wildignore+=tmp/**
