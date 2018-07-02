@@ -184,6 +184,10 @@ autocmd Filetype gitcommit setlocal spell textwidth=72
 autocmd Filetype markdown setlocal spell
 autocmd FileType fish compiler fish
 
+" Don't keep fugitive buffers open
+" http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
 if has("autocmd")
   autocmd BufWritePre
   \ *.rb,*.ex,*.exs,*.js,*.sass,*.haml,*.yml
