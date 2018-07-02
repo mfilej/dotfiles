@@ -19,6 +19,7 @@
 !/.config/fish/functions/
 !/.config/fish/completions/
 !/.config/fish/config.fish
+!/.config/nvim
 !/.config/osx-defaults/
 !/.ctags
 !/.cvsignore

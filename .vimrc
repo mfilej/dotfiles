@@ -144,15 +144,16 @@ set grepformat=%f:%l:%c:%m
 " Mouse & iTerm2 support
 " ----------------------
 
-" Configure vim in iterm2 (http://usevim.com/2012/05/16/mouse/)
-" Send more characters for redraws
-set ttyfast
-" Enable mouse use in all modes
-set mouse=a
-" Set this to the name of your terminal that supports mouse codes.
-" Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-set ttymouse=xterm2
-
+if !has('nvim')
+  " Configure vim in iterm2 (http://usevim.com/2012/05/16/mouse/)
+  " Send more characters for redraws
+  set ttyfast
+  " Enable mouse use in all modes
+  set mouse=a
+  " Set this to the name of your terminal that supports mouse codes.
+  " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
+  set ttymouse=xterm2
+endif
 
 " Ignores
 " -------
