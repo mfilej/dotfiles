@@ -88,7 +88,6 @@ cask 'google-chrome', args: { appdir: '/Applications' }
 cask 'caskroom/versions/google-chrome-canary', args: { appdir: '/Applications' }
 
 mas '1Keyboard', id: 766939888
-mas 'Annotate', id: 918207447
 mas 'Aware', id: 1082170746
 mas 'Better Blocker', id: 1121192229
 mas 'ColorSnapper2', id: 969418666
