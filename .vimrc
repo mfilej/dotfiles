@@ -90,9 +90,16 @@ imap <F1> <nop>
 xmap <leader>a <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
 
+let g:UltiSnipsExpandTrigger="<tab>"
 
 " Options
 " -------
+
+" https://git.io/fNUg6
+set re=1
+
+" Automatically reload files that are changed outside vim
+set autoread
 
 set synmaxcol=2048 " long lines slow down highlighting
 set linespace=1
