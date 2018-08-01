@@ -202,6 +202,13 @@ if has("autocmd")
 endif
 
 
+" Neovim Terminal-mode settings
+
+augroup TerminalModeSetup
+  au!
+  autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
+
 " Commands
 " --------
 
