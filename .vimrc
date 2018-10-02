@@ -207,6 +207,11 @@ endif
 " Commands
 " --------
 
+" Fuzzy find open buffers
+command! Buffers call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'),
+            \ 'sink': 'e', 'down': '30%'})
+nmap <leader>b :Buffers<cr>
+
 " Fuzzy find subdirectories (up to two levels) and open :lcd to the selected
 " directory in a new tab
 command! -nargs=* -complete=dir Lcd call fzf#run(fzf#wrap(
