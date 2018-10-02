@@ -50,7 +50,7 @@ nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Gcommit -v<cr>
 nmap <leader>gw :Gwrite<cr>
-nmap <leader>gs :Gstatus<bar>Gtabedit :<cr>
+nmap <leader>gs Gtabedit :<cr>
 nmap <leader>v :vs ~/.vimrc<CR>
 nmap <leader>r :w\|:!reload_chromium<cr><cr>
 nmap <leader>R :map <lt>cr> :w<Bslash><Bar>!
