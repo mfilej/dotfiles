@@ -16,3 +16,4 @@ augroup TerminalModeSetup
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
+let g:ale_sign_column_always = 1
