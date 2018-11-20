@@ -27,6 +27,7 @@
 	ctags = !.git/hooks/ctags
 	dt = difftool -y -t Kaleidoscope
 	mt = mergetool -y -t Kaleidoscope
+	wip = commit --no-verify -m "Wip"
 [pretty]
 	sentence=format:%C(yellow)%h%Creset%C(red)%d%Creset %C(white)%s%Creset %C(green)%cr %C(dim)by %an%Creset
 [clean]
