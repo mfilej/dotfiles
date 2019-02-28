@@ -56,8 +56,8 @@ nmap <leader>r :w\|:!reload_chromium<cr><cr>
 nmap <leader>R :nmap <lt>cr> :w<Bslash><Bar>!
 nmap <leader>N :set paste!<CR>
 nmap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-nmap <leader>[ :tabp<CR>
-nmap <leader>] :tabn<CR>
+nmap <Tab> :tabn<CR>
+nmap <S-Tab> :tabp<CR>
 nmap <leader>< :tabp<CR>
 nmap <leader>> :tabn<CR>
 nmap <leader>y ysiw
@@ -89,8 +89,6 @@ imap <F1> <nop>
 
 xmap <leader>a <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
-
-let g:UltiSnipsExpandTrigger="<tab>"
 
 " Options
 " -------
