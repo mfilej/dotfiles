@@ -15,3 +15,13 @@ use_ruby() {
   fi
   chruby $ver
 }
+
+# use gem_home <dir>
+use_gem_home() {
+  local dir=$1
+  local ruby_version=`ruby -e 'puts RUBY_VERSION'`
+
+  install -d "$dir/.gem/ruby/$ruby_version/bin"
+
+  gem_home $dir
+}
