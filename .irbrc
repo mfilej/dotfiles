@@ -1,5 +1,5 @@
 def enable_irb_history(filename)
-  require 'irb/ext/save-history'
+  require "irb/ext/save-history"
   IRB.conf[:SAVE_HISTORY] = 1000
   IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.#{filename}"
 end
