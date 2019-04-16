@@ -5,8 +5,7 @@ set -euo pipefail
 ruby_version="${1:-}"
 
 if [ -z "$ruby_version" ]; then
-  ruby-build --definitions
-  exit
+  ruby_version=$(ruby-build --definitions | fzf)
 fi
 
 ruby_major="${ruby_version%.*}.0"
