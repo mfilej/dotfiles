@@ -11,6 +11,8 @@ set inccommand=nosplit " Live preview for :s[ubstitute]
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-v><Esc> <Esc>
+tnoremap <Tab> <C-\><C-n> :tabn<CR>
+tnoremap <S-Tab> <C-\><C-n> :tabp<CR>
 
 augroup TerminalModeSetup
   au!
