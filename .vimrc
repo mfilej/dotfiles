@@ -183,8 +183,9 @@ if has("autocmd")
     \ {Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder}
     \ set ft=ruby
 
+  " Direnv
   autocmd BufRead,BufNewFile
-    \ {.envrc,.direnvrc}
+    \ {.envrc,.direnvrc,direnvrc}
     \ set ft=sh
 
   " gitconfig uses hard tabs
