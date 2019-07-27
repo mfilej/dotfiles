@@ -87,3 +87,5 @@
 	textconv = exiftool
 [includeIf "gitdir:~/Work/"]
 	path = .gitconfig-work
+[protocol]
+	version = 2
