@@ -13,10 +13,12 @@ set secure "   (but disallow shell execution)
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
 set rtp+=/usr/local/opt/fzf " load plugin that comes with fzf
 
-execute pathogen#infect()
+if !has('nvim')
+  " Neovim loads plugins from .local/share/nvim/site/pack/*/start/
+  execute pathogen#infect()
+endif
 
 source ~/.vim/vimrc-local
-
 
 " Colors & Theme
 " --------------
