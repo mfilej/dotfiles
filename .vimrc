@@ -11,7 +11,7 @@ set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf " load plugin that comes with fzf
 
 execute pathogen#infect()
 
@@ -28,7 +28,7 @@ color vividchalk
 highlight Comment     ctermfg=103
 highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
                     \ ctermbg=235 ctermfg=NONE cterm=NONE
-highlight Search      guibg=black gui=underline ctermbg=black cterm=underline
+highlight Search      guibg=black gui=underline cterm=underline
 highlight LineNr      ctermfg=246 ctermbg=234
 
 hi DiffAdd guifg=NONE ctermfg=NONE guibg=#464632 ctermbg=022 gui=NONE cterm=NONE
@@ -58,8 +58,6 @@ nmap <leader>N :set paste!<CR>
 nmap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nmap <Tab> :tabn<CR>
 nmap <S-Tab> :tabp<CR>
-nmap <leader>< :tabp<CR>
-nmap <leader>> :tabn<CR>
 nmap <leader>y ysiw
 nmap <leader>Y ysaW
 nmap <leader>w :set nowrap!<CR>| " toggle line wrapping
@@ -112,6 +110,8 @@ set winwidth=84
 set winheight=3
 set winminheight=3
 
+set nowrap
+
 " Insert only one space when joining lines that contain sentence-terminating
 " punctuation like `.`.
 set nojoinspaces
@@ -136,6 +136,8 @@ set visualbell " no beeping
 set ignorecase " case-insensitive search
 set smartcase  "   (unless expression contains a capital letter)
 set hlsearch  " highlight search matches
+set complete+=k
+set dictionary+=/usr/share/dict/words
 set re=1 " https://git.io/v6YxR
 set nobackup
 set nowritebackup
@@ -215,7 +217,7 @@ nmap <leader>b :Buffers<cr>
 command! -nargs=* -complete=dir Lcd call fzf#run(fzf#wrap(
   \ {'source': 'find . -type d -maxdepth 1 -or -type d -maxdepth 2 | grep -v -E "^\./\."',
   \  'sink': 'lcd'}))
-nmap <leader>l :$tabe<bar>Lcd<cr>
+nmap <leader>l :$tabe .<bar>Lcd<cr>
 
 " Functions
 " ---------
