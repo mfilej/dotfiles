@@ -5,6 +5,7 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vimrc
 
+set inccommand=nosplit " Live preview for :s[ubstitute]
 
 " Neovim Terminal-mode settings
 
