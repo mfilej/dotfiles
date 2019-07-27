@@ -20,4 +20,4 @@ if [[ "${branch_name}" == "${default_branch_name}" ]]; then
 fi
 
 git fetch
-git rebase $autosquash "origin/$default_branch_name"
+git rebase --autostash $autosquash "origin/$default_branch_name"
