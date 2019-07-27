@@ -3,6 +3,8 @@
 function cask
   if test "$argv[1]" = "up"
     brew up
+  else if test "$argv[1]" = "search"
+    brew search "$argv[2..-1]"
   else
     brew cask $argv
   end
