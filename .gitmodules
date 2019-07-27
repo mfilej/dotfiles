@@ -105,8 +105,8 @@
 	path = .local/share/nvim/site/pack/git/start/neovim-fuzzy
 	url = git@github.com:cloudhead/neovim-fuzzy.git
 [submodule ".local/share/nvim/site/pack/git/start/fzf.vim"]
-	path = .local/share/nvim/site/pack/git/start/fzf.vim
+	path = .vim/bundle/fzf.vim
 	url = git@github.com:junegunn/fzf.vim.git
 [submodule ".local/share/nvim/site/pack/git/start/elm-vim"]
-	path = .local/share/nvim/site/pack/git/start/elm-vim
+	path = .vim/bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim
