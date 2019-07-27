@@ -1,1 +1,0 @@
-/Users/miha/.config/fisherman/anicode/functions/anicode.fish

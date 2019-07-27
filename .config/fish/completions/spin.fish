@@ -1,1 +1,0 @@
-/Users/miha/.config/fisherman/spin/completions/spin.fish

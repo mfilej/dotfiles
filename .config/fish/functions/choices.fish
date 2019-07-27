@@ -1,1 +1,0 @@
-/Users/miha/.config/fisherman/choices/functions/choices.fish

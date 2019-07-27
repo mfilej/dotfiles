@@ -1,1 +1,0 @@
-/Users/miha/.config/fisherman/get/completions/get.fish
