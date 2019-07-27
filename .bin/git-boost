@@ -7,7 +7,7 @@ set -e
 
 default_branch_name="${GIT_DEFAULT_BRANCH:-master}"
 
-if [[ "$1" == "squash" ]]; then
+if [[ "$1" == "-i" ]]; then
   autosquash="--autosquash --interactive"
 else
   autosquash="--no-autosquash"
