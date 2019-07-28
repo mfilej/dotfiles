@@ -4,7 +4,10 @@ set -x EDITOR "/usr/local/bin/nvim"
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 set -e fish_greeting
 
-alias g git
+abbr --add -- - "cd -"
+abbr --add g git
+abbr --add ls ls -la
+
 alias vim nvim
 alias lb "open -aLaunchBar"
 
