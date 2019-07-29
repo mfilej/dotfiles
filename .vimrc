@@ -11,6 +11,7 @@ set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+let g:rsi_no_meta = 1
 set rtp+=/usr/local/opt/fzf " load plugin that comes with fzf
 
 if !has('nvim')

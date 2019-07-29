@@ -110,3 +110,6 @@
 [submodule ".local/share/nvim/site/pack/git/start/elm-vim"]
 	path = .vim/bundle/elm-vim
 	url = https://github.com/ElmCast/elm-vim
+[submodule ".vim/bundle/vim-rsi"]
+	path = .vim/bundle/vim-rsi
+	url = https://github.com/tpope/vim-rsi
