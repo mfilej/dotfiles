@@ -67,8 +67,9 @@ nmap <leader>y ysiw
 nmap <leader>Y ysaW
 nmap <leader>w :set nowrap!<CR>| " toggle line wrapping
 
-map <Leader>tt :wa \| :TestFile<CR>| " test.vim mappings
-map <Leader>tn :wa \| :TestNearest<CR>
+" test.vim mappings
+map <Leader>tt :wa \| :TestFile -strategy=neovim<CR><c-\><c-n><c-w>T
+map <Leader>tn :wa \| :TestNearest -strategy=neovim<CR><c-\><c-n><c-w>T
 
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>. :A<cr>| " alternate
