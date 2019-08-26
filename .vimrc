@@ -44,8 +44,10 @@ hi DiffText guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=reverse cterm=re
 
 let mapleader = " "
 
-nmap <leader>p :FZF<cr>
-nmap <leader>P :FZF %%<cr>
+" nmap <leader>p :FZF<cr>
+nnoremap <leader>p :Files<cr>
+nmap <leader>P :Files %%<cr>
+nmap <leader>b :Buffers<cr>
 nmap <leader>fd :Sdeps<cr>| " mnemonic: f=file, d=deps
 nmap <leader>fr :Sroutes<cr>| " relies on projections setting `:Eroutes`
 nmap <leader>fm :sp db/migrate<cr>
@@ -211,9 +213,9 @@ endif
 " --------
 
 " Fuzzy find open buffers
-command! Buffers call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'),
-            \ 'sink': 'e', 'down': '30%'})
-nmap <leader>b :Buffers<cr>
+" command! Buffers call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'),
+"             \ 'sink': 'e', 'down': '30%'})
+" nmap <leader>b :Buffers<cr>
 
 " Fuzzy find subdirectories (up to two levels) and open :lcd to the selected
 " directory in a new tab
