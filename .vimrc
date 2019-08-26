@@ -107,6 +107,8 @@ set linespace=1
 set textwidth=78
 set winwidth=84
 
+" Do not wrap lines automatically.
+set formatoptions-=t
 
 set nowrap
 
