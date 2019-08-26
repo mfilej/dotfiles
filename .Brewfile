@@ -7,6 +7,7 @@
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'homebrew/services'
+tap 'homebrew/cask-fonts'
 
 brew 'fish'
 brew 'tmux'
@@ -123,3 +124,8 @@ cask 'quicklook-csv'
 cask 'quicklook-json'
 cask 'suspicious-package'
 cask 'webpquicklook'
+
+
+# ## Fonts
+
+cask 'font-input'
