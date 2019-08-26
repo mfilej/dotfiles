@@ -83,7 +83,6 @@ vmap <leader>c "*y<CR>
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>| " expands to pwd in command mode
 cnoremap %$ <C-R>=expand('%')<cr>| " expands to % in command mode
-cnoremap <c-a> <home>| " move to beginning of the line in command mode too
 
 map <F1> <nop>| " disable F1 key
 imap <F1> <nop>
