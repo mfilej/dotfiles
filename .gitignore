@@ -33,6 +33,13 @@
 !/.gitignore
 !/.gvimrc
 !/.irbrc
+!/.local
+/.local/*
+!/.local/share
+/.local/share/*
+!/.local/share/nvim
+/.local/share/nvim/*
+!/.local/share/nvim/site
 !/.rbenv
 /.rbenv/*
 !/.rbenv/default-gems
