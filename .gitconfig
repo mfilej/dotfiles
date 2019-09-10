@@ -1,6 +1,7 @@
 [user]
 	name = Miha Filej
 	email = miha@filej.net
+	signingkey = 2082F4F0DF126C5E
 [core]
 	excludesfile = ~/.cvsignore
 [alias]
@@ -89,3 +90,5 @@
 	path = .gitconfig-work
 [protocol]
 	version = 2
+[commit]
+	gpgsign = true
