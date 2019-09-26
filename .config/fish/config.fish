@@ -14,11 +14,15 @@ abbr --add lb open -aLaunchBar
 abbr --add pgrep pgrep -lf
 abbr --add v vim
 
-alias git hub
-alias vim nvim
+# vim-fugitive equivalents
+abbr --add cb  git branch
+abbr --add ce  git commit --amend --no-edit
+abbr --add co  git checkout
+abbr --add crc git reset --soft HEAD^
+abbr --add cva git commit --amend -v 
+abbr --add cvc git commit -v
+abbr --add rr  git rebase --continue
 
-function .G --wraps git
-  git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/ $argv
-end
+alias vim nvim
 
 direnv hook fish | source

@@ -5,26 +5,15 @@
 [core]
 	excludesfile = ~/.cvsignore
 [alias]
-	s = status -sb
-	k = commit -v
-	ka = commit --all -v
-	km = commit --amend -v
-	co = checkout
 	l = log --graph --decorate --pretty=sentence
-	b = branch -v
-	f = fetch
 	r = rebase
+	f = fetch
 	ff = pull --ff-only
 	ffo = merge --ff-only
 	nff = merge --no-ff
 	msg = commit --allow-empty -m
-	p = cherry-pick
 	h = help -w
 	head = log -1 --pretty=sentence --decorate
-	amend = commit --amend -C HEAD
-	undo = reset --soft HEAD^
-	sup = log --reverse --no-merges --stat HEAD@{1}..
-	nothere = cherry -v master
 	ctags = !.git/hooks/ctags
 	dt = difftool -y -t Kaleidoscope
 	mt = mergetool -y -t Kaleidoscope
