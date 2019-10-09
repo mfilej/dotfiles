@@ -24,10 +24,8 @@ brew 'git'
 brew 'gist'
 brew 'hub'
 
-# Install 1Password early on
-brew 'mas'
-mas '1Password', id: 443987910
-
+# Install these casks early on
+cask '1password', args: { appdir: '/Applications' }
 cask 'launchbar'
 
 brew 'browser'
@@ -87,6 +85,8 @@ cask 'firefox', args: { appdir: '/Applications' }
 cask 'opera', args: { appdir: '/Applications' }
 cask 'google-chrome', args: { appdir: '/Applications' }
 cask 'caskroom/versions/google-chrome-canary', args: { appdir: '/Applications' }
+
+brew 'mas'
 
 mas '1Keyboard', id: 766939888
 mas 'Aware', id: 1082170746
