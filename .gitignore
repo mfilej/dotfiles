@@ -44,6 +44,7 @@
 /.rbenv/*
 !/.rbenv/default-gems
 !/.rbenv/plugins
+!/.stow-global-ignore
 !/.tmux.conf
 !/.vim
 /.vim/.netrwhist
