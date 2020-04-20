@@ -137,4 +137,9 @@ cask 'webpquicklook'
 
 # ## Fonts
 
+cask 'font-cascadia-mono'
+cask 'font-fira-code'
 cask 'font-input'
+cask 'font-inter'
+cask 'font-jetbrains-mono'
+cask 'font-victor-mono'
