@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Finds the latest commit for which all check suites have passed successfully
+# and returns its abbreviated sha.
+
+set -e
+
+for ref in $(git rev-list HEAD); do
+  if hub-check-suites "$ref" | grep -q success; then
+    echo "${ref:0:7}"
+    break
+  fi
+done

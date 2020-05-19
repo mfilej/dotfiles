@@ -1,0 +1,15 @@
+#!/bin/bash
+# Usage: hub-check-suites <ref>
+#
+# Show check conclusions for given ref.
+#
+# Author: @mfilej
+set -e
+
+conclusions() {
+  hub api \
+    -H "Accept: application/vnd.github.antiope-preview+json" \
+    "repos/{owner}/{repo}/commits/${1}/check-suites"
+}
+
+conclusions "$1" |  jq -r  '.check_suites[].conclusion'
