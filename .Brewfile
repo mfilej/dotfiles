@@ -31,6 +31,7 @@ brew 'elixir'
 brew 'exiftool'
 brew 'ffmpeg'
 brew 'fzf'
+brew 'gh'
 brew 'gist'
 brew 'gnupg' 
 brew 'gpg'
@@ -54,6 +55,8 @@ brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
+
+brew "https://raw.github.com/postmodern/gem_home/master/homebrew/gem_home.rb", args: ['HEAD']
 
 cask '0xed'
 cask 'acorn'
