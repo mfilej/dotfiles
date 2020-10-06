@@ -1,17 +1,15 @@
 " VIMRC
 " =====
 
-aug AutoloadVimrc
+augroup AutoloadVimrc
   au!
-  au BufWritePost ~/.vimrc source $MYVIMRC
+  autocmd BufWritePost ~/.vimrc source $MYVIMRC
 aug END
 
 set nocompatible
 set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
-let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
-let g:rsi_no_meta = 1
 set rtp+=/usr/local/opt/fzf " load plugin that comes with fzf
 
 if !has('nvim')
@@ -24,20 +22,18 @@ source ~/.vim/vimrc-local
 " Colors & Theme
 " --------------
 
-syntax enable
-set t_Co=256
-color vividchalk
+packadd! dracula_pro
 
-highlight Comment     ctermfg=103
+syntax enable
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
+
+highlight ColorColumn   ctermbg=234
 highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
                     \ ctermbg=235 ctermfg=NONE cterm=NONE
-highlight Search      guibg=black gui=underline cterm=underline
-highlight LineNr      ctermfg=246 ctermbg=234
 
-hi DiffAdd guifg=NONE ctermfg=NONE guibg=#464632 ctermbg=022 gui=NONE cterm=NONE
-hi DiffChange guifg=NONE ctermfg=NONE guibg=#335261 ctermbg=236 gui=NONE cterm=NONE
-hi DiffDelete guifg=#f43753 ctermfg=052 guibg=#79313c ctermbg=237 gui=NONE cterm=NONE
-hi DiffText guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=reverse cterm=reverse
+highlight TabLineFill ctermfg=235
+highlight TabLine ctermfg=246 ctermbg=235 cterm=NONE
 
 " Bindings
 " --------
@@ -61,15 +57,23 @@ nmap <leader>r :w\|:!reload_chromium<cr><cr>
 nmap <leader>R :nmap <lt>cr> :w<Bslash><Bar>!
 nmap <leader>N :set paste!<CR>
 nmap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-nmap <Tab> :tabn<CR>
-nmap <S-Tab> :tabp<CR>
 nmap <leader>y ysiw
 nmap <leader>Y ysaW
 nmap <leader>w :set nowrap!<CR>| " toggle line wrapping
 
+nmap <Tab> :tabn<CR>
+nmap <S-Tab> :tabp<CR>
+" <Tab> and <C-i> are the same and can not be bound independently at the
+" moment: https://github.com/neovim/neovim/issues/5916
+" Work around the issue by mapping <C-i> to <a-i> outside of vim (e.g.
+" BetterTouchTool) and then make vim listen to <a-i> instead.
+nnoremap <a-i> <C-i>
+
 " test.vim mappings
-map <Leader>tt :wa \| :TestFile -strategy=neovim<CR><c-\><c-n><c-w>T
-map <Leader>tn :wa \| :TestNearest -strategy=neovim<CR><c-\><c-n><c-w>T
+map <Leader>tt :wa \| :TestFile -strategy=neovim<CR><c-\><c-n><c-w>L
+map <Leader>ts :wa \| :TestSuite -strategy=neovim<CR><c-\><c-n><c-w>L
+map <Leader>tof :wa \| :TestSuite -strategy=neovim --only-failures<CR><c-\><c-n><c-w>L
+map <Leader>tnf :wa \| :TestSuite -strategy=neovim --next-failure<CR><c-\><c-n><c-w>L
 
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>. :A<cr>| " alternate
@@ -82,6 +86,8 @@ noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
 
+nmap <leader>/ :nohl<CR>
+
 vmap <leader>c "*y<CR>
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>| " expands to pwd in command mode
@@ -92,6 +98,20 @@ imap <F1> <nop>
 
 xmap <leader>a <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
+
+if has('nvim')
+  " Neovim Terminal-mode settings
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+  tnoremap <S-Tab> <C-\><C-n> :tabp<CR>
+end
+
+augroup TerminalModeSetup
+  au!
+  autocmd TermOpen * setlocal nonumber norelativenumber
+  autocmd TermOpen * set bufhidden=unload
+augroup END
+
 
 " Options
 " -------
@@ -147,6 +167,10 @@ set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
 
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
+
+if has('nvim')
+  set inccommand=nosplit " Live preview for :s[ubstitute]
+end
 
 " Mouse & iTerm2 support
 " ----------------------
@@ -261,6 +285,12 @@ function! ToCamelCase()
 endfunction
 :command! ToCamelCase :call ToCamelCase()
 
+" Plugin config
+" -------------
+
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --follow --glob "!.git/*"'
+let g:rsi_no_meta = 1
+let g:ale_sign_column_always = 1
 
 " Projectionist.vim
 " -----------------

@@ -48,5 +48,5 @@
 !/.tmux.conf
 !/.vim
 /.vim/.netrwhist
-/.vim/UltiSnips
+/.vim/pack
 !/.vimrc
