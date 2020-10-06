@@ -70,11 +70,15 @@ Then:
 
     touch .vim/vimrc-local
 
-Symlink your ssh config that syncs through iCloud Drive:
+### Dotfiles with sensitive information
 
-    cd ~/Library/Mobile Documents/com~apple~CloudDocs/Sync
+Symlink dotfiles that we don't want to be publicly visible using a different syncing mechanism:
+
+    cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sync/Stow
+    stow -v --dotfiles --target ~ dotfiles
     stow -v --target ~/.ssh ssh
-
+    stow -v --target ~/.local/share/nvim/site/ nvim
+    
 ### Homebrew
 
 Install homebrew by copying the magic incantation from [brew.sh][].
