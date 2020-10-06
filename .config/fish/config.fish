@@ -11,6 +11,7 @@ abbr --add do docker
 abbr --add g git
 abbr --add keybase keybase --standalone
 abbr --add lb open -aLaunchBar
+abbr --add ls ls -lah
 abbr --add pgrep pgrep -lf
 abbr --add v vim
 
@@ -22,6 +23,8 @@ abbr --add crc git reset --soft HEAD^
 abbr --add cva git commit --amend -v 
 abbr --add cvc git commit -v
 abbr --add rr  git rebase --continue
+
+abbr --add ff git pull --ff-only
 
 alias vim nvim
 
