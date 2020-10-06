@@ -8,9 +8,6 @@
 	l = log --graph --decorate --pretty=sentence
 	r = rebase
 	f = fetch
-	ff = pull --ff-only
-	ffo = merge --ff-only
-	nff = merge --no-ff
 	msg = commit --allow-empty -m
 	h = help -w
 	head = log -1 --pretty=sentence --decorate
