@@ -72,7 +72,7 @@
 	insteadOf = hub:
 [diff "exif"]
 	textconv = exiftool
-[includeIf "gitdir:~/Work/"]
+[include]
 	path = .gitconfig-work
 [protocol]
 	version = 2
