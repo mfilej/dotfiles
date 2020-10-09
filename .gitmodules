@@ -1,9 +1,3 @@
-[submodule ".rbenv/plugins/rbenv-ctags"]
-	path = .rbenv/plugins/rbenv-ctags
-	url = https://github.com/tpope/rbenv-ctags.git
-[submodule "/Users/miha/.rbenv/plugins/rbenv-default-gems"]
-	path = .rbenv/plugins/rbenv-default-gems
-	url = https://github.com/sstephenson/rbenv-default-gems.git
 [submodule "/Users/miha/.rbenv/plugins/rbenv-gem-rehash"]
 	path = .rbenv/plugins/rbenv-gem-rehash
 	url = https://github.com/sstephenson/rbenv-gem-rehash.git
@@ -53,9 +47,6 @@
 	path = .vim/bundle/vim-test
 	url = https://github.com/janko-m/vim-test.git
 	ignore = dirty
-[submodule ".dotfiles-vendor/mislav"]
-	path = .dotfiles-vendor/mislav
-	url = https://github.com/mislav/dotfiles.git
 [submodule ".vim/bundle/papercolor-theme"]
 	path = .vim/bundle/papercolor-theme
 	url = https://github.com/NLKNguyen/papercolor-theme.git
