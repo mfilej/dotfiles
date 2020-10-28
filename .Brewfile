@@ -171,6 +171,7 @@ cask 'webpquicklook'
 
 # ## Fonts
 
+cask 'font-atkinson-hyperlegible'
 cask 'font-cascadia-mono'
 cask 'font-fira-code'
 cask 'font-input'
