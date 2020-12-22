@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # git fzf b - select branches
 # git fzf i - select files from index
 
@@ -29,7 +29,7 @@ esac
 
 if [[ -n $2 ]]; then
   shift
-  command=$@
+  command=$*
 fi
 
-$command $selection
+$command "$selection"

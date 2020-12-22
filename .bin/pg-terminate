@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 dbname="$1"
 
-if [ -e $dbname ]; then
+if [ -e "$dbname" ]; then
   echo "Usage: $0 <dbname>"
   exit 1
 fi
