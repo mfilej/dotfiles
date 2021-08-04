@@ -80,25 +80,28 @@ highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
 highlight TabLineFill ctermfg=235
 highlight TabLine ctermfg=246 ctermbg=235 cterm=NONE
 
+
+" Settings
+" --------
+
+let g:mix_format_on_save = 1
+
 " Bindings
 " --------
 
 let mapleader = " "
 
-" nmap <leader>p :FZF<cr>
-nnoremap <leader>p :Files<cr>
-nmap <leader>P :Files %%<cr>
-nmap <leader>b :Buffers<cr>
-nmap <leader>fd :Sdeps<cr>| " mnemonic: f=file, d=deps
-nmap <leader>fr :Sroutes<cr>| " relies on projections setting `:Eroutes`
-nmap <leader>fm :sp db/migrate<cr>
+nnoremap <leader>p <cmd>FuzzyOpen<CR>
+nnoremap <leader>fb <cmd>FuzzyGrep<CR>
+
 nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
-nmap <leader>gk :Gcommit -v<cr>
+nmap <leader>gk :Git commit -v<cr>
 nmap <leader>gw :Gwrite<cr>
-nmap <leader>gs :Gtabedit :<cr>
+nmap <leader>dm :Make<CR>
+nmap <leader>dd :Dispatch<CR>
 nmap <leader>v :vs ~/.vimrc<CR>
-nmap <leader>r :w\|:!reload_chromium<cr><cr>
+nmap <leader>V :vs ~/.vim/packages.vim<CR>
 nmap <leader>R :nmap <lt>cr> :w<Bslash><Bar>!
 nmap <leader>N :set paste!<CR>
 nmap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -116,6 +119,7 @@ nnoremap <a-i> <C-i>
 
 " test.vim mappings
 map <Leader>tt :wa \| :TestFile -strategy=neovim<CR><c-\><c-n><c-w>L
+map <Leader>tl :wa \| :TestNearest -strategy=neovim<CR><c-\><c-n><c-w>L
 map <Leader>ts :wa \| :TestSuite -strategy=neovim<CR><c-\><c-n><c-w>L
 map <Leader>tof :wa \| :TestSuite -strategy=neovim --only-failures<CR><c-\><c-n><c-w>L
 map <Leader>tnf :wa \| :TestSuite -strategy=neovim --next-failure<CR><c-\><c-n><c-w>L
