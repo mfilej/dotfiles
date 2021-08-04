@@ -1,8 +1,7 @@
 /.agignore
 /.bundle
+/.projections.json
 /.rspec-local
-/.vimrc
-/.vim/vimrc-local
 /tags
 .DS_Store
 .direnv
