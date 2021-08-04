@@ -148,19 +148,6 @@ imap <F1> <nop>
 xmap <leader>a <Plug>(EasyAlign)
 nmap <leader>a <Plug>(EasyAlign)
 
-if has('nvim')
-  " Neovim Terminal-mode settings
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
-  tnoremap <S-Tab> <C-\><C-n> :tabp<CR>
-end
-
-augroup TerminalModeSetup
-  au!
-  autocmd TermOpen * setlocal nonumber norelativenumber
-  autocmd TermOpen * set bufhidden=unload
-augroup END
-
 
 " Options
 " -------
@@ -212,7 +199,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
+if exists('*fugitive#statusline')
+  set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
+end
 
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
@@ -265,6 +254,7 @@ if has("autocmd")
   autocmd Filetype gitcommit setlocal spell textwidth=72
   autocmd Filetype markdown setlocal spell
   autocmd FileType fish compiler fish
+  autocmd FileType elixir compiler mix
 
   " Don't keep fugitive buffers open
   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
@@ -277,21 +267,6 @@ if has("autocmd")
   \ :call <SID>StripTrailingWhitespace()
 endif
 
-
-" Commands
-" --------
-
-" Fuzzy find open buffers
-" command! Buffers call fzf#run({'source': map(range(1, bufnr('$')), 'bufname(v:val)'),
-"             \ 'sink': 'e', 'down': '30%'})
-" nmap <leader>b :Buffers<cr>
-
-" Fuzzy find subdirectories (up to two levels) and open :lcd to the selected
-" directory in a new tab
-command! -nargs=* -complete=dir Lcd call fzf#run(fzf#wrap(
-  \ {'source': 'find . -type d -maxdepth 1 -or -type d -maxdepth 2 | grep -v -E "^\./\."',
-  \  'sink': 'lcd'}))
-nmap <leader>l :$tabe .<bar>Lcd<cr>
 
 " Functions
 " ---------
@@ -359,7 +334,10 @@ let g:projectionist_heuristics = {
       \       "type": "lib",
       \       "alternate": "test/{}_test.exs",
       \     },
-      \     "test/*_test.exs": {"alternate": "lib/{}.ex"}
+      \     "test/*_test.exs": {
+      \       "alternate": "lib/{}.ex",
+      \       "template": ["defmodule {camelcase|capitalize|dot}Test do", "  use ExUnit.Case, async: true", "end"]
+      \     }
       \   },
       \  "mix.exs&web/": {
       \     "web/controllers/*_controller.ex": {
