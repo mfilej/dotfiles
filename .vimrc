@@ -10,14 +10,59 @@ set nocompatible
 set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
 
-set rtp+=/usr/local/opt/fzf " load plugin that comes with fzf
+" Plugins
+" --------------
 
-if !has('nvim')
-  " Neovim loads plugins from .local/share/nvim/site/pack/*/start/
-  execute pathogen#infect()
-endif
+function! PackInit() abort
+  packadd minpac
 
-source ~/.vim/vimrc-local
+  call minpac#init()
+  call minpac#add('k-takata/minpac', {'type': 'opt'})
+
+  " Add some sensibility
+  call minpac#add('tpope/vim-sensible')
+
+  " A generous pinch of tpope
+  call minpac#add('tpope/vim-commentary')
+  call minpac#add('tpope/vim-endwise')
+  call minpac#add('tpope/vim-eunuch')
+  call minpac#add('tpope/vim-fugitive')
+  call minpac#add('tpope/vim-projectionist')
+  call minpac#add('tpope/vim-ragtag')
+  call minpac#add('tpope/vim-rails')
+  call minpac#add('tpope/vim-rhubarb')
+  call minpac#add('tpope/vim-rsi')
+  call minpac#add('tpope/vim-surround')
+  call minpac#add('tpope/vim-unimpaired')
+  call minpac#add('tpope/vim-vinegar')
+  call minpac#add('tpope/vim-dispatch')
+
+  " Languages
+  call minpac#add('chr4/nginx.vim')
+  call minpac#add('dag/vim-fish')
+  call minpac#add('elixir-editors/vim-elixir')
+  call minpac#add('pangloss/vim-javascript')
+
+  " The essential testing plugin
+  call minpac#add('janko-m/vim-test')
+
+  " Adds support for opening on a buffer on a given line with the file:line syntax
+  call minpac#add('bogado/file-line')
+
+  call minpac#add('cloudhead/neovim-fuzzy')
+  call minpac#add('AndrewRadev/splitjoin.vim')
+  call minpac#add('mhinz/vim-mix-format')
+
+  " Experimental
+  call minpac#add('autozimu/LanguageClient-neovim', {'do': '!bash install.sh'})
+endfunction
+
+" Utility commands
+
+command! PackUpdate call PackInit() | call minpac#update()
+command! PackClean  call PackInit() | call minpac#clean()
+command! PackStatus packadd minpac | call minpac#status()
+
 
 " Colors & Theme
 " --------------
