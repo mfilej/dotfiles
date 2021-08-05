@@ -63,7 +63,7 @@ Now check for conflicts:
 
 Then continue:
 
-    .G checkout master
+    .G checkout main
     .G submodule update --init
 
 Then:
@@ -77,7 +77,8 @@ Symlink dotfiles that we don't want to be publicly visible using a different syn
     cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sync/Stow
     stow -v --dotfiles --target ~ dotfiles
     stow -v --target ~/.ssh ssh
-    stow -v --target ~/.local/share/nvim/site/ nvim
+    stow -v --target ~/.vim/pack vim-pack
+
     
 ### Homebrew
 
@@ -183,5 +184,5 @@ See [this excellent guide][keybase-gpg] by [@mihar].
 [@mihar]: https://github.com/mihar
 [@gmarik]: https://github.com/gmarik
 [keybase-gpg]: https://github.com/mihar/env#gpg
-[fish function]: https://github.com/mfilej/dotfiles/blob/master/.config/fish/functions/git.fish#L4-L5
+[fish function]: https://github.com/mfilej/dotfiles/blob/main/.config/fish/functions/git.fish#L4-L5
 [brew.sh]: https://brew.sh
