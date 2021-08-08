@@ -7,17 +7,12 @@
 tap 'homebrew/bundle'
 tap 'homebrew/services'
 tap 'homebrew/cask-fonts'
-tap 'universal-ctags/universal-ctags'
 
 brew 'fish'
 brew 'tmux'
-brew 'reattach-to-user-namespace'
 
 brew 'neovim'
 brew 'ripgrep'
-
-brew 'direnv'
-brew 'chruby'
 
 brew 'git'
 
@@ -50,7 +45,6 @@ brew 'stow'
 brew 'switchaudio-osx'
 brew 'trash'
 brew 'tree'
-brew 'universal-ctags', args: ['HEAD']
 brew 'unrar'
 brew 'wget'
 brew 'yarn'
@@ -63,10 +57,8 @@ cask 'acorn'
 cask 'alacritty'
 cask 'appcleaner'
 cask 'arq'
-cask 'beamer'
 cask 'bettertouchtool'
 cask 'betterzip'
-cask 'boop'
 cask 'charles'
 cask 'cleanmymac'
 cask 'dash'
@@ -81,7 +73,6 @@ cask 'handbrake'
 cask 'iina'
 cask 'imagealpha'
 cask 'imageoptim'
-cask 'insomnia'
 cask 'key-codes'
 cask 'keyboard-lock'
 cask 'ksdiff'
@@ -121,7 +112,6 @@ mas '1Keyboard', id: 766939888
 mas 'Aware', id: 1082170746
 mas 'Cardhop', id: 1290358394
 mas 'Cascable Transfer', id: 1440801586
-mas 'ColorSnapper2', id: 969418666
 mas 'DaisyDisk', id: 411643860
 mas 'Day One', id: 1055511498
 mas 'Deliveries 3', id: 924726344
@@ -132,12 +122,11 @@ mas 'Kaleidoscope', id: 587512244
 mas 'LilyView', id: 529490330
 mas 'LookUp: English Dictionary', id: 1476163639
 mas 'Lungo', id: 1263070803
-mas 'Napkin', id: 581789185
+mas 'MakePass: Barcode to Wallet', id: 1450989464
 mas 'NepTunes', id: 1006739057
 mas 'Paprika Recipe Manager 3', id: 1303222628
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Pixelmator', id: 407963104
-mas 'Service Station', id: 1503136033
 mas 'Slack', id: 803453959
 mas 'Soulver', id: 413965349
 mas 'StopTheMadness', id: 1376402589
