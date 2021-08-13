@@ -77,7 +77,8 @@ Symlink dotfiles that we don't want to be publicly visible using a different syn
     cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sync/Stow
     stow -v --dotfiles --target ~ dotfiles
     stow -v --target ~/.ssh ssh
-    stow -v --target ~/.vim/pack vim-pack
+    mkdir ~/.vim/pack
+    stow -v --target ~/.vim/pack vim-pack/
 
     
 ### Homebrew
