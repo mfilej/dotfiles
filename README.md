@@ -66,9 +66,6 @@ Then continue:
     .G checkout main
     .G submodule update --init
 
-Then:
-
-    touch .vim/vimrc-local
 
 ### Dotfiles with sensitive information
 
@@ -80,7 +77,11 @@ Symlink dotfiles that we don't want to be publicly visible using a different syn
     mkdir ~/.vim/pack
     stow -v --target ~/.vim/pack vim-pack/
 
-    
+
+### Vim/NeoVim
+
+Launch vim and run `:PackUpdate`. If vim is having problems starting because of missing plugins, launch with `vim --clean`.
+
 ### Homebrew
 
 Install homebrew by copying the magic incantation from [brew.sh][].
