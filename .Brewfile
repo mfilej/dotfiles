@@ -6,7 +6,6 @@
 
 tap 'homebrew/bundle'
 tap 'homebrew/services'
-tap 'homebrew/cask-fonts'
 
 brew 'fish'
 brew 'tmux'
@@ -42,17 +41,14 @@ brew 's3cmd'
 brew 'slackcat'
 brew 'ssh-copy-id'
 brew 'stow'
+brew 'svn' # required by some casks
 brew 'switchaudio-osx'
 brew 'trash'
 brew 'tree'
-brew 'unrar'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
 
-brew "https://raw.github.com/postmodern/gem_home/master/homebrew/gem_home.rb", args: ['HEAD']
-
-cask '0xed'
 cask 'acorn'
 cask 'alacritty'
 cask 'appcleaner'
@@ -87,7 +83,6 @@ cask 'plex'
 cask 'poedit'
 cask 'prizmo'
 cask 'rar'
-cask 'rcdefaultapp'
 cask 'retrobatch'
 cask 'screens'
 cask 'screens-connect'
@@ -108,6 +103,7 @@ cask 'eloston-chromium', args: { appdir: '/Applications' }
 brew 'mas'
 
 mas '1Blocker for Safari', id: 1107421413
+mas '1Blocker: Ad Blocker & Privacy', id: 1365531024
 mas '1Keyboard', id: 766939888
 mas 'Aware', id: 1082170746
 mas 'Cardhop', id: 1290358394
@@ -141,7 +137,6 @@ mas 'xScope', id: 889428659
 #
 # <https://github.com/sindresorhus/quick-look-plugins>
 
-cask 'epubquicklook'
 cask 'ql-ansilove'
 cask 'qladdict'
 cask 'qlcolorcode'
@@ -159,6 +154,8 @@ cask 'webpquicklook'
 
 
 # ## Fonts
+
+tap 'homebrew/cask-fonts'
 
 cask 'font-atkinson-hyperlegible'
 cask 'font-inter'
@@ -179,3 +176,8 @@ cask 'font-source-code-pro'
 cask 'font-space-mono'
 cask 'font-ubuntu-mono'
 cask 'font-victor-mono'
+
+cask 'font-sf-pro'
+cask 'font-sf-compact'
+cask 'font-sf-mono'
+cask 'font-new-york'
