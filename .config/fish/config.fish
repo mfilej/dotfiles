@@ -1,6 +1,6 @@
 set -x LC_ALL en_US.UTF-8
 set -x LANG en_US.UTF-8
-set -x EDITOR "/usr/local/bin/nvim"
+set -x EDITOR "/opt/homebrew/bin/nvim"
 set -x GPG_TTY (tty)
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 set -x ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
