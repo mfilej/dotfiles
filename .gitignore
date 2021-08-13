@@ -44,4 +44,5 @@
 !/.tmux.conf
 !/.vim
 /.vim/.netrwhist
+/.vim/pack
 !/.vimrc
