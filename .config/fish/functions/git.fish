@@ -1,4 +1,4 @@
-function git --wraps hub
+function git
   set -l git_cmd
 
   if test (pwd) = $HOME
