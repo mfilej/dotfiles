@@ -80,7 +80,7 @@ Symlink dotfiles that we don't want to be publicly visible using a different syn
 
 ### Vim/NeoVim
 
-Launch vim and run `:PackUpdate`. If vim is having problems starting because of missing plugins, launch with `vim --clean`.
+Bootstrap [minpac][] by launching vim and running `:PackUpdate`. If vim is having problems starting because of missing plugins, launch with `vim --clean`.
 
 ### Homebrew
 
@@ -185,6 +185,7 @@ See [this excellent guide][keybase-gpg] by [@mihar].
 [@tpope]: https://github.com/tpope/tpope
 [@mihar]: https://github.com/mihar
 [@gmarik]: https://github.com/gmarik
+[minpac]: https://github.com/k-takata/minpac
 [keybase-gpg]: https://github.com/mihar/env#gpg
 [fish function]: https://github.com/mfilej/dotfiles/blob/main/.config/fish/functions/git.fish#L4-L5
 [brew.sh]: https://brew.sh
