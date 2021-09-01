@@ -115,6 +115,7 @@ Now add `~/.bin` to your $PATH:
 Configure indexing as follows:
 - For Contacts, Calendars, Reminders List, Safari Reading List: check *Access
 items via sub-search only*.
+- Do the inverse for the Emoji category.
 - Add the following directories to the index:
   - `~/Applications`
   - `~/Library`
