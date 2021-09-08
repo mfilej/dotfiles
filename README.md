@@ -90,6 +90,18 @@ Install everything from the global Brewfile:
 
     brew bundle --global
 
+
+### Homebrew on ARM
+
+Install rosetta homebrew on Apple Silicon:
+
+    sudo -i
+    cd /usr/local && mkdir homebrew
+    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+    chown -R miha:admin homebrew/
+
+Then use the `rbrew` fish function.
+
 ### Fish
 
 Now that homebrew has installed the fish shell we can set up Terminal.app.
