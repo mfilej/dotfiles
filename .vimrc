@@ -40,16 +40,17 @@ function! PackInit() abort
   " Languages
   call minpac#add('chr4/nginx.vim')
   call minpac#add('dag/vim-fish')
-  call minpac#add('elixir-editors/vim-elixir')
   call minpac#add('pangloss/vim-javascript')
 
   " The essential testing plugin
   call minpac#add('janko-m/vim-test')
+  call minpac#add('kassio/neoterm')
 
   " Adds support for opening on a buffer on a given line with the file:line syntax
   call minpac#add('bogado/file-line')
 
-  call minpac#add('cloudhead/neovim-fuzzy')
+  call minpac#add('sinetoami/fzy.nvim')
+  call minpac#add('tommcdo/vim-exchange')
   call minpac#add('AndrewRadev/splitjoin.vim')
   call minpac#add('mhinz/vim-mix-format')
 
@@ -91,15 +92,16 @@ let g:mix_format_on_save = 1
 
 let mapleader = " "
 
-nnoremap <leader>p <cmd>FuzzyOpen<CR>
-nnoremap <leader>fb <cmd>FuzzyGrep<CR>
+nnoremap <leader>p <cmd>Fzy<CR>
+nnoremap <leader>P <cmd>Fzy %:h<CR>
 
 nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Git commit -v<cr>
 nmap <leader>gw :Gwrite<cr>
-nmap <leader>dm :Make<CR>
-nmap <leader>dd :Dispatch<CR>
+nmap <leader>dm :wa \| :Make<CR>
+nmap <leader>dd :wa \| :Dispatch<CR>
+nmap <leader>of :silent !open %%<CR>
 nmap <leader>v :vs ~/.vimrc<CR>
 nmap <leader>V :vs ~/.vim/packages.vim<CR>
 nmap <leader>R :nmap <lt>cr> :w<Bslash><Bar>!
@@ -151,6 +153,8 @@ nmap <leader>a <Plug>(EasyAlign)
 
 " Options
 " -------
+
+set shell=/bin/bash
 
 " https://git.io/fNUg6
 set re=1
@@ -215,6 +219,8 @@ if has('nvim')
   set inccommand=nosplit " Live preview for :s[ubstitute]
 end
 
+command! -bar -nargs=+ -complete=tag Tgrep :tabnew | :grep <args> | :cw
+
 " Mouse & iTerm2 support
 " ----------------------
 
@@ -243,6 +249,11 @@ set wildignore+=tmp/**
 " ----------------------
 
 if has("autocmd")
+  " Taken from vim-elixir
+  au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+  au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+  au BufRead,BufNewFile mix.lock set filetype=elixir
+
   " Thorfile, Rakefile and Gemfile are Ruby
   autocmd BufRead,BufNewFile
     \ {Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder}
@@ -259,7 +270,7 @@ if has("autocmd")
   autocmd Filetype gitcommit setlocal spell textwidth=72
   autocmd Filetype markdown setlocal spell
   autocmd FileType fish compiler fish
-  autocmd FileType elixir compiler mix
+  autocmd FileType elixir setlocal textwidth=98
 
   " Don't keep fugitive buffers open
   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
