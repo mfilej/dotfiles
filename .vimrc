@@ -44,11 +44,13 @@ function! PackInit() abort
 
   " The essential testing plugin
   call minpac#add('janko-m/vim-test')
+  call minpac#add('kassio/neoterm')
 
   " Adds support for opening on a buffer on a given line with the file:line syntax
   call minpac#add('bogado/file-line')
 
-  call minpac#add('cloudhead/neovim-fuzzy')
+  call minpac#add('sinetoami/fzy.nvim')
+  call minpac#add('tommcdo/vim-exchange')
   call minpac#add('AndrewRadev/splitjoin.vim')
   call minpac#add('mhinz/vim-mix-format')
 
@@ -90,8 +92,8 @@ let g:mix_format_on_save = 1
 
 let mapleader = " "
 
-nnoremap <leader>p <cmd>FuzzyOpen<CR>
-nnoremap <leader>fb <cmd>FuzzyGrep<CR>
+nnoremap <leader>p <cmd>Fzy<CR>
+nnoremap <leader>P <cmd>Fzy %:h<CR>
 
 nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
