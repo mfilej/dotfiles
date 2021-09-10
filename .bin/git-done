@@ -5,7 +5,7 @@ set -e
 force_remove_branch="${1:--d}"
 branch_name="$(git symbolic-ref HEAD 2>/dev/null)"
 branch_name=${branch_name##refs/heads/}
-default_branch_name="${GIT_DEFAULT_BRANCH:-master}"
+default_branch_name="${GIT_DEFAULT_BRANCH:-main}"
 
 git fetch
 
