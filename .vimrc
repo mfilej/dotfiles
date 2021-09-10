@@ -154,6 +154,8 @@ nmap <leader>a <Plug>(EasyAlign)
 " Options
 " -------
 
+set shell=/bin/bash
+
 " https://git.io/fNUg6
 set re=1
 
