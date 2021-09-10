@@ -1,5 +1,5 @@
 set background=light
-colorscheme PaperColor
+colorscheme dracula_pro
 highlight Visual guifg=#444444 guibg=#b2d7fd " Match OS X text selection color
 highlight SpellBad guifg=NONE guibg=NONE " No bg color for spelling errors
 
