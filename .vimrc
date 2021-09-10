@@ -40,7 +40,6 @@ function! PackInit() abort
   " Languages
   call minpac#add('chr4/nginx.vim')
   call minpac#add('dag/vim-fish')
-  call minpac#add('elixir-editors/vim-elixir')
   call minpac#add('pangloss/vim-javascript')
 
   " The essential testing plugin
@@ -243,6 +242,11 @@ set wildignore+=tmp/**
 " ----------------------
 
 if has("autocmd")
+  " Taken from vim-elixir
+  au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
+  au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
+  au BufRead,BufNewFile mix.lock set filetype=elixir
+
   " Thorfile, Rakefile and Gemfile are Ruby
   autocmd BufRead,BufNewFile
     \ {Rakefile,Thorfile,Guardfile,Vagrantfile,Envfile,config.ru,*.jbuilder}
@@ -259,7 +263,7 @@ if has("autocmd")
   autocmd Filetype gitcommit setlocal spell textwidth=72
   autocmd Filetype markdown setlocal spell
   autocmd FileType fish compiler fish
-  autocmd FileType elixir compiler mix
+  autocmd FileType elixir setlocal textwidth=98
 
   " Don't keep fugitive buffers open
   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
