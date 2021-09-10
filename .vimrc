@@ -99,8 +99,9 @@ nmap <leader>gb :Gblame<cr>| " mnemonic: git
 nmap <leader>gh :Gbrowse<cr>
 nmap <leader>gk :Git commit -v<cr>
 nmap <leader>gw :Gwrite<cr>
-nmap <leader>dm :Make<CR>
-nmap <leader>dd :Dispatch<CR>
+nmap <leader>dm :wa \| :Make<CR>
+nmap <leader>dd :wa \| :Dispatch<CR>
+nmap <leader>of :silent !open %%<CR>
 nmap <leader>v :vs ~/.vimrc<CR>
 nmap <leader>V :vs ~/.vim/packages.vim<CR>
 nmap <leader>R :nmap <lt>cr> :w<Bslash><Bar>!
