@@ -219,6 +219,8 @@ if has('nvim')
   set inccommand=nosplit " Live preview for :s[ubstitute]
 end
 
+command! -bar -nargs=+ -complete=tag Tgrep :tabnew | :grep <args> | :cw
+
 " Mouse & iTerm2 support
 " ----------------------
 
