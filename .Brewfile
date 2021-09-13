@@ -14,6 +14,7 @@ brew 'neovim'
 brew 'ripgrep'
 
 brew 'git'
+brew 'git-delta'
 
 # Install these casks early on
 cask '1password', args: { appdir: '/Applications' }
