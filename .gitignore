@@ -21,6 +21,7 @@
 !/.config/fish/completions/
 !/.config/fish/config.fish
 !/.config/nvim
+/.config/nvim/pack/minpac
 !/.config/osx-defaults/
 !/.ctags
 !/.cvsignore

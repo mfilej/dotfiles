@@ -80,7 +80,12 @@ Symlink dotfiles that we don't want to be publicly visible using a different syn
 
 ### Vim/NeoVim
 
-Bootstrap [minpac][] by launching vim and running `:PackUpdate`. If vim is having problems starting because of missing plugins, launch with `vim --clean`.
+Install [minpac][]:
+
+    cd ~/.config
+    git clone https://github.com/k-takata/minpac.git ~/.config/nvim/pack/minpac/opt/minpac
+
+Bootstrap plugins by launching vim and running `:PackUpdate`. If vim is having problems starting because of missing plugins, launch with `vim --clean`.
 
 ### Homebrew
 
