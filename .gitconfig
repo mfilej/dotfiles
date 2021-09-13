@@ -45,7 +45,7 @@
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [init]
-	templatedir = ~/.git-template
+	templatedir = ~/.gittemplate
 [filter "media"]
 	required = true
 	clean = git media clean %f

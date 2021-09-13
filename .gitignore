@@ -27,7 +27,7 @@
 !/.direnvrc
 !/.dotfiles-vendor
 !/.gemrc
-!/.git-template
+!/.gittemplate
 !/.gitattributes
 !/.gitconfig
 !/.gitignore
