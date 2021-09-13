@@ -4,6 +4,7 @@ set -x EDITOR "/opt/homebrew/bin/nvim"
 set -x GPG_TTY (tty)
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 set -x ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
+set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
 set -e fish_greeting
 
 abbr --add -- - "cd -"
