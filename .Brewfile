@@ -20,6 +20,7 @@ cask '1password', args: { appdir: '/Applications' }
 cask 'launchbar'
 cask 'xquartz'
 
+brew 'asdf'
 brew 'browser'
 brew 'elixir'
 brew 'exiftool'
