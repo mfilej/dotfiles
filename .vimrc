@@ -86,6 +86,9 @@ highlight TabLine ctermfg=246 ctermbg=235 cterm=NONE
 " --------
 
 let g:mix_format_on_save = 1
+let g:neoterm_shell = "/usr/local/bin/fish"
+let g:test#strategy = "neoterm"
+
 
 " Bindings
 " --------
@@ -120,11 +123,12 @@ nmap <S-Tab> :tabp<CR>
 nnoremap <a-i> <C-i>
 
 " test.vim mappings
-map <Leader>tt :wa \| :TestFile -strategy=neovim<CR><c-\><c-n><c-w>L
-map <Leader>tl :wa \| :TestNearest -strategy=neovim<CR><c-\><c-n><c-w>L
-map <Leader>ts :wa \| :TestSuite -strategy=neovim<CR><c-\><c-n><c-w>L
-map <Leader>tof :wa \| :TestSuite -strategy=neovim --only-failures<CR><c-\><c-n><c-w>L
-map <Leader>tnf :wa \| :TestSuite -strategy=neovim --next-failure<CR><c-\><c-n><c-w>L
+map <Leader>tt :wa \| :Tclear \| :TestFile<CR>
+map <Leader>tn :wa \| :Tclear \| :TestNearest<CR>
+map <Leader>tl :wa \| :Tclear \| :TestLast<CR>
+map <Leader>ts :wa \| :Tclear \| :TestSuite<CR>
+map <Leader>tfo :wa \| :Tclear \| :TestSuite --only-failures<CR>
+map <Leader>tfn :wa \| :Tclear \| :TestSuite --next-failure<CR>
 
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>. :A<cr>| " alternate
@@ -154,7 +158,7 @@ nmap <leader>a <Plug>(EasyAlign)
 " Options
 " -------
 
-set shell=/bin/bash
+set shell=/bin/zsh
 
 " https://git.io/fNUg6
 set re=1
