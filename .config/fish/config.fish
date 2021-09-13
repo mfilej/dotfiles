@@ -17,6 +17,8 @@ abbr --add lb open -aLaunchBar
 abbr --add ls ls -lah
 abbr --add pgrep pgrep -lf
 abbr --add v vim
+abbr --add mi mix ecto.migrate
+abbr --add genm mix ecto.gen.migration
 
 # vim-fugitive equivalents
 abbr --add cb  git branch
