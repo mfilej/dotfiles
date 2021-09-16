@@ -98,8 +98,8 @@ let mapleader = " "
 nnoremap <leader>p <cmd>Fzy<CR>
 nnoremap <leader>P <cmd>Fzy %:h<CR>
 
-nmap <leader>gb :Gblame<cr>| " mnemonic: git
-nmap <leader>gh :Gbrowse<cr>
+nmap <leader>gb :Git blame<cr>| " mnemonic: git
+nmap <leader>gh :GBrowse<cr>| " mnemonic: GitHub
 nmap <leader>gk :Git commit -v<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>dm :wa \| :Make<CR>
