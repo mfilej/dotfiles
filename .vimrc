@@ -87,6 +87,7 @@ highlight TabLine ctermfg=246 ctermbg=235 cterm=NONE
 
 let g:mix_format_on_save = 1
 let g:neoterm_shell = "/usr/local/bin/fish"
+let g:neoterm_default_mod = "vertical"
 let g:test#strategy = "neoterm"
 
 
