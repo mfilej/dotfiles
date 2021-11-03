@@ -36,6 +36,7 @@ brew 'heroku/brew/heroku'
 brew 'hub'
 brew 'imagemagick'
 brew 'jsonpp'
+brew 'kaleidoscope'
 brew 'mplayer'
 brew 'pinentry-mac'
 brew 'postgresql'
@@ -73,7 +74,6 @@ cask 'imagealpha'
 cask 'imageoptim'
 cask 'key-codes'
 cask 'keyboard-lock'
-cask 'ksdiff'
 cask 'launchcontrol'
 cask 'loopback'
 cask 'macvim'
@@ -116,7 +116,6 @@ mas 'Deliveries 3', id: 924726344
 mas 'Diagrams', id: 1276248849
 mas 'Drafts', id: 1435957248
 mas 'GIF Brewery 3', id: 1081413713
-mas 'Kaleidoscope', id: 587512244
 mas 'LilyView', id: 529490330
 mas 'LookUp: English Dictionary', id: 1476163639
 mas 'Lungo', id: 1263070803
