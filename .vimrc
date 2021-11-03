@@ -103,6 +103,8 @@ nmap <leader>gb :Git blame<cr>| " mnemonic: git
 nmap <leader>gh :GBrowse<cr>| " mnemonic: GitHub
 nmap <leader>gk :Git commit -v<cr>
 nmap <leader>gw :Gwrite<cr>
+nmap <leader>gT :Gtabedit :<cr>
+nmap <leader>gl <cmd>0Gclog<cr>
 nmap <leader>dm :wa \| :Make<CR>
 nmap <leader>dd :wa \| :Dispatch<CR>
 nmap <leader>of :silent !open %%<CR>
@@ -255,9 +257,9 @@ set wildignore+=tmp/**
 
 if has("autocmd")
   " Taken from vim-elixir
-  au BufRead,BufNewFile *.ex,*.exs set filetype=elixir
-  au BufRead,BufNewFile *.eex,*.heex,*.leex,*.sface,*.lexs set filetype=eelixir
-  au BufRead,BufNewFile mix.lock set filetype=elixir
+  au BufRead,BufNewFile *.ex,*.exs,mix.lock set filetype=elixir
+  au BufRead,BufNewFile *.eex,*.heex,*.leex,*.lexs set filetype=eelixir
+  au BufRead,BufNewFile *.sface set filetype=surface
 
   " Thorfile, Rakefile and Gemfile are Ruby
   autocmd BufRead,BufNewFile
