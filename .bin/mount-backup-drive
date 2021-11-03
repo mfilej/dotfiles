@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 
-diskutil mountDisk 76CDF976-A22D-47D6-8E2A-F8F5AECAA704
+diskutil mountDisk 5049AE22-ACE1-4702-B5C6-6BAED39E0C87
+
+# To find the Volume UUID:
+#     diskutil list
+#     diskutil info /dev/diskXsY | grep UUID
