@@ -71,8 +71,12 @@ command! PackStatus packadd minpac | call minpac#status()
 packadd! dracula_pro
 
 syntax enable
-let g:dracula_colorterm = 0
-colorscheme dracula_pro
+
+try
+  let g:dracula_colorterm = 0
+  colorscheme dracula_pro
+catch
+endtry
 
 highlight ColorColumn   ctermbg=234
 highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
@@ -168,6 +172,7 @@ set re=1
 
 " Automatically reload files that are changed outside vim
 set autoread
+au FocusGained,BufEnter * checktime
 
 set synmaxcol=2048 " long lines slow down highlighting
 set linespace=1
