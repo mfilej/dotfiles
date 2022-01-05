@@ -74,6 +74,7 @@ cask 'imagealpha'
 cask 'imageoptim'
 cask 'key-codes'
 cask 'keyboard-lock'
+cask 'kindle'
 cask 'launchcontrol'
 cask 'loopback'
 cask 'macvim'
@@ -120,8 +121,9 @@ mas 'LilyView', id: 529490330
 mas 'LookUp: English Dictionary', id: 1476163639
 mas 'Lungo', id: 1263070803
 mas 'MakePass: Barcode to Wallet', id: 1450989464
+mas 'Mela – Recipe Manager', id: 1568924476
+mas 'MsgFiler', id: 418778021  
 mas 'NepTunes', id: 1006739057
-mas 'Paprika Recipe Manager 3', id: 1303222628
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Pixelmator', id: 407963104
 mas 'Slack', id: 803453959
