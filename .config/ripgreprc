@@ -1,0 +1,5 @@
+--type-add
+elixir:*.sface
+
+--type-add
+sface:*.sface
