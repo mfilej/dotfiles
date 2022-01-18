@@ -23,6 +23,7 @@ cask 'xquartz'
 
 brew 'asdf'
 brew 'browser'
+brew 'direnv'
 brew 'elixir'
 brew 'exiftool'
 brew 'ffmpeg'
@@ -36,8 +37,10 @@ brew 'heroku/brew/heroku'
 brew 'hub'
 brew 'imagemagick'
 brew 'jsonpp'
-brew 'kaleidoscope'
+brew 'libsodium'
+brew 'mkcert'
 brew 'mplayer'
+brew 'nss'
 brew 'pinentry-mac'
 brew 'postgresql'
 brew 's3cmd'
@@ -48,18 +51,15 @@ brew 'svn' # required by some casks
 brew 'switchaudio-osx'
 brew 'trash'
 brew 'tree'
+brew 'watch'
 brew 'wget'
 brew 'yarn'
 brew 'youtube-dl'
 
 cask 'acorn'
-cask 'alacritty'
 cask 'appcleaner'
 cask 'arq'
-cask 'bettertouchtool'
-cask 'betterzip'
 cask 'charles'
-cask 'dash'
 cask 'dictionaries'
 cask 'discord'
 cask 'docker'
@@ -72,30 +72,26 @@ cask 'hazel'
 cask 'iina'
 cask 'imagealpha'
 cask 'imageoptim'
+cask 'kaleidoscope'
 cask 'key-codes'
 cask 'keyboard-lock'
 cask 'kindle'
 cask 'launchcontrol'
 cask 'loopback'
 cask 'macvim'
-cask 'mailplane'
 cask 'mimestream'
 cask 'monodraw'
 cask 'musicbrainz-picard'
-cask 'paw'
 cask 'plex'
 cask 'poedit'
-cask 'prizmo'
 cask 'rar'
 cask 'retrobatch'
-cask 'screens'
-cask 'screens-connect'
+cask 'setapp'
 cask 'shortcutdetective'
 cask 'soulver'
 cask 'soundsource'
 cask 'superduper'
 cask 'suspicious-package'
-cask 'taskpaper'
 cask 'transmit'
 cask 'viscosity'
 cask 'vlc'
@@ -112,14 +108,13 @@ mas 'Aware', id: 1082170746
 mas 'Cardhop', id: 1290358394
 mas 'Cascable Transfer', id: 1440801586
 mas 'DaisyDisk', id: 411643860
-mas 'Day One', id: 1055511498
 mas 'Deliveries 3', id: 924726344
 mas 'Diagrams', id: 1276248849
 mas 'Drafts', id: 1435957248
 mas 'GIF Brewery 3', id: 1081413713
+mas 'Keyword Search', id: 1558453954  
 mas 'LilyView', id: 529490330
 mas 'LookUp: English Dictionary', id: 1476163639
-mas 'Lungo', id: 1263070803
 mas 'MakePass: Barcode to Wallet', id: 1450989464
 mas 'Mela – Recipe Manager', id: 1568924476
 mas 'MsgFiler', id: 418778021  
@@ -129,6 +124,8 @@ mas 'Pixelmator', id: 407963104
 mas 'Slack', id: 803453959
 mas 'Soulver', id: 413965349
 mas 'StopTheMadness', id: 1376402589
+mas 'Super Agent for Safari', id: 1568262835  
+mas 'Tailscale', id: 1475387142  
 mas 'Things 3', id: 904280696
 mas 'ToothFairy', id: 1191449274
 mas 'Twitterrific: Tweet Your Way', id: 1289378661
