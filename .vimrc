@@ -36,6 +36,7 @@ function! PackInit() abort
   call minpac#add('tpope/vim-unimpaired')
   call minpac#add('tpope/vim-vinegar')
   call minpac#add('tpope/vim-dispatch')
+  call minpac#add('tpope/vim-sleuth')
 
   " Languages
   call minpac#add('chr4/nginx.vim')
@@ -199,7 +200,6 @@ set cursorline " highlight current line
 set isk+=- " treat dash-separated words as keywords (CSS classes)
 set colorcolumn=+1 " mark the right border
 set expandtab " use soft tabs (C-V<Tab> to insert tab character)
-set softtabstop=2 shiftwidth=2 " soft tab width (preserve real tab as 8)
 set showcmd
 set showmode
 set hidden
@@ -275,9 +275,6 @@ if has("autocmd")
   autocmd BufRead,BufNewFile
     \ {.envrc,.direnvrc,direnvrc}
     \ set ft=sh
-
-  " gitconfig uses hard tabs
-  autocmd FileType gitconfig setlocal noexpandtab shiftwidth=8
 
   autocmd Filetype gitcommit setlocal spell textwidth=72
   autocmd Filetype markdown setlocal spell
