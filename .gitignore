@@ -23,6 +23,7 @@
 !/.config/nvim
 /.config/nvim/pack/minpac
 !/.config/osx-defaults/
+!/.config/ripgreprc
 !/.ctags
 !/.cvsignore
 !/.direnvrc
@@ -41,6 +42,7 @@
 !/.local/share/nvim
 /.local/share/nvim/*
 !/.local/share/nvim/site
+/.local/share/nvim/site/pack/themes/start/dracula_pro
 !/.stow-global-ignore
 !/.tmux.conf
 !/.vim
