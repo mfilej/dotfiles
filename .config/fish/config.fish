@@ -18,6 +18,7 @@ abbr --add lb open -aLaunchBar
 abbr --add ls ls -lah
 abbr --add pgrep pgrep -lf
 abbr --add v vim
+abbr --add yt yt-dlp
 abbr --add mig mix ecto.migrate
 abbr --add migen mix ecto.gen.migration
 
