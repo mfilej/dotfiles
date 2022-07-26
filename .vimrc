@@ -1,80 +1,9 @@
 " VIMRC
 " =====
 
-augroup AutoloadVimrc
-  au!
-  autocmd BufWritePost ~/.vimrc source $MYVIMRC
-aug END
-
 set nocompatible
 set exrc   " load project-specific .vimrc
 set secure "   (but disallow shell execution)
-
-" Plugins
-" --------------
-
-function! PackInit() abort
-  packadd minpac
-
-  call minpac#init()
-  call minpac#add('k-takata/minpac', {'type': 'opt'})
-
-  " Dependencies
-  call minpac#add('nvim-lua/plenary.nvim')
-
-  " Add some sensibility
-  call minpac#add('tpope/vim-sensible')
-
-  " A generous pinch of tpope
-  call minpac#add('tpope/vim-commentary')
-  call minpac#add('tpope/vim-endwise')
-  call minpac#add('tpope/vim-eunuch')
-  call minpac#add('tpope/vim-fugitive')
-  call minpac#add('tpope/vim-projectionist')
-  call minpac#add('tpope/vim-ragtag')
-  " call minpac#add('tpope/vim-rails')
-  call minpac#add('tpope/vim-rhubarb')
-  call minpac#add('tpope/vim-rsi')
-  call minpac#add('tpope/vim-surround')
-  call minpac#add('tpope/vim-unimpaired')
-  call minpac#add('tpope/vim-vinegar')
-  call minpac#add('tpope/vim-dispatch')
-  call minpac#add('tpope/vim-sleuth')
-
-  " Languages
-  call minpac#add('chr4/nginx.vim')
-  " call minpac#add('dag/vim-fish')
-  " call minpac#add('pangloss/vim-javascript')
-
-  " The essential testing plugin
-  call minpac#add('janko-m/vim-test')
-  call minpac#add('kassio/neoterm')
-
-  " Adds support for opening on a buffer on a given line with the file:line syntax
-  call minpac#add('bogado/file-line')
-
-  call minpac#add('sinetoami/fzy.nvim')
-  call minpac#add('tommcdo/vim-exchange')
-  call minpac#add('AndrewRadev/splitjoin.vim')
-  call minpac#add('JoosepAlviste/nvim-ts-context-commentstring')
-
-  " Experimental
-  call minpac#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
-  call minpac#add('nvim-treesitter/nvim-treesitter-context')
-  call minpac#add('nvim-treesitter/nvim-treesitter-textobjects')
-
-  call minpac#add('neovim/nvim-lspconfig')
-  call minpac#add('hrsh7th/nvim-cmp' )
-  call minpac#add('hrsh7th/cmp-nvim-lsp' )
-  call minpac#add('L3MON4D3/LuaSnip')
-  call minpac#add('saadparwaiz1/cmp_luasnip')
-endfunction
-
-" Utility commands
-
-command! PackUpdate call PackInit() | call minpac#update()
-command! PackClean  call PackInit() | call minpac#clean()
-command! PackStatus packadd minpac | call minpac#status()
 
 
 " Colors & Theme
@@ -94,28 +23,20 @@ highlight ColorColumn   ctermbg=234
 highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
                     \ ctermbg=235 ctermfg=NONE cterm=NONE
 
-highlight TabLineFill ctermfg=235
-highlight TabLine ctermfg=246 ctermbg=235 cterm=NONE
+highlight TabLineFill ctermfg=0
+highlight TabLine ctermfg=246 ctermbg=0 cterm=NONE
+highlight TabLineSel ctermfg=236 ctermbg=4 cterm=bold
 
+set fillchars=fold:┈,diff:┈,eob:ﰣ
+highlight VertSplit ctermfg=0 ctermbg=232
 
-" Settings
-" --------
-
-let g:neoterm_shell = "/opt/homebrew/bin/fish"
-let g:neoterm_default_mod = "botright"
-let g:neoterm_automap_keys = '<leader>ed'
-let g:neoterm_autoscroll = 1
-let g:neoterm_clear_cmd = ["clear", ""]
-let g:test#strategy = "neoterm"
+set fillchars=fold:┈,diff:┈,eob:
 
 
 " Bindings
 " --------
 
 let mapleader = " "
-
-nnoremap <leader>p <cmd>Fzy<CR>
-nnoremap <leader>P <cmd>Fzy %:h<CR>
 
 nmap <leader>gb :Git blame<cr>| " mnemonic: git
 nmap <leader>gh :GBrowse<cr>| " mnemonic: GitHub
@@ -128,11 +49,8 @@ nmap <leader>gco :G checkout
 nmap <leader>dm :wa \| :Make<CR>
 nmap <leader>dd :wa \| :Dispatch<CR>
 nmap <leader>of :silent !open %%<CR>
-nmap <leader>v :vs ~/.vimrc<CR>
-nmap <leader>V :source $MYVIMRC<CR>
 nmap <leader>R :nmap <lt>cr> :w<Bslash><Bar>!
 nmap <leader>N :set paste!<CR>
-nmap <leader>K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 nmap <leader>y ysiw
 nmap <leader>Y ysaW
 nmap <leader>w :set nowrap!<CR> " toggle line wrapping
@@ -184,10 +102,6 @@ cnoremap %$ <C-R>=expand('%')<cr>| " expands to % in command mode
 map <F1> <nop>| " disable F1 key
 imap <F1> <nop>
 
-xmap <leader>a <Plug>(EasyAlign)
-nmap <leader>a <Plug>(EasyAlign)
-
-
 " Options
 " -------
 
@@ -200,7 +114,7 @@ set re=1
 set autoread
 au FocusGained,BufEnter * checktime
 
-set synmaxcol=2048 " long lines slow down highlighting
+" set synmaxcol=2048 " long lines slow down highlighting
 set linespace=1
 set textwidth=78
 set winwidth=84
@@ -245,9 +159,9 @@ set noswapfile
 " Allow gf on VCR cassettes
 set suffixesadd+=.json
 
-if exists('*fugitive#statusline')
-  set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
-end
+" if exists('*fugitive#statusline')
+"   set statusline=[%n]\ %<%.99f\ %{fugitive#statusline()}\ %=%-16(\ %l,%c-%v\ %)%P
+" end
 
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
@@ -257,26 +171,9 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable " Unfold everything when opening a buffer
 
-if has('nvim')
-  set inccommand=nosplit " Live preview for :s[ubstitute]
-end
-
 command! -bar -nargs=+ -complete=tag Tgrep :tabnew | :grep <args> | :cw
 
-" Mouse & iTerm2 support
-" ----------------------
-
-if !has('nvim')
-  " Configure vim in iterm2 (http://usevim.com/2012/05/16/mouse/)
-  " Send more characters for redraws
-  set ttyfast
-  " Enable mouse use in all modes
-  set mouse=a
-  " Set this to the name of your terminal that supports mouse codes.
-  " Must be one of: xterm, xterm2, netterm, dec, jsbterm, pterm
-  set ttymouse=xterm2
-endif
-
+"
 " Ignores
 " -------
 
@@ -378,150 +275,6 @@ function! ToCamelCase()
   :s#\(\%(\<\l\+\)\%(_\)\@=\)\|_\(\l\)#\u\1\2#g
 endfunction
 :command! ToCamelCase :call ToCamelCase()
-
-" Plugin config
-" -------------
-
-let g:rsi_no_meta = 1
-
-nnoremap <silent> g? <cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>
-
-lua <<EOF
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-require'lspconfig'.elixirls.setup{
-    cmd = { "/opt/elixir-ls/release/elixir-ls" };
-    capabilities = capabilities,
-}
-
-require'lspconfig'.html.setup {
-  capabilities = capabilities,
-}
-
-require'lspconfig'.cssls.setup {
-  capabilities = capabilities,
-}
-
-local cmp = require'cmp'
-
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  window = {
-    -- completion = cmp.config.window.bordered(),
-    -- documentation = cmp.config.window.bordered(),
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-  }, {
-    { name = 'buffer' },
-  })
-})
-
-require'nvim-treesitter.configs'.setup {
-  highlight = {
-    enable = true,
-    custom_captures = {
-      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-      ["foo.bar"] = "Identifier",
-    },
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
-  indent = {
-    enable = true
-  },
-  context_commentstring = {
-    enable = true
-  },
-  textobjects = {
-    select = {
-      enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ["ad"] = "@block.outer",
-        ["id"] = "@block.inner",
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>a"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>A"] = "@parameter.inner",
-      },
-    },
-  },
-}
-require'treesitter-context'.setup{
-    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-    patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-        -- For all filetypes
-        -- Note that setting an entry here replaces all other patterns for this entry.
-        -- By setting the 'default' entry below, you can control which nodes you want to
-        -- appear in the context window.
-        default = {
-            'class',
-            'function',
-            'method',
-            -- 'for', -- These won't appear in the context
-            -- 'while',
-            -- 'if',
-            -- 'switch',
-            -- 'case',
-        },
-        -- Example for a specific filetype.
-        -- If a pattern is missing, *open a PR* so everyone can benefit.
-        --   rust = {
-        --       'impl_item',
-        --   },
-    },
-    exact_patterns = {
-        -- Example for a specific filetype with Lua patterns
-        -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
-        -- exactly match "impl_item" only)
-        -- rust = true,
-    },
-
-    -- [!] The options below are exposed but shouldn't require your attention,
-    --     you can safely ignore them.
-
-    zindex = 20, -- The Z-index of the context window
-}
-EOF
 
 
 " Projectionist.vim

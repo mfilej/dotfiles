@@ -21,7 +21,7 @@
 !/.config/fish/completions/
 !/.config/fish/config.fish
 !/.config/nvim
-/.config/nvim/pack/minpac
+/.config/nvim/plugin/packer_compiled.lua
 !/.config/osx-defaults/
 !/.config/ripgreprc
 !/.ctags
@@ -35,14 +35,6 @@
 !/.gitignore
 !/.gvimrc
 !/.irbrc
-!/.local
-/.local/*
-!/.local/share
-/.local/share/*
-!/.local/share/nvim
-/.local/share/nvim/*
-!/.local/share/nvim/site
-/.local/share/nvim/site/pack/themes/start/dracula_pro
 !/.stow-global-ignore
 !/.tmux.conf
 !/.vim
