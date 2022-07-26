@@ -37,6 +37,7 @@
 	untracked = white bold
 [push]
 	default = current
+	autoSetupRemote = true
 [credential]
 	helper = osxkeychain
 [difftool "Kaleidoscope"]
@@ -46,6 +47,7 @@
 	trustExitCode = true
 [init]
 	templatedir = ~/.gittemplate
+	defaultBranch = main
 [filter "media"]
 	required = true
 	clean = git media clean %f
