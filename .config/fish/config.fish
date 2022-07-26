@@ -37,5 +37,4 @@ abbr --add ff git pull --ff-only
 
 alias vim nvim
 
-direnv hook fish | source
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
