@@ -27,7 +27,6 @@ brew 'direnv'
 brew 'elixir'
 brew 'exiftool'
 brew 'ffmpeg'
-brew 'fzy'
 brew 'gh'
 brew 'gist'
 brew 'gnupg' 
@@ -54,7 +53,7 @@ brew 'tree'
 brew 'watch'
 brew 'wget'
 brew 'yarn'
-brew 'youtube-dl'
+brew 'yt-dlp'
 
 cask 'acorn'
 cask 'appcleaner'
@@ -108,6 +107,7 @@ mas 'Aware', id: 1082170746
 mas 'Cardhop', id: 1290358394
 mas 'Cascable Transfer', id: 1440801586
 mas 'DaisyDisk', id: 411643860
+mas 'Darkroom: Photo & Video Editor', id: 953286746
 mas 'Deliveries 3', id: 924726344
 mas 'Diagrams', id: 1276248849
 mas 'Drafts', id: 1435957248
@@ -120,7 +120,6 @@ mas 'Mela – Recipe Manager', id: 1568924476
 mas 'MsgFiler', id: 418778021  
 mas 'NepTunes', id: 1006739057
 mas 'Pixelmator Pro', id: 1289583905
-mas 'Pixelmator', id: 407963104
 mas 'Slack', id: 803453959
 mas 'Soulver', id: 413965349
 mas 'StopTheMadness', id: 1376402589
@@ -129,7 +128,7 @@ mas 'Tailscale', id: 1475387142
 mas 'Things 3', id: 904280696
 mas 'ToothFairy', id: 1191449274
 mas 'Twitterrific: Tweet Your Way', id: 1289378661
-mas 'Vectornator Pro: Vector Design', id: 1470168007
+mas 'Vectornator: Vector Design', id: 1219074514
 mas 'xScope', id: 889428659
 
 
