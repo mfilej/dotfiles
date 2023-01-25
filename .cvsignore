@@ -8,5 +8,6 @@
 .envrc
 .gem
 .ignore
+.jira.d
 .nvimrc
 .vimrc.local
