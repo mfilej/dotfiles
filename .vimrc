@@ -202,6 +202,7 @@ if has("autocmd")
   " autocmd BufRead,BufNewFile
   "   \ {.envrc,.direnvrc,direnvrc}
   "   \ set ft=sh
+  autocmd BufRead,BufNewFile .envrc,.direnvrc,direnvrc set filetype=bash
 
   autocmd Filetype gitcommit setlocal spell textwidth=72
   autocmd Filetype markdown setlocal spell
