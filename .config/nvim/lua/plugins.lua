@@ -108,6 +108,10 @@ return require('packer').startup(function()
     capabilities = capabilities,
   }
 
+  require'lspconfig'.ruby_ls.setup{
+    capabilities = capabilities,
+  }
+
   require'lspconfig'.html.setup {
     capabilities = capabilities,
   }
