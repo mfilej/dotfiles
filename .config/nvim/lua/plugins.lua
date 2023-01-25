@@ -78,6 +78,7 @@ return require('packer').startup(function()
   vim.o.laststatus = 3 -- single statusline across entire display
   require('lualine').setup {
     options = {
+      globalstatus = true,
       theme = 'dracula'
     },
     sections = {
