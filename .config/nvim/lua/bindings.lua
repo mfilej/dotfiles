@@ -36,7 +36,14 @@ nmap('<leader>k/', '<cmd>Telescope search_history<CR>')
 nmap('<leader>k:', '<cmd>Telescope command_history<CR>')
 nmap('<leader>ks', '<cmd>Telescope lsp_document_symbols<CR>')
 nmap('<leader>kd', '<cmd>Telescope diagnostics<CR>')
+nmap('<leader>kgb', '<cmd>Telescope git_branches<CR>')
+nmap('<leader>kgs', '<cmd>Telescope git_status<CR>')
+nmap('<leader>kgc', '<cmd>Telescope git_commits<CR>')
 
 nmap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
 nmap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 nmap('g?', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>')
+
+local bufopts = { noremap=true, silent=true, buffer=bufnr }
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
