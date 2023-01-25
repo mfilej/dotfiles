@@ -14,7 +14,7 @@ abbr --add com docker-compose
 abbr --add do docker
 abbr --add g git
 abbr --add gg gigalixir
-abbr --add keybase keybase --standalone
+abbr --add fly flyctl
 abbr --add lb open -aLaunchBar
 abbr --add ls ls -lah
 abbr --add pgrep pgrep -lf
