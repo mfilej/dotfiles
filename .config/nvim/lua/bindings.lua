@@ -27,7 +27,7 @@ nmap('<leader>vb', '<cmd>vsplit ~/.config/nvim/lua/bindings.lua<CR>')
 nmap('<leader>vp', '<cmd>vsplit ~/.config/nvim/lua/plugins.lua<CR>')
 nmap('<leader>vv', '<cmd>vsplit ~/.vimrc<CR>')
 
-nmap('<leader>p', '<cmd>Telescope find_files<CR>')
+nmap('<leader>p', '<cmd>Telescope find_files hidden=true<CR>')
 nmap('<leader>kp', '<cmd>lua require("telescope.builtin").find_files({ cwd = vim.fn.expand("%:p:h") })<CR>')
 nmap('<leader>kk', '<cmd>Telescope live_grep<CR>')
 nmap('<leader>K', '<cmd>Telescope grep_string<CR>')
