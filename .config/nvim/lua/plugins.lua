@@ -51,7 +51,6 @@ return require('packer').startup(function()
   use 'nvim-telescope/telescope.nvim'
 
   -- supercharge neovim
-  use 'kassio/neoterm'
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-context'
   use 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -66,11 +65,13 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
 
+  use 'github/copilot.vim'
+
   -- Local plugins can be included
   -- use '~/projects/personal/hover.nvim'
 
   -- Post-install/update hook with call of vimscript function with argument
-  -- use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
+  -- use { 'glacambre/firenvim', run = function() vim.fn'firenvim#install'(0) end }
 
   -- You can alias plugin names
   -- use {'dracula/vim', as = 'dracula'}
