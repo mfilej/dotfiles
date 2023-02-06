@@ -66,13 +66,13 @@ nmap <S-Tab> :tabp<CR>
 nnoremap <a-i> <C-i>
 
 " test.vim mappings
-map <Leader>tt :wa \| :Topen \| :Tclear \| :TestLast<CR>
-map <Leader>tn :wa \| :Topen \| :Tclear \| :TestNearest<CR>
-map <Leader>tf :wa \| :Topen \| :Tclear \| :TestFile<CR>
+map <Leader>tf :wa \| :TestFile<CR>
+map <Leader>tfn :wa \| :TestSuite --next-failure<CR>
+map <Leader>tfo :wa \| :TestSuite --only-failures<CR>
+map <Leader>tn :wa \| :TestNearest<CR>
+map <Leader>ts :wa \|  :TestSuite<CR>
+map <Leader>tt :wa \| :TestLast<CR>
 map <Leader>tv :TestVisit<CR>
-map <Leader>ts :wa \| :Topen \| :Tclear \| :TestSuite<CR>
-map <Leader>tfo :wa \| :Topen \| :Tclear \| :TestSuite --only-failures<CR>
-map <Leader>tfn :wa \| :Topen \| :Tclear \| :TestSuite --next-failure<CR>
 
 " Always center after jumping to next/prev search result.
 " For * and g*, stay on current result.
@@ -171,6 +171,8 @@ set grepformat=%f:%l:%c:%m
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable " Unfold everything when opening a buffer
+
+let test#strategy = "kitty"
 
 command! -bar -nargs=+ -complete=tag Tgrep :tabnew | :grep <args> | :cw
 
