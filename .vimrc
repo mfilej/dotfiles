@@ -19,18 +19,22 @@ try
 catch
 endtry
 
-highlight ColorColumn   ctermbg=234
+highlight ColorColumn   ctermbg=234 guibg=#1c1c1c
 highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
                     \ ctermbg=235 ctermfg=NONE cterm=NONE
 
-highlight TabLineFill ctermfg=0
-highlight TabLine ctermfg=246 ctermbg=0 cterm=NONE
-highlight TabLineSel ctermfg=236 ctermbg=4 cterm=bold
+highlight TabLineFill ctermfg=0 guifg=#000
+highlight TabLine ctermfg=246 ctermbg=0 cterm=NONE guifg=#1e1e28 guibg=#000000 gui=NONE
+highlight TabLineSel ctermfg=236 ctermbg=4 cterm=bold guibg=#1e1e28 guifg=#454158
+" highlight VertSplit ctermfg=0 ctermbg=232 guifg=#000000 guibg=#080808
+highlight NormalFloat ctermbg=0 guibg=#000000
+highlight PmenuSbar ctermbg=0  guibg=#000000
+highlight Pmenu ctermbg=4
 
-set fillchars=fold:┈,diff:┈,eob:ﰣ
-highlight VertSplit ctermfg=0 ctermbg=232
+" More diagnostics at
+" https://www.reddit.com/r/neovim/comments/tibfjr/comment/i1d7q1b/?context=3
 
-set fillchars=fold:┈,diff:┈,eob:
+set fillchars=fold:┈,diff:┈,eob:⁻
 
 
 " Bindings
