@@ -34,6 +34,9 @@ return require('packer').startup(function()
   use { 'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'} }
   use 'tpope/vim-sleuth'
 
+  -- Git status
+  use 'airblade/vim-gitgutter'
+
   -- Adds support for opening on a buffer on a given line with the file:line syntax
   use 'bogado/file-line'
 

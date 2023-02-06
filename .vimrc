@@ -155,6 +155,7 @@ set re=1 " https://git.io/v6YxR
 set nobackup
 set nowritebackup
 set noswapfile
+set updatetime=100 " https://github.com/airblade/vim-gitgutter
 
 " Allow gf on VCR cassettes
 set suffixesadd+=.json
