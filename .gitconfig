@@ -67,6 +67,7 @@
 	tool = Kaleidoscope
 [difftool]
 	prompt = false
+	trustExitCode = true
 [mergetool]
 	prompt = false
 [diff]
