@@ -40,3 +40,12 @@ abbr --add ff git pull --ff-only
 alias vim nvim
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
+
+if type -q yarn
+  set -l yarn_bin_path (yarn global bin)
+  if test -n "$yarn_bin_path"
+    if not contains "$yarn_bin_path" $PATH
+      fish_add_path "$yarn_bin_path"
+    end
+  end
+end
