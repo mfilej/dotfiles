@@ -50,6 +50,19 @@ return require('packer').startup(function()
   use 'natecraddock/telescope-zf-native.nvim'
   use 'nvim-telescope/telescope.nvim'
 
+  -- diagnostics
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {}
+    end
+  }
+  use 'folke/lsp-colors.nvim'
+
+  -- kitty
+  use { 'knubie/vim-kitty-navigator', run = 'cp ./*.py ~/.config/kitty/' }
+
   -- supercharge neovim
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use 'nvim-treesitter/nvim-treesitter-context'
@@ -76,19 +89,19 @@ return require('packer').startup(function()
   -- You can alias plugin names
   -- use {'dracula/vim', as = 'dracula'}
 
-  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
   -- Statusline
-  vim.o.laststatus = 3 -- single statusline across entire display
-  require('lualine').setup {
-    options = {
-      globalstatus = true,
-      theme = 'dracula'
-    },
-    sections = {
-      lualine_x = {'encoding', 'filetype'},
-    }
-  }
+  -- vim.o.laststatus = 3 -- single statusline across entire display
+  -- require('lualine').setup {
+  --   options = {
+  --     globalstatus = true,
+  --     theme = 'dracula'
+  --   },
+  --   sections = {
+  --     lualine_x = {'encoding', 'filetype'},
+  --   }
+  -- }
 
   require('telescope').load_extension('zf-native')
 
@@ -123,6 +136,8 @@ return require('packer').startup(function()
   require'lspconfig'.cssls.setup {
     capabilities = capabilities,
   }
+  require'lspconfig'.yamlls.setup{}
+  require'lspconfig'.luau_lsp.setup{}
 
   local cmp = require'cmp'
 
@@ -205,39 +220,7 @@ return require('packer').startup(function()
   }
   require'treesitter-context'.setup{
     enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-    patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-    -- For all filetypes
-    -- Note that setting an entry here replaces all other patterns for this entry.
-    -- By setting the 'default' entry below, you can control which nodes you want to
-    -- appear in the context window.
-    default = {
-      'class',
-      'function',
-      'method',
-      -- 'for', -- These won't appear in the context
-      -- 'while',
-      -- 'if',
-      -- 'switch',
-      -- 'case',
-    },
-    -- Example for a specific filetype.
-    -- If a pattern is missing, *open a PR* so everyone can benefit.
-    --   rust = {
-    --       'impl_item',
-    --   },
-  },
-  exact_patterns = {
-    -- Example for a specific filetype with Lua patterns
-    -- Treat patterns.rust as a Lua pattern (i.e "^impl_item$" will
-    -- exactly match "impl_item" only)
-    -- rust = true,
-  },
-
-  -- [!] The options below are exposed but shouldn't require your attention,
-  --     you can safely ignore them.
-
-  zindex = 20, -- The Z-index of the context window
+    max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
 }
 
 end)
