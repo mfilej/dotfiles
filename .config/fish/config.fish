@@ -11,6 +11,7 @@ set -g fish_greeting
 set -g fish_key_bindings fish_hybrid_key_bindings
 
 abbr --add -- - "cd -"
+abbr --add -- ... "../.."
 abbr --add com docker-compose
 abbr --add do docker
 abbr --add g git
