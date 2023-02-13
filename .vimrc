@@ -48,6 +48,7 @@ nmap <leader>gk :Git commit -v<cr>
 nmap <leader>gw :Gwrite<cr>
 nmap <leader>gg :Gstatus :<cr>
 nmap <leader>gG :Gtabedit :<cr>
+nmap <leader>gf :!gitfox<cr>
 nmap <leader>gl <cmd>0Gclog<cr>
 nmap <leader>gco :G checkout 
 nmap <leader>dm :wa \| :Make<CR>
@@ -87,11 +88,19 @@ nnoremap g# g#n
 
 nnoremap <leader><leader> <c-^>
 nnoremap <leader>. :A<cr>| " alternate
-nnoremap <c-j> <c-w>j| " switching windows
+
+" switching windows
+nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-noremap <up> <nop>| " no arrow keys in normal mode
+inoremap <c-j> <esc><c-w>j
+inoremap <c-k> <esc><c-w>k
+inoremap <c-h> <esc><c-w>h
+inoremap <c-l> <esc><c-w>l
+
+" no arrow keys in normal mode
+noremap <up> <nop>| 
 noremap <down> <nop>
 noremap <left> <nop>
 noremap <right> <nop>
