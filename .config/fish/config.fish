@@ -12,6 +12,7 @@ set -g fish_key_bindings fish_hybrid_key_bindings
 
 abbr --add -- - "cd -"
 abbr --add -- ... "../.."
+abbr --add asdf rtx
 abbr --add com docker-compose
 abbr --add do docker
 abbr --add g git
@@ -39,8 +40,6 @@ abbr --add rr  git rebase --continue
 abbr --add ff git pull --ff-only
 
 alias vim nvim
-
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 if type -q yarn
   set -l yarn_bin_path (yarn global bin)
