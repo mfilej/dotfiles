@@ -32,9 +32,3 @@ vim.cmd [[
           autocmd TermOpen * set bufhidden=unload
         augroup END
 ]]
-
-vim.g.neoterm_shell = '/opt/homebrew/bin/fish'
-vim.g.neoterm_default_mod = 'botright'
-vim.g.neoterm_autoscroll = 1
-vim.g.neoterm_clear_cmd = {'clear', ""}
-vim.g['test#strategy'] = 'neoterm'
