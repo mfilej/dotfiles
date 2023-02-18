@@ -206,7 +206,7 @@ set wildignore+=tmp/**
 if has("autocmd")
   " Taken from vim-elixir
   autocmd BufRead,BufNewFile *.ex,*.exs,mix.lock set filetype=elixir
-  autocmd BufRead,BufNewFile *.eex,*.heex,*.leex,*.lexs set filetype=eelixir
+  autocmd BufRead,BufNewFile *.eex,*.leex,*.lexs set filetype=eelixir
   autocmd BufRead,BufNewFile *.sface set filetype=surface
 
   " Thorfile, Rakefile and Gemfile are Ruby
