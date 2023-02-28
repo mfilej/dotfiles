@@ -224,6 +224,7 @@ if has("autocmd")
   autocmd Filetype markdown setlocal spell
   " autocmd FileType fish compiler fish
   autocmd FileType elixir setlocal textwidth=98 commentstring=#\ %s
+  autocmd FileType fish setlocal commentstring=#\ %s
 
   " Don't keep fugitive buffers open
   " http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
