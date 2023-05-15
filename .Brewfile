@@ -199,6 +199,8 @@ cask 'webpquicklook'
 
 tap 'homebrew/cask-fonts'
 
+"ask 'font-symbols-only-nerd-font'
+
 cask 'font-anonymous-pro'
 cask 'font-atkinson-hyperlegible'
 cask 'font-cascadia-mono'
