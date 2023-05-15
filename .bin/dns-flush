@@ -1,0 +1,4 @@
+set -e
+
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
