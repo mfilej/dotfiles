@@ -11,7 +11,7 @@ set secure "   (but disallow shell execution)
 
 packadd! dracula_pro
 
-syntax off " Let treesitter handle highlighting
+syntax on
 
 try
   let g:dracula_colorterm = 0
