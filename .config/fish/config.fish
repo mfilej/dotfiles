@@ -15,7 +15,7 @@ abbr --add asdf rtx
 abbr --add com docker-compose
 abbr --add do docker
 abbr --add g git
-abbr --add gg gigalixir
+abbr --add gf gitfox
 abbr --add fly flyctl
 abbr --add lb open -aLaunchBar
 abbr --add ls ls -lah
@@ -39,3 +39,5 @@ abbr --add rr  git rebase --continue
 abbr --add ff git pull --ff-only
 
 alias vim nvim
+
+source /Users/miha/.config/op/plugins.sh
