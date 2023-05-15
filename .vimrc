@@ -56,8 +56,6 @@ nmap <leader>dd :wa \| :Dispatch<CR>
 nmap <leader>of :silent !open %%<CR>
 nmap <leader>R :nmap <lt>cr> :w<Bslash><Bar>!
 nmap <leader>N :set paste!<CR>
-nmap <leader>y ysiw
-nmap <leader>Y ysaW
 nmap <leader>w :set nowrap!<CR> " toggle line wrapping
 nmap <leader>ee <cmd>Ttoggle<CR>
 nnoremap <leader>ef <cmd>w<CR><cmd>Dispatch! mix surface.format % <CR><cmd>e!<CR>
@@ -71,13 +69,13 @@ nmap <S-Tab> :tabp<CR>
 nnoremap <a-i> <C-i>
 
 " test.vim mappings
-map <Leader>tf :wa \| :TestFile<CR>
-map <Leader>tfn :wa \| :TestSuite --next-failure<CR>
-map <Leader>tfo :wa \| :TestSuite --only-failures<CR>
-map <Leader>tn :wa \| :TestNearest<CR>
-map <Leader>ts :wa \|  :TestSuite<CR>
-map <Leader>tt :wa \| :TestLast<CR>
-map <Leader>tv :TestVisit<CR>
+" map <Leader>tf :wa \| :TestFile<CR>
+" map <Leader>tfn :wa \| :TestSuite --next-failure<CR>
+" map <Leader>tfo :wa \| :TestSuite --only-failures<CR>
+" map <Leader>tn :wa \| :TestNearest<CR>
+" map <Leader>ts :wa \|  :TestSuite<CR>
+" map <Leader>tt :wa \| :TestLast<CR>
+" map <Leader>tv :TestVisit<CR>
 
 " Always center after jumping to next/prev search result.
 " For * and g*, stay on current result.
@@ -312,6 +310,7 @@ let g:projectionist_heuristics = {
       \     "lib/*.ex": {
       \       "type": "lib",
       \       "alternate": "test/{}_test.exs",
+      \       "template": ["defmodule {camelcase|capitalize|dot} do", "end"]
       \     },
       \     "test/*_test.exs": {
       \       "alternate": "lib/{}.ex",
