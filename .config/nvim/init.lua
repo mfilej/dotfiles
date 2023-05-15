@@ -16,19 +16,30 @@ require('plugins')
 
 vim.cmd('source ' .. HOME .. '/.vimrc')
 
+require('config.autopairs')
+require('config.cmp')
+require('config.lsp')
+require('config.treesitter')
+
 require('bindings')
 
 vim.g.rsi_no_meta = 1
 
--- Neovim Terminal-mode settings
-vim.cmd [[
-        tnoremap <Esc> <C-\><C-n>
-        tnoremap <C-v><Esc> <Esc>
-        tnoremap <S-Tab> <C-\><C-n> :tabp<CR>
+vim.diagnostic.config({
+  signs = true,
+  virtual_text = true,
+}, vim.api.nvim_create_namespace("neotest"))
 
-        augroup TerminalModeSetup
-          au!
-          autocmd TermOpen * setlocal nonumber norelativenumber
-          autocmd TermOpen * set bufhidden=unload
-        augroup END
-]]
+-- Neovim Terminal-mode settings
+-- commented out, superseded by toggleterm
+-- vim.cmd [[
+--         tnoremap <Esc> <C-\><C-n>
+--         tnoremap <C-v><Esc> <Esc>
+--         tnoremap <S-Tab> <C-\><C-n> :tabp<CR>
+--
+--         augroup TerminalModeSetup
+--           au!
+--           autocmd TermOpen * setlocal nonumber norelativenumber
+--           autocmd TermOpen * set bufhidden=unload
+--         augroup END
+-- ]]

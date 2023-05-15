@@ -20,28 +20,74 @@ return require('packer').startup(function()
   use 'tpope/vim-sensible'
 
   -- A generous pinch of tpope
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-endwise'
   use 'tpope/vim-eunuch'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-projectionist'
-  use 'tpope/vim-ragtag'
+  -- use 'tpope/vim-ragtag'
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-rsi'
-  use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-vinegar'
+  use 'tpope/vim-repeat'
   use { 'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'} }
   use 'tpope/vim-sleuth'
 
+  -- mini.vim
+  use 'echasnovski/mini.splitjoin'
+  use 'echasnovski/mini.comment'
+
   -- Git status
   use 'airblade/vim-gitgutter'
+
+  -- Terminal ergonomics
+  use({
+    'akinsho/toggleterm.nvim',
+    tag = '*',
+    config = function()
+      require("toggleterm").setup{
+        size = function(term)
+          if term.direction == "horizontal" then
+            return 15
+          elseif term.direction == "vertical" then
+            return vim.o.columns * 0.4
+          end
+        end,
+        open_mapping = [[<c-\>]],
+        shell = "/opt/homebrew/bin/fish",
+        direction = 'vertical',
+      }
+      function _G.set_terminal_keymaps()
+        local opts = {buffer = 0}
+        vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+        vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+        vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+        vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+        vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+      end
+    end
+  })
 
   -- Adds support for opening on a buffer on a given line with the file:line syntax
   use 'bogado/file-line'
 
   -- The essential testing plugin
-  use 'janko-m/vim-test'
+  -- use 'janko-m/vim-test'
+  use 'antoinemadec/FixCursorHold.nvim' -- probably not needed after v0.9
+  use {
+    'nvim-neotest/neotest',
+    requires = {
+      'jfpedroza/neotest-elixir',
+      'olimorris/neotest-rspec',
+    },
+    config = function()
+      require('neotest').setup({
+        adapters = {
+          require("neotest-elixir"),
+          require('neotest-rspec'),
+        }
+      })
+    end
+  }
 
   -- swap objects with cx
   use 'tommcdo/vim-exchange'
@@ -60,8 +106,18 @@ return require('packer').startup(function()
   }
   use 'folke/lsp-colors.nvim'
 
-  -- kitty
-  use { 'knubie/vim-kitty-navigator', run = 'cp ./*.py ~/.config/kitty/' }
+  -- cmp
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'amarakon/nvim-cmp-buffer-lines'
+  use { 'hrsh7th/cmp-cmdline', commit = 'e1ba818534a357b77494597469c85030c7233c16' }
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  use 'hrsh7th/cmp-omni'
+  
+  -- one day I will use snippets
+  use 'L3MON4D3/LuaSnip'
+  use 'saadparwaiz1/cmp_luasnip'
 
   -- supercharge neovim
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -69,16 +125,58 @@ return require('packer').startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
+  use({
+    "kylechui/nvim-surround",
+    tag = "*",
+    config = function()
+      require("nvim-surround").setup({})
+    end
+  })
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
-
-  use 'github/copilot.vim'
+  use {
+    "zbirenbaum/copilot.lua",
+    config = function()
+      require("copilot").setup({
+        -- suggestion = { enabled = false },
+        -- panel = { enabled = false },
+        filetypes = {
+          gitcommit = true,
+        },
+        copilot_node_command = '/opt/homebrew/opt/node@16/bin/node'
+      })
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+  use {
+    "RRethy/nvim-treesitter-endwise",
+    config = function() 
+      require('nvim-treesitter.configs').setup {
+        endwise = {
+          enable = true,
+        },
+      }
+    end
+  }
+  use {
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+  }
+  use {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
+  }
 
   -- Local plugins can be included
   -- use '~/projects/personal/hover.nvim'
@@ -89,7 +187,12 @@ return require('packer').startup(function()
   -- You can alias plugin names
   -- use {'dracula/vim', as = 'dracula'}
 
-  vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    buffer = buffer,
+    callback = function()
+      vim.lsp.buf.format { async = false }
+    end
+  })
 
   -- Statusline
   -- vim.o.laststatus = 3 -- single statusline across entire display
@@ -113,114 +216,19 @@ return require('packer').startup(function()
           ["<C-u>"] = false
         },
       },
+    },
+    pickers = {
+      find_files = {
+        theme = "ivy",
+        previewer = false,
+      },
     }
   }
 
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+  require('mini.splitjoin').setup()
+  require('mini.comment').setup()
 
-  require'lspconfig'.elixirls.setup{
-    cmd = { "/opt/elixir-ls/release/elixir-ls" };
-    capabilities = capabilities,
-  }
-
-  require'lspconfig'.ruby_ls.setup{
-    capabilities = capabilities,
-  }
-
-  require'lspconfig'.html.setup {
-    capabilities = capabilities,
-  }
-
-  require'lspconfig'.cssls.setup {
-    capabilities = capabilities,
-  }
-  require'lspconfig'.yamlls.setup{}
-  require'lspconfig'.luau_lsp.setup{}
-
-  local cmp = require'cmp'
-
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        require('luasnip').lsp_expand(args.body)
-      end,
-    },
-    window = {
-      -- completion = cmp.config.window.bordered(),
-      -- documentation = cmp.config.window.bordered(),
-    },
-    mapping = cmp.mapping.preset.insert({
-      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    }),
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'luasnip' },
-    }, {
-      { name = 'buffer' },
-    })
-  })
-
-  require'nvim-treesitter.configs'.setup {
-    highlight = {
-      enable = true,
-      custom_captures = {
-        -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-        ["foo.bar"] = "Identifier",
-      },
-      -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-      -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-      -- Using this option may slow down your editor, and you may see some duplicate highlights.
-      -- Instead of true it can also be a list of languages
-      additional_vim_regex_highlighting = false,
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
-      },
-    },
-    indent = {
-      enable = true
-    },
-    context_commentstring = {
-      enable = true
-    },
-    textobjects = {
-      select = {
-        enable = true,
-
-        -- Automatically jump forward to textobj, similar to targets.vim
-        lookahead = true,
-
-        keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ["ad"] = "@block.outer",
-          ["id"] = "@block.inner",
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
-        },
-      },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<leader>a"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<leader>A"] = "@parameter.inner",
-        },
-      },
-    },
-  }
-  require'treesitter-context'.setup{
-    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
-    max_lines = 3, -- How many lines the window should span. Values <= 0 mean no limit.
-}
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
 end)
