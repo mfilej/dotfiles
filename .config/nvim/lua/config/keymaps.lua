@@ -4,10 +4,23 @@
 
 -- nnoremap <leader><leader> <c-^>
 local wk = require("which-key")
+local filenav = require("mf.filenav")
 
 wk.register({
   ["<leader><space>"] = { "<c-^>", "Edit alternate file" },
   ["<S-h>"] = { "<cmd>tabp<cr>", "Previous tab" },
   ["<S-l>"] = { "<cmd>tabn<cr>", "Next tab" },
   ["%%"] = { "<C-R>=expand('%:h').'/'<cr>", "Current directory", mode = "c" },
+  ["[f"] = {
+    function()
+      filenav.prev_file()
+    end,
+    "Previous file in directory",
+  },
+  ["]f"] = {
+    function()
+      filenav.next_file()
+    end,
+    "Next file in directory",
+  },
 })
