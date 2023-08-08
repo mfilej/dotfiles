@@ -27,6 +27,7 @@ return {
     {
       "<leader>tt",
       function()
+        vim.api.nvim_command("write")
         require("neotest").run.run(vim.fn.expand("%"))
       end,
       desc = "File",
@@ -34,6 +35,7 @@ return {
     {
       "<leader>tn",
       function()
+        vim.api.nvim_command("write")
         require("neotest").run.run()
       end,
       desc = "Nearest",
@@ -41,6 +43,7 @@ return {
     {
       "<leader>ta",
       function()
+        vim.api.nvim_command("wall")
         require("neotest").run.run(vim.fn.getcwd())
       end,
       desc = "All",

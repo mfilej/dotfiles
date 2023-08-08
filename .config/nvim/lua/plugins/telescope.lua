@@ -1,4 +1,3 @@
-local Util = require("lazyvim.util")
 local Builtin = require("telescope.builtin")
 local Actions = require("telescope.actions")
 
@@ -6,19 +5,35 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
-      config = function()
-        require("telescope").load_extension("fzf")
-      end,
+      {
+        "nvim-telescope/telescope-fzf-native.nvim",
+        build = "make",
+        config = function()
+          require("telescope").load_extension("fzf")
+        end,
+      },
+      {
+        "nvim-telescope/telescope-file-browser.nvim",
+      },
     },
+    -- init = function()
+    --   require("telescope").load_extension("file_browser")
+    -- end,
     opts = {
       defaults = {
         mappings = {
           i = {
-            ["<C-h>"] = Actions.which_key,
-            ["<C-t>"] = Actions.select_tab,
-            ["<C-u>"] = false,
+            ["<esc>"] = Actions.close,
+            ["<c-h>"] = Actions.which_key,
+            ["<c-t>"] = Actions.select_tab,
+            ["<c-u>"] = false,
+          },
+        },
+      },
+      {
+        extensions = {
+          file_browser = {
+            hijack_netrw = true,
           },
         },
       },
@@ -47,6 +62,20 @@ return {
           Builtin.find_files({ cwd = vim.fn.expand("%:p:h") })
         end,
         desc = "Find Files (current dir)",
+      },
+      {
+        "<leader>fb",
+        function()
+          require("telescope").extensions.file_browser.file_browser()
+        end,
+        desc = "File Browser",
+      },
+      {
+        "-",
+        function()
+          require("telescope").extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" })
+        end,
+        desc = "File Browser (current dir)",
       },
     },
   },
