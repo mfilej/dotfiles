@@ -11,38 +11,40 @@ set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
 set -x SSH_AUTH_SOCK "$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 set -g fish_greeting
-set -g fish_key_bindings fish_hybrid_key_bindings
 
-abbr --add -- - "cd -"
-abbr --add -- ... "../.."
-abbr --add asdf rtx
-abbr --add com docker-compose
-abbr --add doc docker
-abbr --add fly flyctl
-abbr --add g git
-abbr --add gf gitfox
-abbr --add lb open -aLaunchBar
-abbr --add ls ls -lah
-abbr --add mig mix ecto.migrate
-abbr --add migen mix ecto.gen.migration
-abbr --add n nvim
-abbr --add pgrep pgrep -lf
-abbr --add yt yt-dlp
+# Use hybrid keybindings, except when in a terminal inside (n)vim
+set -q VIM || set -g fish_key_bindings fish_hybrid_key_bindings
+
+abbr -g --add -- - "cd -"
+abbr -g --add -- ... "../.."
+abbr -g --add asdf rtx
+abbr -g --add com docker-compose
+abbr -g --add doc docker
+abbr -g --add fly flyctl
+abbr -g --add g git
+abbr -g --add gf gitfox
+abbr -g --add lb open -aLaunchBar
+abbr -g --add ls ls -lah
+abbr -g --add mig mix ecto.migrate
+abbr -g --add migen mix ecto.gen.migration
+abbr -g --add n nvim
+abbr -g --add pgrep pgrep -lf
+abbr -g --add yt yt-dlp
 
 # We never really want regular vim when using Kitty
 set -q KITTY_PID && abbr --add vim nvim
 
 # vim-fugitive equivalents
-abbr --add cb git branch
-abbr --add ce git commit --amend --no-edit
-abbr --add co git checkout
-abbr --add c git commit
-abbr --add crc git reset --soft HEAD^
-abbr --add cva git commit --amend -v
-abbr --add cvc git commit -v
-abbr --add r git rebase
-abbr --add rr git rebase --continue
+abbr -g --add cb git branch
+abbr -g --add ce git commit --amend --no-edit
+abbr -g --add co git checkout
+abbr -g --add c git commit
+abbr -g --add crc git reset --soft HEAD^
+abbr -g --add cva git commit --amend -v
+abbr -g --add cvc git commit -v
+abbr -g --add r git rebase
+abbr -g --add rr git rebase --continue
 
-abbr --add ff git pull --ff-only
+abbr -g --add ff git pull --ff-only
 
 source /Users/miha/.config/op/plugins.sh
