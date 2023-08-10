@@ -1,13 +1,14 @@
 return {
-  "voldikss/vim-floaterm",
-  lazy = "true",
-  keys = {
-    { "<c-\\>", nil, desc = "Toggle Floaterm" },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    opts = {
+      open_mapping = [[<c-\>]],
+      direction = "float",
+    },
+    keys = {
+      { "<c-\\>", nil, desc = "Toggle Terminal" },
+      { "<Esc>", "<C-\\><C-n>", mode = "t" },
+    },
   },
-  init = function()
-    vim.g.floaterm_width = 0.85
-    vim.g.floaterm_height = 0.9
-    vim.g.floaterm_opener = "tabe"
-    vim.g.floaterm_keymap_toggle = "<c-\\>"
-  end,
 }
