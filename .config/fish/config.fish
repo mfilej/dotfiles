@@ -7,6 +7,7 @@ set -x LANG en_US.UTF-8
 set -x ERL_AFLAGS "-kernel shell_history enabled -kernel shell_history_file_bytes 1024000"
 set -x GPG_TTY (tty)
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
+set -x KERL_BUILD_DOCS yes
 set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
 set -x SSH_AUTH_SOCK "$HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
