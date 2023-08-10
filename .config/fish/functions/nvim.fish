@@ -4,10 +4,9 @@ function nvim
     else
         if set -q KITTY_WINDOW_ID
             set -l nvim_listen_address $TMPDIR"nvim-"$KITTY_WINDOW_ID
-            set -xg GIT_EDITOR nvr --servername $nvim_listen_address -cc tabnew
-            env /opt/homebrew/bin/nvim --listen $nvim_listen_address
+            env /opt/homebrew/bin/nvim --listen $nvim_listen_address $argv
         else
-            /usr/bin/vim
+            /usr/bin/vim $argv
         end
     end
 end
