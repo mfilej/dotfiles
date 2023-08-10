@@ -3,19 +3,16 @@ return {
   opts = function(_, opts)
     local cmp = require("cmp")
 
-    opts.mapping = cmp.mapping.preset.insert({
-      ["<CR>"] = cmp.mapping({
-        i = function(fallback)
-          if cmp.visible() and cmp.get_active_entry() then
-            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-          else
-            fallback()
-          end
-        end,
-        s = cmp.mapping.confirm({ select = true }),
-        c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+    opts.preselect = cmp.PreselectMode.None
+    opts.completion.completeopt = "menu,menuone,noinsert,noselect"
+    opts.mapping = {
+      ["<C-p>"] = cmp.mapping.select_prev_item(),
+      ["<C-n>"] = cmp.mapping.select_next_item(),
+      ["<CR>"] = cmp.mapping.confirm({
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = true,
       }),
-    })
+    }
     return opts
   end,
 }
