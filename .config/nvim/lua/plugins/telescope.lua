@@ -16,25 +16,30 @@ return {
         "nvim-telescope/telescope-file-browser.nvim",
       },
     },
-    -- init = function()
-    --   require("telescope").load_extension("file_browser")
-    -- end,
     opts = {
       defaults = {
         mappings = {
           i = {
-            ["<esc>"] = Actions.close,
             ["<c-h>"] = Actions.which_key,
             ["<c-t>"] = Actions.select_tab,
             ["<c-u>"] = false,
           },
         },
       },
-      {
-        extensions = {
-          file_browser = {
-            hijack_netrw = true,
+      pickers = {
+        git_status = {
+          mappings = {
+            n = {
+              ["c"] = function()
+                vim.api.nvim_exec("FloatermSend git commit -v", false)
+              end,
+            },
           },
+        },
+      },
+      extensions = {
+        file_browser = {
+          hijack_netrw = true,
         },
       },
     },
@@ -76,6 +81,13 @@ return {
           require("telescope").extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" })
         end,
         desc = "File Browser (current dir)",
+      },
+      {
+        "<leader>gs",
+        function()
+          Builtin.git_status({ select_buffer = true })
+        end,
+        desc = "status",
       },
     },
   },

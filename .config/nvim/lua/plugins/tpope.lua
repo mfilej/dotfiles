@@ -1,7 +1,10 @@
 return {
   { "tpope/vim-eunuch" },
   { "tpope/vim-rsi" },
-  -- { "tpope/vim-vinegar" },
+  {
+    "tpope/vim-fugitive",
+    cmd = "Git",
+  },
   { "tpope/vim-sleuth" },
   {
     "tpope/vim-projectionist",

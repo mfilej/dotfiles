@@ -15,3 +15,11 @@ vim.opt.clipboard = "" -- don't pollute system clipboard
 vim.opt.list = true
 vim.opt.relativenumber = false
 -- vim.cmd([[ set listchars=tab:→,trail:⋅,eol:⏎,nbsp:⎵ ]])
+
+vim.env.GIT_EDITOR = "nvr --servername " .. vim.v.servername .. " -cc tabnew --remote-wait"
+
+vim.filetype.add({
+  filename = {
+    ["PULLREQ_EDITMSG"] = "hubmessage",
+  },
+})
