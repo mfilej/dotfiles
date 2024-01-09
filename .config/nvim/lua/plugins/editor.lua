@@ -1,13 +1,11 @@
 return {
-  -- disabled in favour of vim-vinegar
+  -- Where we're going, we don't need trees
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
     "folke/flash.nvim",
     opts = {
       modes = {
-        char = {
-          enabled = false,
-        },
+        char = { multi_line = false },
       },
     },
     keys = {
@@ -15,12 +13,47 @@ return {
     },
   },
   {
+    "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {
+      keymaps = {
+        ["<C-s>"] = "actions.select_split",
+        ["<C-v>"] = "actions.select_vsplit",
+      },
+      float = {
+        win_options = {
+          winblend = 0,
+        },
+      },
+    },
+    keys = {
+      {
+        "-",
+        function()
+          require("oil").open_float()
+        end,
+        desc = "Cover parent directory in Oil",
+      },
+    },
+  },
+  {
     "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     keys = {
       {
         "<leader>gd",
         "<cmd>DiffviewOpen<cr>",
         desc = "Diffview",
+      },
+    },
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    opts = {
+      default_mappings = {
+        next = "]n",
+        prev = "[n",
       },
     },
   },

@@ -23,8 +23,5 @@ return {
         "yaml",
       },
     },
-    dependencies = {
-      { "nvim-treesitter/nvim-treesitter-context" },
-    },
   },
 }

@@ -9,9 +9,7 @@ return {
   {
     "tpope/vim-projectionist",
     event = "BufEnter",
-    keys = {
-      { "<leader>.", "<cmd>A<cr>", desc = "Alternate file" },
-    },
+    keys = {},
     config = function()
       vim.g.projectionist_heuristics = {
         ["mix.exs"] = {

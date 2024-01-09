@@ -1,0 +1,28 @@
+{
+  "Triple quotes": {
+    "prefix": "\"\"\"",
+    "body": [
+      "\"\"\"",
+      "$0",
+      "\"\""
+    ],
+    "description": "Multi-line string in triple quotes"
+  },
+  "H sigil": {
+    "prefix": "H",
+    "body": [
+      "~H\"\"\"",
+      "$0",
+      "\"\"\""
+    ],
+    "description": "HEEx sigil with triple quotes"
+  },
+  "Ecto migration: alter table": {
+    "prefix": "alter",
+    "body": [
+      "alter table(:$1) do",
+      "  $0",
+      "end"
+    ]
+  }
+}

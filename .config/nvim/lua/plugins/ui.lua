@@ -1,13 +1,5 @@
 return {
   {
-    "anuvyklack/help-vsplit.nvim",
-    opts = {
-      cmd = "help",
-      always = false,
-      side = "left",
-    },
-  },
-  {
     "folke/noice.nvim",
     opts = {
       cmdline = {
@@ -52,4 +44,5 @@ return {
       return opts
     end,
   },
+  { "yorickpeterse/nvim-pqf" },
 }
