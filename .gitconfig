@@ -76,8 +76,6 @@
 	insteadOf = hub:
 [diff "exif"]
 	textconv = exiftool
-[include]
-	path = .gitconfig-work
 [protocol]
 	version = 2
 [interactive]
