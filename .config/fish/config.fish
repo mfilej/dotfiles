@@ -9,6 +9,7 @@ set -x GPG_TTY (tty)
 set -x HOMEBREW_CASK_OPTS "--appdir=~/Applications"
 set -x KERL_BUILD_DOCS yes
 set -x RIPGREP_CONFIG_PATH "$HOME/.config/ripgreprc"
+set -x SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
 
 set -g fish_greeting
 
