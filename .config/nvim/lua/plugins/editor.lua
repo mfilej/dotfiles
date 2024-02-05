@@ -5,10 +5,19 @@ return {
     "folke/flash.nvim",
     opts = {
       modes = {
+        search = { enabled = false },
         char = { multi_line = false },
       },
     },
     keys = {
+      {
+        "<C-/>",
+        mode = { "n" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
       { "s", mode = { "n", "x", "o" }, false },
     },
   },
@@ -41,7 +50,7 @@ return {
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     keys = {
       {
-        "<leader>gd",
+        "<leader>gD",
         "<cmd>DiffviewOpen<cr>",
         desc = "Diffview",
       },

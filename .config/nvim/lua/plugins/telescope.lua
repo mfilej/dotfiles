@@ -25,7 +25,6 @@ local my_git_status_picker = function(opts)
 
   -- List files top to bottom
   opts.sorting_strategy = "ascending"
-  opts.path_display = { "absolute" }
 
   -- Pre-select file loaded in current buffer
   local buf_path = vim.api.nvim_buf_get_name(0)
@@ -68,7 +67,6 @@ return {
       },
       pickers = {
         git_status = {
-          path_display = { "absolute" },
           mappings = {
             n = {
               ["c"] = function()
@@ -90,6 +88,7 @@ return {
     },
     keys = {
       { "<leader><space>", false },
+      { "<leader>gs", false },
       { "<leader>sR", false },
       { "<leader>;", "<cmd>Telescope resume<cr>", desc = "Telescope Resume" },
       { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Search Current Buffer" },
@@ -127,11 +126,6 @@ return {
           require("telescope").extensions.file_browser.file_browser()
         end,
         desc = "File Browser (root)",
-      },
-      {
-        "<leader>gs",
-        my_git_status_picker,
-        desc = "status",
       },
       {
         "<leader>.",
