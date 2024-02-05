@@ -1,0 +1,1 @@
+/Users/miha/Applications/OrbStack.app/Contents/MacOS/../Resources/completions/docker.fish
