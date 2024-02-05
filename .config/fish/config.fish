@@ -16,8 +16,6 @@ set -g fish_greeting
 # Use hybrid keybindings, except when in a terminal inside (n)vim
 set -q VIM || set -g fish_key_bindings fish_hybrid_key_bindings
 
-fish_add_path --path ~/.local/share/nvim/mason/bin /opt/homebrew/opt/ruby/bin ~/.bin
-
 abbr -g --add -- - "cd -"
 abbr -g --add -- ... "../.."
 abbr -g --add com docker-compose
@@ -27,6 +25,7 @@ abbr -g --add g git
 abbr -g --add gf gitfox
 abbr -g --add lb open -aLaunchBar
 abbr -g --add ls ls -lah
+abbr -g --add m mise
 abbr -g --add mig mix ecto.migrate
 abbr -g --add migen mix ecto.gen.migration
 abbr -g --add n nvim
@@ -51,3 +50,4 @@ abbr -g --add rr git rebase --continue
 abbr -g --add ff git pull --ff-only
 
 source ~/.config/op/plugins.sh
+~/.local/bin/mise activate fish | source
