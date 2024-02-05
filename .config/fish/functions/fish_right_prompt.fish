@@ -1,10 +1,12 @@
 function fish_right_prompt
-    set -l last_command_status $status
+    set last_command_status $status
+    set -q AWS_SSO_PROFILE && set profile $AWS_SSO_PROFILE
+    set -q AWS_VAULT && set profile $AWS_VAULT
 
-    if test -n "$AWS_SSO_PROFILE"
+    if test -n "$profile"
         echo "⦗"
         set_color yellow
-        echo "$AWS_SSO_PROFILE" | cut -d ':' -f 1
+        echo "$profile" | cut -d ':' -f 1
         set_color normal
         echo "⦘"
     end
