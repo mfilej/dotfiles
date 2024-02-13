@@ -25,7 +25,7 @@
 !/.config/nvim
 /.config/nvim/plugin/packer_compiled.lua
 !/.config/osx-defaults/
-!/.config/ripgreprc
+!/.config/ripgrep/
 !/.ctags
 !/.cvsignore
 !/.direnvrc
