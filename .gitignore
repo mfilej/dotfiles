@@ -35,6 +35,7 @@
 !/.gitconfig
 !/.gitignore
 !/.gvimrc
+!/.hushlogin
 !/.irbrc
 !/.stow-global-ignore
 !/.tmux.conf
