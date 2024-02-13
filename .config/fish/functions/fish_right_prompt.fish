@@ -6,7 +6,7 @@ function fish_right_prompt
     if test -n "$profile"
         echo "⦗"
         set_color yellow
-        echo "$profile" | cut -d ':' -f 1
+        echo "$profile" | cut -d / -f 1
         set_color normal
         echo "⦘"
     end
