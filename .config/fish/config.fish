@@ -1,17 +1,18 @@
 # Preserve EDITOR if already set by Kitty, otherwise use vim
 set -q EDITOR || set -x EDITOR vim
 
-set -x LC_ALL en_US.UTF-8
-set -x LANG en_US.UTF-8
-set -x SSH_AUTH_SOCK "$HOME/.1password/agent.sock"
-
-set -g fish_greeting
-
 # Use hybrid keybindings, except when in a terminal inside (n)vim
 set -q VIM || set -g fish_key_bindings fish_hybrid_key_bindings
 
+# If the terminal is capable enough, forget about regular vim
+set -q KITTY_PID && abbr --add vim nvim
+
+# Unset global to allow universal variable to take over
+set -ge SSH_AUTH_SOCK
+
 abbr -g --add -- - "cd -"
 abbr -g --add -- ... "../.."
+abbr -g --add ass aws-sso
 abbr -g --add com docker-compose
 abbr -g --add doc docker
 abbr -g --add fly flyctl
@@ -26,9 +27,6 @@ abbr -g --add n nvim
 abbr -g --add pgrep pgrep -lf
 abbr -g --add rtx mise
 abbr -g --add yt yt-dlp
-
-# We never really want regular vim when using Kitty
-set -q KITTY_PID && abbr --add vim nvim
 
 # vim-fugitive equivalents
 abbr -g --add cb git branch
