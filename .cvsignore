@@ -9,6 +9,7 @@
 .gem
 .ignore
 .jira.d
-.mise*.toml
+.mise.local.toml
+.mise.*.local.toml
 .nvimrc
 .vimrc.local
