@@ -19,7 +19,7 @@ abbr -g --add fly flyctl
 abbr -g --add g git
 abbr -g --add gf gitfox
 abbr -g --add lb open -aLaunchBar
-abbr -g --add ls ls -lah
+abbr -g --add ls eza -la
 abbr -g --add m mise
 abbr -g --add mig mix ecto.migrate
 abbr -g --add migen mix ecto.gen.migration
