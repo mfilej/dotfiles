@@ -1,5 +1,16 @@
 return {
   {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    opts = function(_, opts)
+      local center = opts.config.center
+      center[1].key = "p"
+      center[3].key = "fr"
+      center[4].key = "sg"
+      center[5].key = "fc"
+    end,
+  },
+  {
     "folke/noice.nvim",
     opts = {
       cmdline = {
