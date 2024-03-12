@@ -1,6 +1,6 @@
 # ~/.dotfiles
 
-What works for me. Might not work for you. Slowly evolved over the years, inspired by these fine people: [@garybernhardt], [@mislav], [@tpope], [@mihar].
+What works for me. Might not work for you. Slowly evolved over the years, inspired by these fine people: [@garybernhardt][], [@mislav][], [@tpope][], [@mihar][], [@lukerandall][].
 
 ## Philosophy
 
@@ -187,3 +187,9 @@ Then restart the daemon:
 ### Set up Keybase and GPG
 
 See [this excellent guide][keybase-gpg] by [@mihar].
+
+[@garybernhardt]: https://github.com/garybernhardt
+[@mislav]: https://github.com/mislav
+[@tpope]: https://github.com/tpope
+[@mihar]: https://github.com/mihar
+[@lukerandall]: https://github.com/lukerandall/
