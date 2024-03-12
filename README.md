@@ -78,14 +78,9 @@ Symlink dotfiles that we don't want to be publicly visible using a different syn
     stow -v --target ~/.vim/pack vim-pack/
 
 
-### Vim/NeoVim
+### NeoVim
 
-Install [minpac][]:
-
-    cd ~/.config
-    git clone https://github.com/k-takata/minpac.git ~/.config/nvim/pack/minpac/opt/minpac
-
-Bootstrap plugins by launching vim and running `:PackUpdate`. If vim is having problems starting because of missing plugins, launch with `vim --clean`.
+Let LazyVim do its thing.
 
 ### Homebrew
 
@@ -192,18 +187,3 @@ Then restart the daemon:
 ### Set up Keybase and GPG
 
 See [this excellent guide][keybase-gpg] by [@mihar].
-
-
-## Updating vim plugins (and other submodules)
-
-    git submodule update --recursive --remote
-
-[@garybernhardt]: https://github.com/garybernhardt/dotfiles
-[@mislav]: https://github.com/mislav/dotfiles
-[@tpope]: https://github.com/tpope/tpope
-[@mihar]: https://github.com/mihar
-[@gmarik]: https://github.com/gmarik
-[minpac]: https://github.com/k-takata/minpac
-[keybase-gpg]: https://github.com/mihar/env#gpg
-[fish function]: https://github.com/mfilej/dotfiles/blob/main/.config/fish/functions/git.fish#L4-L5
-[brew.sh]: https://brew.sh
