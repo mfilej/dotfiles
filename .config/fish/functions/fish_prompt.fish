@@ -17,7 +17,7 @@ function fish_prompt
     printf '%s' (prompt_pwd)
     set_color 888
 
-    printf '%s' (__fish_git_prompt " ⋲ %s")
+    printf '%s' (__fish_git_prompt "  %s")
 
     set_color 444
     printf ' > '

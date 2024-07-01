@@ -7,13 +7,10 @@ set -q VIM || set -g fish_key_bindings fish_hybrid_key_bindings
 # If the terminal is capable enough, forget about regular vim
 set -q KITTY_PID && abbr --add vim nvim
 
-# Unset global to allow universal variable to take over
-set -ge SSH_AUTH_SOCK
-
 abbr -g --add -- - "cd -"
 abbr -g --add -- ... "../.."
 abbr -g --add ass aws-sso
-abbr -g --add com docker-compose
+abbr -g --add com docker compose
 abbr -g --add doc docker
 abbr -g --add fly flyctl
 abbr -g --add g git
@@ -43,3 +40,9 @@ abbr -g --add ff git pull --ff-only
 
 source ~/.config/op/plugins.sh
 ~/.local/bin/mise activate fish | source
+
+function starship_transient_prompt_func
+    starship module character
+end
+starship init fish | source
+enable_transience
