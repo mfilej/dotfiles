@@ -20,7 +20,7 @@ local TelescopeAlternateMappings = {
   },
 }
 
-local my_git_status_picker = function(opts)
+local _my_git_status_picker = function(opts)
   opts = opts or {}
 
   -- List files top to bottom
@@ -97,7 +97,7 @@ return {
         function()
           Builtin.find_files({ cwd = "~/.config/nvim" })
         end,
-        desc = "Find nvim Config (mnemonic: lua)",
+        desc = "Find NeoVim Config",
       },
       {
         "<leader>p",
@@ -116,16 +116,9 @@ return {
       {
         "<leader>fb",
         function()
-          require("telescope").extensions.file_browser.file_browser({ select_buffer = true, path = "%:p:h" })
+          Builtin.find_files({ no_ignore = true })
         end,
-        desc = "File Browser (current dir)",
-      },
-      {
-        "<leader>fB",
-        function()
-          require("telescope").extensions.file_browser.file_browser()
-        end,
-        desc = "File Browser (root)",
+        desc = "File Browser (all files)",
       },
       {
         "<leader>.",

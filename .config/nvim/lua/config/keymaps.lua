@@ -27,6 +27,7 @@ wk.register({
 
 wk.register({
   ["<leader><space>"] = { "<c-^>", "Edit alternate file" },
+  ["<leader>gw"] = { "Gwrite", ":Gwrite (fugitive)" },
   ["<C-s>"] = nil,
   ["<S-h>"] = { "<cmd>tabp<cr>", "Previous tab" },
   ["<S-l>"] = { "<cmd>tabn<cr>", "Next tab" },

@@ -10,20 +10,30 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    enabled = false,
+    keys = {
+      {
+        "<leader>tt",
+        function()
+          vim.cmd.wall()
+          require("neotest").run.run(vim.fn.expand("%"))
+        end,
+        desc = "Run File",
+      },
+    },
   },
   {
     "vim-test/vim-test",
+    enabled = false,
     event = "VeryLazy",
     cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
     init = function()
       -- Like the built-in toggleterm strategy, except it always runs in terminal window #1
-      local toggleterm = function(cmd)
+      local lazyterm = function(cmd)
         local Util = require("lazyvim.util")
         Util.terminal(cmd, { count = 1, cwd = Util.root() })
       end
 
-      vim.g["test#custom_strategies"] = { mytoggleterm = toggleterm }
+      vim.g["test#custom_strategies"] = { mytoggleterm = lazyterm }
       vim.g["test#strategy"] = "mytoggleterm"
     end,
     keys = {
