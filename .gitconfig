@@ -10,9 +10,7 @@
 	r = rebase
 	f = fetch
 	msg = commit --allow-empty -m
-	h = help -w
 	head = log -1 --pretty=sentence --decorate
-	ctags = !.git/hooks/ctags
 	dt = difftool -y -t Kaleidoscope
 	mt = mergetool -y -t Kaleidoscope
 	wip = commit --no-verify -m "Wip"
@@ -62,15 +60,12 @@
 	required = true
 [rebase]
 	autosquash = true
-[merge]
-	tool = Kaleidoscope
+	autoStash = true
 [difftool]
 	prompt = false
 	trustExitCode = true
 [mergetool]
 	prompt = false
-[diff]
-	tool = Kaleidoscope
 [url "git@github.com:"]
 	insteadOf = hub:
 [diff "exif"]
@@ -84,3 +79,10 @@
 	path = ~/.config/git-delta/tokyonight.gitconfig
 [delta]
 	features = arctic-fox
+[rerere]
+	enabled = true
+	autoUpdate = true
+[diff]
+	tool = Kaleidoscope
+[merge]
+	tool = Kaleidoscope
