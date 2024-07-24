@@ -4,7 +4,6 @@
 #
 #     $ `brew bundle --global`
 tap 'homebrew/bundle'
-tap 'homebrew/services'
 
 brew 'fish'
 
@@ -68,7 +67,7 @@ brew 'yq'
 brew 'yt-dlp'
 
 # Run multiple pg versions
-brew 'petere/postgresql/postgresql-common'
+# brew 'petere/postgresql/postgresql-common'
 # - Install a specific version: brew install petere/postgresql/postgresql@14
 # - Initialize with `pg_createcluster 14 main --start -p <port>`
 # - Start with `pg_ctlcluster 14 main start`
@@ -85,7 +84,6 @@ cask 'dictionaries'
 cask 'discord'
 cask 'fantastical'
 cask 'filebot'
-cask 'fluid'
 cask 'github'
 cask 'grammarly'
 cask 'handbrake'
@@ -115,14 +113,12 @@ cask 'reflect'
 cask 'resolutionator'
 cask 'retrobatch'
 cask 'screenflick'
-cask 'screens'
 cask 'setapp'
 cask 'shortcutdetective'
 cask 'soulver'
 cask 'soundsource'
 cask 'superduper'
 cask 'suspicious-package'
-cask 'swiftdefaultappsprefpane'
 cask 'timemachineeditor'
 cask 'transmit'
 cask 'tuple'
@@ -160,7 +156,6 @@ mas 'Peek', id: 1554235898
 mas 'Pixelmator Pro', id: 1289583905
 mas 'Shareful', id: 1522267256
 mas 'Slack', id: 803453959
-mas 'Soulver 2', id: 413965349
 mas 'Soulver 3', id: 1508732804
 mas 'Speediness', id: 1596706466
 mas 'StopTheMadness', id: 1376402589
@@ -170,7 +165,6 @@ mas 'TestFlight', id: 899247664
 mas 'Things 3', id: 904280696
 mas 'ToothFairy', id: 1191449274
 mas 'Twitterrific: Tweet Your Way', id: 1289378661
-mas 'Vectornator: Vector Design', id: 1219074514
 mas 'xScope', id: 889428659
 
 
