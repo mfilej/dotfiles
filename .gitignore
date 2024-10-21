@@ -21,6 +21,9 @@
 !/.config/fish/completions/
 !/.config/fish/config.fish
 !/.config/git-delta/
+!/.config/karabiner
+/.config/karabiner/*
+!/.config/karabiner/karabiner.json
 !/.config/kitty
 !/.config/nvim
 /.config/nvim/plugin/packer_compiled.lua
