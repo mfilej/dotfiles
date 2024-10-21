@@ -31,15 +31,17 @@ def main():
 
 @result_handler(no_ui=True)
 def handle_result(args, result, target_window_id, boss):
+    direction = args[1]
+    key_mapping = args[2]
+    vim_id = args[3] if len(args) > 3 else "n?vim"
+
     window = boss.window_id_map.get(target_window_id)
-    direction = args[2]
-    key_mapping = args[3]
-    vim_id = args[4] if len(args) > 4 else "n?vim"
 
     if window is None:
         return
     if is_window_vim(window, vim_id):
-        encoded = encode_key_mapping(window, key_mapping)
-        window.write_to_child(encoded)
+        for keymap in key_mapping.split(">"):
+            encoded = encode_key_mapping(window, keymap)
+            window.write_to_child(encoded)
     else:
         boss.active_tab.neighboring_window(direction)
