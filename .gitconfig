@@ -86,3 +86,5 @@
 	tool = Kaleidoscope
 [merge]
 	tool = Kaleidoscope
+[commit]
+	verbose = true
