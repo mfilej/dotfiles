@@ -39,7 +39,12 @@ abbr -g --add rr git rebase --continue
 abbr -g --add ff git pull --ff-only
 
 source ~/.config/op/plugins.sh
-~/.local/bin/mise activate fish | source
+
+if status is-interactive
+  ~/.local/bin/mise activate fish | source
+else
+  ~/.local/bin/mise activate fish --shims | source
+end
 
 function starship_transient_prompt_func
     starship module character
