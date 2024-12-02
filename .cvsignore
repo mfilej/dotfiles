@@ -3,6 +3,7 @@
 /.projections.json
 /.rspec-local
 /tags
+.aider*
 .DS_Store
 .direnv
 .envrc
