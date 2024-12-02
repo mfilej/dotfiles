@@ -33,17 +33,15 @@ abbr -g --add c git commit
 abbr -g --add crc git reset --soft HEAD^
 abbr -g --add cva git commit --amend -v
 abbr -g --add cvc git commit -v
-abbr -g --add r git rebase
-abbr -g --add rr git rebase --continue
 
-abbr -g --add ff git pull --ff-only
+abbr -g --add ff --function vcs_ff
 
 source ~/.config/op/plugins.sh
 
 if status is-interactive
-  ~/.local/bin/mise activate fish | source
+    ~/.local/bin/mise activate fish | source
 else
-  ~/.local/bin/mise activate fish --shims | source
+    ~/.local/bin/mise activate fish --shims | source
 end
 
 function starship_transient_prompt_func
@@ -51,3 +49,5 @@ function starship_transient_prompt_func
 end
 starship init fish | source
 enable_transience
+
+argc --argc-completions fish aws caddy jj | source
