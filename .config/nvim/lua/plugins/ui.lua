@@ -3,14 +3,14 @@ return {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
     opts = function(_, opts)
-      local center = opts.config.center
-      center[1].key = "<leader>p"
-      center[4].key = "<leader>fr"
-      center[5].key = "<leader>sg"
-      center[6].key = "<leader>fc"
+      -- local center = opts.config.center
+      -- center[1].key = "<leader>p"
+      -- center[4].key = "<leader>fr"
+      -- center[5].key = "<leader>sg"
+      -- center[6].key = "<leader>fc"
     end,
   },
-  { "rcarriga/nvim-notify", enabled = false },
+  { "rcarriga/nvim-notify" },
   {
     "folke/noice.nvim",
     opts = {

@@ -60,35 +60,6 @@ return {
     },
   },
   {
-    "stevearc/oil.nvim",
-    enabled = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {
-      default_file_explorer = true,
-      keymaps = {
-        ["<C-s>"] = "actions.select_split",
-        ["<C-v>"] = "actions.select_vsplit",
-      },
-      float = {
-        win_options = {
-          winblend = 0,
-        },
-      },
-      view_options = {
-        show_hidden = true,
-      },
-    },
-    keys = {
-      {
-        "-",
-        function()
-          require("oil").open_float()
-        end,
-        desc = "Cover parent directory in Oil",
-      },
-    },
-  },
-  {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
     keys = {
@@ -106,61 +77,6 @@ return {
       default_mappings = {
         next = "]n",
         prev = "[n",
-      },
-    },
-  },
-  {
-    "ruifm/gitlinker.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
-    opts = {
-      mappings = nil,
-      add_current_line_on_normal_mode = false, -- use visual mode to include the line
-    },
-    keys = {
-      -- mnemonic: yank
-      {
-        "<leader>gy",
-        function()
-          require("gitlinker").get_buf_range_url("v")
-        end,
-        desc = "Copy file:line(s) URL to clipboard",
-        mode = "x",
-      },
-      {
-        "<leader>gy",
-        function()
-          require("gitlinker").get_buf_range_url("n")
-        end,
-        desc = "Copy file:line(s) URL to clipboard",
-      },
-      -- mnemonic: browse
-      {
-        "<leader>gb",
-        function()
-          require("gitlinker").get_buf_range_url(
-            "v",
-            { action_callback = require("gitlinker.actions").open_in_browser }
-          )
-        end,
-        desc = "Open file in browser",
-        mode = "x",
-      },
-      {
-        "<leader>gb",
-        function()
-          require("gitlinker").get_buf_range_url(
-            "n",
-            { action_callback = require("gitlinker.actions").open_in_browser }
-          )
-        end,
-        desc = "Open file in browser",
-      },
-      {
-        "<leader>gB",
-        function()
-          require("gitlinker").get_repo_url({ action_callback = require("gitlinker.actions").open_in_browser })
-        end,
-        desc = "Open repository in browser",
       },
     },
   },

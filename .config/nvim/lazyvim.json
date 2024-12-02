@@ -1,7 +1,6 @@
 {
   "extras": [
-    "lazyvim.plugins.extras.coding.copilot",
-    "lazyvim.plugins.extras.coding.copilot-chat",
+    "lazyvim.plugins.extras.coding.blink",
     "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.editor.dial",
     "lazyvim.plugins.extras.editor.inc-rename",
@@ -19,12 +18,13 @@
     "lazyvim.plugins.extras.lang.yaml",
     "lazyvim.plugins.extras.test.core",
     "lazyvim.plugins.extras.ui.edgy",
+    "lazyvim.plugins.extras.ui.smear-cursor",
     "lazyvim.plugins.extras.util.dot",
     "lazyvim.plugins.extras.util.octo",
     "lazyvim.plugins.extras.util.project"
   ],
   "news": {
-    "NEWS.md": "6520"
+    "NEWS.md": "7429"
   },
-  "version": 6
+  "version": 7
 }
