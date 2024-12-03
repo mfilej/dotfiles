@@ -1,19 +1,20 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
+    "Saghen/blink.cmp",
     enable = false,
-    opts = function(_, opts)
-      local cmp = require("cmp")
-
-      opts.preselect = cmp.PreselectMode.None
-      opts.completion.completeopt = "menu,menuone,noinsert,noselect"
-      opts.mapping = {
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<CR>"] = cmp.mapping.confirm({ select = false }),
-      }
-      return opts
-    end,
+    opts = {
+      keymap = {
+        preset = "default",
+        ["<C-n>"] = { "show", "select_next", "fallback" },
+        ["<C-y>"] = {},
+        ["<C-space>"] = {},
+      },
+      completion = {
+        list = {
+          selection = "auto_insert",
+        },
+      },
+    },
   },
   {
     "gbprod/yanky.nvim",
