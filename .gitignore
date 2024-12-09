@@ -19,6 +19,7 @@
 !/.config/fish/fishfile
 !/.config/fish/functions/
 !/.config/fish/completions/
+!/.config/fish/conf.d/
 !/.config/fish/config.fish
 !/.config/git-delta/
 !/.config/karabiner
