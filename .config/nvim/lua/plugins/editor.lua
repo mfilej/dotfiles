@@ -1,45 +1,37 @@
+local flash = require("flash")
+
 return {
   -- Where we're going, we don't need trees
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
     "folke/flash.nvim",
+    keys = {
+      { "<leader>/", mode = { "n" }, flash.jump, desc = "Flash" },
+      { "s", mode = { "n", "x", "o" }, false },
+    },
     opts = {
       modes = {
-        search = { enabled = false },
-        char = { multi_line = false, jump_labels = true, label = { exclude = "hjkliardcs" }, autohide = true },
+        char = {
+          multi_line = false,
+        },
       },
-    },
-    keys = {
-      {
-        "<C-/>",
-        mode = { "n" },
-        function()
-          require("flash").jump()
-        end,
-        desc = "Flash",
-      },
-      { "s", mode = { "n", "x", "o" }, false },
     },
   },
   {
     "echasnovski/mini.files",
     opts = {
+      windows = {
+        width_preview = 80,
+      },
       options = {
         -- Use instead of neo-tree
         use_as_default_explorer = true,
       },
       mappings = {
-        -- close       = 'q',
         go_in = "L",
         go_in_plus = "<CR>",
         go_out = "J",
         go_out_plus = "-",
-        -- reset = "<BS>",
-        -- reveal_cwd = "@",
-        -- show_help = "g?",
-        -- synchronize = "=",
-        -- trim_left = "<",
-        -- trim_right = ">",
       },
     },
     keys = {
