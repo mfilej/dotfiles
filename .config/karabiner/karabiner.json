@@ -1,5 +1,9 @@
 {
-    "global": { "show_in_menu_bar": false },
+    "global": {
+        "ask_for_confirmation_before_quitting": false,
+        "enable_notification_window": false,
+        "show_in_menu_bar": false
+    },
     "profiles": [
         {
             "complex_modifications": {
@@ -314,6 +318,14 @@
                             "to": [{ "key_code": "left_control" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 835,
+                        "vendor_id": 1452
+                    },
+                    "ignore": true
                 }
             ],
             "fn_function_keys": [
