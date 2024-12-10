@@ -3,7 +3,6 @@
 	email = miha@filej.net
 	signingkey = 2082F4F0DF126C5E
 [core]
-	excludesfile = ~/.cvsignore
 	pager = delta
 [alias]
 	l = log --graph --decorate --pretty=sentence
