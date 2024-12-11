@@ -70,7 +70,7 @@ Run `brew install jj` so we can move on to setting up dotfiles.
 ### Dotfiles
 
 ```
-alias jj /opt/homebrew/bin/jj
+alias jj=/opt/homebrew/bin/jj
 echo '*' > ~/.gitignore
 jj git init
 jj git remote set-url https://github.com/mfilej/dotfiles.git
