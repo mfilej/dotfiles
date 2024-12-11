@@ -65,26 +65,23 @@ Things get moved around more often than I set up new computers, so the exact lab
 
 Use the one-liner from [brew.sh](https://brew.sh) to install Homebrew.
 The script will take care of installing Command Line Tools for Xcode.
+Run `brew install jj` so we can move on to setting up dotfiles.
 
 ### Dotfiles
 
-Clone your dotfiles (this repository):
+```
+alias jj /opt/homebrew/bin/jj
+echo '*' > ~/.gitignore
+jj git init
+jj git remote set-url https://github.com/mfilej/dotfiles.git
+jj git fetch
+jj bookmark track main@origin
+jj rebase -d main@origin
+```
 
-    git clone --bare git://github.com/mfilej/dotfiles.git ~/.dotfiles.git
+After the last command, `jj` will detect a conflict because we manually created a `.gitignore` repo earlier. You can resolve the conflict by accepting the suggested restore command that is part of the error message.
 
-Now set up a temporary alias; later we will handle this with a [fish function][].
-
-    alias .G="git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME/"
-
-Now check for conflicts:
-
-    .G status
-
-Then continue:
-
-    .G checkout main
-    .G submodule update --init
-
+`jj status` should now look clean.
 
 ### Dotfiles with sensitive information
 
