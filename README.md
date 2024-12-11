@@ -17,34 +17,49 @@ Take a deep breath through your nose and savour the smell of your new computer.
 
 Follow the operating system's first time start-up wizard. 
 
-### System Preferences
+### System Settings
+
+Use the search function to find the relevant settings.
+Things get moved around more often than I set up new computers, so the exact labels might differ.
 
 - Check for updates and wait for them to finish installing.
-- Change the computer name using the Sharing Preference Pane.
-- Make sure FileVault is enabled (comes enabled by default on new computers).
+- Change the computer name..
+- Make sure FileVault is enabled and store the recovery key (comes enabled by default on new computers).
 - Disable Screen saver.
 - Trackpad: Enable *Tap to click*.
-- Mission Control: Uncheck *When switching to an application, switch to a
+- Desktop & Dock:
+  - Uncheck *Close windows when quitting an application*.  
+  - Uncheck *When switching to an application, switch to a
   Space with open windows for the application*.
+  - Check *Group windows by application*.
 
 #### Keyboard
 
-- Customize modifier keys (on a laptop).
+- Customize modifier keys (for laptops).
 - Set keyboard repeat rate and delay to *Fast* and *Short* respectively.
-- Under Text, uncheck *Correct spelling automatically*.
+- Under Spelling and prediction:
+  - Uncheck *Correct spelling automatically*.
+  - Uncheck *Capitalize words automatically*.
+  - Uncheck *Add period with double-space*.
 
-#### Sounds
+#### Sound
 
-- Uncheck *Play user interface sound effects*.
 - Slide *Alert volume* to minimum.
+- Uncheck *Play user interface sound effects*.
 
 
 ### Finder
 
 - Change to column view (⌘3)
-- Under General → *New Finder windows show* select your home directory.
+- Under General:
+  - *New Finder windows show* select your home directory.
+  - Uncheck *Open folders in tabs instead of new windows*.
+- Under Tags, uncheck everything.
 - Under Sidebar edit as needed.
-- Under Advanced → *Remove items from the Trash after* select 30 days.
+- Under Advanced:
+  - Uncheck *Show warning before changing an extension*.
+  - Uncheck *Show warning before removing from iCloud Drive*.
+  - Check *Remove items from the Trash after* select 30 days*.
 
 
 ### Dotfiles
