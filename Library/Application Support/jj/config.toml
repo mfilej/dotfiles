@@ -1,0 +1,13 @@
+[user]
+name = "Miha Filej"
+email = "miha@filej.net"
+
+[ui]
+editor = "vim"
+default-command = "log"
+merge-editor = ":builtin"
+diff-editor = ":builtin"
+
+[revset-aliases]
+"envs()" = "tags(regex:'^(production|staging|preview)$')"
+"immutable_heads()" = "builtin_immutable_heads() & ~envs()"
