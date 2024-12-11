@@ -32,6 +32,7 @@ Things get moved around more often than I set up new computers, so the exact lab
   - Uncheck *When switching to an application, switch to a
   Space with open windows for the application*.
   - Check *Group windows by application*.
+- Privacy & Security: Give Full Disk Access to Terminal.app.
 
 #### Keyboard
 
@@ -47,7 +48,6 @@ Things get moved around more often than I set up new computers, so the exact lab
 - Slide *Alert volume* to minimum.
 - Uncheck *Play user interface sound effects*.
 
-
 ### Finder
 
 - Change to column view (⌘3)
@@ -61,6 +61,10 @@ Things get moved around more often than I set up new computers, so the exact lab
   - Uncheck *Show warning before removing from iCloud Drive*.
   - Check *Remove items from the Trash after* select 30 days*.
 
+### Homebrew and mise
+
+Use the one-liner from [brew.sh](https://brew.sh) to install Homebrew.
+The script will take care of installing Command Line Tools for Xcode.
 
 ### Dotfiles
 
