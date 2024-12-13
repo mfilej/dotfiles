@@ -107,33 +107,18 @@ Install everything from the global Brewfile:
     brew bundle --global
 
 
-### Homebrew on ARM
-
-Install rosetta homebrew on Apple Silicon:
-
-    sudo -i
-    cd /usr/local && mkdir homebrew
-    curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-    chown -R miha:admin homebrew/
-
-Then use the `rbrew` fish function.
-
 ### Fish
 
 Now that homebrew has installed the fish shell we can set up Terminal.app.
 
-- Under Settings → General → *Shell opens with* enter the value `/usr/local/bin/fish`.
-- Under Profiles click the gear icon, then Import. Pick the profile, then set as default.
-- Under Text, bump the font size to 14.
+- Under Settings → General → *Shell opens with* enter the value `/opt/homebrew/bin/fish`.
 - Under Shell, *Ask before *closing*, *Only if there are processes other than the login shell and:* enter `-fish`.
 
-Reopen the Terminal window.
+Open a new Terminal window and the following to your $PATH:
 
-Welcome to fish!
+    fish_add_path /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/.bin/
 
-Now add `~/.bin` to your $PATH:
-
-    set -U fish_user_paths ~/.bin/ $fish_user_paths
+Open a new Terminal window one more time (or just run `fish`) and check `$PATH` to make sure the above worked.
 
 ### Launchbar
 
