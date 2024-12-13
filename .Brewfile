@@ -64,6 +64,7 @@ cask '1password-cli'
 cask 'ace-link'
 cask 'acorn'
 cask 'appcleaner'
+cask 'arc'
 cask 'arq'
 cask 'backuploupe'
 cask 'charles'
@@ -130,6 +131,7 @@ mas 'StopTheMadness Pro', id: 6471380298
 mas 'Super Agent for Safari', id: 1568262835
 mas 'Tailscale', id: 1475387142  
 mas 'Things 3', id: 904280696
+mas 'Velja', id: 1607635845
 mas 'xScope', id: 889428659
 
 
