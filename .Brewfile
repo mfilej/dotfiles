@@ -22,6 +22,7 @@ brew 'eza'
 brew 'fd'
 brew 'ffmpeg'
 brew 'findutils'
+brew 'fzf'
 brew 'gh'
 brew 'git'
 brew 'gist'
@@ -79,7 +80,7 @@ cask 'hazel'
 cask 'iina'
 cask 'imageoptim'
 cask 'key-codes'
-cask 'keyboard-lock'
+cask 'keyboard-cleaner'
 cask 'launchcontrol'
 cask 'ledger-live'
 cask 'mimestream'
@@ -143,7 +144,6 @@ mas 'xScope', id: 889428659
 
 cask 'apparency'
 cask 'qlcolorcode'
-cask 'qlimagesize'
 cask 'qlmarkdown'
 cask 'qlstephen'
 cask 'qlvideo'
@@ -153,8 +153,6 @@ cask 'suspicious-package'
 
 
 # ## Fonts
-
-tap 'homebrew/cask-fonts'
 
 cask 'font-symbols-only-nerd-font'
 
