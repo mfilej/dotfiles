@@ -102,7 +102,7 @@ Open a new Terminal window one more time (or just run `fish`) and check `$PATH` 
 
 With `$PATH` in place, we can install everything from the global Brewfile:
 
-    brew bundle --global\
+    brew bundle --global
 
 Finally, install [mise][] to `~/.local/bin`:
 
