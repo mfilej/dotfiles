@@ -92,7 +92,9 @@ After the last command, `jj` will detect a conflict because we manually created 
 Now that homebrew has installed the fish shell we can set up Terminal.app.
 
 - Under Settings → General → *Shell opens with* enter the value `/opt/homebrew/bin/fish`.
-- Under Shell, *Ask before *closing*, *Only if there are processes other than the login shell and:* enter `-fish`.
+- For the chosen profile:
+  - Under Shell, *Ask before *closing*, *Only if there are processes other than the login shell and:* enter `-fish`.
+  - Under Keyboard, check *Use Option as Meta key*.
 
 Open a new Terminal window and the following to your $PATH:
 
