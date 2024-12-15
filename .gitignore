@@ -33,6 +33,7 @@
 !/.config/karabiner/karabiner.json
 !/.config/kitty
 !/.config/nvim
+!/.config/op/
 !/.config/osx-defaults/
 !/.config/ripgrep/
 !/.config/starship.toml
