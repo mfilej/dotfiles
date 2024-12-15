@@ -20,5 +20,4 @@ abbr -g --add cva git commit --amend -v
 abbr -g --add cvc git commit -v
 
 abbr -g --add ff --function vcs_ff
-abbr -g --add n --function vim_or_nvim
-abbr -g --add vim --function vim_or_nvim
+abbr -g --add n nvim
