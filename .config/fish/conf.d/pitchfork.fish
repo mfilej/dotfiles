@@ -1,0 +1,1 @@
+pitchfork activate fish | source

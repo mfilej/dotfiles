@@ -36,6 +36,7 @@
 !/.config/nvim
 !/.config/op/
 !/.config/osx-defaults/
+!/.config/pitchfork/
 !/.config/ripgrep/
 !/.config/starship.toml
 !/.ctags

@@ -1,0 +1,3 @@
+[daemons.atuin]
+run = "atuin daemon"
+auto = ["start", "stop"]

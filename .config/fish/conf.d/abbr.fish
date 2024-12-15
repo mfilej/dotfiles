@@ -10,6 +10,7 @@ abbr -g --add m mise
 abbr -g --add mig mix ecto.migrate
 abbr -g --add migen mix ecto.gen.migration
 abbr -g --add n nvim
+abbr -g --add pf pitchfork
 abbr -g --add pgrep pgrep -lf
 abbr -g --add yt yt-dlp
 
