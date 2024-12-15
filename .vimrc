@@ -9,15 +9,7 @@ set secure "   (but disallow shell execution)
 " Colors & Theme
 " --------------
 
-packadd! dracula_pro
-
 syntax on
-
-try
-  let g:dracula_colorterm = 0
-  colorscheme dracula_pro
-catch
-endtry
 
 highlight ColorColumn   ctermbg=234 guibg=#1c1c1c
 highlight CursorLine  guibg=#333333 guifg=NONE gui=NONE
