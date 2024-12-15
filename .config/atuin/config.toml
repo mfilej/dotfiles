@@ -1,0 +1,7 @@
+auto_sync = true
+ctrl_n_shortcuts = true
+enter_accept = true
+style = "compact"
+
+[daemon]
+enabled = true
