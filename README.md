@@ -102,6 +102,10 @@ Open a new Terminal window and the following to your $PATH:
 
     fish_add_path /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/.bin/
 
+And clear the default fish greeting:
+
+     set -U fish_greeting
+
 Open a new Terminal window one more time (or just run `fish`) and check `$PATH` to make sure the above worked.
 
 With `$PATH` in place, we can install everything from the global Brewfile:
