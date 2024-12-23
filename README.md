@@ -85,11 +85,13 @@ jj bookmark track main@origin
 jj rebase -d main@origin
 ```
 
-After the last command, `jj` will detect a conflict because we manually created a `.gitignore` repo earlier. You can resolve the conflict by accepting the suggested restore command that is part of the error message.
+> [!NOTE]
+> After rebasing, `jj` will detect a conflict because earlier we manually created a `.gitignore` file.
+> You can resolve the conflict by accepting the suggested `restore` command as mentioned in the error message.
 
-`jj status` should now look clean.
+At this point `jj status` should look clean.
 
-Now that homebrew has installed the fish shell we can set up Terminal.app.
+Now that Homebrew has installed the fish shell we can set up Terminal.app.
 
 - Under Settings → General → *Shell opens with* enter the value `/opt/homebrew/bin/fish`.
 - For the chosen profile:
@@ -111,6 +113,11 @@ Open a new Terminal window one more time (or just run `fish`) and check `$PATH` 
 With `$PATH` in place, we can install everything from the global Brewfile:
 
     brew bundle --global
+
+> [!NOTE]
+> QuickLook plugins installed via Homebrew are quarantined. Follow these
+> instructions for removing the quarantine attribute:
+> <https://github.com/sindresorhus/quick-look-plugins>
 
 Finally, install [mise][] to `~/.local/bin`:
 

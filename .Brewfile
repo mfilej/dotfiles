@@ -1,8 +1,3 @@
-# Note on QuickLook plugins
-#
-# See instructions for removing the quarantine attribute:
-# <https://github.com/sindresorhus/quick-look-plugins>
-
 tap "homebrew/bundle"
 tap "homebrew/cask"
 brew "atuin"
