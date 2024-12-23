@@ -35,6 +35,7 @@
 !/.config/nvim
 !/.config/osx-defaults/
 !/.config/ripgrep/
+!/.config/starship.toml
 !/.ctags
 !/.gemrc
 !/.gvimrc
