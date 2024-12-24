@@ -142,17 +142,17 @@ mas "CotEditor", id: 1024640650
 mas "DaisyDisk", id: 411643860
 mas "Darkroom", id: 953286746
 mas "Drafts", id: 1435957248
-mas "GIF Brewery 3", id: 1081413713
 mas "Focus for YouTube", id: 1514703160
 mas "Gapplin", id: 768053424
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
+mas "GIFwrapped", id: 782319880
 mas "Hyperduck", id: 6444667067
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "LilyView", id: 529490330
 mas "Link Unshortener", id: 1506953658
-mas "LookUp: English Dictionary", id: 1476163639
+mas "LookUp", id: 872564448
 mas "Magic Lasso", id: 1198047227
 mas "MakePass", id: 1450989464
 mas "Mela", id: 1568924476
