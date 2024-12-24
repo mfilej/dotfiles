@@ -126,7 +126,7 @@ curl https://mise.run | sh
 ```
 
 
-### Launchbar
+### LaunchBar
 
     trash /Users/miha/Library/Application\ Support/LaunchBar/{Actions,Snippets}
     ln -s ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sync/LaunchBar/{Actions,Snippets} /Users/miha/Library/Application\ Support/LaunchBar/
