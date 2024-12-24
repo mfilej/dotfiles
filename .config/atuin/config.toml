@@ -1,7 +1,8 @@
 auto_sync = true
-ctrl_n_shortcuts = true
 enter_accept = true
+show_help = false
+show_tabs = false
 style = "compact"
 
 [daemon]
-enabled = true
+enabled = false
