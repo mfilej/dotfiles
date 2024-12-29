@@ -1,1 +1,1 @@
-pitchfork activate fish | source
+# pitchfork activate fish | source
