@@ -6,13 +6,31 @@ clipboard-read = allow
 clipboard-write = allow
 copy-on-select = false
 theme = catppuccin-mocha
+window-inherit-working-directory = false
+
+font-family = "MonoLisa"
+font-size = 13.5
+font-feature = "-liga"
+
+keybind = global:cmd+control+\=toggle_quick_terminal
+keybind = cmd+\=new_split:right
+keybind = cmd+enter=new_split:down
+keybind = cmd+control+h=goto_split:left
+keybind = cmd+control+j=goto_split:bottom
+keybind = cmd+control+k=goto_split:top
+keybind = cmd+control+l=goto_split:right
+keybind = cmd+option+[=move_tab:-1
+keybind = cmd+option+]=move_tab:+1
+
 bold-is-bright = true
+background-opacity = 0.97
+background-blur-radius = 20
+
 background = #1e1e2e
 foreground = #cdd6f4
 selection-background = #585b70
 selection-foreground = #cdd6f4
 cursor-color = #f5e0dc
-cursor-style = bar
 palette = 0=#45475a
 palette = 1=#f38ba8
 palette = 2=#a6e3a1
