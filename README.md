@@ -37,6 +37,8 @@ Things get moved around more often than I set up new computers, so the exact lab
   Space with open windows for the application*.
   - Check *Group windows by application*.
 - Privacy & Security: Give Full Disk Access to Terminal.app.
+- Accessibility:
+  - Under Display: Check *Show window title icons* to have persistent proxy icons.
 
 
 #### Keyboard
