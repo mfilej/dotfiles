@@ -6,7 +6,6 @@ clipboard-read = allow
 clipboard-write = allow
 copy-on-select = false
 theme = catppuccin-mocha
-window-inherit-working-directory = false
 
 font-family = "MonoLisa"
 font-size = 13.5
