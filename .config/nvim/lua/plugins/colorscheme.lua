@@ -1,6 +1,17 @@
 return {
   {
-    "folke/tokyonight.nvim",
-    opts = { style = "night" },
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "monokai",
+    },
+
   },
+  {
+    "tanvirtin/monokai.nvim",
+    lazy = false,
+  },
+  {
+    "xiyaowong/transparent.nvim",
+    lazy = false,
+  }
 }
