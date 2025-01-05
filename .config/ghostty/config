@@ -26,3 +26,6 @@ background-blur-radius = 20
 
 theme = "Monokai Pro Spectrum"
 macos-icon = "custom-style"
+macos-icon-frame = "plastic"
+macos-icon-ghost-color = "FF79C6"
+macos-icon-screen-color = "666666"
