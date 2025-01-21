@@ -1,10 +1,15 @@
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/services"
+brew "ca-certificates"
+brew "libyaml"
+brew "aider"
+brew "asciinema"
 brew "atuin"
 brew "autoconf"
 brew "aws-sso-cli"
-brew "ca-certificates"
 brew "awscli"
+brew "bat"
 brew "carapace"
 brew "exiftool"
 brew "eza"
@@ -27,15 +32,18 @@ brew "jj"
 brew "jq"
 brew "jsonpp"
 brew "libpq"
-brew "libyaml"
 brew "mas"
 brew "mkcert"
 brew "moreutils"
 brew "mplayer"
 brew "neovim"
+brew "node"
 brew "nss"
 brew "pinentry-mac"
+brew "postgresql@16", restart_service: :changed
+brew "redis", restart_service: :changed
 brew "ripgrep"
+brew "ruby"
 brew "s3cmd"
 brew "slackcat"
 brew "sponge", link: false
@@ -66,12 +74,14 @@ cask "claude"
 cask "cleanshot"
 cask "cleanupbuddy"
 cask "cursor"
+cask "customshortcuts"
 cask "dictionaries"
 cask "discord"
 cask "docker"
 cask "eloston-chromium", args: { appdir: "/Applications" }
 cask "fantastical"
 cask "filebot"
+cask "finbar"
 cask "firefox", args: { appdir: "/Applications" }
 cask "font-anonymous-pro"
 cask "font-atkinson-hyperlegible"
@@ -88,6 +98,7 @@ cask "font-input"
 cask "font-inter"
 cask "font-iosevka"
 cask "font-jetbrains-mono"
+cask "font-lilex"
 cask "font-mona-sans"
 cask "font-monoid"
 cask "font-new-york"
@@ -102,6 +113,7 @@ cask "font-space-mono"
 cask "font-symbols-only-nerd-font"
 cask "font-ubuntu-mono"
 cask "font-victor-mono"
+cask "ghostty@tip"
 cask "github"
 cask "handbrake"
 cask "hazel"
@@ -116,6 +128,7 @@ cask "mimestream"
 cask "monodraw"
 cask "musicbrainz-picard"
 cask "openvpn-connect"
+cask "orbstack"
 cask "orcaslicer"
 cask "powerphotos"
 cask "qlcolorcode"
@@ -125,6 +138,7 @@ cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
 cask "rar"
+cask "rectangle-pro"
 cask "reflect"
 cask "resolutionator"
 cask "screenflick"
@@ -142,11 +156,11 @@ cask "vlc"
 cask "windsurf"
 mas "Banish", id: 1639049780
 mas "Cardhop", id: 1290358394
-mas "com.kagimacOS.Kagi-Search", id: 1622835804
 mas "CotEditor", id: 1024640650
 mas "DaisyDisk", id: 411643860
 mas "Darkroom", id: 953286746
 mas "Drafts", id: 1435957248
+mas "Endel", id: 1346247457
 mas "Focus for YouTube", id: 1514703160
 mas "Gapplin", id: 768053424
 mas "GarageBand", id: 682658836
@@ -154,20 +168,25 @@ mas "Gifski", id: 1351639930
 mas "GIFwrapped", id: 782319880
 mas "Hyperduck", id: 6444667067
 mas "iMovie", id: 408981434
+mas "Kagi for Safari", id: 1622835804
 mas "Keynote", id: 409183694
 mas "LilyView", id: 529490330
 mas "Link Unshortener", id: 1506953658
 mas "LookUp", id: 872564448
+mas "Lungo", id: 1263070803
 mas "Magic Lasso", id: 1198047227
 mas "MakePass", id: 1450989464
 mas "Mela", id: 1568924476
+mas "Metapho", id: 914457352
 mas "Mic Drop", id: 1489816366
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pandan", id: 1569600264
+mas "Parcel", id: 639968404
 mas "Peek", id: 1554235898
 mas "Pixelmator Pro", id: 1289583905
 mas "Plain Text Editor", id: 1572202501
+mas "Refined GitHub", id: 1519867270
 mas "Save to Reflect", id: 1590481717
 mas "Shareful", id: 1522267256
 mas "Slack", id: 803453959
