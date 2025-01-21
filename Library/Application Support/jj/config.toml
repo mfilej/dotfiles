@@ -11,3 +11,18 @@ diff-editor = ":builtin"
 [revset-aliases]
 "envs()" = "tags(regex:'^(production|staging|preview)$')"
 "immutable_heads()" = "builtin_immutable_heads() & ~envs()"
+
+[templates]
+draft_commit_description = '''
+concat(
+  description,
+  surround(
+    "\nJJ: This commit contains the following changes:\n", "",
+    indent("JJ:     ", diff.summary()),
+  ),
+  surround(
+    "\nJJ: ignore-rest\n", "",
+    diff.git(72),
+  ),
+)
+'''
