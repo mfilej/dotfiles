@@ -11,7 +11,7 @@ return {
       },
       completion = {
         list = {
-          selection = "auto_insert",
+          selection = { preselect = false, auto_insert = true },
         },
       },
     },
@@ -22,13 +22,6 @@ return {
     opts = {},
     keys = {
       { "<leader>p", false },
-      {
-        '<leader>"',
-        function()
-          require("telescope").extensions.yank_history.yank_history({})
-        end,
-        desc = "Open Yank History",
-      },
       { "<c-p>", "<Plug>(YankyPreviousEntry)", desc = "Cycle through yank ring backwards" },
       { "<c-n>", "<Plug>(YankyNextEntry)", desc = "Cycle through yank ring forwards" },
     },
@@ -36,7 +29,6 @@ return {
   {
     "echasnovski/mini.surround",
     opts = {
-      custom_surroundings = {
         ["("] = { output = { left = "( ", right = " )" } },
         ["["] = { output = { left = "[ ", right = " ]" } },
         ["{"] = { output = { left = "{ ", right = " }" } },
