@@ -3,6 +3,10 @@
 !/Library/
 /Library/*
 
+!/Library/Application\ Scripts
+/Library/Application\ Scripts/*
+!/Library/Application\ Scripts/com.roeybiran.Finbar/
+
 !/Library/iTunes/
 /Library/iTunes/*
 !/Library/iTunes/Scripts/
@@ -13,6 +17,7 @@
 /Library/Preferences/*
 
 !/Library/Scripts/
+
 
 !.Brewfile
 !/.bin/
