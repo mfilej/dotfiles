@@ -6,9 +6,8 @@ clipboard-read = allow
 clipboard-write = allow
 copy-on-select = true
 
-font-family = "MonoLisa"
-font-size = 13.5
-font-feature = "-liga"
+font-family = "Lilex"
+font-size = 13
 
 keybind = global:cmd+control+\=toggle_quick_terminal
 keybind = cmd+\=new_split:right
