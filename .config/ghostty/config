@@ -4,7 +4,7 @@ command = /opt/homebrew/bin/fish
 
 clipboard-read = allow
 clipboard-write = allow
-copy-on-select = false
+copy-on-select = true
 
 font-family = "MonoLisa"
 font-size = 13.5
