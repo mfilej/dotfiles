@@ -4,6 +4,26 @@ return {
   -- Where we're going, we don't need trees
   { "nvim-neo-tree/neo-tree.nvim", enabled = false },
   {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        win = {
+          input = {
+            keys = {
+              ["<c-t>"] = {
+                "edit_tab",
+                mode = { "n", "i" },
+              },
+            },
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader>p", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+    },
+  },
+  {
     "folke/flash.nvim",
     keys = {
       { "<leader>/", mode = { "n" }, flash.jump, desc = "Flash" },
