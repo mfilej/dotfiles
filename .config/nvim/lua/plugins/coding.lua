@@ -29,22 +29,14 @@ return {
   {
     "echasnovski/mini.surround",
     opts = {
-        ["("] = { output = { left = "( ", right = " )" } },
-        ["["] = { output = { left = "[ ", right = " ]" } },
-        ["{"] = { output = { left = "{ ", right = " }" } },
-        ["<"] = { output = { left = "< ", right = " >" } },
-      },
       mappings = {
         add = "ys",
         delete = "ds",
         find = "gs",
-        find_left = "",
-        highlight = "",
         replace = "cs",
-        update_n_lines = "",
       },
-      search_method = "cover_or_next",
     },
+    search_method = "cover_or_next",
   },
   -- {
   --   "rafamadriz/friendly-snippets",
