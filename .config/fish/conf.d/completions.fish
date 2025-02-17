@@ -1,2 +1,1 @@
-jj util completion fish | source
-carapace _carapace | source
+/Users/miha/.local/bin/mise x -- jj util completion fish | source
