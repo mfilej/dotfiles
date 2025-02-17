@@ -104,7 +104,7 @@ Now that Homebrew has installed the fish shell we can set up Terminal.app.
 
 Open a new Terminal window and the following to your $PATH:
 
-    fish_add_path /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/.bin/
+    fish_add_path /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin/
 
 And clear the default fish greeting:
 
