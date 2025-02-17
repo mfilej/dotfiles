@@ -1,3 +1,5 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
 [user]
 name = "Miha Filej"
 email = "miha@filej.net"
@@ -11,6 +13,10 @@ diff-editor = ":builtin"
 [revset-aliases]
 "envs()" = "tags(regex:'^(production|staging|preview)$')"
 "immutable_heads()" = "builtin_immutable_heads() & ~envs()"
+
+[git]
+subprocess = true
+push-bookmark-prefix = "mfi-"
 
 [templates]
 draft_commit_description = '''
