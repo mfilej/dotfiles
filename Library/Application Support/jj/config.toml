@@ -6,9 +6,13 @@ email = "miha@filej.net"
 
 [ui]
 editor = "vim"
+pager = "delta"
 default-command = "log"
 merge-editor = ":builtin"
 diff-editor = ":builtin"
+
+[ui.diff]
+format = "git"
 
 [revset-aliases]
 "envs()" = "tags(regex:'^(production|staging|preview)$')"
