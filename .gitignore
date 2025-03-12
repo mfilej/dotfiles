@@ -20,6 +20,7 @@
 
 
 !.Brewfile
+!/.bashrc
 !/.bin/
 !/.config/
 /.config/*
@@ -51,4 +52,5 @@
 !/.irbrc
 !/.tmux.conf
 !/.vimrc
+!/.zprofile
 !/bin
