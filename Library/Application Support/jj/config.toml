@@ -4,6 +4,9 @@
 name = "Miha Filej"
 email = "miha@filej.net"
 
+[aliases]
+difft = ["--config", "ui.diff.tool='difft --color=always $left $right'", "diff"]
+
 [ui]
 editor = "vim"
 pager = "delta"
