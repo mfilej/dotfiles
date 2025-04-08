@@ -1,10 +1,10 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$line_break\
 $sudo\
 $directory\
 $custom\
-$line_break\
 $character"""
 
 right_format = """
@@ -18,6 +18,9 @@ $cmd_duration\
 
 add_newline = true
 
+[profiles]
+transient_prompt = """$fill$line_break$character"""
+
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[\$](cyan)'
 error_symbol = '[\$](red)'
@@ -26,8 +29,12 @@ vimcmd_replace_one_symbol = '[r \$](purple)'
 vimcmd_replace_symbol = '[R \$](purple)'
 vimcmd_visual_symbol = '[v \$](purple)'
 
+[fill]
+symbol = '-'
+style = 'bold fg:#3b4261'
+
 [cmd_duration]
-min_time = 50
+min_time = 0
 show_milliseconds = true
 # show_notifications = true
 format = '[⏲ $duration](dimmed white) '
@@ -37,7 +44,7 @@ truncate_to_repo = false
 truncation_length = 255
 style = 'fg:#7aa2f7 bg:#3b4261'
 repo_root_style = 'bold fg:#2cc3de bg:#3b4261'
-read_only = '  ' # Nerd Fonts nf-fa-lock \uf023
+read_only = '  '                              # Nerd Fonts nf-fa-lock \uf023
 read_only_style = 'yellow'
 
 [git_branch]
@@ -69,9 +76,6 @@ deleted = '×'
 format = '([$all_status$ahead_behind]($style) )'
 style = 'cyan'
 
-[fill]
-symbol = ' '
-
 [status]
 disabled = false
 symbol = '↵'
@@ -81,3 +85,32 @@ style = 'inverted bold red'
 description = "Current aws-sso profile"
 format = '[$env_value]($style) '
 style = 'blue'
+
+[custom.jj]
+ignore_timeout = true
+description = "current jj status"
+symbol = ""
+when = ''' test "$HOME" != "$PWD" '''
+command = '''
+jj root > /dev/null && jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template '
+  separate(" ",
+    "ȷȷ",
+    change_id.shortest(4),
+    bookmarks,
+    concat(
+      if(conflict, "💥"),
+      if(divergent, "🚧"),
+      if(hidden, "👻"),
+      if(immutable, "🔒"),
+    ),
+    raw_escape_sequence("\x1b[1;32m") ++ if(empty, "(empty)"),
+    raw_escape_sequence("\x1b[1;32m") ++ if(description.first_line().len() == 0,
+      "(no description set)",
+      if(description.first_line().substr(0, 29) == description.first_line(),
+        description.first_line(),
+        description.first_line().substr(0, 29) ++ "…",
+      )
+    ) ++ raw_escape_sequence("\x1b[0m"),
+  )
+'
+'''
