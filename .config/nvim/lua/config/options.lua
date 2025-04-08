@@ -20,6 +20,9 @@ vim.opt.list = true
 vim.opt.relativenumber = false
 -- vim.cmd([[ set listchars=tab:→,trail:⋅,eol:⏎,nbsp:⎵ ]])
 
+vim.g.lazyvim_ruby_lsp = "ruby_lsp"
+vim.g.lazyvim_ruby_formatter = "rubocop"
+
 vim.filetype.add({
   filename = {
     ["PULLREQ_EDITMSG"] = "hubmessage",
