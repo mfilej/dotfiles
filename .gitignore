@@ -36,6 +36,7 @@
 !/.config/ghostty/
 !/.config/git/
 !/.config/git-delta/
+!/.config/jj/
 !/.config/karabiner
 /.config/karabiner/*
 !/.config/karabiner/karabiner.json
