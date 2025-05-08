@@ -8,7 +8,7 @@ email = "miha@filej.net"
 difft = ["--config", "ui.diff.tool='difft --color=always $left $right'", "diff"]
 
 [ui]
-editor = "vim"
+editor = "nvim"
 pager = "delta"
 default-command = "log"
 merge-editor = ":builtin"
@@ -34,7 +34,7 @@ concat(
   ),
   surround(
     "\nJJ: ignore-rest\n", "",
-    diff.git(72),
+    diff.git(),
   ),
 )
 '''
