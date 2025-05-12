@@ -8,7 +8,9 @@ vim.opt.writebackup = false
 vim.opt.swapfile = false
 
 vim.opt.title = true
-vim.opt.titlestring = [[%{expand("%:~:.")} · %{substitute(getcwd(),$HOME,'~','')}]]
+vim.opt.titlestring = [[%{fnamemodify(getcwd(), ':t')} • %{expand('%:t')}]]
+
+vim.opt.laststatus = 3
 
 vim.opt.colorcolumn = "+1"
 vim.opt.conceallevel = 0 -- don't hide quotes in JSON files
@@ -27,11 +29,4 @@ vim.filetype.add({
   filename = {
     ["PULLREQ_EDITMSG"] = "hubmessage",
   },
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "kitty-scrollback" },
-  callback = function()
-    vim.opt_local.laststatus = 0
-  end,
 })

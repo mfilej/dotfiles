@@ -103,11 +103,4 @@ return {
       priority = 1001,
     },
   },
-  {
-    "swaits/lazyjj.nvim",
-    dependencies = "nvim-lua/plenary.nvim",
-    opts = {
-      mapping = "<leader>jj",
-    },
-  },
 }
