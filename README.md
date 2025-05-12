@@ -114,6 +114,12 @@ With `$PATH` in place, we can install everything from the global Brewfile:
 > instructions for removing the quarantine attribute:
 > <https://github.com/sindresorhus/quick-look-plugins>
 
+Now that the dotfiles are checked out, you might want to hide certain files and folders so they don't show up in the Finder.
+
+```
+chflags hidden bin README.md
+```
+
 Authenticate git for GitHub:
 
     gh auth setup-git
