@@ -22,6 +22,7 @@ brew "libsodium"
 brew "ffmpeg"
 brew "findutils"
 brew "fish"
+brew "fisher"
 brew "fswatch"
 brew "fzf"
 brew "gawk"
@@ -60,7 +61,6 @@ brew "slackcat"
 brew "sox"
 brew "sponge", link: false
 brew "ssh-copy-id"
-brew "starship"
 brew "telnet"
 brew "tmux"
 brew "transmission-cli"
@@ -72,25 +72,21 @@ brew "xmlstarlet"
 brew "yq"
 cask "1password", args: { appdir: "/Applications" }
 cask "1password-cli"
-cask "ace-link"
 cask "acorn"
 cask "apparency"
 cask "appcleaner"
 cask "arc"
 cask "arq"
+cask "audacity"
 cask "backuploupe"
 cask "bambu-studio"
-cask "charles"
 cask "chatgpt"
 cask "claude"
-cask "cleanshot"
-cask "cleanupbuddy"
 cask "coconutbattery"
 cask "cursor"
 cask "customshortcuts"
 cask "dictionaries"
 cask "discord"
-cask "docker"
 cask "eloston-chromium", args: { appdir: "/Applications" }
 cask "fantastical"
 cask "figma"
@@ -127,25 +123,22 @@ cask "font-space-mono"
 cask "font-symbols-only-nerd-font"
 cask "font-ubuntu-mono"
 cask "font-victor-mono"
-cask "ghostty@tip"
-cask "github"
+cask "ghostty"
 cask "handbrake"
-cask "hazel"
 cask "homerow"
 cask "iina"
 cask "imageoptim"
-cask "kaleidoscope"
 cask "key-codes"
 cask "launchbar"
 cask "launchcontrol"
 cask "ledger-live"
+cask "livebook"
+cask "macwhisper"
 cask "mimestream"
 cask "monodraw"
 cask "multiviewer-for-f1"
 cask "musicbrainz-picard"
-cask "openvpn-connect"
 cask "orbstack"
-cask "orcaslicer"
 cask "powerphotos"
 cask "qlcolorcode"
 cask "qlmarkdown"
@@ -153,7 +146,6 @@ cask "qlstephen"
 cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
-cask "rapidapi"
 cask "rar"
 cask "rectangle-pro"
 cask "reflect"
@@ -161,18 +153,16 @@ cask "resolutionator"
 cask "screenflick"
 cask "session-manager-plugin"
 cask "setapp"
-cask "shortcutdetective"
-cask "soulver"
 cask "spotify"
 cask "superduper"
 cask "suspicious-package"
-cask "swiftdefaultappsprefpane"
 cask "timemachineeditor"
 cask "transmit"
 cask "tuple"
 cask "vlc"
-cask "windsurf"
 cask "zed"
+cask "zoom"
+mas "Avenue", id: 1523681067
 mas "Banish", id: 1639049780
 mas "Cardhop", id: 1290358394
 mas "Color Picker", id: 1545870783
@@ -186,7 +176,11 @@ mas "Gapplin", id: 768053424
 mas "GarageBand", id: 682658836
 mas "Gifski", id: 1351639930
 mas "GIFwrapped", id: 782319880
+mas "Googly Eyes", id: 6743048714
+mas "GPX Viewer", id: 920631838
 mas "Hyperduck", id: 6444667067
+mas "Hyperspace", id: 6739505345
+mas "Ice Cubes", id: 6444915884
 mas "iMovie", id: 408981434
 mas "Kagi for Safari", id: 1622835804
 mas "Keynote", id: 409183694
@@ -204,20 +198,19 @@ mas "Pages", id: 409201541
 mas "Pandan", id: 1569600264
 mas "Parcel", id: 639968404
 mas "Peek", id: 1554235898
-mas "Perplexity", id: 6714467650
 mas "Pixelmator Pro", id: 1289583905
 mas "Plain Text Editor", id: 1572202501
-mas "Refined GitHub", id: 1519867270
 mas "Save to Reflect", id: 1590481717
 mas "Shareful", id: 1522267256
 mas "Slack", id: 803453959
-mas "Soulver 3", id: 1508732804
 mas "Speediness", id: 1596706466
 mas "StopTheMadness Pro", id: 6471380298
 mas "Super Agent", id: 1568262835
 mas "Supercopy", id: 6477720316
 mas "Tailscale", id: 1475387142
+mas "Taska", id: 6741809383
 mas "Things", id: 904280696
+mas "UTM", id: 1538878817
 mas "Velja", id: 1607635845
 mas "xScope", id: 889428659
 vscode "bmalehorn.vscode-fish"
