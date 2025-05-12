@@ -81,7 +81,7 @@ Run `brew install jj` so we can move on to setting up dotfiles.
 alias jj=/opt/homebrew/bin/jj
 echo '*' > ~/.gitignore
 jj git init
-jj git remote set-url https://github.com/mfilej/dotfiles.git
+jj git remote add origin https://github.com/mfilej/dotfiles.git
 jj git fetch
 jj bookmark track main@origin
 jj rebase -d main@origin
@@ -93,16 +93,9 @@ jj rebase -d main@origin
 
 At this point `jj status` should look clean.
 
-Now that Homebrew has installed the fish shell we can set up Terminal.app.
+Now that Homebrew has installed the fish shell we can set up our shell:
 
-- Under Settings → General → *Shell opens with* enter the value `/opt/homebrew/bin/fish`.
-- For the chosen profile:
-  - Under Shell:
-    - Set *When the shell exits: Close if the shell exited cleanly*.
-    - *Ask before *closing*, *Only if there are processes other than the login shell and:* enter `-fish`.
-  - Under Keyboard, check *Use Option as Meta key*.
-
-Open a new Terminal window and the following to your $PATH:
+Add the following to your $PATH:
 
     fish_add_path /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin/
 
