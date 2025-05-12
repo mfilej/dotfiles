@@ -114,6 +114,11 @@ With `$PATH` in place, we can install everything from the global Brewfile:
 > instructions for removing the quarantine attribute:
 > <https://github.com/sindresorhus/quick-look-plugins>
 
+Authenticate git for GitHub:
+
+    gh auth setup-git
+    gh auth login
+
 Finally, install [mise][] to `~/.local/bin`:
 
 ```
