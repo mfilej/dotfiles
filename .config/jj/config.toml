@@ -13,9 +13,7 @@ pager = "delta"
 default-command = "log"
 merge-editor = ":builtin"
 diff-editor = ":builtin"
-
-[ui.diff]
-format = "git"
+diff-formatter = ":git"
 
 [revset-aliases]
 "envs()" = "tags(regex:'^(production|staging|preview)$')"
