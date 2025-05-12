@@ -1,0 +1,31 @@
+{
+    "deno.enable": false,
+    "editor.accessibilitySupport": "off",
+    "editor.fontFamily": "lilex, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13.5,
+    "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
+    "files.insertFinalNewline": true,
+    "mise.binPath": "/Users/miha/.local/bin/mise",
+    "terminal.integrated.defaultProfile.osx": "fish",
+    "terminal.integrated.profiles.osx": {
+        "fish": {
+            "args": [],
+            "path": "/opt/homebrew/bin/fish"
+        }
+    },
+    "window.customTitleBarVisibility": "never",
+    "window.title": "${rootPath} ${dirty}",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.editor.showTabs": "single",
+    "workbench.layoutControl.enabled": false,
+    "solargraph.checkGemVersion": false,
+    "solargraph.formatting": true,
+    "solargraph.diagnostics": true,
+    "workbench.editor.enablePreview": false,
+    "cursor.cpp.enablePartialAccepts": true,
+    "git.enabled": false,
+    "solargraph.useBundler": true,
+    "jjk.enableAnnotations": false,
+    "svelte.enable-ts-plugin": true,
+}

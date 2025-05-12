@@ -7,6 +7,15 @@
 /Library/Application\ Scripts/*
 !/Library/Application\ Scripts/com.roeybiran.Finbar/
 
+!/Library/Application\ Support/
+/Library/Application\ Support/*
+!/Library/Application\ Support/Cursor/
+/Library/Application\ Support/Cursor/*
+!/Library/Application\ Support/Cursor/User/
+/Library/Application\ Support/Cursor/User/*
+!/Library/Application Support/Cursor/User/keybindings.json
+!/Library/Application Support/Cursor/User/settings.json
+
 !/Library/iTunes/
 /Library/iTunes/*
 !/Library/iTunes/Scripts/
@@ -47,6 +56,11 @@
 !/.config/ripgrep/
 !/.config/starship.toml
 !/.ctags
+!/.cursor
+/.cursor/*
+!/.cursor/extensions
+/.cursor/extensions/*
+!/.cursor/extensions/extensions.json
 !/.gemrc
 !/.gvimrc
 !/.hushlogin
