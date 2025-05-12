@@ -1,6 +1,3 @@
-tap "homebrew/bundle"
-tap "homebrew/cask"
-tap "homebrew/services"
 brew "ca-certificates"
 brew "sqlite"
 brew "libyaml"
