@@ -23,6 +23,7 @@ format = "git"
 
 [git]
 push-bookmark-prefix = "mfi-"
+write-change-id-header = true
 
 [templates]
 draft_commit_description = '''
