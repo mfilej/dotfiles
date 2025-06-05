@@ -51,6 +51,7 @@
 !/.config/karabiner/karabiner.json
 !/.config/kitty
 !/.config/nvim
+/.config/nvim/lua/erl_crash.dump
 !/.config/osx-defaults/
 !/.config/pitchfork/
 !/.config/ripgrep/
