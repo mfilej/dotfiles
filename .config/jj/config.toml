@@ -5,7 +5,11 @@ name = "Miha Filej"
 email = "miha@filej.net"
 
 [aliases]
-difft = ["--config", "ui.diff.tool='difft --color=always $left $right'", "diff"]
+difft = [
+  "--config",
+  "ui.diff-formatter='difft --color=always $left $right'",
+  "diff",
+]
 
 [ui]
 editor = "nvim"
@@ -16,8 +20,7 @@ diff-editor = ":builtin"
 diff-formatter = ":git"
 
 [revset-aliases]
-"envs()" = "tags(regex:'^(production|staging|preview)$')"
-"immutable_heads()" = "builtin_immutable_heads() & ~envs()"
+"immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
 
 [git]
 push-bookmark-prefix = "mfi-"
