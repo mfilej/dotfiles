@@ -5,6 +5,9 @@
     "editor.fontSize": 13.5,
     "editor.formatOnSave": true,
     "editor.minimap.enabled": false,
+    "emmet.includeLanguages": {
+        "phoenix-heex": "html"
+    },
     "files.insertFinalNewline": true,
     "mise.binPath": "/Users/miha/.local/bin/mise",
     "terminal.integrated.defaultProfile.osx": "fish",
@@ -14,11 +17,9 @@
             "path": "/opt/homebrew/bin/fish"
         }
     },
-    "window.customTitleBarVisibility": "never",
     "window.title": "${rootPath} ${dirty}",
     "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.showTabs": "single",
-    "workbench.layoutControl.enabled": false,
     "solargraph.checkGemVersion": false,
     "solargraph.formatting": true,
     "solargraph.diagnostics": true,
@@ -26,6 +27,17 @@
     "cursor.cpp.enablePartialAccepts": true,
     "git.enabled": false,
     "solargraph.useBundler": true,
-    "jjk.enableAnnotations": false,
     "svelte.enable-ts-plugin": true,
+    "elixirLS.fetchDeps": true,
+    "elixirLS.mixEnv": "dev",
+    "workbench.layoutControl.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    "git.blame.statusBarItem.enabled": true,
+    "git.blame.editorDecoration.enabled": true,
+    "jjk.enableAnnotations": false,
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": true,
 }
