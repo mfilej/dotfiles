@@ -23,10 +23,10 @@ diff-formatter = ":git"
 "immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
 
 [git]
-push-bookmark-prefix = "mfi-"
 write-change-id-header = true
 
 [templates]
+git_push_bookmark = '"mfi-" ++ change_id.short()'
 draft_commit_description = '''
 concat(
   description,
