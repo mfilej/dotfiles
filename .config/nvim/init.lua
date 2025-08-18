@@ -18,47 +18,68 @@ vim.o.titlestring = [[%{fnamemodify(getcwd(), ':t')} • %{expand('%:t')}]]
 vim.o.number = true
 vim.o.relativenumber = true
 
+vim.o.list = true
+vim.o.listchars = "tab:→ ,trail:·,nbsp:␣"
+
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
+
+vim.o.splitright = true
+vim.o.splitbelow = true
+
+vim.o.grepprg = "rg --vimgrep --smart-case"
+vim.o.grepformat = "%f:%l:%c:%m"
+
+-- treat dash-delimited strings (e.g. css classes) as single words
+vim.opt.iskeyword = vim.opt.iskeyword + "-"
 
 vim.o.scrolloff = 1
 
 local map = vim.keymap.set
 
-map('n', '<Esc><Esc>', vim.cmd.nohl, { noremap = true, silent = true})
+map("n", "<Esc><Esc>", vim.cmd.nohl, { noremap = true, silent = true })
 map("n", "<leader><space>", "<c-^>")
+map("n", "`", ":set relativenumber!<CR>")
 map({ 'n', 'v' }, '<leader>y', '"+y')
 map("n", "<leader>li", vim.cmd.LspInfo)
+map("n", "<leader>lf", vim.lsp.buf.format)
 map("n", "<leader>oo", ":update<CR> :source ~/.config/nvim/init.lua<CR>")
 map("n", "<leader>oi", ":tabe ~/.config/nvim/init.lua<CR> | tabmove $<CR>")
 map("n", "<leader>p", ":Pick files<CR>")
 map("n", "<leader>qs", function() require("persistence").load() end)
 map("n", "L", vim.cmd.tabnext)
 map("n", "H", vim.cmd.tabprevious)
-map("n", "]t", ":tabmove +1<CR>")
+map("n", "[f", function() require("dirnav").prev_file() end)
+map("n", "]f", function() require("dirnav").next_file() end)
 map("n", "[t", ":tabmove -1<CR>")
+map("n", "]t", ":tabmove +1<CR>")
 map("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
 
-local aunum = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
-vim.api.nvim_create_autocmd("InsertEnter", { group = aunum, command = "set nornu" })
-vim.api.nvim_create_autocmd("InsertLeave", { group = aunum, command = "set rnu" })
+vim.cmd [[
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+]]
 
 if not vim.pack then
-  return
+	return
 end
 
 vim.pack.add({
-	{ src = "https://github.com/echasnovski/mini.pick" },
-	{ src = "https://github.com/folke/persistence.nvim" },
-	{ src = "https://github.com/mason-org/mason.nvim" },
-	{ src = "https://github.com/murasakiwano/dracula-pro.nvim" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-	{ src = "https://github.com/tpope/vim-repeat" },
-	{ src = "https://github.com/tpope/vim-surround" },
-	{ src = "https://github.com/tpope/vim-vinegar.git" },
-	{ src = "https://github.com/xiyaowong/transparent.nvim" },
-	{ src ="https://github.com/tpope/vim-eunuch" },
+	"https://github.com/echasnovski/mini.pick",
+	"https://github.com/folke/persistence.nvim",
+	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/murasakiwano/dracula-pro.nvim",
+	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/tpope/vim-eunuch",
+	"https://github.com/tpope/vim-repeat",
+	"https://github.com/tpope/vim-surround",
+	"https://github.com/tpope/vim-vinegar.git",
+	"https://github.com/xiyaowong/transparent.nvim",
+	"https://github.com/martintrojer/jj-fugitive"
 })
 
 require("mason").setup({})
@@ -72,14 +93,45 @@ require("mini.pick").setup({
 require("persistence").setup({ branch = false })
 require("transparent").setup({})
 
----@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
 	highlight = { enable = true },
 	indent = { enable = true },
 })
 
-vim.lsp.enable({ "elixirls", "tailwindcss" })
+local elixirls_path = vim.fn.stdpath("data") .. "/mason/bin/elixir-ls"
+vim.lsp.config('elixirls', { cmd = { elixirls_path } })
+
+vim.lsp.enable({ "lua_ls", "elixirls", "tailwindcss", "biome" })
+
+vim.api.nvim_create_autocmd('LspAttach', {
+	group = vim.api.nvim_create_augroup('my.lsp', {}),
+	callback = function(args)
+		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+		if client:supports_method('textDocument/implementation') then
+			-- Create a keymap for vim.lsp.buf.implementation ...
+		end
+		-- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
+		if client:supports_method('textDocument/completion') then
+			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
+			-- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+			-- client.server_capabilities.completionProvider.triggerCharacters = chars
+			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
+		end
+		-- Auto-format ("lint") on save.
+		-- Usually not needed if server supports "textDocument/willSaveWaitUntil".
+		if not client:supports_method('textDocument/willSaveWaitUntil')
+				and client:supports_method('textDocument/formatting') then
+			vim.api.nvim_create_autocmd('BufWritePre', {
+				group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
+				buffer = args.buf,
+				callback = function()
+					vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+				end,
+			})
+		end
+	end,
+})
 
 vim.cmd.colorscheme("dracula")
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#f1fa8c", bold = true })
