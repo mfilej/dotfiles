@@ -11,6 +11,9 @@ difft = [
   "diff",
 ]
 
+[colors]
+"diff token" = { underline = false }
+
 [ui]
 editor = "nvim"
 pager = "delta"
