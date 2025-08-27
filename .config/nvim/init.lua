@@ -40,7 +40,31 @@ local map = vim.keymap.set
 map("n", "<Esc><Esc>", vim.cmd.nohl, { noremap = true, silent = true })
 map("n", "<leader><space>", "<c-^>")
 map("n", "`", ":set relativenumber!<CR>")
-map({ 'n', 'v' }, '<leader>y', '"+y')
+map({ 'n', 'v' }, '<leader>yy', '"+y')
+map("n", "<leader>yf", function()
+	local relpath = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+	vim.fn.setreg("+", relpath)
+	print("Copied: " .. relpath)
+end, { silent = true })
+map("v", "<leader>yf", function()
+	local relpath = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
+	local start_line = vim.fn.line("v")
+	local end_line = vim.fn.line(".")
+
+	if start_line > end_line then
+		start_line, end_line = end_line, start_line
+	end
+
+	local out
+	if start_line == end_line then
+		out = string.format("%s:%d", relpath, start_line)
+	else
+		out = string.format("%s:%d-%d", relpath, start_line, end_line)
+	end
+
+	vim.fn.setreg("+", out)
+	print("Copied: " .. out)
+end, { silent = true })
 map("n", "<leader>li", vim.cmd.LspInfo)
 map("n", "<leader>lf", vim.lsp.buf.format)
 map("n", "<leader>oo", ":update<CR> :source ~/.config/nvim/init.lua<CR>")
@@ -53,6 +77,7 @@ map("n", "[f", function() require("dirnav").prev_file() end)
 map("n", "]f", function() require("dirnav").next_file() end)
 map("n", "[t", ":tabmove -1<CR>")
 map("n", "]t", ":tabmove +1<CR>")
+map("c", "<C-a>", "<C-b>", { noremap = true })
 map("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
 
 vim.cmd [[
