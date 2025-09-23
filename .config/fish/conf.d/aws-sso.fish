@@ -1,6 +1,5 @@
 # https://github.com/synfinatic/aws-sso-cli/blob/main/internal/helper/aws-sso.fish
 
-
 function __complete_aws-sso
     set -lx COMP_LINE (commandline -cp)
     test -z (commandline -ct)

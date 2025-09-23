@@ -13,6 +13,8 @@ abbr -g --add n nvim
 abbr -g --add pf pitchfork
 abbr -g --add pu jj git push
 abbr -g --add pgrep pgrep -lf
+abbr -g --add ssh tssh
+abbr -g --add x mix
 abbr -g --add yt yt-dlp
 
 # vim-fugitive equivalents
