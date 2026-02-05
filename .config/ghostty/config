@@ -2,7 +2,9 @@
 
 auto-update-channel = "stable"
 
-command = /opt/homebrew/bin/fish
+command = /opt/zerobrew/prefix/bin/fish
+
+shell-integration-features = ssh-terminfo,ssh-env
 
 clipboard-read = allow
 clipboard-write = allow
@@ -20,12 +22,16 @@ keybind = cmd+control+k=goto_split:top
 keybind = cmd+control+l=goto_split:right
 keybind = cmd+option+[=move_tab:-1
 keybind = cmd+option+]=move_tab:+1
+keybind = cmd+p=toggle_command_palette
 
-bold-is-bright = true
-background-opacity = 0.97
-background-blur-radius = 20
+macos-option-as-alt = "left"
+
 
 theme = "Monokai Pro Spectrum"
+background = "050909"
+background-opacity = 0.95
+background-blur-radius = 25
+bold-is-bright = true
 macos-icon = "custom-style"
 macos-icon-frame = "plastic"
 macos-icon-ghost-color = "FF79C6"
