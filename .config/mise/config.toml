@@ -7,7 +7,7 @@ python = "latest"
 ruby = "latest"
 rust = "latest"
 tailpipe = "latest"
-"github:tidewave-ai/tidewave_app" = { version = "latest", version_prefix = "tidewave-cli", bin = "tidewave" }
+"github:tidewave-ai/tidewave_app" = { version = "latest", asset_pattern = "tidewave-cli-*", bin = "tidewave" }
 usage = "latest"
 uv = "latest"
 opencode = "latest"
@@ -19,6 +19,7 @@ elixir = "1.19.5-otp-28"
 fnox = "latest"
 age = "latest"
 jj = "latest"
+"github:steipete/imsg" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
