@@ -46,10 +46,12 @@
 !/.config/git/
 !/.config/git-delta/
 !/.config/jj/
+/.config/jj/repos/*
 !/.config/karabiner
 /.config/karabiner/*
 !/.config/karabiner/karabiner.json
 !/.config/kitty
+!/.config/mise
 !/.config/nvim
 /.config/nvim/lua/erl_crash.dump
 !/.config/osx-defaults/
