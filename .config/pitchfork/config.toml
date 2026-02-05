@@ -1,6 +1,5 @@
 [daemons.tidewave]
 run = "tidewave"
-auto = ["start"]
 retry = 0
-ready_http = "http://localhost:9832/"
+ready_port = 9832
 boot_start = true
