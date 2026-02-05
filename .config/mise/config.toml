@@ -1,0 +1,26 @@
+[tools]
+biome = "latest"
+"cargo:tree-sitter-cli" = "latest"
+go = "latest"
+jiq = "latest"
+python = "latest"
+ruby = "latest"
+rust = "latest"
+tailpipe = "latest"
+"github:tidewave-ai/tidewave_app" = { version = "latest", version_prefix = "tidewave-cli", bin = "tidewave" }
+usage = "latest"
+uv = "latest"
+opencode = "latest"
+elixir-ls = "latest"
+pitchfork = "latest"
+neovim = "nightly"
+erlang = "28.3.1"
+elixir = "1.19.5-otp-28"
+fnox = "latest"
+age = "latest"
+jj = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
+experimental = true
+python.uv_venv_auto = true
