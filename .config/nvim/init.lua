@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-vim.g.sonokai_style = "maia"
 
 vim.o.autowrite = false
 vim.o.backup = false
@@ -7,25 +6,27 @@ vim.o.writebackup = false
 vim.o.swapfile = false
 vim.o.undofile = true
 
-vim.o.cmdheight = 0
+vim.o.cmdheight = 1
 vim.o.colorcolumn = "+1"
+vim.o.list = true
+vim.o.listchars = "tab:→ ,trail:·,nbsp:␣"
 vim.o.signcolumn = "yes"
-vim.o.winborder = "rounded"
-
+vim.o.splitbelow = true
+vim.o.splitright = true
 vim.o.title = true
 vim.o.titlestring = [[%{fnamemodify(getcwd(), ':t')} • %{expand('%:t')}]]
+vim.o.winborder = "rounded"
 
 vim.o.number = true
 vim.o.relativenumber = true
 
-vim.o.list = true
-vim.o.listchars = "tab:→ ,trail:·,nbsp:␣"
-
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
 
-vim.o.splitright = true
-vim.o.splitbelow = true
+vim.o.scrolloff = 1
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
 
 vim.o.grepprg = "rg --vimgrep --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
@@ -33,13 +34,17 @@ vim.o.grepformat = "%f:%l:%c:%m"
 -- treat dash-delimited strings (e.g. css classes) as single words
 vim.opt.iskeyword = vim.opt.iskeyword + "-"
 
-vim.o.scrolloff = 1
-
 local map = vim.keymap.set
 
+map("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+map("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+map("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+map("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 map("n", "<Esc><Esc>", vim.cmd.nohl, { noremap = true, silent = true })
 map("n", "<leader><space>", "<c-^>")
 map("n", "`", ":set relativenumber!<CR>")
+map("n", "<leader>a", "<cmd>A<CR>", { desc = "Alternate File", nowait = true })
+
 map({ 'n', 'v' }, '<leader>yy', '"+y')
 map("n", "<leader>yf", function()
 	local relpath = vim.fn.fnamemodify(vim.fn.expand("%:p"), ":.")
@@ -69,7 +74,6 @@ map("n", "<leader>li", vim.cmd.LspInfo)
 map("n", "<leader>lf", vim.lsp.buf.format)
 map("n", "<leader>oo", ":update<CR> :source ~/.config/nvim/init.lua<CR>")
 map("n", "<leader>oi", ":tabe ~/.config/nvim/init.lua<CR> | tabmove $<CR>")
-map("n", "<leader>p", ":Pick files<CR>")
 map("n", "<leader>qs", function() require("persistence").load() end)
 map("n", "L", vim.cmd.tabnext)
 map("n", "H", vim.cmd.tabprevious)
@@ -80,11 +84,33 @@ map("n", "]t", ":tabmove +1<CR>")
 map("c", "<C-a>", "<C-b>", { noremap = true })
 map("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
 
+-- <leader>*: highlight word (or selection) without jumping
+local function set_search(pattern)
+	vim.fn.setreg('/', pattern)
+	vim.opt.hlsearch = true
+end
+
+-- Normal mode: word under cursor
+vim.keymap.set('n', '<leader>*', function()
+	local word = vim.fn.expand('<cword>')
+	local escaped = vim.fn.escape(word, [[\]])
+	set_search([[\V\C\<]] .. escaped .. [[\>]])
+end, { noremap = true, silent = true, desc = "Highlight word without moving" })
+
+-- Visual mode: selected text
+vim.keymap.set('x', '<leader>*', function()
+	local save_reg = vim.fn.getreg('"')
+	vim.cmd('normal! "vy') -- copy visual selection to "
+	local text = vim.fn.escape(vim.fn.getreg('"'), [[\]])
+	vim.fn.setreg('"', save_reg)
+	set_search([[\V\C]] .. text)
+end, { noremap = true, silent = true, desc = 'Highlight selection without moving' })
+
 vim.cmd [[
 augroup numbertoggle
   autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
-  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+  autocmd BufEnter,FocusGained,InsertEnter,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertLeave,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 ]]
 
@@ -93,30 +119,48 @@ if not vim.pack then
 end
 
 vim.pack.add({
-	"https://github.com/echasnovski/mini.pick",
 	"https://github.com/folke/persistence.nvim",
+	"https://github.com/ibhagwan/fzf-lua",
+	"https://github.com/lukas-reineke/indent-blankline.nvim",
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/murasakiwano/dracula-pro.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/NicolasGB/jj.nvim",
+	"https://github.com/nvim-mini/mini.diff",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/smpallen99/elixir-projectionist.nvim",
+	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/tpope/vim-eunuch",
+	"https://github.com/tpope/vim-projectionist",
 	"https://github.com/tpope/vim-repeat",
 	"https://github.com/tpope/vim-surround",
 	"https://github.com/tpope/vim-vinegar.git",
 	"https://github.com/xiyaowong/transparent.nvim",
-	"https://github.com/martintrojer/jj-fugitive"
 })
 
 require("mason").setup({})
 
-require("mini.pick").setup({
-	mappings = {
-		toggle_preview = "<C-;>",
-	}
-})
-
 require("persistence").setup({ branch = false })
+
+local fzf = require("fzf-lua")
+fzf.setup({ "max-perf" })
+map("n", "<leader>p", fzf.global)
+map("n", "<leader>sg", ":FzfLua live_grep_native resume=true<CR>")
+map("n", "<leader>sw", ":FzfLua grep_cword<CR>")
+map("n", "<leader>sW", ":FzfLua grep_cWORD<CR>")
+map("n", "<leader>lg", function()
+	fzf.lsp_document_symbols({ query = vim.fn.expand("<cword>") })
+end, { desc = "FZF LSP Document Symbols (word under cursor)" })
+map("n", "<leader>lG", function()
+	fzf.lsp_workspace_symbols({ query = vim.fn.expand("<cword>") })
+end, { desc = "FZF LSP Workspace Symbols (word under cursor)" })
+
+
+require("ibl").setup({})
 require("transparent").setup({})
+require("jj").setup({})
+require('mini.diff').setup()
+require("elixir-projectionist").setup()
 
 require("nvim-treesitter.configs").setup({
 	auto_install = true,
@@ -124,39 +168,28 @@ require("nvim-treesitter.configs").setup({
 	indent = { enable = true },
 })
 
-local elixirls_path = vim.fn.stdpath("data") .. "/mason/bin/elixir-ls"
-vim.lsp.config('elixirls', { cmd = { elixirls_path } })
+require("conform").setup({
+	formatters_by_ft = {
+		elixir = { "mix" },
+		heex = { "mix" },
+		javascript = { "biome" },
+	},
 
-vim.lsp.enable({ "lua_ls", "elixirls", "tailwindcss", "biome" })
-
-vim.api.nvim_create_autocmd('LspAttach', {
-	group = vim.api.nvim_create_augroup('my.lsp', {}),
-	callback = function(args)
-		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-		if client:supports_method('textDocument/implementation') then
-			-- Create a keymap for vim.lsp.buf.implementation ...
-		end
-		-- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-		if client:supports_method('textDocument/completion') then
-			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
-			-- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-			-- client.server_capabilities.completionProvider.triggerCharacters = chars
-			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = false })
-		end
-		-- Auto-format ("lint") on save.
-		-- Usually not needed if server supports "textDocument/willSaveWaitUntil".
-		if not client:supports_method('textDocument/willSaveWaitUntil')
-				and client:supports_method('textDocument/formatting') then
-			vim.api.nvim_create_autocmd('BufWritePre', {
-				group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-				buffer = args.buf,
-				callback = function()
-					vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
-				end,
-			})
-		end
-	end,
+	format_on_save = {
+		-- These options will be passed to conform.format()
+		timeout_ms = 1000,
+		lsp_format = "fallback",
+	},
 })
+
+vim.lsp.config("expert", {
+	cmd = { "expert" },
+	root_markers = { "mix.exs" },
+	filetypes = { "elixir", "eelixir", "heex" },
+})
+vim.lsp.enable({ "lua_ls", "expert", "tailwindcss" })
 
 vim.cmd.colorscheme("dracula")
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#f1fa8c", bold = true })
+-- vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#111111", bold = true })
+-- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#333333", bold = true })
