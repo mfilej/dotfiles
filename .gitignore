@@ -28,7 +28,7 @@
 !/Library/Scripts/
 
 
-!.Brewfile
+!.Brewfile*
 !/.bashrc
 !/.bin/
 !/.config/
