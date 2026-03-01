@@ -77,13 +77,16 @@ Use the one-liner from [brew.sh](https://brew.sh) to install Homebrew.
 The script will take care of installing Command Line Tools for Xcode.
 Run `brew install jj` so we can move on to setting up dotfiles.
 
+> [!NOTE]
+> [zerobrew][] is now a thing, so this section might need to be updated accordingly.
+
 ```
 alias jj=/opt/homebrew/bin/jj
 echo '*' > ~/.gitignore
 jj git init
 jj git remote add origin https://github.com/mfilej/dotfiles.git
 jj git fetch
-jj bookmark track main@origin
+jj bookmark track main --remote=origin
 jj rebase -d main@origin
 ```
 
@@ -190,5 +193,6 @@ Then restart the daemon:
 [@lukerandall]: https://github.com/lukerandall
 [@hjr3]: https://github.com/hjr3
 [jj-dotfiles-guide]: https://hermanradtke.com/manage-dotfiles-with-jujutsu/
+[zerobrew]: https://github.com/lucasgelfond/zerobrew
 [git-dotfiles-guide]: http://www.gmarik.info/blog/2010/tracking-dotfiles-with-git/
 [mise]: https://mise.jdx.dev
