@@ -153,6 +153,7 @@ Configure indexing as follows:
 - Under Advanced check the following options:
   - Check *Show full website address*
   - Check *Show features for web developers*
+- Under the Feature Flags pane that just appeared, search for "60" and uncheck *Prefer Page Rendering Updates Near 60fps*
 
 
 ### Mail
