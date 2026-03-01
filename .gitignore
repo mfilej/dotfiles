@@ -16,6 +16,10 @@
 !/Library/Application Support/Cursor/User/keybindings.json
 !/Library/Application Support/Cursor/User/settings.json
 
+!/Library/Application Support/Tuna
+/Library/Application Support/Tuna/*
+!/Library/Application Support/Tuna/config.toml
+
 !/Library/iTunes/
 /Library/iTunes/*
 !/Library/iTunes/Scripts/

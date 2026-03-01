@@ -1,0 +1,49 @@
+schemaVersion = 1
+
+[extensions]
+enabledIdentifiers = [
+    'com.brnbw.tuna.plugins.brew',
+    'com.brnbw.tuna.plugins.cleanshot',
+    'com.brnbw.tuna.plugins.github',
+    'com.brnbw.tuna.plugins.safari',
+    'com.brnbw.tuna.plugins.things'
+]
+
+[hotkeys]
+custom = []
+
+    [hotkeys.app.leaderMode]
+    carbonKeyCode = 47
+    carbonModifiers = 256
+
+[[leaderMode.bindings]]
+key = 's'
+url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
+
+[[leaderMode.bindings]]
+key = 't'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FUtilities%252FTerminal.app/Open'
+
+[[leaderMode.bindings]]
+key = 'f'
+url = 'tuna://run/path.%252FSystem%252FLibrary%252FCoreServices%252FFinder.app/Open'
+
+[[leaderMode.bindings]]
+key = 'm'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
+
+[[leaderMode.bindings]]
+key = 'n'
+url = 'tuna://run/path.%252FSystem%252FApplications%252FNotes.app/Open'
+
+[[leaderMode.bindings]]
+key = 'd'
+url = 'tuna://run/path.%252FUsers%252Fmiha%252FDownloads/Open'
+
+[[leaderMode.bindings]]
+key = 'h'
+url = 'tuna://run/path.%252FUsers%252Fmiha/Open'
+
+[settings]
+clipboardHistoryEnabled = false
+themeIdentifier = 'com.brnbw.tuna.themes.default'
