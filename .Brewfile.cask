@@ -90,7 +90,6 @@ cask "tuple"
 cask "vlc"
 cask "zed"
 cask "zoom"
-mas "Avenue", id: 1523681067
 mas "Banish", id: 1639049780
 mas "Cardhop", id: 1290358394
 mas "Color Picker", id: 1545870783
@@ -125,18 +124,16 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Pandan", id: 1569600264
 mas "Parcel", id: 639968404
-mas "Peek", id: 1554235898
 mas "Pixelmator Pro", id: 1289583905
 mas "Plain Text Editor", id: 1572202501
+mas "Pure Paste", id: 1611378436  
 mas "Save to Reflect", id: 1590481717
 mas "Shareful", id: 1522267256
 mas "Slack", id: 803453959
-mas "Speediness", id: 1596706466
 mas "StopTheMadness Pro", id: 6471380298
 mas "Super Agent", id: 1568262835
 mas "Supercopy", id: 6477720316
 mas "Tailscale", id: 1475387142
-mas "Taska", id: 6741809383
 mas "Things", id: 904280696
 mas "UTM", id: 1538878817
 mas "Velja", id: 1607635845
