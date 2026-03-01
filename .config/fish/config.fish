@@ -12,4 +12,4 @@ end
 
 /Users/miha/.local/bin/mise x -- jj util completion fish | source
 pitchfork activate fish | source
-source ~/.config/op/plugins.sh
+test -f ~/.config/op/plugins.sh && source ~/.config/op/plugins.sh
