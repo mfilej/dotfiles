@@ -77,7 +77,7 @@ Use the one-liner from [brew.sh](https://brew.sh) to install Homebrew.
 The script will take care of installing Command Line Tools for Xcode.
 Run `brew install jj` so we can move on to setting up dotfiles.
 
-> [!NOTE]
+> [!CAUTION]
 > [zerobrew][] is now a thing, so this section might need to be updated accordingly.
 
 ```
