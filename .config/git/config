@@ -1,7 +1,6 @@
 [user]
 	name = Miha Filej
 	email = miha@filej.net
-	signingkey = 2082F4F0DF126C5E
 [core]
 	pager = delta
 [alias]
@@ -86,7 +85,7 @@
 	verbose = true
 [credential "https://github.com"]
 	helper = 
-	helper = !/opt/zerobrew/prefix/bin/gh auth git-credential
+	helper = !/opt/zerobrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = 
-	helper = !/opt/zerobrew/prefix/bin/gh auth git-credential
+	helper = !/opt/zerobrew/bin/gh auth git-credential
