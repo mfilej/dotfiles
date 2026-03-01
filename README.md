@@ -147,14 +147,6 @@ Configure indexing as follows:
 - Indexing the iCloud Drive directory is complicated. Out of the box you won't be able to access all its contents via LaunchBar nor will you be able to limit indexing like you can for regular directories. To work around these issues, disable the default index, then manually re-add it as a regular folder. Under Options, limit _Search Scope_ to _Search 2 Subfolder Levels_ and set _Search for_ to _Folders_.
 
 
-### Screenshots
-
-To avoid littering your desktop with screenshots, set up a dedicated directory:
-
-    mkdir ~/Screenshots
-    defaults write com.apple.screencapture location ~/Screenshots
-
-
 ### Safari
 
 - From the Extensions pane, install and enable extensions
