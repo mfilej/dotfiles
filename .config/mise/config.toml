@@ -18,8 +18,9 @@ erlang = "28.3.1"
 elixir = "1.19.5-otp-28"
 fnox = "latest"
 age = "latest"
-jj = "latest"
 "github:steipete/imsg" = "latest"
+jj = "latest"
+jjui = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
