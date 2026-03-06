@@ -51,6 +51,7 @@
 !/.config/git-delta/
 !/.config/jj/
 /.config/jj/repos/*
+!/.config/jjui
 !/.config/karabiner
 /.config/karabiner/*
 !/.config/karabiner/karabiner.json

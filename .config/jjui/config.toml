@@ -1,0 +1,40 @@
+[ui.tracer]
+enabled = true
+
+[keys]
+  leader = ["X"]
+  [keys.rebase]
+    after = ["A"]
+    branch = ["b"]
+    before = ["B"]
+
+[custom_commands."Diff with difft"]
+key = ["d"]
+args = ["difft", "-r", "$change_id"]
+show = "diff"
+
+[custom_commands."Move commit down"]
+key = ["J"]
+args = ["rebase", "-r", "$change_id", "--insert-before", "$change_id-"]
+
+[custom_commands."Move commit up"]
+key = ["K"]
+args = ["rebase", "-r", "$change_id", "--insert-after", "$change_id+"]
+
+[custom_commands."Parent add"]
+key = ["m"]
+args = ["rebase", "-s", "@", "-d", "parents(@) | $change_id"] 
+
+[custom_commands."Parent remove"]
+key = ["M"]
+args = ["rebase", "-s", "@", "-d", "parents(@) ~ $change_id"] 
+
+[custom_commands."Rebase all mine onto trunk"]
+key = ["F"]
+args = ["rebase", "-b", "visible_heads() & mine()", "-d", "trunk()"] 
+
+[leader]
+  [leader.p]
+  help = "Create pull request"
+  context = ["$change_id"]
+  send = ["$", "gh pr create --fill-verbose --head $(jj log --no-graph -r $change_id -T 'bookmarks' | cut -d ' ' -f1)"]
