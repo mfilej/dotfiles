@@ -1,8 +1,14 @@
 schemaVersion = 1
 
+[catalogConfiguration]
+customFolders = []
+
+    [[catalogConfiguration.folderDepthOverrides]]
+    catalogIdentifier = 'TunaCore.UserFoldersCatalog'
+    depthRawValue = 2
+
 [extensions]
 enabledIdentifiers = [
-    'com.brnbw.tuna.plugins.brew',
     'com.brnbw.tuna.plugins.cleanshot',
     'com.brnbw.tuna.plugins.github',
     'com.brnbw.tuna.plugins.safari',
@@ -17,33 +23,102 @@ custom = []
     carbonModifiers = 256
 
 [[leaderMode.bindings]]
-key = 's'
-url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
-
-[[leaderMode.bindings]]
-key = 't'
-url = 'tuna://run/path.%252FSystem%252FApplications%252FUtilities%252FTerminal.app/Open'
-
-[[leaderMode.bindings]]
 key = 'f'
 url = 'tuna://run/path.%252FSystem%252FLibrary%252FCoreServices%252FFinder.app/Open'
-
-[[leaderMode.bindings]]
-key = 'm'
-url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
-
-[[leaderMode.bindings]]
-key = 'n'
-url = 'tuna://run/path.%252FSystem%252FApplications%252FNotes.app/Open'
-
-[[leaderMode.bindings]]
-key = 'd'
-url = 'tuna://run/path.%252FUsers%252Fmiha%252FDownloads/Open'
 
 [[leaderMode.bindings]]
 key = 'h'
 url = 'tuna://run/path.%252FUsers%252Fmiha/Open'
 
+[[leaderMode.bindings]]
+key = 'g'
+url = 'tuna://run/path.%252FApplications%252FGhostty.app/Open'
+
+[[leaderMode.bindings]]
+key = 's'
+url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
+
+[[leaderMode.bindings]]
+iconPath = 'message.fill'
+key = 'm'
+
+    [[leaderMode.bindings.children]]
+    key = 'e'
+    url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
+
+    [[leaderMode.bindings.children]]
+    key = 'a'
+    url = 'tuna://run/path.%252FSystem%252FApplications%252FMail.app/Open'
+
+[[leaderMode.bindings]]
+iconPath = 'folder.fill'
+key = 'd'
+
+    [[leaderMode.bindings.children]]
+    key = 'o'
+    url = 'tuna://run/path.%252FUsers%252Fmiha%252FDownloads/Open'
+
+    [[leaderMode.bindings.children]]
+    key = 'e'
+    url = 'tuna://run/path.%252FUsers%252Fmiha%252FDesktop/Open'
+
+    [[leaderMode.bindings.children]]
+    key = 'i'
+    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Discord/Open'
+
+[[leaderMode.bindings]]
+iconPath = 'circle.grid.2x2.fill'
+key = 't'
+
+    [[leaderMode.bindings.children]]
+    key = 'h'
+    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Things3/Open'
+
+[[leaderMode.bindings]]
+key = 'k'
+url = 'tuna://run/TunaSmartLinks.SmartLinksCatalog.Kagi/TunaSmartLinks.SmartLinksActionsCatalog.Open%20Smart%20Link%E2%80%A6'
+
+[[leaderMode.bindings]]
+key = 'l'
+
+    [[leaderMode.bindings.children]]
+    key = 'l'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Open%20History/TunaCore.CommonActionsCatalog.Run'
+
 [settings]
 clipboardHistoryEnabled = false
+dictationActivationMode = 'toggle'
+spacebarBehavior = 'switchToTextMode'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
+typingTimeoutDuration = 0.5
+
+[[smartLinks.entries]]
+enabled = true
+name = 'GitHub'
+template = 'https://github.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Google'
+template = 'https://www.google.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Kagi'
+template = 'https://kagi.com/search?q={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'Wikipedia'
+template = 'https://en.wikipedia.org/wiki/Special:Search?search={{input}}'
+
+[[smartLinks.entries]]
+enabled = true
+name = 'YouTube'
+template = 'https://www.youtube.com/results?search_query={{input}}'
+
+[[catalogSettings]]
+catalogIdentifier = 'com.brnbw.tuna.plugins.things'
+
+    [catalogSettings.values]
+    ShowThingsWhenAdding = 'false'
