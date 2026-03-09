@@ -21,6 +21,7 @@ age = "latest"
 "github:steipete/imsg" = "latest"
 jj = "latest"
 jjui = "latest"
+"github:kevindutra/crit" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
