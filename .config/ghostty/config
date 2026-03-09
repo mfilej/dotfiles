@@ -26,6 +26,9 @@ keybind = cmd+p=toggle_command_palette
 
 macos-option-as-alt = "left"
 
+window-inherit-working-directory = false
+tab-inherit-working-directory = false
+split-inherit-working-directory = true
 
 theme = "Monokai Pro Spectrum"
 background = "050909"
