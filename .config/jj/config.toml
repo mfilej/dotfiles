@@ -25,6 +25,8 @@ diff-formatter = ":git"
 [revset-aliases]
 "immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
 'why_immutable(r)' = 'r | roots(r:: & immutable_heads())'
+"private()" = "description(substring:'[private]')"
+"pushable()" = "~private()"
 
 [git]
 write-change-id-header = true
