@@ -75,19 +75,78 @@ key = 't'
     url = 'tuna://run/TunaCore.AllApplicationsCatalog.Things3/Open'
 
 [[leaderMode.bindings]]
+iconPath = 'magnifyingglass.circle'
 key = 'k'
 url = 'tuna://run/TunaSmartLinks.SmartLinksCatalog.Kagi/TunaSmartLinks.SmartLinksActionsCatalog.Open%20Smart%20Link%E2%80%A6'
 
 [[leaderMode.bindings]]
+iconPath = '/Applications/Setapp/CleanShot X.app'
 key = 'l'
 
     [[leaderMode.bindings.children]]
+    iconPath = 'calendar.day.timeline.left'
     key = 'l'
     url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Open%20History/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'macwindow.and.cursorarrow'
+    key = 'w'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Window/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'textformat.characters.dottedunderline'
+    key = 'o'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Text%20(OCR)/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'display'
+    key = 'f'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Full%20Screen/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'arrow.left.square'
+    key = 'e'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Previous%20Area/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'scroll'
+    key = 'a'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.All-in-One%20Capture/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    iconPath = 'scroll'
+    key = 's'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Scrolling%20Capture/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    key = 'r'
+    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Area/TunaCore.CommonActionsCatalog.Run'
+
+[[leaderMode.bindings]]
+iconPath = 'square.grid.4x3.fill'
+key = 'r'
+
+    [[leaderMode.bindings.children]]
+    key = 'e'
+    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Reflect/Open'
+
+[[leaderMode.bindings]]
+iconPath = 'macwindow.on.rectangle'
+key = 'w'
+
+    [[leaderMode.bindings.children]]
+    key = 'a'
+    url = 'tuna://run/TunaSystem.WindowManagementCatalog.Almost%20Maximize/TunaCore.CommonActionsCatalog.Run'
+
+    [[leaderMode.bindings.children]]
+    key = 'w'
+    url = 'tuna://run/TunaSystem.WindowManagementCatalog.Window%20Management/Tuna.BasicActionsCatalog.Search'
 
 [settings]
 clipboardHistoryEnabled = false
 dictationActivationMode = 'toggle'
+leaderModeThemeStyle = 'cheatsheet'
+resultListNavigationBindings = 'vimStyle'
 spacebarBehavior = 'switchToTextMode'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
 typingTimeoutDuration = 0.5
