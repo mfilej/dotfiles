@@ -2,6 +2,7 @@ schemaVersion = 1
 
 [catalogConfiguration]
 customFolders = []
+scriptsDirectories = []
 
     [[catalogConfiguration.folderDepthOverrides]]
     catalogIdentifier = 'TunaCore.UserFoldersCatalog'
@@ -71,8 +72,9 @@ iconPath = 'circle.grid.2x2.fill'
 key = 't'
 
     [[leaderMode.bindings.children]]
+    iconPath = '/Applications/Things3.app'
     key = 'h'
-    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Things3/Open'
+    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Things/Open'
 
 [[leaderMode.bindings]]
 iconPath = 'magnifyingglass.circle'
