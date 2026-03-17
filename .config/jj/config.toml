@@ -34,6 +34,7 @@ write-change-id-header = true
 [templates]
 git_push_bookmark = '"mfi-" ++ change_id.short()'
 draft_commit_description = "builtin_draft_commit_description_with_diff"
+log = "builtin_log_compact ++ if(!description && !empty, diff.summary())"
 
 [merge-tools.zed]
 program = "zed"
