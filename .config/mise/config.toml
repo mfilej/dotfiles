@@ -7,7 +7,7 @@ python = "latest"
 ruby = "latest"
 rust = "latest"
 tailpipe = "latest"
-"github:tidewave-ai/tidewave_app" = { version = "latest", asset_pattern = "tidewave-cli-*", bin = "tidewave" }
+"github:tidewave-ai/tidewave_app" = { version = "0.4.3", asset_pattern = "tidewave-cli-*", bin = "tidewave" }
 usage = "latest"
 uv = "latest"
 opencode = "latest"
@@ -22,10 +22,16 @@ age = "latest"
 jj = "latest"
 jjui = "latest"
 "github:kevindutra/crit" = "latest"
-codex = "latest"
+codex = "0.125"
 "cargo:lukerandall/shade" = "latest"
+flyctl = "latest"
+claude = "latest"
+aube = "latest"
+dexter = "latest"
+gh = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
 experimental = true
 python.uv_venv_auto = true
+age.key_file = "~/.ssh/age.txt"
