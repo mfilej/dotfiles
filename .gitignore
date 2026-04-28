@@ -35,6 +35,9 @@
 !.Brewfile*
 !/.bashrc
 !/.bin/
+!/.codex/
+/.codex/*
+!/.codex/AGENTS.md
 !/.config/
 /.config/*
 !/.config/atuin/
@@ -51,6 +54,7 @@
 !/.config/git-delta/
 !/.config/jj/
 /.config/jj/repos/*
+/.config/jj/workspaces/*
 !/.config/jjui
 !/.config/karabiner
 /.config/karabiner/*
