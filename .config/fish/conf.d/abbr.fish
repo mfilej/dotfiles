@@ -2,7 +2,6 @@ abbr -g --add -- - "cd -"
 abbr -g --add -- ... "../.."
 abbr -g --add ass aws-sso
 abbr -g --add asp aws-sso-profile
-abbr -g --add cask brew install --cask
 abbr -g --add com docker compose
 abbr -g --add gf gitfox
 abbr -g --add lb open -aLaunchBar

@@ -1,5 +1,6 @@
 function __jj_prompt
-    jj root >/dev/null && jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template '
+    command jj root >/dev/null 2>/dev/null; or return
+    command jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template '
         separate(" ",
           change_id.shortest(4),
           bookmarks,
@@ -18,7 +19,7 @@ function __jj_prompt
             )
           ) ++ raw_escape_sequence("\x1b[0m"),
         )
-      '
+      ' 2>/dev/null
 end
 
 function _tide_item_jj

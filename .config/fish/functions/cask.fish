@@ -1,11 +1,10 @@
-# `cask` is an alias for `brew cask`, but it also allows us to call `cask up`
-# which otherwise causes homebrew-cask to complain.
-function cask
-  if test "$argv[1]" = "up"
-    brew up
-  else if test "$argv[1]" = "search"
-    brew search "$argv[2..-1]"
-  else
-    brew cask $argv
-  end
+function cask --description 'Run brew install|uninstall|search with --cask'
+    set -l subcommand $argv[1]
+
+    if not contains -- $subcommand install uninstall search
+        printf 'usage: cask {install|uninstall|search} [args...]\n' >&2
+        return 1
+    end
+
+    command brew $subcommand --cask $argv[2..-1]
 end
