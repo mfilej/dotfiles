@@ -1,5 +1,5 @@
 [daemons.tidewave]
-run = "tidewave"
+run = "mise x -- tidewave"
 retry = 0
 ready_port = 9832
 boot_start = true
