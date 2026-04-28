@@ -1,40 +1,246 @@
 [ui.tracer]
 enabled = true
 
-[keys]
-  leader = ["X"]
-  [keys.rebase]
-    after = ["A"]
-    branch = ["b"]
-    before = ["B"]
+[[actions]]
+name = "diff-with"
+lua = '''
+local change = context.change_id()
+if not change or change == "" then
+  flash({ text = "No change selected", error = true })
+  return
+end
 
-[custom_commands."Diff with difft"]
-key = ["d"]
-args = ["difft", "-r", "$change_id"]
-show = "diff"
+local file = context.file()
+local tool = choose({
+  title = "Diff with",
+  options = {
+    "default",
+    "difft",
+    "delta",
+    ":git",
+    ":color-words",
+    ":summary",
+    ":stat",
+    ":types",
+    ":name-only",
+  },
+  ordered = true,
+})
+if not tool then
+  return
+end
 
-[custom_commands."Move commit down"]
-key = ["J"]
-args = ["rebase", "-r", "$change_id", "--insert-before", "$change_id-"]
+local args
+if file and file ~= "" then
+  args = { "diff", "-r", change }
+else
+  args = { "show", "-r", change }
+end
 
-[custom_commands."Move commit up"]
-key = ["K"]
-args = ["rebase", "-r", "$change_id", "--insert-after", "$change_id+"]
+if tool ~= "default" then
+  table.insert(args, "--tool")
+  table.insert(args, tool)
+end
 
-[custom_commands."Parent add"]
-key = ["m"]
-args = ["rebase", "-s", "@", "-d", "parents(@) | $change_id"] 
+if file and file ~= "" then
+  table.insert(args, file)
+end
 
-[custom_commands."Parent remove"]
-key = ["M"]
-args = ["rebase", "-s", "@", "-d", "parents(@) ~ $change_id"] 
+local out, err = jj(args)
+if err then
+  flash({ text = err, error = true })
+  return
+end
 
-[custom_commands."Rebase all mine onto trunk"]
-key = ["F"]
-args = ["rebase", "-b", "visible_heads() & mine()", "-d", "trunk()"] 
+jjui.diff.show(out)
+'''
 
-[leader]
-  [leader.p]
-  help = "Create pull request"
-  context = ["$change_id"]
-  send = ["$", "gh pr create --fill-verbose --head $(jj log --no-graph -r $change_id -T 'bookmarks' | cut -d ' ' -f1)"]
+[[actions]]
+name = "diff-with-difftastic"
+lua = '''
+local change = context.change_id()
+if not change or change == "" then
+  flash({ text = "No change selected", error = true })
+  return
+end
+
+local file = context.file()
+local args
+if file and file ~= "" then
+  args = { "diff", "-r", change }
+else
+  args = { "show", "-r", change }
+end
+
+table.insert(args, "--tool")
+table.insert(args, "difft-inline")
+
+if file and file ~= "" then
+  table.insert(args, file)
+end
+
+local out, err = jj(args)
+if err then
+  flash({ text = err, error = true })
+  return
+end
+
+jjui.diff.show(out)
+'''
+
+[[actions]]
+name = "diff-with-delta"
+lua = '''
+local change = context.change_id()
+if not change or change == "" then
+  flash({ text = "No change selected", error = true })
+  return
+end
+
+local file = context.file()
+local args
+if file and file ~= "" then
+  args = { "diff", "-r", change }
+else
+  args = { "show", "-r", change }
+end
+
+table.insert(args, "--tool")
+table.insert(args, "delta")
+
+if file and file ~= "" then
+  table.insert(args, file)
+end
+
+local out, err = jj(args)
+if err then
+  flash({ text = err, error = true })
+  return
+end
+
+jjui.diff.show(out)
+'''
+
+[[actions]]
+name = "move-commit-down"
+lua = '''
+jj_async("rebase", "-r", context.change_id(), "--insert-before", context.change_id() .. "-")
+jjui.builtin.revisions.refresh()
+'''
+
+[[actions]]
+name = "move-commit-up"
+lua = '''
+jj_async("rebase", "-r", context.change_id(), "--insert-after", context.change_id() .. "+")
+jjui.builtin.revisions.refresh()
+'''
+
+[[actions]]
+name = "parent-add"
+lua = '''
+jj_async("rebase", "-s", "@", "-d", "parents(@) | " .. context.change_id())
+jjui.builtin.revisions.refresh()
+'''
+
+[[actions]]
+name = "parent-remove"
+lua = '''
+jj_async("rebase", "-s", "@", "-d", "parents(@) ~ " .. context.change_id())
+jjui.builtin.revisions.refresh()
+'''
+
+[[actions]]
+name = "rebase-all-mine-onto-trunk"
+lua = '''
+jj_async("rebase", "-b", "visible_heads() & mine()", "-d", "trunk()")
+jjui.builtin.revisions.refresh()
+'''
+
+[[actions]]
+name = "create-pull-request"
+lua = '''
+local bookmarks, err = jj("log", "--no-graph", "-r", context.change_id(), "-T", "bookmarks")
+if err ~= nil then
+  flash({ text = err, error = true, sticky = true })
+  return
+end
+
+local lines = split_lines(bookmarks)
+local first = lines[1]
+local head = first and first:match("([^%s]+)") or nil
+if head == nil or head == "" then
+  flash({ text = "No bookmark found for selected change", error = true, sticky = true })
+  return
+end
+
+exec_shell("gh pr create --fill-verbose --head " .. head)
+'''
+
+[[bindings]]
+action = "diff-with-difftastic"
+key = "d"
+scope = "revisions"
+desc = "Diff with difftastic"
+
+[[bindings]]
+action = "diff-with-delta"
+seq = ["X", "d"]
+scope = "revisions"
+desc = "Diff with delta"
+
+[[bindings]]
+action = "move-commit-down"
+key = "J"
+scope = "revisions"
+desc = "Move commit down"
+
+[[bindings]]
+action = "move-commit-up"
+key = "K"
+scope = "revisions"
+desc = "Move commit up"
+
+[[bindings]]
+action = "parent-add"
+key = "m"
+scope = "revisions"
+desc = "Parent add"
+
+[[bindings]]
+action = "parent-remove"
+key = "M"
+scope = "revisions"
+desc = "Parent remove"
+
+[[bindings]]
+action = "rebase-all-mine-onto-trunk"
+key = "F"
+scope = "revisions"
+desc = "Rebase all mine onto trunk"
+
+[[bindings]]
+action = "create-pull-request"
+seq = ["X", "p"]
+scope = "revisions"
+desc = "Create pull request"
+
+[[bindings]]
+action = "revisions.rebase.set_target"
+key = "A"
+scope = "revisions.rebase"
+desc = "target: after"
+args.target = "after"
+
+[[bindings]]
+action = "revisions.rebase.set_source"
+key = "b"
+scope = "revisions.rebase"
+desc = "source: branch"
+args.source = "branch"
+
+[[bindings]]
+action = "revisions.rebase.set_target"
+key = "B"
+scope = "revisions.rebase"
+desc = "target: before"
+args.target = "before"

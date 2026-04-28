@@ -36,6 +36,23 @@ git_push_bookmark = '"mfi-" ++ change_id.short()'
 draft_commit_description = "builtin_draft_commit_description_with_diff"
 log = "builtin_log_compact ++ if(!description && !empty, diff.summary())"
 
+[template-aliases]
+'format_short_signature(signature)' = 'coalesce(signature.name(), signature.email().local(), email_placeholder)'
+'format_timestamp(timestamp)' = '''
+if(
+  timestamp.after("6 days ago"),
+  timestamp.ago(),
+  timestamp.local().format("%Y-%m-%d %H:%M:%S"),
+)
+'''
+
 [merge-tools.zed]
 program = "zed"
 diff-args = ["--diff", "$left", "$right"]
+
+[merge-tools.difft-inline]
+program = "difft"
+diff-args = ["--color=always", "--display=inline", "--width=$width", "$left", "$right"]
+
+[merge-tools.delta]
+diff-expected-exit-codes = [0, 1]
