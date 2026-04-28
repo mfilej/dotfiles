@@ -31,6 +31,9 @@ vim.o.smartcase = true
 vim.o.grepprg = "rg --vimgrep --smart-case"
 vim.o.grepformat = "%f:%l:%c:%m"
 
+vim.g.signify_sign_add = "⏵"
+vim.g.signify_sign_change = "⏵"
+
 -- treat dash-delimited strings (e.g. css classes) as single words
 vim.opt.iskeyword = vim.opt.iskeyword + "-"
 
@@ -70,6 +73,7 @@ map("v", "<leader>yf", function()
 	vim.fn.setreg("+", out)
 	print("Copied: " .. out)
 end, { silent = true })
+map("n", "gd", vim.lsp.buf.definition)
 map("n", "<leader>li", vim.cmd.LspInfo)
 map("n", "<leader>lf", vim.lsp.buf.format)
 map("n", "<leader>oo", ":update<CR> :source ~/.config/nvim/init.lua<CR>")
@@ -77,12 +81,35 @@ map("n", "<leader>oi", ":tabe ~/.config/nvim/init.lua<CR> | tabmove $<CR>")
 map("n", "<leader>qs", function() require("persistence").load() end)
 map("n", "L", vim.cmd.tabnext)
 map("n", "H", vim.cmd.tabprevious)
-map("n", "[f", function() require("dirnav").prev_file() end)
+map("n", "[f", function() require("dirnav").next_file() end)
 map("n", "]f", function() require("dirnav").next_file() end)
+map("n", "[h", "<plug>(signify-prev-hunk)")
+map("n", "]h", "<plug>(signify-next-hunk)")
+map("n", "[H", "9999[h", { remap = true })
+map("n", "]H", "9999]h", { remap = true })
 map("n", "[t", ":tabmove -1<CR>")
 map("n", "]t", ":tabmove +1<CR>")
 map("c", "<C-a>", "<C-b>", { noremap = true })
 map("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
+
+map("o", "ih", "<plug>(signify-motion-inner-pending)")
+map("x", "ih", "<plug>(signify-motion-inner-visual)")
+map("o", "ah", "<plug>(signify-motion-outer-pending)")
+map("x", "ah", "<plug>(signify-motion-outer-visual)")
+
+local function show_current_hunk()
+	local h = vim.fn["sy#util#get_hunk_stats"]()
+	if h and not vim.tbl_isempty(h) then
+		print(string.format("[Hunk %d/%d]", h.current_hunk, h.total_hunks))
+	end
+end
+
+vim.api.nvim_create_augroup("signify_hunk", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+	group = "signify_hunk",
+	pattern = "SignifyHunk",
+	callback = show_current_hunk,
+})
 
 -- <leader>*: highlight word (or selection) without jumping
 local function set_search(pattern)
@@ -109,7 +136,7 @@ end, { noremap = true, silent = true, desc = 'Highlight selection without moving
 vim.cmd [[
 augroup numbertoggle
   autocmd!
-  autocmd BufEnter,FocusGained,InsertEnter,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufEnter,InsertEnter,WinEnter             * if &nu && mode() != "i" | set rnu   | endif
   autocmd BufLeave,FocusLost,InsertLeave,WinLeave   * if &nu                  | set nornu | endif
 augroup END
 ]]
@@ -123,10 +150,9 @@ vim.pack.add({
 	"https://github.com/ibhagwan/fzf-lua",
 	"https://github.com/lukas-reineke/indent-blankline.nvim",
 	"https://github.com/mason-org/mason.nvim",
+	"https://github.com/mhinz/vim-signify",
 	"https://github.com/murasakiwano/dracula-pro.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
-	"https://github.com/NicolasGB/jj.nvim",
-	"https://github.com/nvim-mini/mini.diff",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/smpallen99/elixir-projectionist.nvim",
 	"https://github.com/stevearc/conform.nvim",
@@ -158,8 +184,6 @@ end, { desc = "FZF LSP Workspace Symbols (word under cursor)" })
 
 require("ibl").setup({})
 require("transparent").setup({})
-require("jj").setup({})
-require('mini.diff').setup()
 require("elixir-projectionist").setup()
 
 require("nvim-treesitter.configs").setup({
@@ -167,6 +191,8 @@ require("nvim-treesitter.configs").setup({
 	highlight = { enable = true },
 	indent = { enable = true },
 })
+
+
 
 require("conform").setup({
 	formatters_by_ft = {
@@ -182,14 +208,21 @@ require("conform").setup({
 	},
 })
 
-vim.lsp.config("expert", {
-	cmd = { "expert" },
-	root_markers = { "mix.exs" },
-	filetypes = { "elixir", "eelixir", "heex" },
+vim.lsp.config("dexter", {
+  cmd = { "dexter", "lsp" },
+  root_markers = { ".dexter/dexter.db", ".dexter.db", ".git", "mix.exs" },
+  filetypes = { "elixir", "eelixir", "heex" },
+  init_options = {
+    followDelegates = true,
+  },
 })
+vim.lsp.enable "dexter"
+
 vim.lsp.enable({ "lua_ls", "expert", "tailwindcss" })
 
 vim.cmd.colorscheme("dracula")
+vim.api.nvim_set_hl(0, "SignifySignAdd", { fg = "#4ffa7b", bg = "NONE" })
+vim.api.nvim_set_hl(0, "SignifySignChange", { fg = "#ff79c6", bg = "NONE" })
 vim.api.nvim_set_hl(0, "TabLineSel", { fg = "#f1fa8c", bold = true })
 -- vim.api.nvim_set_hl(0, "SnacksIndent", { fg = "#111111", bold = true })
 -- vim.api.nvim_set_hl(0, "SnacksIndentScope", { fg = "#333333", bold = true })
