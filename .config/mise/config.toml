@@ -22,13 +22,15 @@ age = "latest"
 jj = "latest"
 jjui = "latest"
 "github:kevindutra/crit" = "latest"
-codex = "0.125"
+codex = "latest"
 "cargo:lukerandall/shade" = "latest"
 flyctl = "latest"
 claude = "latest"
 aube = "latest"
 dexter = "latest"
 gh = "latest"
+"cargo:jj-vine" = "latest"
+delta = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
