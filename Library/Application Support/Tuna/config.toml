@@ -8,146 +8,116 @@ scriptsDirectories = []
     catalogIdentifier = 'TunaCore.UserFoldersCatalog'
     depthRawValue = 2
 
-[extensions]
-enabledIdentifiers = [
-    'com.brnbw.tuna.plugins.cleanshot',
-    'com.brnbw.tuna.plugins.github',
-    'com.brnbw.tuna.plugins.safari',
-    'com.brnbw.tuna.plugins.things'
-]
-
-[hotkeys]
-custom = []
-
-    [hotkeys.app.leaderMode]
-    carbonKeyCode = 47
-    carbonModifiers = 256
-
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 key = 'f'
 url = 'tuna://run/path.%252FSystem%252FLibrary%252FCoreServices%252FFinder.app/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 key = 'h'
 url = 'tuna://run/path.%252FUsers%252Fmiha/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 key = 'g'
 url = 'tuna://run/path.%252FApplications%252FGhostty.app/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 key = 's'
 url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 iconPath = 'message.fill'
 key = 'm'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'e'
     url = 'tuna://run/path.%252FSystem%252FApplications%252FMessages.app/Open'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'a'
     url = 'tuna://run/path.%252FSystem%252FApplications%252FMail.app/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 iconPath = 'folder.fill'
 key = 'd'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'o'
     url = 'tuna://run/path.%252FUsers%252Fmiha%252FDownloads/Open'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'e'
     url = 'tuna://run/path.%252FUsers%252Fmiha%252FDesktop/Open'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'i'
     url = 'tuna://run/TunaCore.AllApplicationsCatalog.Discord/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 iconPath = 'circle.grid.2x2.fill'
 key = 't'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     iconPath = '/Applications/Things3.app'
     key = 'h'
     url = 'tuna://run/TunaCore.AllApplicationsCatalog.Things/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 iconPath = 'magnifyingglass.circle'
 key = 'k'
 url = 'tuna://run/TunaSmartLinks.SmartLinksCatalog.Kagi/TunaSmartLinks.SmartLinksActionsCatalog.Open%20Smart%20Link%E2%80%A6'
 
-[[leaderMode.bindings]]
-iconPath = '/Applications/Setapp/CleanShot X.app'
-key = 'l'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'calendar.day.timeline.left'
-    key = 'l'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Open%20History/TunaCore.CommonActionsCatalog.Run'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'macwindow.and.cursorarrow'
-    key = 'w'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Window/TunaCore.CommonActionsCatalog.Run'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'textformat.characters.dottedunderline'
-    key = 'o'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Text%20(OCR)/TunaCore.CommonActionsCatalog.Run'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'display'
-    key = 'f'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Full%20Screen/TunaCore.CommonActionsCatalog.Run'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'arrow.left.square'
-    key = 'e'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Previous%20Area/TunaCore.CommonActionsCatalog.Run'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'scroll'
-    key = 'a'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.All-in-One%20Capture/TunaCore.CommonActionsCatalog.Run'
-
-    [[leaderMode.bindings.children]]
-    iconPath = 'scroll'
-    key = 's'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Scrolling%20Capture/TunaCore.CommonActionsCatalog.Run'
-
-    [[leaderMode.bindings.children]]
-    key = 'r'
-    url = 'tuna://run/TunaCleanShot.CleanShotActionsCatalog.Capture%20Area/TunaCore.CommonActionsCatalog.Run'
-
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 iconPath = 'square.grid.4x3.fill'
 key = 'r'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'e'
     url = 'tuna://run/TunaCore.AllApplicationsCatalog.Reflect/Open'
 
-[[leaderMode.bindings]]
+[[comboMode.bindings]]
 iconPath = 'macwindow.on.rectangle'
 key = 'w'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'a'
     url = 'tuna://run/TunaSystem.WindowManagementCatalog.Almost%20Maximize/TunaCore.CommonActionsCatalog.Run'
 
-    [[leaderMode.bindings.children]]
+    [[comboMode.bindings.children]]
     key = 'w'
     url = 'tuna://run/TunaSystem.WindowManagementCatalog.Window%20Management/Tuna.BasicActionsCatalog.Search'
 
+[[comboMode.bindings]]
+iconPath = '/Applications/Setapp/CleanShot X.app'
+key = 'l'
+
+    [[comboMode.bindings.children]]
+    key = 'o'
+    url = 'tuna://run/TunaCleanShot.CleanShotCommandsCatalog.Capture%20Text%20(OCR)/TunaCore.CommonActionsCatalog.Run'
+
+    [[comboMode.bindings.children]]
+    key = 'r'
+    url = 'tuna://run/TunaCleanShot.CleanShotCommandsCatalog.Restore%20Recently%20Closed/TunaCore.CommonActionsCatalog.Run'
+
+    [[comboMode.bindings.children]]
+    key = 'g'
+    url = 'tuna://run/TunaCleanShot.CleanShotCommandsCatalog.Open%20History/TunaCore.CommonActionsCatalog.Run'
+
+[hotkeys]
+custom = []
+
+    [hotkeys.app.comboMode]
+    carbonKeyCode = 47
+    carbonModifiers = 256
+
+    [hotkeys.app.dictation]
+    carbonKeyCode = 39
+    carbonModifiers = 256
+
 [settings]
 clipboardHistoryEnabled = false
+comboModeThemeStyle = 'cheatsheet'
 dictationActivationMode = 'toggle'
-leaderModeThemeStyle = 'cheatsheet'
+holdToExecuteEnabled = true
 resultListNavigationBindings = 'vimStyle'
 spacebarBehavior = 'switchToTextMode'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
@@ -156,26 +126,31 @@ typingTimeoutDuration = 0.5
 [[smartLinks.entries]]
 enabled = true
 name = 'GitHub'
+requiresInput = true
 template = 'https://github.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'Google'
+requiresInput = true
 template = 'https://www.google.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'Kagi'
+requiresInput = true
 template = 'https://kagi.com/search?q={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'Wikipedia'
+requiresInput = true
 template = 'https://en.wikipedia.org/wiki/Special:Search?search={{input}}'
 
 [[smartLinks.entries]]
 enabled = true
 name = 'YouTube'
+requiresInput = true
 template = 'https://www.youtube.com/results?search_query={{input}}'
 
 [[catalogSettings]]
