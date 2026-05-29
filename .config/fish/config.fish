@@ -6,7 +6,7 @@ set -q VIM || set -g fish_key_bindings fish_hybrid_key_bindings
 
 if status is-interactive
     ~/.local/bin/mise activate fish | source
-    /Users/miha/.local/bin/mise x -- jj util completion fish | source
+    jj util completion fish | source
     pitchfork activate fish | source
     shade init fish | source
     test -f ~/.config/op/plugins.sh && source ~/.config/op/plugins.sh
