@@ -2,6 +2,7 @@ set -g safehouse_dirs \
     "/opt/zerobrew" \
     "/opt/homebrew" \
     "$HOME/.config" \
+    "$HOME/.cache" \
     "$HOME/.local" \
     "$HOME/bin" \
     "$HOME/.fly" \
