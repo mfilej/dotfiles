@@ -29,9 +29,6 @@ diff-formatter = ":git"
 "shelved()" = 'subject(regex:"^\\[[~-][[:word:]]+\\]")'
 "pushable()" = "~private()"
 
-[git]
-write-change-id-header = true
-
 [templates]
 git_push_bookmark = '"mfi-" ++ change_id.short()'
 draft_commit_description = "builtin_draft_commit_description_with_diff"
