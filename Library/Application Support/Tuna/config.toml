@@ -18,7 +18,7 @@ url = 'tuna://run/path.%252FUsers%252Fmiha/Open'
 
 [[comboMode.bindings]]
 key = 'g'
-url = 'tuna://run/path.%252FApplications%252FGhostty.app/Open'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.cmux/Open'
 
 [[comboMode.bindings]]
 key = 's'
@@ -27,6 +27,7 @@ url = 'tuna://run/path.%252FApplications%252FSafari.app/Open'
 [[comboMode.bindings]]
 iconPath = 'message.fill'
 key = 'm'
+label = 'Messaging'
 
     [[comboMode.bindings.children]]
     key = 'e'
@@ -52,14 +53,9 @@ key = 'd'
     key = 'i'
     url = 'tuna://run/TunaCore.AllApplicationsCatalog.Discord/Open'
 
-[[comboMode.bindings]]
-iconPath = 'circle.grid.2x2.fill'
-key = 't'
-
     [[comboMode.bindings.children]]
-    iconPath = '/Applications/Things3.app'
-    key = 'h'
-    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Things/Open'
+    key = 'a'
+    url = 'tuna://run/TunaCore.AllApplicationsCatalog.Dash/Open'
 
 [[comboMode.bindings]]
 iconPath = 'magnifyingglass.circle'
@@ -102,8 +98,21 @@ key = 'l'
     key = 'g'
     url = 'tuna://run/TunaCleanShot.CleanShotCommandsCatalog.Open%20History/TunaCore.CommonActionsCatalog.Run'
 
+    [[comboMode.bindings.children]]
+    key = 'a'
+    url = 'tuna://run/TunaCleanShot.CleanShotCommandsCatalog.All-in-One%20Capture/TunaCore.CommonActionsCatalog.Run'
+
+[[comboMode.bindings]]
+key = 't'
+label = 'Tidewave'
+url = 'tuna://run/TunaCore.AllApplicationsCatalog.Tidewave%20Web/Open'
+
 [hotkeys]
 custom = []
+
+    [hotkeys.app.activate]
+    carbonKeyCode = 49
+    carbonModifiers = 256
 
     [hotkeys.app.comboMode]
     carbonKeyCode = 47
@@ -114,8 +123,11 @@ custom = []
     carbonModifiers = 256
 
 [settings]
+activationDoublePressTrigger = 'leftOption'
+appPresentationMode = 'dock'
 clipboardHistoryEnabled = false
-comboModeThemeStyle = 'cheatsheet'
+comboModeCheatsheetBehavior = 'never'
+comboModeModifierTrigger = 'leftOption'
 dictationActivationMode = 'toggle'
 holdToExecuteEnabled = true
 resultListNavigationBindings = 'vimStyle'
