@@ -9,60 +9,6 @@ revision_command = ["show", "--color", "always", "--tool", "delta-preview", "-r"
 file_command = ["diff", "--color", "always", "--tool", "delta-file-preview", "-r", "$change_id", "$file"]
 
 [[actions]]
-name = "diff-with"
-lua = '''
-local change = context.change_id()
-if not change or change == "" then
-  flash({ text = "No change selected", error = true })
-  return
-end
-
-local file = context.file()
-local tool = choose({
-  title = "Diff with",
-  options = {
-    "default",
-    "difft",
-    "delta",
-    ":git",
-    ":color-words",
-    ":summary",
-    ":stat",
-    ":types",
-    ":name-only",
-  },
-  ordered = true,
-})
-if not tool then
-  return
-end
-
-local args
-if file and file ~= "" then
-  args = { "diff", "-r", change }
-else
-  args = { "show", "-r", change }
-end
-
-if tool ~= "default" then
-  table.insert(args, "--tool")
-  table.insert(args, tool)
-end
-
-if file and file ~= "" then
-  table.insert(args, file)
-end
-
-local out, err = jj(args)
-if err then
-  flash({ text = err, error = true })
-  return
-end
-
-jjui.diff.show(out)
-'''
-
-[[actions]]
 name = "diff-with-difftastic"
 lua = '''
 local change = context.change_id()
@@ -96,7 +42,7 @@ jjui.diff.show(out)
 '''
 
 [[actions]]
-name = "diff-with-delta"
+name = "diff-with-cmux"
 lua = '''
 local change = context.change_id()
 if not change or change == "" then
@@ -105,27 +51,41 @@ if not change or change == "" then
 end
 
 local file = context.file()
-local args
-if file and file ~= "" then
-  args = { "diff", "-r", change }
-else
-  args = { "show", "-r", change }
-end
 
-table.insert(args, "--tool")
-table.insert(args, "delta")
+-- Only pipe to cmux when actually running inside a cmux workspace.
+-- Otherwise fall back to a delta-rendered diff so this keybinding still works.
+local in_cmux = os.getenv("CMUX_WORKSPACE_ID")
+if not in_cmux or in_cmux == "" then
+  local args
+  if file and file ~= "" then
+    args = { "diff", "-r", change, "--tool", "delta", file }
+  else
+    args = { "show", "-r", change, "--tool", "delta" }
+  end
 
-if file and file ~= "" then
-  table.insert(args, file)
-end
+  local out, err = jj(args)
+  if err then
+    flash({ text = err, error = true })
+    return
+  end
 
-local out, err = jj(args)
-if err then
-  flash({ text = err, error = true })
+  jjui.diff.show(out)
   return
 end
 
-jjui.diff.show(out)
+local function shell_quote(s)
+  return "'" .. tostring(s):gsub("'", [['"'"']]) .. "'"
+end
+
+local cmd = "jj diff --git -r " .. shell_quote(change)
+
+if file and file ~= "" then
+  cmd = cmd .. " -- " .. shell_quote(file)
+end
+
+cmd = cmd .. " | cmux diff -"
+
+exec_shell(cmd)
 '''
 
 [[actions]]
@@ -207,16 +167,10 @@ exec_shell("gh pr create --fill-verbose --head " .. head)
 '''
 
 [[bindings]]
-action = "diff-with-revdiff"
+action = "diff-with-cmux"
 key = "d"
 scope = "revisions"
-desc = "Diff with revdiff"
-
-[[bindings]]
-action = "diff-with-delta"
-seq = ["X", "d"]
-scope = "revisions"
-desc = "Diff with delta"
+desc = "Diff with cmux"
 
 [[bindings]]
 action = "move-commit-down"
