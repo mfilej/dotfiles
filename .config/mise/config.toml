@@ -7,7 +7,6 @@ python = "latest"
 ruby = "latest"
 rust = "latest"
 tailpipe = "latest"
-"github:tidewave-ai/tidewave_app" = { version = "0.4.3", asset_pattern = "tidewave-cli-*", bin = "tidewave" }
 usage = "latest"
 uv = "latest"
 opencode = "latest"
@@ -32,9 +31,21 @@ gh = "latest"
 "cargo:jj-vine" = "latest"
 delta = "latest"
 awscli = { version = "latest", symlink_bins = "true" }
+expert = "latest"
+aqua = "latest"
+node = "latest"
+"github:umputun/revdiff" = "latest"
+"github:radiosilence/fastmail-cli" = "latest"
+"aqua:tidewave-ai/tidewave_app" = "latest"
+"npm:hunkdiff" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
 experimental = true
 python.uv_venv_auto = true
 age.key_file = "~/.ssh/age.txt"
+
+[settings.github]
+use_git_credentials = true
+
+[env]

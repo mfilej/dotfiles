@@ -1,5 +1,8 @@
+[settings.general]
+mise = true
+
 [daemons.tidewave]
-run = "mise x -- tidewave"
+run = "tidewave"
 retry = 0
 ready_port = 9832
 boot_start = true
