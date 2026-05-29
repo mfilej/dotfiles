@@ -1,6 +1,13 @@
 [ui.tracer]
 enabled = true
 
+[revisions]
+revset = "(present(@) | ancestors(immutable_heads().., 2) | trunk()) ~ shelved()"
+
+[preview]
+revision_command = ["show", "--color", "always", "--tool", "delta-preview", "-r", "$change_id"]
+file_command = ["diff", "--color", "always", "--tool", "delta-file-preview", "-r", "$change_id", "$file"]
+
 [[actions]]
 name = "diff-with"
 lua = '''
@@ -122,6 +129,29 @@ jjui.diff.show(out)
 '''
 
 [[actions]]
+name = "diff-with-revdiff"
+lua = '''
+local change = context.change_id()
+if not change or change == "" then
+  flash({ text = "No change selected", error = true })
+  return
+end
+
+local function shell_quote(s)
+  return "'" .. tostring(s):gsub("'", [['"'"']]) .. "'"
+end
+
+local cmd = "revdiff"
+local file = context.file()
+if file and file ~= "" then
+  cmd = cmd .. " --only " .. shell_quote(file)
+end
+cmd = cmd .. " " .. shell_quote(change .. "-") .. " " .. shell_quote(change)
+
+exec_shell(cmd)
+'''
+
+[[actions]]
 name = "move-commit-down"
 lua = '''
 jj_async("rebase", "-r", context.change_id(), "--insert-before", context.change_id() .. "-")
@@ -177,10 +207,10 @@ exec_shell("gh pr create --fill-verbose --head " .. head)
 '''
 
 [[bindings]]
-action = "diff-with-difftastic"
+action = "diff-with-revdiff"
 key = "d"
 scope = "revisions"
-desc = "Diff with difftastic"
+desc = "Diff with revdiff"
 
 [[bindings]]
 action = "diff-with-delta"

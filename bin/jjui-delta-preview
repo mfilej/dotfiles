@@ -1,0 +1,16 @@
+#!/bin/sh
+mode=$1
+left=$2
+right=$3
+
+if [ "$mode" = "revision" ]; then
+  delta \
+    --file-transformation='s#^(left|right)/##' \
+    --file-added-label='' \
+    --file-modified-label='' \
+    --file-removed-label='' \
+    "$left" "$right" |
+    perl -CSD -pe 's/^(\e\[[0-9;]*m)(?:\x{0394}\s+)?(.+?)\s+\x{27F6}\s+\2(\e\[0m)$/$1$2$3/'
+else
+  delta --file-style=omit "$left" "$right"
+fi

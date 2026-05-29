@@ -25,7 +25,8 @@ diff-formatter = ":git"
 [revset-aliases]
 "immutable_heads()" = "builtin_immutable_heads() | (trunk().. & ~mine())"
 'why_immutable(r)' = 'r | roots(r:: & immutable_heads())'
-"private()" = "description(substring:'[private]')"
+"private()" = 'subject(regex:"^\\[")'
+"shelved()" = 'subject(regex:"^\\[[~-][[:word:]]+\\]")'
 "pushable()" = "~private()"
 
 [git]
@@ -56,3 +57,16 @@ diff-args = ["--color=always", "--display=inline", "--width=$width", "$left", "$
 
 [merge-tools.delta]
 diff-expected-exit-codes = [0, 1]
+
+[merge-tools.delta-preview]
+program = "/Users/miha/bin/jjui-delta-preview"
+diff-args = ["revision", "$left", "$right"]
+diff-expected-exit-codes = [0, 1]
+
+[merge-tools.delta-file-preview]
+program = "/Users/miha/bin/jjui-delta-preview"
+diff-args = ["file", "$left", "$right"]
+diff-expected-exit-codes = [0, 1]
+
+[gg.ui]
+recent-workspaces = ["/Users/miha/Developer/gem/gem-server"]
