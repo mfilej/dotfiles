@@ -73,6 +73,51 @@ map("v", "<leader>yf", function()
 	vim.fn.setreg("+", out)
 	print("Copied: " .. out)
 end, { silent = true })
+local function gh_browse_args(line1, line2)
+	local file = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
+
+	local ref = vim.fn.system("jj log -r 'latest(::@ & bookmarks())' --no-graph -T 'local_bookmarks.map(|b| b.name()).join(\"\")' 2>/dev/null")
+	ref = ref:gsub('%s+', '')
+
+	if ref == '' then
+		ref = vim.fn.system("jj log -r 'trunk()' --no-graph -T 'remote_bookmarks.map(|b| b.name()).join(\"\")' 2>/dev/null")
+		ref = ref:gsub('%s+', '')
+	end
+
+	local location
+	if line2 and line1 ~= line2 then
+		location = string.format('%s:%d-%d', file, line1, line2)
+	else
+		location = string.format('%s:%d', file, line1)
+	end
+
+	return '--branch ' .. vim.fn.shellescape(ref) .. ' ' .. vim.fn.shellescape(location)
+end
+
+map('n', '<leader>yh', function()
+	local url = vim.fn.system('gh browse --no-browser ' .. gh_browse_args(vim.fn.line('.'), vim.fn.line('.'))):gsub('%s+', '')
+	vim.fn.setreg('+', url)
+	print('Copied: ' .. url)
+end, { desc = 'Copy GitHub URL' })
+
+map('v', '<leader>yh', function()
+	local s, e = vim.fn.line('v'), vim.fn.line('.')
+	if s > e then s, e = e, s end
+	local url = vim.fn.system('gh browse --no-browser ' .. gh_browse_args(s, e)):gsub('%s+', '')
+	vim.fn.setreg('+', url)
+	print('Copied: ' .. url)
+end, { desc = 'Copy GitHub URL (selection)' })
+
+map('n', '<leader>yH', function()
+	vim.fn.system('gh browse ' .. gh_browse_args(vim.fn.line('.'), vim.fn.line('.')))
+end, { desc = 'Open GitHub URL' })
+
+map('v', '<leader>yH', function()
+	local s, e = vim.fn.line('v'), vim.fn.line('.')
+	if s > e then s, e = e, s end
+	vim.fn.system('gh browse ' .. gh_browse_args(s, e))
+end, { desc = 'Open GitHub URL (selection)' })
+
 map("n", "gd", vim.lsp.buf.definition)
 map("n", "<leader>li", vim.cmd.LspInfo)
 map("n", "<leader>lf", vim.lsp.buf.format)
@@ -217,6 +262,14 @@ vim.lsp.config("dexter", {
   },
 })
 vim.lsp.enable "dexter"
+
+-- vim.lsp.config("expert", {
+--   cmd = { "expert", "--stdio" },
+--   root_markers = { "mix.exs", ".git" },
+--   filetypes = { "elixir", "eelixir", "heex" },
+-- })
+--
+-- vim.lsp.enable "expert"
 
 vim.lsp.enable({ "lua_ls", "expert", "tailwindcss" })
 
