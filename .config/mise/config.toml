@@ -14,7 +14,7 @@ elixir-ls = "latest"
 pitchfork = "latest"
 neovim = "nightly"
 erlang = "28.3.1"
-elixir = "1.19.5-otp-28"
+elixir = "1.20.0-otp-29"
 fnox = "latest"
 age = "latest"
 "github:steipete/imsg" = "latest"
@@ -38,6 +38,7 @@ node = "latest"
 "github:radiosilence/fastmail-cli" = "latest"
 "aqua:tidewave-ai/tidewave_app" = "latest"
 "npm:hunkdiff" = "latest"
+pi = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
