@@ -38,17 +38,31 @@ Things get moved around more often than I set up new computers, so the exact lab
 - Customize modifier keys (for laptops).
 
 
-### Finally, dotfiles
+## Bootstrap mise, clone dotfiles
 
-Use the one-liner from [brew.sh](https://brew.sh) to install Homebrew.
-The script will take care of installing Command Line Tools for Xcode.
-Run `brew install jj` so we can move on to setting up dotfiles.
-
-> [!CAUTION]
-> [zerobrew][] is now a thing, so this section might need to be updated accordingly.
+Full-disk access: Terminal.app
 
 ```
-alias jj=/opt/homebrew/bin/jj
+curl https://mise.run | sh
+curl 'https://raw.githubusercontent.com/mfilej/dotfiles/refs/heads/main/.config/mise/config.toml' > bootstrap.toml
+alias mise=~/.local/bin/mise
+MISE_GLOBAL_CONFIG_FILE=bootstrap.toml mise bootstrap --yes
+```
+
+```
+xcode-select --install
+```
+
+While that is going on, install mise:
+
+```
+```
+
+Then clone the dotfiles repo with jj:
+
+```
+~/.local/bin/mise bootstrap packages install brew:git
+alias jj="~/.local/bin/mise x jj -- jj --config 'git.executable-path="/opt/homebrew/bin/git"'"
 echo '*' > ~/.gitignore
 jj git init
 jj git remote add origin https://github.com/mfilej/dotfiles.git
@@ -63,19 +77,11 @@ jj rebase -d main@origin
 
 At this point `jj status` should look clean.
 
-Now that Homebrew has installed the fish shell we can set up our shell:
+Let mise bootstrap all the things:
 
-Add the following to your $PATH:
-
-    fish_add_path /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin/
-
-And clear the default fish greeting:
-
-     set -U fish_greeting
-
-Open a new Terminal window one more time (or just run `fish`) and check `$PATH` to make sure the above worked.
-
-With `$PATH` in place, we can install everything from the global Brewfile:
+```
+ ~/.local/bin/mise bootstrap --yes
+```
 
     brew bundle --global
 
@@ -94,13 +100,6 @@ Authenticate git for GitHub:
 
     gh auth setup-git
     gh auth login
-
-Finally, install [mise][] to `~/.local/bin` and run the bootstrap command:
-
-```
-curl https://mise.run | sh
-~/.local/bin/mise bootstrap
-```
 
 
 ### Launchbar
