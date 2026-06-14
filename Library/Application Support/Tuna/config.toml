@@ -2,11 +2,77 @@ schemaVersion = 1
 
 [catalogConfiguration]
 customFolders = []
+customItems = []
 scriptsDirectories = []
 
     [[catalogConfiguration.folderDepthOverrides]]
     catalogIdentifier = 'TunaCore.UserFoldersCatalog'
     depthRawValue = 2
+
+[catalogs]
+sortOrders = []
+
+    [[catalogs.globalScopes]]
+    catalogIdentifier = 'Tuna.EffectsCatalog'
+    mode = 'none'
+    selectedItemKeys = []
+
+    [[catalogs.globalScopes]]
+    catalogIdentifier = 'TunaSystem.WindowManagementCatalog'
+    mode = 'some'
+    selectedItemKeys = [
+        'Almost Maximize',
+        'Bottom Left Quarter',
+        'Bottom Left Sixth',
+        'Bottom Right Quarter',
+        'Bottom Right Sixth',
+        'Center',
+        'Center Half',
+        'Center Third',
+        'Center Three Fourths',
+        'Center Two Thirds',
+        'First Fourth',
+        'First Third',
+        'First Three Fourths',
+        'First Two Thirds',
+        'Hide All Except Frontmost',
+        'Hide All Windows',
+        'Last Fourth',
+        'Last Third',
+        'Last Three Fourths',
+        'Last Two Thirds',
+        'Left Half',
+        'Make Larger',
+        'Make Smaller',
+        'Maximize',
+        'Maximize Height',
+        'Maximize Width',
+        'Middle Third',
+        'Move Down',
+        'Move Left',
+        'Move Right',
+        'Move Up',
+        'Next Display',
+        'Next Space',
+        'Previous Display',
+        'Previous Space',
+        'Reasonable Size',
+        'Restore',
+        'Right Half',
+        'Second Fourth',
+        'Space 1',
+        'Space 2',
+        'Third Fourth',
+        'Top Center Sixth',
+        'Top Half',
+        'Top Left Quarter',
+        'Top Left Sixth',
+        'Top Right Quarter',
+        'Top Right Sixth',
+        'Top Three Fourths',
+        'Top Two Thirds',
+        'Window Management'
+    ]
 
 [[comboMode.bindings]]
 key = 'f'
@@ -112,7 +178,7 @@ custom = []
 
     [hotkeys.app.activate]
     carbonKeyCode = 49
-    carbonModifiers = 256
+    carbonModifiers = 4096
 
     [hotkeys.app.comboMode]
     carbonKeyCode = 47
@@ -125,13 +191,13 @@ custom = []
 [settings]
 activationDoublePressTrigger = 'leftOption'
 appPresentationMode = 'dock'
-clipboardHistoryEnabled = false
 comboModeCheatsheetBehavior = 'never'
 comboModeModifierTrigger = 'leftOption'
 dictationActivationMode = 'toggle'
 holdToExecuteEnabled = true
 resultListNavigationBindings = 'vimStyle'
 spacebarBehavior = 'switchToTextMode'
+textModeTriggerType = 'disabled'
 themeIdentifier = 'com.brnbw.tuna.themes.default'
 typingTimeoutDuration = 0.5
 
