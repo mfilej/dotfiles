@@ -30,45 +30,12 @@ Things get moved around more often than I set up new computers, so the exact lab
 - Change the computer name..
 - Make sure FileVault is enabled and store the recovery key (comes enabled by default on new computers).
 - Disable Screen saver.
-- Trackpad: Enable *Tap to click*.
-- Desktop & Dock:
-  - Uncheck *Close windows when quitting an application*.  
-  - Uncheck *When switching to an application, switch to a
-  Space with open windows for the application*.
-  - Check *Group windows by application*.
 - Privacy & Security: Give Full Disk Access to Terminal.app.
-- Accessibility:
-  - Under Display: Check *Show window title icons* to have persistent proxy icons.
 
 
 #### Keyboard
 
 - Customize modifier keys (for laptops).
-- Set keyboard repeat rate and delay to *Fast* and *Short* respectively.
-- Under Spelling and prediction:
-  - Uncheck *Correct spelling automatically*.
-  - Uncheck *Capitalize words automatically*.
-  - Uncheck *Add period with double-space*.
-
-
-#### Sound
-
-- Slide *Alert volume* to minimum.
-- Uncheck *Play user interface sound effects*.
-
-
-### Finder
-
-- Change to column view (⌘3)
-- Under General:
-  - *New Finder windows show* select your home directory.
-  - Uncheck *Open folders in tabs instead of new windows*.
-- Under Tags, uncheck everything.
-- Under Sidebar edit as needed.
-- Under Advanced:
-  - Uncheck *Show warning before changing an extension*.
-  - Uncheck *Show warning before removing from iCloud Drive*.
-  - Check *Remove items from the Trash after* select 30 days*.
 
 
 ### Finally, dotfiles
@@ -128,10 +95,11 @@ Authenticate git for GitHub:
     gh auth setup-git
     gh auth login
 
-Finally, install [mise][] to `~/.local/bin`:
+Finally, install [mise][] to `~/.local/bin` and run the bootstrap command:
 
 ```
 curl https://mise.run | sh
+~/.local/bin/mise bootstrap
 ```
 
 
@@ -147,21 +115,16 @@ Configure indexing as follows:
 - Indexing the iCloud Drive directory is complicated. Out of the box you won't be able to access all its contents via LaunchBar nor will you be able to limit indexing like you can for regular directories. To work around these issues, disable the default index, then manually re-add it as a regular folder. Under Options, limit _Search Scope_ to _Search 2 Subfolder Levels_ and set _Search for_ to _Folders_.
 
 
+### Finder
+
+- Under Tags, uncheck everything.
+- Under Sidebar edit as needed.
+
+
 ### Safari
 
 - From the Extensions pane, install and enable extensions
-- Under Advanced check the following options:
-  - Check *Show full website address*
-  - Check *Show features for web developers*
-- Under the Feature Flags pane that just appeared, search for "60" and uncheck *Prefer Page Rendering Updates Near 60fps*
-
-
-### Mail
-
-- Under Viewing:
-  - List Preview: None
-- Under Composing
-  - Message Format: Plain Text
+- Under the Feature Flags pane, search for "60" and uncheck *Prefer Page Rendering Updates Near 60fps*
 
 
 ### sshd

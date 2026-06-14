@@ -78,4 +78,43 @@ Clicking = true
 # Accessibility > Display: Show window title icons
 showWindowTitlebarIcons = true
 
+[bootstrap.macos.defaults."com.apple.finder"]
+# Change to column view
+FXPreferredViewStyle = "clmv"
+
+# New Finder windows show home directory
+NewWindowTarget = "PfHm"
+
+# Uncheck "Open folders in tabs instead of new windows"
+FinderSpawnTab = false
+
+# Uncheck "Show warning before changing an extension"
+FXEnableExtensionChangeWarning = false
+
+# Uncheck "Show warning before removing from iCloud Drive"
+FXEnableRemoveFromICloudDriveWarning = false
+
+# Remove items from Trash after 30 days
+FXRemoveOldTrashItems = true
+
+[bootstrap.macos.defaults."com.apple.Safari"]
+# Advanced: Show full website address
+ShowFullURLInSmartSearchField = true
+
+# Advanced: Show features for web developers
+IncludeDevelopMenu = true
+WebKitDeveloperExtrasEnabledPreferenceKey = true
+"WebKitPreferences.developerExtrasEnabled" = true
+
+[bootstrap.macos.defaults."com.apple.Safari.SandboxBroker"]
+# Also part of Develop menu visibility
+ShowDevelopMenu = true
+
+[bootstrap.macos.defaults."com.apple.mail"]
+# Viewing: List Preview: None
+NumberOfSnippetLines = 0
+
+# Composing: Message Format: Plain Text
+SendFormat = "Plain"
+
 [env]
