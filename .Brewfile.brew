@@ -1,5 +1,0 @@
-brew "mas"
-brew "moreutils"
-brew "yt-dlp"
-brew "mpv"
-brew "postgresql@18", restart_service: :changed, link: true

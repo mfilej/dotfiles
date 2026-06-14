@@ -41,6 +41,7 @@
 !/.config/
 /.config/*
 !/.config/atuin/
+!/.config/brewfiles/
 !/.config/fish/
 /.config/fish/*
 !/.config/fish/*.fish

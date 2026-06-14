@@ -1,9 +1,8 @@
-cask "1password", args: { appdir: "/Applications" }
+brew "postgresql@18"
 cask "1password-cli"
 cask "acorn"
+cask "affinity"
 cask "apparency"
-cask "appcleaner"
-cask "arc"
 cask "arq"
 cask "audacity"
 cask "backuploupe"
@@ -11,35 +10,40 @@ cask "bambu-studio"
 cask "chatgpt"
 cask "claude"
 cask "coconutbattery"
-cask "cursor"
-cask "customshortcuts"
-cask "dictionaries"
+cask "codex-app"
+cask "confectionery"
 cask "discord"
-cask "eloston-chromium", args: { appdir: "/Applications" }
-cask "fantastical"
 cask "figma"
 cask "filebot"
-cask "finbar"
-cask "firefox", args: { appdir: "/Applications" }
+cask "firefox"
 cask "font-anonymous-pro"
 cask "font-atkinson-hyperlegible"
+cask "font-bitter"
 cask "font-cascadia-mono"
+cask "font-cormorant-garamond"
 cask "font-fantasque-sans-mono"
 cask "font-fira-code"
 cask "font-fira-sans"
+cask "font-fraunces"
 cask "font-hack"
 cask "font-hasklig"
 cask "font-hubot-sans"
 cask "font-ibm-plex-mono"
+cask "font-ibm-plex-serif"
 cask "font-inconsolata"
 cask "font-input"
 cask "font-inter"
 cask "font-iosevka"
 cask "font-jetbrains-mono"
+cask "font-libre-baskerville"
 cask "font-lilex"
+cask "font-literata"
+cask "font-lora"
+cask "font-merriweather"
 cask "font-mona-sans"
 cask "font-monoid"
 cask "font-new-york"
+cask "font-playfair-display"
 cask "font-roboto"
 cask "font-roboto-serif"
 cask "font-roboto-slab"
@@ -47,94 +51,72 @@ cask "font-sf-compact"
 cask "font-sf-mono"
 cask "font-sf-pro"
 cask "font-source-code-pro"
+cask "font-source-serif-4"
 cask "font-space-mono"
 cask "font-symbols-only-nerd-font"
 cask "font-ubuntu-mono"
 cask "font-victor-mono"
 cask "ghostty"
-cask "handbrake"
-cask "homerow"
+cask "grandperspective"
+cask "handbrake-app"
 cask "iina"
 cask "imageoptim"
-cask "key-codes"
-cask "launchbar"
 cask "launchcontrol"
-cask "ledger-live"
+cask "latest"
 cask "livebook"
+cask "losslesscut"
 cask "macwhisper"
-cask "mimestream"
 cask "monodraw"
-cask "multiviewer-for-f1"
+cask "multiviewer"
 cask "musicbrainz-picard"
+cask "netnewswire"
 cask "orbstack"
+cask "power-monitor"
 cask "powerphotos"
 cask "qlcolorcode"
 cask "qlmarkdown"
 cask "qlstephen"
-cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
-cask "rar"
-cask "rectangle-pro"
-cask "reflect"
-cask "resolutionator"
+cask "quicklook-video"
 cask "screenflick"
 cask "session-manager-plugin"
-cask "setapp"
 cask "spotify"
 cask "superduper"
 cask "suspicious-package"
+cask "tailscale-app"
 cask "timemachineeditor"
 cask "transmit"
 cask "tuple"
-cask "vlc"
+cask "typefully"
+cask "ungoogled-chromium"
 cask "zed"
 cask "zoom"
-mas "Banish", id: 1639049780
 mas "Cardhop", id: 1290358394
 mas "Color Picker", id: 1545870783
 mas "CotEditor", id: 1024640650
 mas "DaisyDisk", id: 411643860
 mas "Darkroom", id: 953286746
-mas "Drafts", id: 1435957248
-mas "Endel", id: 1346247457
-mas "Focus for YouTube", id: 1514703160
 mas "Gapplin", id: 768053424
-mas "GarageBand", id: 682658836
-mas "Gifski", id: 1351639930
 mas "GIFwrapped", id: 782319880
-mas "Googly Eyes", id: 6743048714
 mas "GPX Viewer", id: 920631838
-mas "Hyperduck", id: 6444667067
 mas "Hyperspace", id: 6739505345
 mas "Ice Cubes", id: 6444915884
 mas "iMovie", id: 408981434
-mas "Kagi for Safari", id: 1622835804
 mas "Keynote", id: 409183694
 mas "LilyView", id: 529490330
+mas "Lingon", id: 6742142873
 mas "Link Unshortener", id: 1506953658
-mas "LookUp", id: 872564448
-mas "Lungo", id: 1263070803
-mas "Magic Lasso", id: 1198047227
 mas "MakePass", id: 1450989464
 mas "Mela", id: 1568924476
+mas "Mercury", id: 1621800675
 mas "Metapho", id: 914457352
-mas "Mic Drop", id: 1489816366
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Pandan", id: 1569600264
 mas "Parcel", id: 639968404
 mas "Pixelmator Pro", id: 1289583905
-mas "Plain Text Editor", id: 1572202501
-mas "Pure Paste", id: 1611378436  
-mas "Save to Reflect", id: 1590481717
-mas "Shareful", id: 1522267256
 mas "Slack", id: 803453959
-mas "StopTheMadness Pro", id: 6471380298
-mas "Super Agent", id: 1568262835
-mas "Supercopy", id: 6477720316
-mas "Tailscale", id: 1475387142
-mas "Things", id: 904280696
+mas "Speediness", id: 1596706466
+mas "TestFlight", id: 899247664
 mas "UTM", id: 1538878817
-mas "Velja", id: 1607635845
 mas "xScope", id: 889428659
