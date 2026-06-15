@@ -49,9 +49,21 @@ age.key_file = "~/.ssh/age.txt"
 [settings.github]
 use_git_credentials = true
 
+[bootstrap.macos.keyboard]
+key_repeat = 2
+initial_key_repeat = 15
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
+
+[bootstrap.macos.dock]
+autohide = true
+tilesize = 64
+magnification = true
+largesize = 86
+show_recents = false
+
 [bootstrap.macos.defaults.NSGlobalDomain]
-KeyRepeat = 2
-InitialKeyRepeat = 15
 NSAutomaticSpellingCorrectionEnabled = false
 NSAutomaticCapitalizationEnabled = false
 NSAutomaticPeriodSubstitutionEnabled = false
@@ -64,12 +76,6 @@ AppleSpacesSwitchOnActivate = false
 # uncheck "Close windows when quitting an application"
 NSQuitAlwaysKeepsWindows = true
 
-# Tap to click (internal and external)
-[bootstrap.macos.defaults."com.apple.AppleMultitouchTrackpad"]
-Clicking = true
-[bootstrap.macos.defaults."com.apple.driver.AppleBluetoothMultitouch.trackpad"]
-Clicking = true
-
 [bootstrap.macos.defaults."com.apple.dock"]
 # check "Group windows by application"
 "expose-group-apps" = true       
@@ -78,18 +84,19 @@ Clicking = true
 # Accessibility > Display: Show window title icons
 showWindowTitlebarIcons = true
 
-[bootstrap.macos.defaults."com.apple.finder"]
+[bootstrap.macos.finder]
 # Change to column view
-FXPreferredViewStyle = "clmv"
+preferred_view_style = "column"
 
+# Uncheck "Show warning before changing an extension"
+show_extensions_warning = false
+
+[bootstrap.macos.defaults."com.apple.finder"]
 # New Finder windows show home directory
 NewWindowTarget = "PfHm"
 
 # Uncheck "Open folders in tabs instead of new windows"
 FinderSpawnTab = false
-
-# Uncheck "Show warning before changing an extension"
-FXEnableExtensionChangeWarning = false
 
 # Uncheck "Show warning before removing from iCloud Drive"
 FXEnableRemoveFromICloudDriveWarning = false
