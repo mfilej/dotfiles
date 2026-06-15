@@ -2,8 +2,6 @@
 
 auto-update-channel = "stable"
 
-command = /opt/zerobrew/bin/fish
-
 shell-integration-features = ssh-terminfo,ssh-env
 
 clipboard-read = allow
