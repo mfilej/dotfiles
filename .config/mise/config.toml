@@ -144,21 +144,13 @@ fish_add_path /opt/zerobrew/bin /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin/ ||
 '''
 
 [bootstrap.packages]
-"brew:bison" = "latest"
 "brew:curl" = "latest"
 "brew:fish" = "latest"
-"brew:gd" = "latest"
 "brew:git" = "latest"
-"brew:libiconv" = "latest"
-"brew:libzip" = "latest"
 "brew:mas" = "latest"
 "brew:moreutils" = "latest"
-"brew:mpv" = "latest"
 "brew:neovim" = "latest"
-"brew:oniguruma" = "latest"
 "brew:pkgconf" = "latest"
-"brew:woff2" = "latest"
-"brew:yt-dlp" = "latest"
 "brew-cask:1password" = "latest"
 "brew-cask:appcleaner" = "latest"
 "brew-cask:customshortcuts" = "latest"
