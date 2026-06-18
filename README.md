@@ -44,9 +44,8 @@ Full-disk access: Terminal.app
 
 ```
 curl https://mise.run | sh
-curl 'https://raw.githubusercontent.com/mfilej/dotfiles/refs/heads/main/.config/mise/config.toml' > bootstrap.toml
-alias mise=~/.local/bin/mise
-MISE_GLOBAL_CONFIG_FILE=bootstrap.toml mise bootstrap --yes
+curl 'https://raw.githubusercontent.com/mfilej/dotfiles/main/.config/mise/config.toml' > bootstrap.toml
+MISE_GLOBAL_CONFIG_FILE=bootstrap.toml ~/.local/bin/mise bootstrap --yes
 ```
 
 ```
