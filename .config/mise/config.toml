@@ -133,7 +133,7 @@ NumberOfSnippetLines = 0
 # Composing: Message Format: Plain Text
 SendFormat = "Plain"
 
-[bootstrap.pre-dotfiles]
+[bootstrap.hooks.pre-dotfiles]
 run = "jj git clone https://github.com/mfilej/dotfiles.git ~/.config/dotfiles"
 
 [bootstrap.hooks.post-packages]
