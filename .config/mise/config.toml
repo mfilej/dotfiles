@@ -48,6 +48,9 @@ age.key_file = "~/.ssh/age.txt"
 [settings.github]
 use_git_credentials = true
 
+[dotfiles]
+
+
 [tasks.bootstrap]
 run = '''
 #!/opt/homebrew/bin/fish
@@ -133,8 +136,15 @@ NumberOfSnippetLines = 0
 # Composing: Message Format: Plain Text
 SendFormat = "Plain"
 
+[bootstrap.pre-dotfiles]
+run = "jj git clone https://github.com/mfilej/dotfiles.git ~/.config/dotfiles"
+
 [bootstrap.hooks.post-packages]
-run = "echo some cask packages are still missing"
+run = '''
+#!/opt/homebrew/bin/fish
+set -U fish_greeting
+fish_add_path /opt/zerobrew/bin /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin/ || true
+'''
 
 [bootstrap.packages]
 "brew:bison" = "latest"
