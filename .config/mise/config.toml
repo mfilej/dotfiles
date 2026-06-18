@@ -197,6 +197,9 @@ fish_add_path /opt/zerobrew/bin /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin/ ||
 "brew:atuin" = "latest"
 
 [bootstrap.hooks.pre-packages]
-run = "echo softwareupdate --install-rosetta --agree-to-license"
+run = [
+	"softwareupdate --install-rosetta --agree-to-license",
+	"xcode-select --install || true"
+]
 
 [env]
