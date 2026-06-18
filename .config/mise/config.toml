@@ -53,9 +53,6 @@ use_git_credentials = true
 
 [tasks.bootstrap]
 run = '''
-#!/opt/homebrew/bin/fish
-set -U fish_greeting
-fish_add_path /opt/zerobrew/bin /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin/ || true
 '''
 
 [bootstrap.user]
