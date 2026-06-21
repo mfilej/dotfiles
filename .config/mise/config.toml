@@ -45,11 +45,45 @@ experimental = true
 python.uv_venv_auto = true
 age.key_file = "~/.ssh/age.txt"
 
+[settings.dotfiles]
+root = "~/.dotfiles"
+default_mode = "symlink"
+
 [settings.github]
 use_git_credentials = true
 
 [dotfiles]
-
+"~/.bashrc" = {}
+"~/.codex/AGENTS.md" = { mode = "symlink" }
+"~/.config/brewfiles/" = { mode = "symlink-each" }
+"~/.config/atuin/config.toml" = { mode = "symlink" }
+"~/.config/fish/completions" = { mode = "symlink-each" }
+"~/.config/fish/conf.d" = { mode = "symlink-each" }
+"~/.config/fish/config.fish" = { mode = "symlink" }
+"~/.config/fish/functions" = { mode = "symlink-each" }
+"~/.config/ghostty/config" = { mode = "symlink" }
+"~/.config/ghostty/themes/" = { mode = "symlink-each" }
+"~/.config/git/attributes" = { mode = "symlink" }
+"~/.config/git/config" = { mode = "symlink" }
+"~/.config/git/ignore" = { mode = "symlink" }
+"~/.config/jj/config.toml" = { mode = "symlink" }
+"~/.config/jjui/config.toml" = { mode = "symlink" }
+"~/.config/nvim/init.lua" = { mode = "symlink" }
+"~/.config/nvim/lua" = { mode = "symlink-each" }
+"~/.config/pitchfork/config.toml" = { mode = "symlink" }
+"~/.config/ripgrep/config" = { mode = "symlink" }
+"~/.ctags" = { mode = "symlink" }
+"~/.gemrc" = { mode = "symlink" }
+"~/.gvimrc" = { mode = "symlink" }
+"~/.hushlogin" = { mode = "symlink" }
+"~/.tmux.conf" = { mode = "symlink" }
+"~/.vimrc" = { mode = "symlink" }
+"~/.zprofile" = { mode = "symlink" }
+"~/.vim" = { mode = "symlink-each" }
+"~/Library/Application Script/com.roeybiran.Finbar/" = {
+	mode = "symlink-each",
+	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Finbar"
+}
 
 [tasks.bootstrap]
 run = '''
