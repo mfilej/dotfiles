@@ -3,17 +3,15 @@ age = "latest"
 aqua = "latest"
 aube = "latest"
 awscli = { version = "latest", symlink_bins = "true" }
-biome = "latest"
 claude = "latest"
-codex = "latest"
 delta = "latest"
 dexter = "latest"
 elixir = "1.20.0-otp-29"
 elixir-ls = "latest"
 erlang = "28.3.1"
 expert = "latest"
-flyctl = "latest"
 fnox = "latest"
+flyctl = "latest"
 gh = "latest"
 go = "latest"
 jiq = "latest"
@@ -38,6 +36,7 @@ uv = "latest"
 "github:steipete/imsg" = "latest"
 "github:umputun/revdiff" = "latest"
 "npm:hunkdiff" = "latest"
+herdr = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
@@ -54,36 +53,50 @@ use_git_credentials = true
 
 [dotfiles]
 "~/.bashrc" = {}
-"~/.codex/AGENTS.md" = { mode = "symlink" }
+"~/.codex/AGENTS.md" = {}
 "~/.config/brewfiles/" = { mode = "symlink-each" }
-"~/.config/atuin/config.toml" = { mode = "symlink" }
+"~/.config/atuin/config.toml" = {}
 "~/.config/fish/completions" = { mode = "symlink-each" }
 "~/.config/fish/conf.d" = { mode = "symlink-each" }
-"~/.config/fish/config.fish" = { mode = "symlink" }
+"~/.config/fish/config.fish" = {}
 "~/.config/fish/functions" = { mode = "symlink-each" }
-"~/.config/ghostty/config" = { mode = "symlink" }
-"~/.config/ghostty/themes/" = { mode = "symlink-each" }
-"~/.config/git/attributes" = { mode = "symlink" }
-"~/.config/git/config" = { mode = "symlink" }
-"~/.config/git/ignore" = { mode = "symlink" }
-"~/.config/jj/config.toml" = { mode = "symlink" }
-"~/.config/jjui/config.toml" = { mode = "symlink" }
-"~/.config/nvim/init.lua" = { mode = "symlink" }
+"~/.config/ghostty/config" = {}
+"~/.config/ghostty/themes/" = {}
+"~/.config/git/attributes" = {}
+"~/.config/git/config" = {}
+"~/.config/git/ignore" = {}
+"~/.config/jj/config.toml" = {}
+"~/.config/jjui/config.toml" = {}
+"~/.config/mise/config.toml" = {}
+"~/.config/nvim/init.lua" = {}
 "~/.config/nvim/lua" = { mode = "symlink-each" }
-"~/.config/pitchfork/config.toml" = { mode = "symlink" }
-"~/.config/ripgrep/config" = { mode = "symlink" }
-"~/.ctags" = { mode = "symlink" }
-"~/.gemrc" = { mode = "symlink" }
-"~/.gvimrc" = { mode = "symlink" }
-"~/.hushlogin" = { mode = "symlink" }
-"~/.tmux.conf" = { mode = "symlink" }
-"~/.vimrc" = { mode = "symlink" }
-"~/.zprofile" = { mode = "symlink" }
+"~/.config/pitchfork/config.toml" = {}
+"~/.config/ripgrep/config" = {}
+"~/.ctags" = {}
+"~/.gemrc" = {}
+"~/.gvimrc" = {}
+"~/.hushlogin" = {}
+"~/.local/bin/" = { source = "~/.dotfiles/bin", mode = "symlink-each" }
+"~/.tmux.conf" = {}
+"~/.vimrc" = {}
+"~/.zprofile" = {}
 "~/.vim" = { mode = "symlink-each" }
-"~/Library/Application Script/com.roeybiran.Finbar/" = {
-	mode = "symlink-each",
-	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Finbar"
+"~/Library/Application Scripts/com.roeybiran.Finbar/" = {
+	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Finbar/"
 }
+"~/Library/Application Support/factorio/saves" = {
+	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Factorio/saves"
+}
+"~/Library/Application Support/LaunchBar/Actions" = {
+	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/LaunchBar/Actions"
+}
+"~/Library/Application Support/LaunchBar/Bookmarks" = {
+	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/LaunchBar/Bookmarks"
+}
+"~/Library/Application Support/LaunchBar/Snippets" = {
+	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/LaunchBar/Snippets"
+}
+"/Users/miha/.config/cmux/cmux.json" = { mode = "symlink" }
 
 [tasks.bootstrap]
 run = '''
@@ -168,7 +181,7 @@ NumberOfSnippetLines = 0
 SendFormat = "Plain"
 
 [bootstrap.hooks.pre-dotfiles]
-run = "jj git clone https://github.com/mfilej/dotfiles.git ~/.config/dotfiles"
+run = "jj git clone https://github.com/mfilej/dotfiles.git ~/.dotfiles"
 
 [bootstrap.hooks.post-packages]
 run = '''

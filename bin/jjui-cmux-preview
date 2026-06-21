@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# jj merge-tool helper for jjui's cmux diff action.
+# Args: <mode> <left> <right>
+# Converts jj's materialized left/right trees/files into a git patch and opens it
+# in cmux's diff viewer. Always exits 0 so jj doesn't surface git diff's normal
+# "differences found" exit status.
+
+mode=$1
+left=$2
+right=$3
+
+[ -n "$left" ] && [ -n "$right" ] || exit 0
+
+# `jj diff --tool ...` invokes merge tools with materialized temp paths. If we
+# feed those absolute paths directly to `git diff --no-index`, the patch headers
+# contain temp-directory paths (or left/right wrapper dirs), and cmux's diff
+# viewer treats it as a raw patch with an empty affected-file sidebar.
+#
+# Generate the no-index diff relative to the temp parent and rewrite headers back
+# to normal git-style `a/<repo-path>` / `b/<repo-path>` names, matching the old
+# `jj diff --git | cmux diff -` shape closely enough for cmux's file index.
+if [ -d "$left" ] && [ -d "$right" ] && [ "$(dirname "$left")" = "$(dirname "$right")" ]; then
+  parent=$(dirname "$left")
+  left_base=$(basename "$left")
+  right_base=$(basename "$right")
+
+  (
+    cd "$parent" || exit 0
+    git diff --no-index --src-prefix=a/ --dst-prefix=b/ -- "$left_base" "$right_base" 2>/dev/null
+  ) | LB=$left_base RB=$right_base perl -pe '
+    BEGIN { $lb = quotemeta($ENV{LB}); $rb = quotemeta($ENV{RB}); }
+    s#^(diff --git) a/$lb/(.*?) b/$rb/(.*)#$1 a/$2 b/$3#;
+    s#^(---) a/$lb/(.*)#$1 a/$2#;
+    s#^(\+\+\+) b/$rb/(.*)#$1 b/$2#;
+  ' | ~/.local/bin/jjui-cmux-diff
+else
+  # Fallback for file-level invocations or unexpected temp layouts.
+  git diff --no-index --src-prefix=a/ --dst-prefix=b/ -- "$left" "$right" 2>/dev/null |
+    ~/.local/bin/jjui-cmux-diff
+fi
+
+exit 0

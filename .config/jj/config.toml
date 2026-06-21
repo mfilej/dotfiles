@@ -56,14 +56,24 @@ diff-args = ["--color=always", "--display=inline", "--width=$width", "$left", "$
 diff-expected-exit-codes = [0, 1]
 
 [merge-tools.delta-preview]
-program = "/Users/miha/bin/jjui-delta-preview"
-diff-args = ["revision", "$left", "$right"]
+program = "sh"
+diff-args = ["-c", "exec ~/.local/bin/jjui-delta-preview revision \"$1\" \"$2\"", "sh", "$left", "$right"]
 diff-expected-exit-codes = [0, 1]
 
 [merge-tools.delta-file-preview]
-program = "/Users/miha/bin/jjui-delta-preview"
-diff-args = ["file", "$left", "$right"]
+program = "sh"
+diff-args = ["-c", "exec ~/.local/bin/jjui-delta-preview file \"$1\" \"$2\"", "sh", "$left", "$right"]
 diff-expected-exit-codes = [0, 1]
+
+[merge-tools.cmux-preview]
+program = "sh"
+diff-args = ["-c", "exec ~/.local/bin/jjui-cmux-preview revision \"$1\" \"$2\"", "sh", "$left", "$right"]
+diff-expected-exit-codes = [0]
+
+[merge-tools.cmux-file-preview]
+program = "sh"
+diff-args = ["-c", "exec ~/.local/bin/jjui-cmux-preview file \"$1\" \"$2\"", "sh", "$left", "$right"]
+diff-expected-exit-codes = [0]
 
 [gg.ui]
 recent-workspaces = ["/Users/miha/Developer/gem/gem-server"]

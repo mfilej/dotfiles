@@ -191,6 +191,10 @@ if not vim.pack then
 	return
 end
 
+vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.pack.update(nil, { force = true })
+end, { desc = "Update vim.pack packages" })
+
 vim.pack.add({
 	"https://github.com/folke/persistence.nvim",
 	"https://github.com/ibhagwan/fzf-lua",
@@ -232,10 +236,23 @@ require("ibl").setup({})
 require("transparent").setup({})
 require("elixir-projectionist").setup()
 
-require("nvim-treesitter.configs").setup({
-	auto_install = true,
-	highlight = { enable = true },
-	indent = { enable = true },
+require("nvim-treesitter").setup({})
+
+local function start_treesitter(buf)
+	if vim.bo[buf].filetype == "" or vim.treesitter.highlighter.active[buf] then
+		return
+	end
+
+	local ok = pcall(vim.treesitter.start, buf)
+	if ok then
+		vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end
+end
+
+vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
+	callback = function(args)
+		start_treesitter(args.buf)
+	end,
 })
 
 

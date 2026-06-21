@@ -77,15 +77,16 @@ local function shell_quote(s)
   return "'" .. tostring(s):gsub("'", [['"'"']]) .. "'"
 end
 
-local cmd = "jj diff --git -r " .. shell_quote(change)
-
+-- cmux does not currently expose pane zoom (Cmd+Shift+Enter) as a CLI action in
+-- this installed version. Stay CLI-only by using a jj merge-tool helper that
+-- opens the diff in cmux, focuses the created pane, then resizes it aggressively
+-- toward the source pane. jj_async keeps jjui in the TUI instead of dropping to
+-- "press enter to continue".
 if file and file ~= "" then
-  cmd = cmd .. " -- " .. shell_quote(file)
+  jj_async("diff", "--tool", "cmux-file-preview", "-r", change, file)
+else
+  jj_async("diff", "--tool", "cmux-preview", "-r", change)
 end
-
-cmd = cmd .. " | cmux diff -"
-
-exec_shell(cmd)
 '''
 
 [[actions]]
