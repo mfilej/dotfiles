@@ -1,6 +1,0 @@
-#!/bin/sh
-# git select-branch (with fzf)
-
-branches=$(git branch -v | grep -v '^\*') &&
-  branch=$(echo "$branches" | fzf --no-multi --ansi -n 1) &&
-  git checkout "$(echo "$branch" | awk '{print $1}' | sed "s/.* //")"
