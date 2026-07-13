@@ -1,0 +1,76 @@
+{
+  "$schema" : "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion" : 1,
+  "shortcuts" : {
+    "bindings" : {
+      "globalSearch" : {
+        "first" : {
+          "command" : true,
+          "control" : true,
+          "key" : "f",
+          "keyCode" : 3,
+          "option" : true,
+          "shift" : true
+        }
+      },
+      "hideFind" : {
+        "first" : {
+          "command" : false,
+          "control" : false,
+          "key" : "",
+          "option" : false,
+          "shift" : false
+        }
+      },
+      "nextSidebarTab" : {
+        "first" : {
+          "command" : true,
+          "control" : true,
+          "key" : "]",
+          "keyCode" : 30,
+          "option" : false,
+          "shift" : false
+        }
+      },
+      "prevSidebarTab" : {
+        "first" : {
+          "command" : true,
+          "control" : true,
+          "key" : "[",
+          "keyCode" : 33,
+          "option" : false,
+          "shift" : false
+        }
+      },
+      "selectSurfaceByNumber" : {
+        "first" : {
+          "command" : true,
+          "control" : false,
+          "key" : "1",
+          "keyCode" : 18,
+          "option" : false,
+          "shift" : false
+        }
+      },
+      "selectWorkspaceByNumber" : {
+        "first" : {
+          "command" : false,
+          "control" : true,
+          "key" : "1",
+          "keyCode" : 18,
+          "option" : false,
+          "shift" : false
+        }
+      },
+      "toggleFullScreen" : {
+        "first" : {
+          "command" : false,
+          "control" : false,
+          "key" : "",
+          "option" : false,
+          "shift" : false
+        }
+      }
+    }
+  }
+}
