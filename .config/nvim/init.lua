@@ -76,7 +76,8 @@ end, { silent = true })
 local function gh_browse_args(line1, line2)
 	local file = vim.fn.fnamemodify(vim.fn.expand('%:p'), ':.')
 
-	local ref = vim.fn.system("jj log -r 'latest(::@ & bookmarks())' --no-graph -T 'local_bookmarks.map(|b| b.name()).join(\"\")' 2>/dev/null")
+	local ref = vim.fn.system(
+	"jj log -r 'latest(::@ & bookmarks())' --no-graph -T 'local_bookmarks.map(|b| b.name()).join(\"\")' 2>/dev/null")
 	ref = ref:gsub('%s+', '')
 
 	if ref == '' then
@@ -95,7 +96,8 @@ local function gh_browse_args(line1, line2)
 end
 
 map('n', '<leader>yh', function()
-	local url = vim.fn.system('gh browse --no-browser ' .. gh_browse_args(vim.fn.line('.'), vim.fn.line('.'))):gsub('%s+', '')
+	local url = vim.fn.system('gh browse --no-browser ' .. gh_browse_args(vim.fn.line('.'), vim.fn.line('.'))):gsub('%s+',
+		'')
 	vim.fn.setreg('+', url)
 	print('Copied: ' .. url)
 end, { desc = 'Copy GitHub URL' })
@@ -119,8 +121,37 @@ map('v', '<leader>yH', function()
 end, { desc = 'Open GitHub URL (selection)' })
 
 map("n", "gd", vim.lsp.buf.definition)
-map("n", "<leader>li", vim.cmd.LspInfo)
-map("n", "<leader>lf", vim.lsp.buf.format)
+map("n", "<leader>li", "<cmd>checkhealth vim.lsp<cr>", { desc = "LSP status" })
+map("n", "<leader>lf", function()
+	local clients = vim.lsp.get_clients({ bufnr = 0, name = "dexter" })
+
+	if not clients[1] then
+		print("No dexter client attached")
+		return
+	end
+
+	vim.lsp.buf.format({
+		bufnr = 0,
+		id = clients[1].id,
+		timeout_ms = 1000,
+	})
+end, { desc = "Format with dexter" })
+map("n", "<leader>tt", "<cmd>write<CR><cmd>TestFile<CR>", { desc = "Test file" })
+map("n", "<leader>tn", "<cmd>write<CR><cmd>TestNearest<CR>", { desc = "Test nearest" })
+map("n", "<leader>tl", "<cmd>write<CR><cmd>TestLast<CR>", { desc = "Test last" })
+map("n", "<leader>ts", "<cmd>write<CR><cmd>TestSuite<CR>", { desc = "Test suite" })
+map("n", "<leader>to", function()
+	for _, buf in ipairs(vim.fn.getbufinfo({ bufloaded = 1 })) do
+		if buf.variables and buf.variables._test_vim_neovim_sticky then
+			vim.cmd("botright split")
+			vim.cmd("buffer " .. buf.bufnr)
+			vim.cmd("normal! G")
+			return
+		end
+	end
+
+	print("No vim-test output")
+end, { desc = "Test output" })
 map("n", "<leader>ld", vim.diagnostic.open_float, { desc = "Show diagnostic message", })
 map("n", "<leader>oo", ":update<CR> :source ~/.config/nvim/init.lua<CR>")
 map("n", "<leader>oi", ":tabe ~/.config/nvim/init.lua<CR> | tabmove $<CR>")
@@ -137,6 +168,7 @@ map("n", "[t", ":tabmove -1<CR>")
 map("n", "]t", ":tabmove +1<CR>")
 map("c", "<C-a>", "<C-b>", { noremap = true })
 map("c", "%%", "<C-R>=expand('%:h').'/'<cr>")
+map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 map("o", "ih", "<plug>(signify-motion-inner-pending)")
 map("x", "ih", "<plug>(signify-motion-inner-visual)")
@@ -191,11 +223,7 @@ if not vim.pack then
 	return
 end
 
-vim.api.nvim_create_user_command("PackUpdate", function()
-	vim.pack.update(nil, { force = true })
-end, { desc = "Update vim.pack packages" })
-
-vim.pack.add({
+local packs = {
 	"https://github.com/folke/persistence.nvim",
 	"https://github.com/ibhagwan/fzf-lua",
 	"https://github.com/lukas-reineke/indent-blankline.nvim",
@@ -203,16 +231,26 @@ vim.pack.add({
 	"https://github.com/mhinz/vim-signify",
 	"https://github.com/murasakiwano/dracula-pro.nvim",
 	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/vim-test/vim-test",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/smpallen99/elixir-projectionist.nvim",
-	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/tpope/vim-eunuch",
 	"https://github.com/tpope/vim-projectionist",
 	"https://github.com/tpope/vim-repeat",
 	"https://github.com/tpope/vim-surround",
 	"https://github.com/tpope/vim-vinegar.git",
 	"https://github.com/xiyaowong/transparent.nvim",
-})
+}
+
+vim.api.nvim_create_user_command("PackInstall", function()
+	vim.pack.add(packs)
+end, { desc = "Install vim.pack packages" })
+
+vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.pack.update(nil, { force = true })
+end, { desc = "Update vim.pack packages" })
+
+vim.pack.add(packs)
 
 require("mason").setup({})
 
@@ -228,13 +266,16 @@ map("n", "<leader>lg", function()
 	fzf.lsp_document_symbols({ query = vim.fn.expand("<cword>") })
 end, { desc = "FZF LSP Document Symbols (word under cursor)" })
 map("n", "<leader>lG", function()
-	fzf.lsp_workspace_symbols({ query = vim.fn.expand("<cword>") })
+	fzf.live_workspace_symbols({ lsp_query = vim.fn.expand("<cword>") })
 end, { desc = "FZF LSP Workspace Symbols (word under cursor)" })
 
 
 require("ibl").setup({})
 require("transparent").setup({})
 require("elixir-projectionist").setup()
+
+vim.g["test#strategy"] = "neovim_sticky"
+vim.g["test#neovim_sticky#reopen_window"] = 1
 
 require("nvim-treesitter").setup({})
 
@@ -256,40 +297,51 @@ vim.api.nvim_create_autocmd({ "FileType", "BufEnter" }, {
 })
 
 
-
-require("conform").setup({
-	formatters_by_ft = {
-		elixir = { "mix" },
-		heex = { "mix" },
-		javascript = { "biome" },
-	},
-
-	format_on_save = {
-		-- These options will be passed to conform.format()
-		timeout_ms = 1000,
-		lsp_format = "fallback",
-	},
-})
-
 vim.lsp.config("dexter", {
-  cmd = { "dexter", "lsp" },
-  root_markers = { ".dexter/dexter.db", ".dexter.db", ".git", "mix.exs" },
-  filetypes = { "elixir", "eelixir", "heex" },
-  init_options = {
-    followDelegates = true,
-  },
+	cmd = { "dexter", "lsp" },
+	root_markers = { ".dexter/dexter.db", ".dexter.db", ".git", "mix.exs" },
+	filetypes = { "elixir", "eelixir", "heex" },
+	init_options = {
+		followDelegates = true,
+	},
 })
-vim.lsp.enable "dexter"
 
--- vim.lsp.config("expert", {
---   cmd = { "expert", "--stdio" },
---   root_markers = { "mix.exs", ".git" },
---   filetypes = { "elixir", "eelixir", "heex" },
--- })
---
--- vim.lsp.enable "expert"
+local dexter_format_group = vim.api.nvim_create_augroup("dexter_format_on_save", { clear = true })
 
-vim.lsp.enable({ "lua_ls", "expert", "tailwindcss" })
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = dexter_format_group,
+	callback = function(args)
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+		if not client or client.name ~= "dexter" then
+			return
+		end
+
+		if client:supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({
+				group = dexter_format_group,
+				buffer = args.buf,
+				event = "BufWritePre",
+			})
+
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = dexter_format_group,
+				buffer = args.buf,
+				callback = function()
+					vim.lsp.buf.format({
+						bufnr = args.buf,
+						id = client.id,
+						timeout_ms = 1000,
+					})
+				end,
+			})
+		end
+	end,
+})
+
+vim.lsp.enable("dexter")
+
+vim.lsp.enable({ "lua_ls", "tailwindcss" })
 
 vim.cmd.colorscheme("dracula")
 vim.api.nvim_set_hl(0, "SignifySignAdd", { fg = "#4ffa7b", bg = "NONE" })
