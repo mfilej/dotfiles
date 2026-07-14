@@ -5,7 +5,6 @@ aube = "latest"
 awscli = { version = "latest", symlink_bins = "true" }
 claude = "latest"
 delta = "latest"
-"aqua:remoteoss/dexter" = "latest"
 elixir = "1.20.0-otp-29"
 elixir-ls = "latest"
 erlang = "28.3.1"
@@ -37,6 +36,7 @@ uv = "latest"
 "github:umputun/revdiff" = "latest"
 "npm:hunkdiff" = "latest"
 herdr = "latest"
+codex = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
@@ -80,6 +80,7 @@ use_git_credentials = true
 "~/.vimrc" = {}
 "~/.zprofile" = {}
 "~/.vim" = { mode = "symlink-each" }
+"~/Library/KeyBindings/DefaultKeyBinding.dict" = { mode = "copy" }
 "~/Library/Application Scripts/com.roeybiran.Finbar/" = {
 	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Finbar/"
 }
@@ -139,6 +140,10 @@ NSQuitAlwaysKeepsWindows = true
 # Accessibility > Display: Show window title icons
 showWindowTitlebarIcons = true
 
+[bootstrap.macos.defaults."com.apple.WindowManager"]
+# Desktop & Dock: Click wallpaper to show desktop: Only in Stage Manager
+EnableStandardClickToShowDesktop = false
+
 [bootstrap.macos.finder]
 # Change to column view
 preferred_view_style = "column"
@@ -191,11 +196,15 @@ eho fish_add_path /opt/zerobrew/bin /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin
 
 [bootstrap.packages]
 "brew:curl" = "latest"
+"brew:bat" = "latest"
+"brew:fd" = "latest"
 "brew:fish" = "latest"
+"brew:fzf" = "latest"
 "brew:git" = "latest"
 "brew:mas" = "latest"
 "brew:moreutils" = "latest"
 "brew:neovim" = "latest"
+"brew:ripgrep" = "latest"
 "brew:pkgconf" = "latest"
 "brew-cask:1password" = "latest"
 "brew-cask:appcleaner" = "latest"
@@ -233,6 +242,8 @@ eho fish_add_path /opt/zerobrew/bin /opt/homebrew/bin/ /opt/homebrew/sbin/ ~/bin
 "mas:6745342698" = "latest" # uBlock Origin Lite
 "mas:1607635845" = "latest" # Velja
 "brew:atuin" = "latest"
+"brew-cask:mimesteram" = "latest"
+"brew-cask:ghostty" = "latest"
 
 [bootstrap.hooks.pre-packages]
 run = [
