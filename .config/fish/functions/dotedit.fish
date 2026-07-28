@@ -1,5 +1,10 @@
-function confedit --description 'Fuzzy-search ~/.config file paths and open matches in nvim'
-    set -l dir ~/.config
+function dotedit --description 'Fuzzy-search ~/.dotfiles file paths and open matches in nvim'
+    set -l dir ~/.dotfiles
+
+    if not test -d $dir
+        printf 'Could not find your dotfiles directory at %s. Is it checked out yet?\n' $dir >&2
+        return 1
+    end
     set -l initial_query (string join ' ' -- $argv)
     set -l preview 'bat --style=numbers --color=always --line-range=:500 {}'
 
