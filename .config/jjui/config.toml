@@ -168,12 +168,6 @@ exec_shell("gh pr create --fill-verbose --head " .. head)
 '''
 
 [[bindings]]
-action = "diff-with-cmux"
-key = "d"
-scope = "revisions"
-desc = "Diff with cmux"
-
-[[bindings]]
 action = "move-commit-down"
 key = "J"
 scope = "revisions"
