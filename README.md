@@ -147,6 +147,5 @@ Then restart the daemon:
 [@lukerandall]: https://github.com/lukerandall
 [@hjr3]: https://github.com/hjr3
 [jj-dotfiles-guide]: https://hermanradtke.com/manage-dotfiles-with-jujutsu/
-[zerobrew]: https://github.com/lucasgelfond/zerobrew
 [git-dotfiles-guide]: http://www.gmarik.info/blog/2010/tracking-dotfiles-with-git/
 [mise]: https://mise.jdx.dev
