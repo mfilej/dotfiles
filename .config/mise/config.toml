@@ -17,7 +17,6 @@ go = "latest"
 jiq = "latest"
 jj = "latest"
 jjui = "latest"
-node = "latest"
 opencode = "latest"
 pi = "latest"
 pitchfork = "latest"
@@ -38,6 +37,8 @@ uv = "latest"
 herdr = "latest"
 codex = "latest"
 "github:moritzwilksch/diffle" = "latest"
+node = "latest"
+witr = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
@@ -196,6 +197,9 @@ builtin = "history-watch"
 
 [bootstrap.hooks.pre-dotfiles]
 run = "echo jj git clone https://github.com/mfilej/dotfiles.git ~/.dotfiles"
+
+[bootstrap.repos]
+"~/.dotfiles" = { url = "https://github.com/mfilej/dotfiles.git" }
 
 [bootstrap.hooks.post-packages]
 run = '''
