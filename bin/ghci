@@ -1,0 +1,338 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat >&2 <<'EOF'
+Usage: bin/failing-ci-tests [URL] [-b|--branch BRANCH] [-p|--pull-request PR] [-r|--run RUN_ID[:ATTEMPT]] [-l|--list-runs]
+
+Find the latest GitHub Actions pull_request run for the current jj
+bookmark/branch (or the branch passed with -b/--branch), report whether it is
+running/passed/errored, and print failing test file names from failed job logs.
+
+Pass a GitHub Actions run URL or pull request URL as the first argument.
+Pass -b/--branch to inspect an explicit PR branch.
+Pass -p/--pull-request to inspect an explicit PR number, with or without #.
+Pass -r/--run to inspect an explicit GitHub Actions run ID instead.
+Use RUN_ID:ATTEMPT to inspect a specific attempt of a run.
+Pass -l/--list-runs to list recent runs for the branch/PR, or currently running
+runs for the repo when no branch/PR is selected.
+
+If jj cannot infer a current bookmark, the script falls back to GitHub's current
+PR, then to the single open PR authored by you with failing checks.
+EOF
+}
+
+clean_bookmarks() {
+  tr ' ' '\n' \
+    | sed 's/\*$//' \
+    | grep -v '^$' \
+    | grep -vE '^(main|master|trunk|worktree-agent-.*)$'
+}
+
+current_jj_branch() {
+  # Prefer a bookmark directly on @.
+  jj log -r @ --no-graph -T 'bookmarks' 2>/dev/null | clean_bookmarks | head -n1 || true
+}
+
+current_gh_pr_branch() {
+  gh pr status --json headRefName --jq '.currentBranch.headRefName // ""' 2>/dev/null || true
+}
+
+single_active_pr_branch_authored_by_me() {
+  gh pr status \
+    --json headRefName,statusCheckRollup \
+    --jq '[.createdBy[] | select(any(.statusCheckRollup[]?; .status != "COMPLETED" or .conclusion != "SUCCESS")) | .headRefName] | if length == 1 then .[0] else "" end' \
+    2>/dev/null || true
+}
+
+branch="${BRANCH:-}"
+pr_number="${PR_NUMBER:-}"
+run_id="${RUN_ID:-}"
+attempt=""
+list_runs=false
+url_mode=false
+explicit_pr_selector=false
+
+if [[ -n "$branch" || -n "$pr_number" ]]; then
+  explicit_pr_selector=true
+fi
+
+if [[ "${1:-}" =~ ^https?:// ]]; then
+  url_mode=true
+  url="$1"
+  shift
+
+  if [[ "$url" =~ /actions/runs/([0-9]+) ]]; then
+    run_id="${BASH_REMATCH[1]}"
+    if [[ "$url" =~ /attempts/([0-9]+) ]]; then
+      attempt="${BASH_REMATCH[1]}"
+    fi
+  elif [[ "$url" =~ /pull/([0-9]+) ]]; then
+    pr_number="${BASH_REMATCH[1]}"
+    explicit_pr_selector=true
+  else
+    echo "Unsupported GitHub URL: $url" >&2
+    echo "Expected an Actions run URL or pull request URL." >&2
+    echo >&2
+    usage
+    exit 1
+  fi
+fi
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    -b|--branch)
+      if [[ "$url_mode" == true ]]; then
+        echo "Cannot use $1 when the first argument is a URL." >&2
+        echo >&2
+        usage
+        exit 1
+      fi
+      if [[ -z "${2:-}" ]]; then
+        echo "Missing value for $1" >&2
+        echo >&2
+        usage
+        exit 1
+      fi
+      branch="$2"
+      explicit_pr_selector=true
+      shift 2
+      ;;
+    -p|--pull-request)
+      if [[ "$url_mode" == true ]]; then
+        echo "Cannot use $1 when the first argument is a URL." >&2
+        echo >&2
+        usage
+        exit 1
+      fi
+      if [[ -z "${2:-}" ]]; then
+        echo "Missing value for $1" >&2
+        echo >&2
+        usage
+        exit 1
+      fi
+      pr_number="${2#\#}"
+      explicit_pr_selector=true
+      shift 2
+      ;;
+    -r|--run)
+      if [[ "$url_mode" == true ]]; then
+        echo "Cannot use $1 when the first argument is a URL." >&2
+        echo >&2
+        usage
+        exit 1
+      fi
+      if [[ -z "${2:-}" ]]; then
+        echo "Missing value for $1" >&2
+        echo >&2
+        usage
+        exit 1
+      fi
+      run_id="$2"
+      shift 2
+      ;;
+    -l|--list-runs)
+      list_runs=true
+      shift
+      ;;
+    --)
+      shift
+      break
+      ;;
+    -*)
+      echo "Unknown option: $1" >&2
+      echo >&2
+      usage
+      exit 1
+      ;;
+    *)
+      echo "Unexpected argument: $1" >&2
+      echo "Use -b/--branch or -p/--pull-request to select an explicit PR." >&2
+      echo >&2
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+if [[ $# -gt 0 ]]; then
+  echo "Unexpected argument: $1" >&2
+  echo "Use -b/--branch or -p/--pull-request to select an explicit PR." >&2
+  echo >&2
+  usage
+  exit 1
+fi
+
+if [[ "$list_runs" == true && -z "$run_id" && "$explicit_pr_selector" == false ]]; then
+  gh run list \
+    --status in_progress \
+    --limit 50 \
+    --json databaseId,attempt,status,createdAt,updatedAt,headBranch,event,displayTitle \
+    --jq '.[] | "\(.databaseId):\(.attempt)\t\(.status)\t\(.headBranch)\t\(.event)\t\(.displayTitle)\tcreated \(.createdAt)\tupdated \(.updatedAt)"'
+  exit 0
+fi
+
+if [[ "$run_id" == *:* ]]; then
+  attempt="${run_id##*:}"
+  run_id="${run_id%%:*}"
+fi
+
+if [[ -n "$pr_number" ]]; then
+  pr_number="${pr_number#\#}"
+fi
+
+if [[ -z "$run_id" ]]; then
+  if [[ -n "$pr_number" ]]; then
+    branch="$(gh pr view "$pr_number" --json headRefName --jq '.headRefName')"
+  fi
+
+  if [[ -z "$branch" ]]; then
+    branch="$(current_jj_branch)"
+  fi
+
+  if [[ -z "$branch" ]]; then
+    branch="$(current_gh_pr_branch)"
+  fi
+
+  if [[ -z "$branch" ]]; then
+    branch="$(single_active_pr_branch_authored_by_me)"
+  fi
+
+  if [[ -z "$branch" ]]; then
+    echo "Could not determine the PR branch from jj or gh." >&2
+    echo "Either move to a jj bookmark with an open PR, pass --branch/--pull-request, or pass --run." >&2
+    echo >&2
+    usage
+    exit 1
+  fi
+
+  echo "Branch: $branch" >&2
+
+  if [[ -z "$pr_number" ]]; then
+    pr_number="$(gh pr view "$branch" --json number --jq '.number')"
+  fi
+  echo "PR: #$pr_number" >&2
+
+  if [[ "$list_runs" == true ]]; then
+    gh run list \
+      --branch "$branch" \
+      --event pull_request \
+      --limit 20 \
+      --json databaseId,attempt,status,conclusion,createdAt,updatedAt \
+      --jq '.[] | "\(.databaseId):\(.attempt)\t\(if .status == "completed" then (.conclusion // "completed") else .status end)\tcreated \(.createdAt)\tupdated \(.updatedAt)"'
+    exit 0
+  fi
+
+  run_id="$({
+    gh run list \
+      --branch "$branch" \
+      --event pull_request \
+      --limit 50 \
+      --json databaseId,createdAt \
+      --jq 'sort_by(.createdAt) | reverse | .[0].databaseId'
+  })"
+
+  if [[ -z "$run_id" || "$run_id" == "null" ]]; then
+    echo "No pull_request CI run found for branch: $branch" >&2
+    exit 1
+  fi
+fi
+
+gh_run_args=("$run_id")
+if [[ -n "$attempt" ]]; then
+  gh_run_args+=(--attempt "$attempt")
+fi
+
+run_status="$(gh run view "${gh_run_args[@]}" --json status --jq '.status')"
+run_conclusion="$(gh run view "${gh_run_args[@]}" --json conclusion --jq '.conclusion // ""')"
+run_attempt="$(gh run view "${gh_run_args[@]}" --json attempt --jq '.attempt')"
+run_label="$run_id:$run_attempt"
+
+test_file_pattern='([[:alnum:]_./-]+(_test\.exs|Test\.(ex|exs|js|ts|tsx|jsx)|\.test\.(js|ts|tsx|jsx)|_spec\.rb|\.spec\.(js|ts|tsx|jsx)))'
+
+case "$run_status:$run_conclusion" in
+  completed:success)
+    echo "Run: $run_label (passed)" >&2
+    echo "No failing tests: run passed." >&2
+    exit 0
+    ;;
+  completed:failure)
+    echo "Run: $run_label (errored/failed)" >&2
+
+    # Keep grep from making the whole script fail when no test paths are found.
+    set +e
+    gh run view "${gh_run_args[@]}" --log-failed \
+      | grep -Eo "$test_file_pattern" \
+      | sort -u
+    grep_status=${PIPESTATUS[1]}
+    set -e
+    ;;
+  completed:*)
+    echo "Run: $run_label (completed: ${run_conclusion:-unknown})" >&2
+
+    set +e
+    gh run view "${gh_run_args[@]}" --log-failed \
+      | grep -Eo "$test_file_pattern" \
+      | sort -u
+    grep_status=${PIPESTATUS[1]}
+    set -e
+    ;;
+  *)
+    echo "Run: $run_label (still running: $run_status)" >&2
+    echo "Polling for failed jobs and printing failing test files as they appear..." >&2
+
+    seen_file="$(mktemp)"
+    trap 'rm -f "$seen_file"' EXIT
+
+    while true; do
+      failed_job_ids="$(gh run view "${gh_run_args[@]}" --json jobs --jq '.jobs[] | select(.conclusion == "failure") | .databaseId')"
+
+      if [[ -n "$failed_job_ids" ]]; then
+        while IFS= read -r test_file; do
+          if [[ -n "$test_file" ]] && ! grep -Fxq "$test_file" "$seen_file"; then
+            echo "$test_file"
+            echo "$test_file" >> "$seen_file"
+          fi
+        done < <(
+          while IFS= read -r job_id; do
+            [[ -n "$job_id" ]] && gh run view --job "$job_id" --log
+          done <<< "$failed_job_ids" \
+            | grep -Eo "$test_file_pattern" \
+            | sort -u
+        )
+      fi
+
+      run_status="$(gh run view "${gh_run_args[@]}" --json status --jq '.status')"
+      run_conclusion="$(gh run view "${gh_run_args[@]}" --json conclusion --jq '.conclusion // ""')"
+
+      if [[ "$run_status" == "completed" ]]; then
+        if [[ "$run_conclusion" == "success" ]]; then
+          if [[ ! -s "$seen_file" ]]; then
+            echo "No failing tests: run passed." >&2
+          fi
+          exit 0
+        fi
+
+        if [[ -s "$seen_file" ]]; then
+          exit 0
+        fi
+
+        echo "Run completed with ${run_conclusion:-unknown}, but no failing test file names were found in failed job logs." >&2
+        exit 1
+      fi
+
+      sleep 15
+    done
+    ;;
+esac
+
+if [[ "$grep_status" -eq 1 ]]; then
+  echo "No failing test file names found in failed logs." >&2
+  exit 1
+fi
+
+exit 0
