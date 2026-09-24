@@ -40,6 +40,13 @@ jjui.builtin.revisions.refresh()
 '''
 
 [[actions]]
+name = "far"
+lua = '''
+jj_async("far")
+jjui.builtin.revisions.refresh()
+'''
+
+[[actions]]
 name = "create-pull-request"
 lua = '''
 local bookmarks, err = jj("log", "--no-graph", "-r", context.change_id(), "-T", "bookmarks")
@@ -88,6 +95,12 @@ action = "rebase-all-mine-onto-trunk"
 key = "F"
 scope = "revisions"
 desc = "Rebase all mine onto trunk"
+
+[[bindings]]
+action = "far"
+key = "alt+f"
+scope = "revisions"
+desc = "Fetch and rebase onto trunk"
 
 [[bindings]]
 action = "create-pull-request"

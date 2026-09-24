@@ -10,6 +10,7 @@ difft = [
   "ui.diff-formatter='difft --color=always $left $right'",
   "diff",
 ]
+far = ["util", "exec", "--", "bash", "-c", "jj git fetch && jj rebase -o 'trunk()'"]
 
 [colors]
 "diff token" = { underline = false }
