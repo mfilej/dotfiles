@@ -3,9 +3,9 @@ set -q VIM || set -g fish_key_bindings fish_hybrid_key_bindings
 
 
 if status is-interactive
+    set -g fish_transient_prompt 1
 		# Source ALL the things
     ~/.local/bin/mise activate fish | source
-    jj util completion fish | source
     pitchfork activate fish | source
     shade init fish | source
 		atuin init fish --disable-up-arrow | source
