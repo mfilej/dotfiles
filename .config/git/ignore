@@ -12,6 +12,9 @@
 .jira.d
 .mise.local.toml
 .mise.*.local.toml
+mise.local.toml
+mise.*.local.toml
+pitchfork.local.toml
 .nvimrc
 .vimrc.local
 .vscode
