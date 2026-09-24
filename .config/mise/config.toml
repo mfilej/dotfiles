@@ -34,7 +34,6 @@ uv = "latest"
 "github:radiosilence/fastmail-cli" = "latest"
 "github:steipete/imsg" = "latest"
 "github:umputun/revdiff" = "latest"
-"npm:hunkdiff" = "latest"
 herdr = "latest"
 codex = "latest"
 
@@ -58,6 +57,7 @@ use_git_credentials = true
 "~/.config/atuin/config.toml" = {}
 "~/.config/fish/conf.d" = { mode = "symlink-each" }
 "~/.config/fish/config.fish" = {}
+"~/.config/fish/completions/jj.fish" = {}
 "~/.config/fish/functions" = { mode = "symlink-each" }
 "~/.config/ghostty/config" = {}
 "~/.config/ghostty/themes/" = {}
