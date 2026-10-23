@@ -1,5 +1,6 @@
 [tools]
 age = "latest"
+amp = { version = "latest", allow_builds = ["@ampcode/cli"], prerelease = "true" }
 aqua = "latest"
 aube = "latest"
 awscli = { version = "latest", symlink_bins = "true" }
@@ -36,6 +37,7 @@ uv = "latest"
 "github:umputun/revdiff" = "latest"
 herdr = "latest"
 codex = "latest"
+"github:moritzwilksch/diffle" = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
@@ -50,24 +52,30 @@ default_mode = "symlink"
 [settings.github]
 use_git_credentials = true
 
+# Public recipients are safe to commit. The matching private identity is kept
+# locally in ~/.ssh/age.txt and backed up in the iCloud Keychain.
+[history.encryption]
+recipients = ["age1svxaaeylfxcv23kvdyqmlnxplhnt7lkm0rzahnafcsx56rtv6ups8qlj4c"]
+
 [dotfiles]
+"/Users/miha/.config/cmux/cmux.json" = { mode = "symlink" }
 "~/.bashrc" = {}
 "~/.codex/AGENTS.md" = {}
-"~/.config/brewfiles/" = { mode = "symlink-each" }
 "~/.config/atuin/config.toml" = {}
+"~/.config/brewfiles/" = { mode = "symlink-each" }
+"~/.config/fish/completions/jj.fish" = {}
 "~/.config/fish/conf.d" = { mode = "symlink-each" }
 "~/.config/fish/config.fish" = {}
-"~/.config/fish/completions/jj.fish" = {}
 "~/.config/fish/functions" = { mode = "symlink-each" }
 "~/.config/ghostty/config" = {}
 "~/.config/ghostty/themes/" = {}
 "~/.config/git/attributes" = {}
 "~/.config/git/config" = {}
 "~/.config/git/ignore" = {}
-"~/.config/jj/config.toml" = {}
-"~/.config/jjui/config.toml" = {}
+"~/.config/jj/config.toml" = { mode = "track" }
+"~/.config/jjui/config.toml" = { mode = "track" }
 "~/.config/mise/config.toml" = {}
-"~/.config/nvim/init.lua" = {}
+"~/.config/nvim/init.lua" = { mode = "track" }
 "~/.config/nvim/lua" = { mode = "symlink-each" }
 "~/.config/pitchfork/config.toml" = {}
 "~/.config/ripgrep/config" = {}
@@ -77,15 +85,11 @@ use_git_credentials = true
 "~/.hushlogin" = {}
 "~/.local/bin/" = { source = "~/.dotfiles/bin", mode = "symlink-each" }
 "~/.tmux.conf" = {}
+"~/.vim" = { mode = "symlink-each" }
 "~/.vimrc" = {}
 "~/.zprofile" = {}
-"~/.vim" = { mode = "symlink-each" }
-"~/Library/KeyBindings/DefaultKeyBinding.dict" = { mode = "copy" }
 "~/Library/Application Scripts/com.roeybiran.Finbar/" = {
 	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Finbar/"
-}
-"~/Library/Application Support/factorio/saves" = {
-	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Factorio/saves"
 }
 "~/Library/Application Support/LaunchBar/Actions" = {
 	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/LaunchBar/Actions"
@@ -96,7 +100,10 @@ use_git_credentials = true
 "~/Library/Application Support/LaunchBar/Snippets" = {
 	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/LaunchBar/Snippets"
 }
-"/Users/miha/.config/cmux/cmux.json" = { mode = "symlink" }
+"~/Library/Application Support/factorio/saves" = {
+	source = "~/Library/Mobile Documents/com~apple~CloudDocs/Sync/Factorio/saves"
+}
+"~/Library/KeyBindings/DefaultKeyBinding.dict" = { mode = "copy" }
 
 [tasks.bootstrap]
 run = '''
@@ -183,6 +190,9 @@ NumberOfSnippetLines = 0
 
 # Composing: Message Format: Plain Text
 SendFormat = "Plain"
+
+[bootstrap.services.mise-history]
+builtin = "history-watch"
 
 [bootstrap.hooks.pre-dotfiles]
 run = "echo jj git clone https://github.com/mfilej/dotfiles.git ~/.dotfiles"
